@@ -8,19 +8,9 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Language Switcher -->
-  <div class="lang-switcher" id="langSwitcher">
-    <button class="lang-btn active" data-lang="vi">
-      <span class="flag">🇻🇳</span> VI
-    </button>
-    <button class="lang-btn" data-lang="en">
-      <span class="flag">🇬🇧</span> EN
-    </button>
-  </div>
-
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
@@ -31,12 +21,37 @@
           <span class="logo-text-bottom">RECRUITMENT</span>
         </div>
       </a>
-      <div class="nav-links">
-        <a href="#services" data-i18n="nav.services">Dịch vụ</a>
-        <a href="#approach" data-i18n="nav.approach">Cách tiếp cận</a>
-        <a href="#jobs" data-i18n="nav.jobs">Việc làm</a>
-        <a href="#contact" data-i18n="nav.contact">Liên hệ</a>
-        <a href="/admin" class="btn-outline" data-i18n="nav.login">Đăng nhập</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="index.html" class="active" data-i18n="nav.home">Trang chủ</a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-dropdown-trigger" data-i18n="nav.about">Về chúng tôi</a>
+            <div class="nav-dropdown-menu">
+              <a href="about.html#story" data-i18n="nav.ourStory">Our Story</a>
+              <a href="about.html#team" data-i18n="nav.ourTeam">Our Team</a>
+              <a href="about.html#why-choose" data-i18n="nav.whyChoose">Why Choose TopLead</a>
+              <a href="about.html#clients" data-i18n="nav.clients">Clients & Partners</a>
+              <a href="about.html#milestones" data-i18n="nav.milestones">Milestones</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-dropdown-trigger" data-i18n="nav.approach">Our Approach</a>
+            <div class="nav-dropdown-menu">
+              <a href="approach.html#comparison" data-i18n="nav.compare">So sánh</a>
+              <a href="approach.html#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+              <a href="approach.html#workflow" data-i18n="nav.workflow">Workflow</a>
+              <a href="approach.html#exclusive" data-i18n="nav.exclusive">Độc quyền</a>
+            </div>
+          </div>
+          <a href="services.html" data-i18n="nav.services">Dịch vụ</a>
+          <a href="jobs.html" data-i18n="nav.jobs">Việc làm</a>
+          <a href="tools.html" data-i18n="nav.tools">Tools & Content</a>
+          <a href="contact.html" class="btn-cta" data-i18n="nav.contact">Liên hệ</a>
+        </div>
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-btn active" data-lang="vi">VI</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
       </div>
       <button class="mobile-menu-btn" aria-label="Menu">
         <span></span>
@@ -52,74 +67,68 @@
       <div class="hero-circle circle-1"></div>
       <div class="hero-circle circle-2"></div>
       <div class="hero-grid"></div>
+      <canvas class="hero-particles" id="heroParticles"></canvas>
     </div>
     <div class="container">
-      <div class="hero-content">
-        <div class="badge">
-          <span class="badge-dot"></span>
-          <span data-i18n="hero.badge">TopLead Recruitment</span>
-        </div>
-        <h1>
-          <span class="gradient-text" data-i18n="hero.title1">Tuyển Dụng</span><br>
-          <span class="gold" data-i18n="hero.title2">Chất Lượng Cao</span>
-        </h1>
-        <p class="hero-subtitle" data-i18n="hero.subtitle">
-          Kết nối nhân tài với doanh nghiệp Việt Nam.<br>Đối tác tin cậy của 500+ công ty hàng đầu.
-        </p>
-
-        <div class="stats-row">
-          <div class="stat">
-            <div class="stat-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            </div>
-            <div>
-              <div class="stat-number">10,000+</div>
-              <div class="stat-label" data-i18n="hero.stat1">Ứng viên</div>
-            </div>
-          </div>
-          <div class="stat">
-            <div class="stat-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-              </svg>
-            </div>
-            <div>
-              <div class="stat-number">500+</div>
-              <div class="stat-label" data-i18n="hero.stat2">Doanh nghiệp</div>
-            </div>
-          </div>
-          <div class="stat">
-            <div class="stat-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-                <polyline points="17 6 23 6 23 12"/>
-              </svg>
-            </div>
-            <div>
-              <div class="stat-number">95%</div>
-              <div class="stat-label" data-i18n="hero.stat3">Tỷ lệ thành công</div>
-            </div>
+      <div class="hero-slider">
+        <!-- Slide 1 -->
+        <div class="hero-slide active" data-slide="0">
+          <h1 class="hero-headline">
+            <span class="headline-line" data-i18n="hero.slide1.line1">Người Cũ Vừa Nghỉ.</span>
+            <span class="headline-line highlight" data-i18n="hero.slide1.line2">Người Mới Vẫn Chưa Thấy Đâu?</span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.slide1.desc">TopLead gửi hồ sơ trong 48 giờ. Đã lọc sẵn theo đúng ngành bạn cần.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary" data-i18n="hero.slide1.cta">Tuyển Ngay →</a>
           </div>
         </div>
 
-        <div class="cta-buttons">
-          <a href="#jobs" class="btn-primary">
-            <span data-i18n="hero.cta1">Xem vị trí tuyển dụng</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </a>
-          <a href="#contact" class="btn-secondary" data-i18n="hero.cta2">Liên hệ ngay</a>
+        <!-- Slide 2 -->
+        <div class="hero-slide" data-slide="1">
+          <h1 class="hero-headline">
+            <span class="headline-line" data-i18n="hero.slide2.line1">3 Hồ Sơ Đã Lọc Kỹ.</span>
+            <span class="headline-line highlight" data-i18n="hero.slide2.line2">Bạn Chỉ Cần Chọn 1.</span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.slide2.desc">Không đọc hàng chục CV nữa. Chúng tôi lọc, bạn chọn, có người làm việc trong tuần.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary" data-i18n="hero.slide2.cta">Gửi Yêu Cầu →</a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide" data-slide="2">
+          <h1 class="hero-headline">
+            <span class="headline-line" data-i18n="hero.slide3.line1">Đang Thiếu Người Làm?</span>
+            <span class="headline-line highlight" data-i18n="hero.slide3.line2">Đừng Để Ngày Mai Vẫn Vậy.</span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.slide3.desc">Mỗi ngày thiếu nhân sự là mỗi ngày doanh thu bị ảnh hưởng. Liên hệ hôm nay, có hồ sơ ngay ngày mai.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary" data-i18n="hero.slide3.cta">Liên Hệ Ngay →</a>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="hero-slide" data-slide="3">
+          <h1 class="hero-headline">
+            <span class="headline-line" data-i18n="hero.slide4.line1">Không Hợp Thì Đổi.</span>
+            <span class="headline-line highlight" data-i18n="hero.slide4.line2">Không Hỏi Nhiều, Không Tốn Thêm.</span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.slide4.desc">Người TopLead giới thiệu đều có bảo hành thay thế. Vì chúng tôi chỉ gửi người mình tin.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary" data-i18n="hero.slide4.cta">Tìm Hiểu Thêm →</a>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Slider Dots -->
+    <div class="hero-dots">
+      <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+      <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+      <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+      <button class="hero-dot" data-slide="3" aria-label="Slide 4"></button>
+    </div>
+
     <div class="scroll-indicator">
       <div class="scroll-mouse">
         <div class="scroll-dot"></div>
@@ -146,10 +155,10 @@
           <div class="founder-avatar">
             <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=face" alt="Founder 1">
           </div>
-          <h3>Nguyễn Văn A</h3>
+          <h3 data-i18n="founders.f1.name">Nguyễn Văn A</h3>
           <p class="founder-role" data-i18n="founders.f1.role">CEO & Founder</p>
           <p class="founder-bio" data-i18n="founders.f1.bio">15+ năm kinh nghiệm trong ngành tuyển dụng cấp cao.</p>
-          <p class="founder-quote">"TopLead - kết nối nhân tài, kiến tạo tương lai."</p>
+          <p class="founder-quote" data-i18n="founders.f1.quote">Với hơn 15 năm trong ngành tuyển dụng, tôi hiểu rằng việc tìm đúng người không chỉ là điền vào một vị trí - đó là kiến tạo tương lai của doanh nghiệp.</p>
         </div>
         <div class="founder-card">
           <div class="founder-linkedin">
@@ -162,10 +171,10 @@
           <div class="founder-avatar">
             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face" alt="Founder 2">
           </div>
-          <h3>Trần Thị B</h3>
+          <h3 data-i18n="founders.f2.name">Trần Thị B</h3>
           <p class="founder-role" data-i18n="founders.f2.role">COO & Co-founder</p>
           <p class="founder-bio" data-i18n="founders.f2.bio">Chuyên gia về xây dựng đội ngũ và văn hóa công ty.</p>
-          <p class="founder-quote">"Xây dựng đội ngũ xuất sắc từ những con người xuất sắc."</p>
+          <p class="founder-quote" data-i18n="founders.f2.quote">Xây dựng một đội ngũ không chỉ tuyển người - đó là tạo ra một cộng đồng chia sẻ giá trị. Tôi tin rằng sự thành công của TopLead đến từ việc hiểu sâu văn hóa doanh nghiệp.</p>
         </div>
         <div class="founder-card">
           <div class="founder-linkedin">
@@ -178,20 +187,26 @@
           <div class="founder-avatar">
             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" alt="Founder 3">
           </div>
-          <h3>Lê Minh C</h3>
+          <h3 data-i18n="founders.f3.name">Lê Minh C</h3>
           <p class="founder-role" data-i18n="founders.f3.role">CTO & Co-founder</p>
           <p class="founder-bio" data-i18n="founders.f3.bio">Chuyên gia công nghệ với 10+ năm trong ngành IT.</p>
-          <p class="founder-quote">"Công nghệ hỗ trợ, con người tạo nên khác biệt."</p>
+          <p class="founder-quote" data-i18n="founders.f3.quote">Trong thời đại số, công nghệ giúp chúng tôi tiếp cận và sàng lọc ứng viên nhanh hơn, chính xác hơn. Nhưng cuối cùng, quyết định tuyển dụng vẫn cần đến sự thấu hiểu.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Client Logos -->
+  <!-- Client Logos - Infinite Marquee -->
   <section class="logos">
-    <div class="container">
-      <p class="logos-label" data-i18n="logos.label">Đối tác tin cậy của các công ty hàng đầu</p>
-      <div class="logos-grid">
+    <p class="logos-label" data-i18n="logos.label">Trusted by leading companies</p>
+    <div class="logos-marquee">
+      <div class="logos-track">
+        <div class="logo-item"><span class="logo-text">TechCorp</span></div>
+        <div class="logo-item"><span class="logo-text">VietRetail</span></div>
+        <div class="logo-item"><span class="logo-text">BuildPro</span></div>
+        <div class="logo-item"><span class="logo-text">LogiGroup</span></div>
+        <div class="logo-item"><span class="logo-text">FinanceHub</span></div>
+        <div class="logo-item"><span class="logo-text">MediCare</span></div>
         <div class="logo-item"><span class="logo-text">TechCorp</span></div>
         <div class="logo-item"><span class="logo-text">VietRetail</span></div>
         <div class="logo-item"><span class="logo-text">BuildPro</span></div>
@@ -292,6 +307,18 @@
         <span class="section-tag" data-i18n="pain.tag">Thách thức</span>
         <h2 data-i18n="pain.title">Bạn đang gặp vấn đề nào?</h2>
       </div>
+
+      <!-- Pain Point Word Ticker -->
+      <div class="pain-ticker">
+        <p class="pain-ticker-label">Bạn đang...</p>
+        <div class="pain-ticker-words">
+          <span class="pain-ticker-word active" data-i18n="pain.word1">tuyển sai người</span>
+          <span class="pain-ticker-word" data-i18n="pain.word2">mất thời gian</span>
+          <span class="pain-ticker-word" data-i18n="pain.word3">tốn chi phí</span>
+          <span class="pain-ticker-word" data-i18n="pain.word4">thiếu nhân sự</span>
+        </div>
+      </div>
+
       <div class="carousel">
         <div class="carousel-track">
           <div class="pain-card">

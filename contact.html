@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ - TopLead Recruitment</title>
+  <meta name="description" content="Liên hệ TopLead Recruitment. Gửi CV hoặc yêu cầu tư vấn dịch vụ tuyển dụng.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="TopLead" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-text-top">TopLead</span>
+          <span class="logo-text-bottom">RECRUITMENT</span>
+        </div>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="index.html" data-i18n="nav.home">Trang chủ</a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-dropdown-trigger" data-i18n="nav.about">Về chúng tôi</a>
+            <div class="nav-dropdown-menu">
+              <a href="about.html#story" data-i18n="nav.ourStory">Our Story</a>
+              <a href="about.html#team" data-i18n="nav.ourTeam">Our Team</a>
+              <a href="about.html#why-choose" data-i18n="nav.whyChoose">Why Choose TopLead</a>
+              <a href="about.html#clients" data-i18n="nav.clients">Clients & Partners</a>
+              <a href="about.html#milestones" data-i18n="nav.milestones">Milestones</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-dropdown-trigger" data-i18n="nav.approach">Our Approach</a>
+            <div class="nav-dropdown-menu">
+              <a href="approach.html#comparison" data-i18n="nav.compare">So sánh</a>
+              <a href="approach.html#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+              <a href="approach.html#workflow" data-i18n="nav.workflow">Workflow</a>
+              <a href="approach.html#exclusive" data-i18n="nav.exclusive">Độc quyền</a>
+            </div>
+          </div>
+          <a href="services.html" data-i18n="nav.services">Dịch vụ</a>
+          <a href="jobs.html" data-i18n="nav.jobs">Việc làm</a>
+          <a href="tools.html" data-i18n="nav.tools">Tools & Content</a>
+          <a href="contact.html" class="active btn-cta" data-i18n="nav.contact">Liên hệ</a>
+        </div>
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-btn active" data-lang="vi">VI</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="page-hero">
+    <div class="hero-bg">
+      <div class="hero-circle circle-1"></div>
+      <div class="hero-circle circle-2"></div>
+    </div>
+    <div class="container">
+      <h1 class="page-hero-title" data-i18n="page.hero.title">Liên hệ</h1>
+      <p class="page-hero-subtitle" data-i18n="page.hero.subtitle">Kết nối với TopLead để tìm kiếm cơ hội hoặc tư vấn dịch vụ</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <div class="contact-tabs">
+            <button class="contact-tab active" data-tab="employer" data-i18n="contact.tab.employer">Nhà tuyển dụng</button>
+            <button class="contact-tab" data-tab="candidate" data-i18n="contact.tab.candidate">Ứng viên</button>
+          </div>
+
+          <!-- Employer Form -->
+          <form class="contact-form active" id="employer-form">
+            <div class="form-group">
+              <label>Họ và tên *</label>
+              <input type="text" placeholder="Nhập họ và tên" required>
+            </div>
+            <div class="form-group">
+              <label>Email công ty *</label>
+              <input type="email" placeholder="email@company.com" required>
+            </div>
+            <div class="form-group">
+              <label>Số điện thoại *</label>
+              <input type="tel" placeholder="+84 xxx xxx xxx" required>
+            </div>
+            <div class="form-group">
+              <label>Tên công ty *</label>
+              <input type="text" placeholder="Tên công ty" required>
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.service">Dịch vụ quan tâm</label>
+              <select>
+                <option data-i18n="contact.form.serviceSelect">Chọn dịch vụ...</option>
+                <option data-i18n="services.optionExec">Executive Search</option>
+                <option data-i18n="services.optionStaff">Staffing</option>
+                <option data-i18n="services.optionRPO">RPO</option>
+                <option data-i18n="services.optionHead">Headhunting</option>
+                <option data-i18n="services.optionConsult">HR Consulting</option>
+                <option data-i18n="services.optionOther">Khác</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Số lượng tuyển dụng</label>
+              <select>
+                <option>Chọn số lượng...</option>
+                <option>1-5 người</option>
+                <option>5-10 người</option>
+                <option>10-20 người</option>
+                <option>20+ người</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nhu cầu tuyển dụng</label>
+              <textarea placeholder="Mô tả ngắn về nhu cầu tuyển dụng..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-magnetic">Gửi yêu cầu</button>
+          </form>
+
+          <!-- Candidate Form -->
+          <form class="contact-form" id="candidate-form">
+            <div class="form-group">
+              <label>Họ và tên *</label>
+              <input type="text" placeholder="Nhập họ và tên" required>
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" placeholder="email@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>Số điện thoại *</label>
+              <input type="tel" placeholder="+84 xxx xxx xxx" required>
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.position">Vị trí quan tâm</label>
+              <input type="text" placeholder="Vị trí mong muốn">
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.experience">Kinh nghiệm</label>
+              <select>
+                <option data-i18n="contact.form.experienceSelect">Chọn mức kinh nghiệm...</option>
+                <option data-i18n="experience.none">Chưa có kinh nghiệm</option>
+                <option data-i18n="experience.1to2">1-2 năm</option>
+                <option data-i18n="experience.3to5">3-5 năm</option>
+                <option data-i18n="experience.5to10">5-10 năm</option>
+                <option data-i18n="experience.10plus">10+ năm</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.linkedin">Link LinkedIn / Portfolio</label>
+              <input type="url" placeholder="https://linkedin.com/in/...">
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.note">Ghi chú thêm</label>
+              <textarea placeholder="Giới thiệu ngắn về bản thân..." rows="4"></textarea>
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.uploadCV">Upload CV</label>
+              <div class="file-upload">
+                <input type="file" id="cv-upload" accept=".pdf,.doc,.docx">
+                <label for="cv-upload" class="file-upload-label">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                  </svg>
+                  <span data-i18n="contact.form.uploadCVLabel">Tải lên CV (PDF, DOC)</span>
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn-magnetic" data-i18n="contact.form.submitCandidate">Gửi hồ sơ</button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Địa chỉ</h4>
+              <p>Tầng 8, Tòa nhà ABC<br>123 Nguyễn Trãi, Quận 1<br>TP. Hồ Chí Minh, Việt Nam</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Điện thoại</h4>
+              <p>+84 28 1234 5678</p>
+              <p>+84 912 345 678</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>info@toplead.vn</p>
+              <p>careers@toplead.vn</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Giờ làm việc</h4>
+              <p>Thứ 2 - Thứ 6: 8:30 - 18:00</p>
+              <p>Thứ 7: 8:30 - 12:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <div class="container">
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.495840940574!2d106.69229767480445!3d10.77197218934669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f211654325%3A0xab3f1f1f8f1f1f1f!2sNguyen%20Trai%20Street%2C%20District%201%2C%20Ho%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Links -->
+  <section class="social-section">
+    <div class="container">
+      <div class="social-content">
+        <h2>Kết nối với TopLead</h2>
+        <p>Theo dõi chúng tôi để cập nhật tin tức và cơ hội việc làm mới nhất</p>
+        <div class="social-links">
+          <a href="https://linkedin.com" target="_blank" class="social-link linkedin">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="#" class="social-link facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            Facebook
+          </a>
+          <a href="#" class="social-link zalo">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.5 2a3.5 3.5 0 0 1 3.5 3.5v.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2v2a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-2h-.5a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5H14v-.5A1.5 1.5 0 0 0 12.5 4 1.5 1.5 0 0 0 11 5.5v.5H9.5a.5.5 0 0 0-.5.5v1c0 .276.224.5.5.5H10v2a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-2h.5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H11v-.5A1.5 1.5 0 0 1 12.5 2z"/>
+              <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 14.5h-2v-2h2v2zm0-4h-2v-2h2v2zm-4 4h-2v-2h2v2zm0-4h-2V8h2v2zm-4 4H6.5v-2H8.5v2zm0-4H6.5V8h2v2z"/>
+            </svg>
+            Zalo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Quick -->
+  <section class="faq-quick">
+    <div class="container">
+      <div class="section-header">
+        <h2>Câu hỏi thường gặp</h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4>TopLead có phí cho ứng viên không?</h4>
+          <p>Không. TopLead cung cấp dịch vụ hoàn toàn miễn phí cho ứng viên.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Thời gian tuyển dụng mất bao lâu?</h4>
+          <p>Với quy trình TopLead, trung bình chỉ 14 ngày để fill một vị trí.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Có bảo hành không?</h4>
+          <p>TopLead cam kết 3 tháng bảo hành thay thế miễn phí.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Làm sao để theo dõi tiến trình?</h4>
+          <p>Bạn sẽ được cập nhật thường xuyên qua email và phone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="TopLead" class="logo-img">
+          </a>
+          <p>Kết nối nhân tài với doanh nghiệp Việt Nam từ năm 2018.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Dịch vụ</h4>
+          <a href="services.html">Executive Search</a>
+          <a href="services.html">Staffing</a>
+          <a href="services.html">RPO</a>
+          <a href="services.html">Headhunting</a>
+        </div>
+        <div class="footer-links">
+          <h4>Công ty</h4>
+          <a href="about.html">Về chúng tôi</a>
+          <a href="approach.html">Our Approach</a>
+          <a href="jobs.html">Việc làm</a>
+          <a href="contact.html">Liên hệ</a>
+        </div>
+        <div class="footer-links">
+          <h4>Kết nối</h4>
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+          <a href="#">Facebook</a>
+          <a href="#">Zalo</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 TopLead Recruitment. Tất cả quyền được bảo lưu.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

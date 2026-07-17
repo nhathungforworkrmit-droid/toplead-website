@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TopLead Recruitment - Premier Executive Search</title>
+  <meta name="description" content="TopLead Recruitment - Connecting talent with Vietnamese businesses. Executive search, team buildout, and professional recruitment services.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="assets/images/logo.png" alt="TopLead" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-text-top">TopLead</span>
+          <span class="logo-text-bottom">RECRUITMENT</span>
+        </div>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="index.html" class="active" data-i18n="nav.home">Trang chủ</a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-dropdown-trigger" data-i18n="nav.about">Về chúng tôi</a>
+            <div class="nav-dropdown-menu">
+              <a href="about.html#story" data-i18n="nav.ourStory">Our Story</a>
+              <a href="about.html#team" data-i18n="nav.ourTeam">Our Team</a>
+              <a href="about.html#why-choose" data-i18n="nav.whyChoose">Why Choose TopLead</a>
+              <a href="about.html#clients" data-i18n="nav.clients">Clients & Partners</a>
+              <a href="about.html#milestones" data-i18n="nav.milestones">Milestones</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-dropdown-trigger" data-i18n="nav.approach">Our Approach</a>
+            <div class="nav-dropdown-menu">
+              <a href="approach.html#comparison" data-i18n="nav.compare">So sánh</a>
+              <a href="approach.html#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+              <a href="approach.html#workflow" data-i18n="nav.workflow">Workflow</a>
+              <a href="approach.html#exclusive" data-i18n="nav.exclusive">Độc quyền</a>
+            </div>
+          </div>
+          <a href="services.html" data-i18n="nav.services">Dịch vụ</a>
+          <a href="jobs.html" data-i18n="nav.jobs">Việc làm</a>
+          <a href="tools.html" data-i18n="nav.tools">Tools & Content</a>
+          <a href="contact.html" class="btn-cta" data-i18n="nav.contact">Liên hệ</a>
+        </div>
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-btn active" data-lang="vi">VI</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-circle circle-1"></div>
+      <div class="hero-circle circle-2"></div>
+      <div class="hero-grid"></div>
+      <canvas class="hero-particles" id="heroParticles"></canvas>
+    </div>
+    <div class="container">
+      <div class="hero-slider">
+        <!-- Slide 1 -->
+        <div class="hero-slide active" data-slide="0">
+          <h1 class="hero-headline">
+            <span class="headline-line" data-i18n="hero.slide1.line1">Người Cũ Vừa Nghỉ.</span>
+            <span class="headline-line highlight" data-i18n="hero.slide1.line2">Người Mới Vẫn Chưa Thấy Đâu?</span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.slide1.desc">TopLead gửi hồ sơ trong 48 giờ. Đã lọc sẵn theo đúng ngành bạn cần.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary" data-i18n="hero.slide1.cta">Tuyển Ngay →</a>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide" data-slide="1">
+          <h1 class="hero-headline">
+            <span class="headline-line" data-i18n="hero.slide2.line1">3 Hồ Sơ Đã Lọc Kỹ.</span>
+            <span class="headline-line highlight" data-i18n="hero.slide2.line2">Bạn Chỉ Cần Chọn 1.</span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.slide2.desc">Không đọc hàng chục CV nữa. Chúng tôi lọc, bạn chọn, có người làm việc trong tuần.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary" data-i18n="hero.slide2.cta">Gửi Yêu Cầu →</a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide" data-slide="2">
+          <h1 class="hero-headline">
+            <span class="headline-line" data-i18n="hero.slide3.line1">Đang Thiếu Người Làm?</span>
+            <span class="headline-line highlight" data-i18n="hero.slide3.line2">Đừng Để Ngày Mai Vẫn Vậy.</span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.slide3.desc">Mỗi ngày thiếu nhân sự là mỗi ngày doanh thu bị ảnh hưởng. Liên hệ hôm nay, có hồ sơ ngay ngày mai.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary" data-i18n="hero.slide3.cta">Liên Hệ Ngay →</a>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="hero-slide" data-slide="3">
+          <h1 class="hero-headline">
+            <span class="headline-line" data-i18n="hero.slide4.line1">Không Hợp Thì Đổi.</span>
+            <span class="headline-line highlight" data-i18n="hero.slide4.line2">Không Hỏi Nhiều, Không Tốn Thêm.</span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.slide4.desc">Người TopLead giới thiệu đều có bảo hành thay thế. Vì chúng tôi chỉ gửi người mình tin.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary" data-i18n="hero.slide4.cta">Tìm Hiểu Thêm →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Dots -->
+    <div class="hero-dots">
+      <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+      <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+      <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+      <button class="hero-dot" data-slide="3" aria-label="Slide 4"></button>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founders Section -->
+  <section class="founders" id="founders">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="founders.tag">Đội ngũ sáng lập</span>
+        <h2 data-i18n="founders.title">Những người sáng lập</h2>
+      </div>
+      <div class="founders-grid">
+        <div class="founder-card">
+          <div class="founder-linkedin">
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="founder-avatar">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=face" alt="Founder 1">
+          </div>
+          <h3 data-i18n="founders.f1.name">Nguyễn Văn A</h3>
+          <p class="founder-role" data-i18n="founders.f1.role">CEO & Founder</p>
+          <p class="founder-bio" data-i18n="founders.f1.bio">15+ năm kinh nghiệm trong ngành tuyển dụng cấp cao.</p>
+          <p class="founder-quote" data-i18n="founders.f1.quote">Với hơn 15 năm trong ngành tuyển dụng, tôi hiểu rằng việc tìm đúng người không chỉ là điền vào một vị trí - đó là kiến tạo tương lai của doanh nghiệp.</p>
+        </div>
+        <div class="founder-card">
+          <div class="founder-linkedin">
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="founder-avatar">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face" alt="Founder 2">
+          </div>
+          <h3 data-i18n="founders.f2.name">Trần Thị B</h3>
+          <p class="founder-role" data-i18n="founders.f2.role">COO & Co-founder</p>
+          <p class="founder-bio" data-i18n="founders.f2.bio">Chuyên gia về xây dựng đội ngũ và văn hóa công ty.</p>
+          <p class="founder-quote" data-i18n="founders.f2.quote">Xây dựng một đội ngũ không chỉ tuyển người - đó là tạo ra một cộng đồng chia sẻ giá trị. Tôi tin rằng sự thành công của TopLead đến từ việc hiểu sâu văn hóa doanh nghiệp.</p>
+        </div>
+        <div class="founder-card">
+          <div class="founder-linkedin">
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="founder-avatar">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" alt="Founder 3">
+          </div>
+          <h3 data-i18n="founders.f3.name">Lê Minh C</h3>
+          <p class="founder-role" data-i18n="founders.f3.role">CTO & Co-founder</p>
+          <p class="founder-bio" data-i18n="founders.f3.bio">Chuyên gia công nghệ với 10+ năm trong ngành IT.</p>
+          <p class="founder-quote" data-i18n="founders.f3.quote">Trong thời đại số, công nghệ giúp chúng tôi tiếp cận và sàng lọc ứng viên nhanh hơn, chính xác hơn. Nhưng cuối cùng, quyết định tuyển dụng vẫn cần đến sự thấu hiểu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Logos - Infinite Marquee -->
+  <section class="logos">
+    <p class="logos-label" data-i18n="logos.label">Trusted by leading companies</p>
+    <div class="logos-marquee">
+      <div class="logos-track">
+        <div class="logo-item"><span class="logo-text">TechCorp</span></div>
+        <div class="logo-item"><span class="logo-text">VietRetail</span></div>
+        <div class="logo-item"><span class="logo-text">BuildPro</span></div>
+        <div class="logo-item"><span class="logo-text">LogiGroup</span></div>
+        <div class="logo-item"><span class="logo-text">FinanceHub</span></div>
+        <div class="logo-item"><span class="logo-text">MediCare</span></div>
+        <div class="logo-item"><span class="logo-text">TechCorp</span></div>
+        <div class="logo-item"><span class="logo-text">VietRetail</span></div>
+        <div class="logo-item"><span class="logo-text">BuildPro</span></div>
+        <div class="logo-item"><span class="logo-text">LogiGroup</span></div>
+        <div class="logo-item"><span class="logo-text">FinanceHub</span></div>
+        <div class="logo-item"><span class="logo-text">MediCare</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition -->
+  <section class="value" id="approach">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="value.title">"Những nhân sự giỏi luôn đến từ người bạn tin tưởng"</h2>
+      </div>
+      <div class="value-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 data-i18n="value.card1.title">Mạng lưới chuyên gia</h3>
+          <p data-i18n="value.card1.desc">Kết nối với hơn 10,000 ứng viên chất lượng cao từ nhiều ngành nghề khác nhau.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <h3 data-i18n="value.card2.title">Tìm kiếm chủ động</h3>
+          <p data-i18n="value.card2.desc">Không chờ ứng viên ứng tuyển, chúng tôi chủ động tìm kiếm và tiếp cận nhân tài phù hợp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="services.tag">Dịch vụ</span>
+        <h2 data-i18n="services.title">Giải pháp tuyển dụng toàn diện</h2>
+        <p data-i18n="services.subtitle">Phục vụ mọi nhu cầu nhân sự của doanh nghiệp</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3 data-i18n="services.s1.title">Tìm kiếm nhân sự cấp cao</h3>
+          <p data-i18n="services.s1.desc">Tuyển dụng CEO, CFO, Director và các vị trí quản lý cao cấp với quy trình kín đáo và hiệu quả.</p>
+          <span class="service-tag">Executive Search</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <line x1="19" y1="8" x2="19" y2="14"/>
+              <line x1="22" y1="11" x2="16" y2="11"/>
+            </svg>
+          </div>
+          <h3 data-i18n="services.s2.title">Xây dựng đội ngũ</h3>
+          <p data-i18n="services.s2.desc">Giúp startup và doanh nghiệp đang phát triển xây dựng đội ngũ từ giai đoạn foundation.</p>
+          <span class="service-tag">Team Buildout</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+              <line x1="6" y1="6" x2="6.01" y2="6"/>
+              <line x1="6" y1="18" x2="6.01" y2="18"/>
+            </svg>
+          </div>
+          <h3 data-i18n="services.s3.title">Tuyển dụng công nghệ</h3>
+          <p data-i18n="services.s3.desc">Chuyên tuyển Developer, Data Scientist, Product Manager cho các công ty công nghệ.</p>
+          <span class="service-tag">Tech Hiring</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points Carousel -->
+  <section class="pain-points">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="pain.tag">Thách thức</span>
+        <h2 data-i18n="pain.title">Bạn đang gặp vấn đề nào?</h2>
+      </div>
+
+      <!-- Pain Point Word Ticker -->
+      <div class="pain-ticker">
+        <p class="pain-ticker-label">Bạn đang...</p>
+        <div class="pain-ticker-words">
+          <span class="pain-ticker-word active" data-i18n="pain.word1">tuyển sai người</span>
+          <span class="pain-ticker-word" data-i18n="pain.word2">mất thời gian</span>
+          <span class="pain-ticker-word" data-i18n="pain.word3">tốn chi phí</span>
+          <span class="pain-ticker-word" data-i18n="pain.word4">thiếu nhân sự</span>
+        </div>
+      </div>
+
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="pain-card">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 data-i18n="pain.p1.title">"Cần nhân sự gấp nhưng tuyển hoài không được"</h3>
+            <p data-i18n="pain.p1.desc">Chúng tôi giúp bạn tiếp cận ứng viên phù hợp trong thời gian ngắn nhất.</p>
+          </div>
+          <div class="pain-card">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="pain.p2.title">"Founder giỏi kỹ thuật nhưng không biết tuyển người"</h3>
+            <p data-i18n="pain.p2.desc">Đội ngũ của chúng tôi hỗ trợ bạn xây dựng đội ngũ chuyên nghiệp.</p>
+          </div>
+          <div class="pain-card">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3 data-i18n="pain.p3.title">"Nhân sự cũ nghỉ, công việc bị đình trệ"</h3>
+            <p data-i18n="pain.p3.desc">Quy trình handover nhanh chóng, giảm thiểu gián đoạn công việc.</p>
+          </div>
+        </div>
+        <div class="carousel-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="stats.title">"Bạn đang có đối tác tốt"</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stats-card">
+          <div class="stats-number">30+</div>
+          <div class="stats-role" data-i18n="stats.s1.role">Nhân sự cấp cao</div>
+          <div class="stats-company" data-i18n="stats.s1.company">cho TechCorp trong 12 tháng</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-number">39</div>
+          <div class="stats-role" data-i18n="stats.s2.role">Vị trí tuyển</div>
+          <div class="stats-company" data-i18n="stats.s2.company">cho VietRetail từ đầu năm</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-number">40+</div>
+          <div class="stats-role" data-i18n="stats.s3.role">Nhân sự</div>
+          <div class="stats-company" data-i18n="stats.s3.company">cho BuildPro tại 14 chi nhánh</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-number">25</div>
+          <div class="stats-role" data-i18n="stats.s4.role">Vị trí Tech</div>
+          <div class="stats-company" data-i18n="stats.s4.company">cho LogiGroup trong 6 tháng</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jobs Section -->
+  <section class="jobs" id="jobs">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="jobs.tag">Việc làm</span>
+        <h2 data-i18n="jobs.title">Vị trí đang tuyển dụng</h2>
+        <p data-i18n="jobs.subtitle">Cơ hội nghề nghiệp hấp dẫn từ các doanh nghiệp hàng đầu</p>
+      </div>
+      <div class="jobs-grid">
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-company">TechCorp</span>
+            <span class="job-location">TP. Hồ Chí Minh</span>
+          </div>
+          <h3>Engineering Manager</h3>
+          <p>Quản lý đội ngũ 20+ engineers, phát triển sản phẩm SaaS.</p>
+          <div class="job-tags">
+            <span class="job-tag">$5,000 - $8,000</span>
+            <span class="job-tag">Full-time</span>
+            <span class="job-tag">Remote OK</span>
+          </div>
+          <a href="#contact" class="job-apply" data-i18n="jobs.apply">Ứng tuyển ngay</a>
+        </div>
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-company">VietRetail</span>
+            <span class="job-location">Hà Nội</span>
+          </div>
+          <h3>Head of Operations</h3>
+          <p>Xây dựng và vận hành hệ thống logistics cho chuỗi 50+ cửa hàng.</p>
+          <div class="job-tags">
+            <span class="job-tag">$4,000 - $6,000</span>
+            <span class="job-tag">Full-time</span>
+          </div>
+          <a href="#contact" class="job-apply" data-i18n="jobs.apply">Ứng tuyển ngay</a>
+        </div>
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-company">BuildPro</span>
+            <span class="job-location">TP. Hồ Chí Minh</span>
+          </div>
+          <h3>Project Director</h3>
+          <p>Giám sát các dự án xây dựng quy mô lớn, budget 50+ tỷ VNĐ.</p>
+          <div class="job-tags">
+            <span class="job-tag">$6,000 - $10,000</span>
+            <span class="job-tag">Full-time</span>
+          </div>
+          <a href="#contact" class="job-apply" data-i18n="jobs.apply">Ứng tuyển ngay</a>
+        </div>
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-company">LogiGroup</span>
+            <span class="job-location">Đà Nẵng</span>
+          </div>
+          <h3>Senior Data Analyst</h3>
+          <p>Phân tích dữ liệu vận hành, tối ưu quy trình logistics.</p>
+          <div class="job-tags">
+            <span class="job-tag">$2,500 - $4,000</span>
+            <span class="job-tag">Full-time</span>
+            <span class="job-tag">Hybrid</span>
+          </div>
+          <a href="#contact" class="job-apply" data-i18n="jobs.apply">Ứng tuyển ngay</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="testimonials.tag">Đánh giá</span>
+        <h2 data-i18n="testimonials.title">Khách hàng nói gì về chúng tôi</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text" data-i18n="testimonials.t1.text">"TopLead giúp chúng tôi tìm được Engineering Manager trong vòng 3 tuần - nhanh hơn bất kỳ công ty tuyển dụng nào khác từng làm việc."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AH</div>
+            <div class="author-info">
+              <div class="author-name">Anh Hoàng</div>
+              <div class="author-title">CEO, TechCorp Vietnam</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text" data-i18n="testimonials.t2.text">"Đội ngũ chuyên nghiệp, hiểu rõ nhu cầu của chúng tôi. Đã hợp tác 3 năm và luôn hài lòng với chất lượng ứng viên."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ML</div>
+            <div class="author-info">
+              <div class="author-name">Minh Lan</div>
+              <div class="author-title">HR Director, VietRetail</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text" data-i18n="testimonials.t3.text">"TopLead giúp chúng tôi xây dựng đội ngũ từ 5 người lên 50 người trong 18 tháng. Không thể tin được!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">TQ</div>
+            <div class="author-info">
+              <div class="author-name">Trọng Quang</div>
+              <div class="author-title">Founder, LogiGroup</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <span class="section-tag" data-i18n="contact.tag">Liên hệ</span>
+          <h2 data-i18n="contact.title">Bắt đầu hợp tác</h2>
+          <p data-i18n="contact.subtitle">Để lại thông tin, chúng tôi sẽ liên hệ lại trong 24 giờ.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-label">Email</div>
+                <div class="contact-value">contact@toplead.vn</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-label" data-i18n="contact.phone">Điện thoại</div>
+                <div class="contact-value">+84 28 1234 5678</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-label" data-i18n="contact.address">Địa chỉ</div>
+                <div class="contact-value" data-i18n="contact.addressValue">Tầng 15, Bitexco Tower, Q.1, TP.HCM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrapper">
+          <div class="form-tabs">
+            <button class="tab-btn active" data-tab="candidate" data-i18n="contact.tab1">Ứng viên</button>
+            <button class="tab-btn" data-tab="employer" data-i18n="contact.tab2">Nhà tuyển dụng</button>
+          </div>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name"><span data-i18n="form.name">Họ và tên</span> *</label>
+              <input type="text" id="name" name="name" required placeholder="Nhập họ và tên của bạn">
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+              <label for="phone"><span data-i18n="form.phone">Số điện thoại</span> *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="+84 xxx xxx xxx">
+            </div>
+
+            <!-- Ứng viên fields -->
+            <div class="candidate-fields">
+              <div class="form-group">
+                <label for="linkedin">LinkedIn <span data-i18n="form.optional">(Tùy chọn)</span></label>
+                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/your-profile">
+              </div>
+              <div class="file-upload">
+                <label class="file-upload-label" data-i18n="form.cv">Đính kèm CV/Resume</label>
+                <div class="file-upload-area" id="cvUpload">
+                  <input type="file" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx">
+                  <div class="file-upload-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                      <polyline points="17 8 12 3 7 8"/>
+                      <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                  </div>
+                  <p class="file-upload-text"><span data-i18n="form.drag">Kéo thả file hoặc</span> <span data-i18n="form.choose">chọn file</span></p>
+                  <p class="file-upload-hint">PDF, DOC, DOCX (<span data-i18n="form.maxSize">tối đa 5MB</span>)</p>
+                </div>
+                <div class="file-preview" id="cvPreview" style="display: none;">
+                  <div class="file-preview-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                  </div>
+                  <span class="file-preview-name" id="cvFileName"></span>
+                  <button type="button" class="file-preview-remove" id="removeCv">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                      <line x1="18" y1="6" x2="6" y2="18"/>
+                      <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nhà tuyển dụng fields -->
+            <div class="employer-fields" style="display: none;">
+              <div class="form-group">
+                <label for="company"><span data-i18n="form.company">Tên công ty</span> *</label>
+                <input type="text" id="company" name="company" placeholder="Tên công ty của bạn">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="position"><span data-i18n="form.position">Vị trí cần tuyển</span> *</label>
+                  <input type="text" id="position" name="position" placeholder="VD: Software Engineer">
+                </div>
+                <div class="form-group">
+                  <label for="quantity"><span data-i18n="form.quantity">Số lượng</span> *</label>
+                  <input type="number" id="quantity" name="quantity" min="1" placeholder="VD: 2">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message"><span data-i18n="form.message">Nội dung</span> <span data-i18n="form.optional2">(Tùy chọn)</span></label>
+              <textarea id="message" name="message" rows="4" placeholder="Chia sẻ nhu cầu của bạn..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <span data-i18n="form.submit">Gửi thông tin</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+            </button>
+          </form>
+          <div id="formSuccess" class="form-success" style="display: none;">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3 data-i18n="form.success">Cảm ơn bạn!</h3>
+            <p data-i18n="form.successMsg">Đội ngũ TopLead sẽ liên hệ với bạn trong 24 giờ làm việc.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="TopLead" class="logo-img">
+          </a>
+          <p data-i18n="footer.tagline">Kết nối nhân tài với doanh nghiệp Việt Nam từ năm 2018.</p>
+          <div class="footer-social">
+            <span class="footer-social-label" data-i18n="footer.follow">Theo dõi chúng tôi</span>
+            <div class="footer-social-icons">
+              <a href="https://www.linkedin.com/company/toplead-recruitment/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="LinkedIn">
+                <img src="assets/LinkedIn_icon.svg.webp" alt="LinkedIn">
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61590977005814" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="Facebook">
+                <img src="assets/Logo_de_Facebook.png" alt="Facebook">
+              </a>
+              <a href="https://zalo.me/0839550411" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="Zalo">
+                <img src="assets/Icon_of_Zalo.svg.webp" alt="Zalo">
+              </a>
+              <a href="https://www.instagram.com/toplead.b/" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="Instagram">
+                <img src="assets/Instagram_logo_2022.svg" alt="Instagram">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4 data-i18n="footer.services">Dịch vụ</h4>
+          <a href="services.html" data-i18n="footer.s1">Tìm kiếm nhân sự cấp cao</a>
+          <a href="services.html" data-i18n="footer.s2">Xây dựng đội ngũ</a>
+          <a href="services.html" data-i18n="footer.s3">Tuyển dụng công nghệ</a>
+          <a href="services.html" data-i18n="footer.s4">Đánh giá năng lực</a>
+        </div>
+        <div class="footer-links">
+          <h4 data-i18n="footer.company">Công ty</h4>
+          <a href="about.html" data-i18n="footer.about">Về chúng tôi</a>
+          <a href="approach.html" data-i18n="footer.approach">Cách tiếp cận</a>
+          <a href="jobs.html" data-i18n="footer.jobs">Việc làm</a>
+          <a href="tools.html" data-i18n="footer.tools">Công cụ</a>
+          <a href="contact.html" data-i18n="footer.contact">Liên hệ</a>
+        </div>
+        <div class="footer-links footer-emails">
+          <h4 data-i18n="footer.emailsTitle">Email liên hệ</h4>
+          <a href="mailto:andy.ta@topleadrecruit.com">andy.ta@topleadrecruit.com</a>
+          <a href="mailto:qibi.vu@topleadrecruit.com">qibi.vu@topleadrecruit.com</a>
+          <a href="mailto:jason.nguyen@topleadrecruit.com">jason.nguyen@topleadrecruit.com</a>
+        </div>
+      </div>
+
+      <div class="footer-office">
+        <div class="footer-office-info">
+          <h4 data-i18n="footer.officeTitle">Văn phòng TopLead</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-row">
+              <span class="footer-contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span>
+              <span>
+                <span class="footer-contact-label" data-i18n="footer.addressLabel">Địa chỉ</span>
+                <span class="footer-contact-value" data-i18n="footer.address">791/92F Trần Xuân Soạn, phường Tân Hưng, TP. HCM</span>
+              </span>
+            </li>
+            <li class="footer-contact-row">
+              <span class="footer-contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/>
+                </svg>
+              </span>
+              <span>
+                <span class="footer-contact-label" data-i18n="footer.phoneLabel">Điện thoại</span>
+                <a class="footer-contact-value" href="tel:+84839550411">+84 839 550 411</a>
+              </span>
+            </li>
+            <li class="footer-contact-row">
+              <span class="footer-contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </span>
+              <span>
+                <span class="footer-contact-label" data-i18n="footer.emailLabel">Email</span>
+                <a class="footer-contact-value" href="mailto:andy.ta@topleadrecruit.com">andy.ta@topleadrecruit.com</a>
+              </span>
+            </li>
+          </ul>
+          <a class="footer-directions" href="https://www.google.com/maps/search/?api=1&amp;query=791%2F92F%20Tr%E1%BA%A7n%20Xu%C3%A2n%20So%E1%BA%A1n%2C%20ph%C6%B0%E1%BB%9Dng%20T%C3%A2n%20H%C6%B0ng%2C%20TP.%20HCM" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="footer.directions">Xem chỉ đường</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-map">
+          <iframe title="TopLead Office - 791/92F Trần Xuân Soạn, phường Tân Hưng, TP. HCM" src="https://www.google.com/maps?q=791%2F92F%20Tr%E1%BA%A7n%20Xu%C3%A2n%20So%E1%BA%A1n%2C%20ph%C6%B0%E1%BB%9Dng%20T%C3%A2n%20H%C6%B0ng%2C%20TP.%20HCM&amp;output=embed&amp;z=16" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 TopLead Recruitment. <span data-i18n="footer.rights">Tất cả quyền được bảo lưu.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

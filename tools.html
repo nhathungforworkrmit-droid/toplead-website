@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tools & Content - TopLead Recruitment</title>
+  <meta name="description" content="Blog, tài nguyên và công cụ hữu ích về tuyển dụng. Chia sẻ kinh nghiệm và xu hướng nhân sự.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="TopLead" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-text-top">TopLead</span>
+          <span class="logo-text-bottom">RECRUITMENT</span>
+        </div>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="index.html" data-i18n="nav.home">Trang chủ</a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-dropdown-trigger" data-i18n="nav.about">Về chúng tôi</a>
+            <div class="nav-dropdown-menu">
+              <a href="about.html#story" data-i18n="nav.ourStory">Our Story</a>
+              <a href="about.html#team" data-i18n="nav.ourTeam">Our Team</a>
+              <a href="about.html#why-choose" data-i18n="nav.whyChoose">Why Choose TopLead</a>
+              <a href="about.html#clients" data-i18n="nav.clients">Clients & Partners</a>
+              <a href="about.html#milestones" data-i18n="nav.milestones">Milestones</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-dropdown-trigger" data-i18n="nav.approach">Our Approach</a>
+            <div class="nav-dropdown-menu">
+              <a href="approach.html#comparison" data-i18n="nav.compare">So sánh</a>
+              <a href="approach.html#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+              <a href="approach.html#workflow" data-i18n="nav.workflow">Workflow</a>
+              <a href="approach.html#exclusive" data-i18n="nav.exclusive">Độc quyền</a>
+            </div>
+          </div>
+          <a href="services.html" data-i18n="nav.services">Dịch vụ</a>
+          <a href="jobs.html" data-i18n="nav.jobs">Việc làm</a>
+          <a href="tools.html" class="active" data-i18n="nav.tools">Tools & Content</a>
+          <a href="contact.html" class="btn-cta" data-i18n="nav.contact">Liên hệ</a>
+        </div>
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-btn active" data-lang="vi">VI</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="page-hero">
+    <div class="hero-bg">
+      <div class="hero-circle circle-1"></div>
+      <div class="hero-circle circle-2"></div>
+    </div>
+    <div class="container">
+      <h1 class="page-hero-title" data-i18n="tools.hero.title">Tools & Content</h1>
+      <p class="page-hero-subtitle" data-i18n="tools.hero.subtitle">Tài nguyên hữu ích cho nhà tuyển dụng và ứng viên</p>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="blog-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="tools.blog.tag">Blog</span>
+        <h2 data-i18n="tools.blog.title">Bài viết mới nhất</h2>
+        <p data-i18n="tools.blog.subtitle">Cập nhật xu hướng và kinh nghiệm tuyển dụng</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=250&fit=crop" alt="Recruitment Trends">
+          </div>
+          <div class="blog-content">
+            <span class="blog-category">Xu hướng</span>
+            <h3>Top 5 xu hướng tuyển dụng 2026</h3>
+            <p>Các xu hướng nhân sự đang thay đổi cách doanh nghiệp tiếp cận ứng viên trong năm mới.</p>
+            <a href="#" class="blog-read-more">Đọc tiếp →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=250&fit=crop" alt="Interview Tips">
+          </div>
+          <div class="blog-content">
+            <span class="blog-category">Ứng viên</span>
+            <h3>Cách trả lời phỏng vấn hiệu quả</h3>
+            <p>Hướng dẫn chi tiết để chuẩn bị và tự tin hơn trong các buổi phỏng vấn.</p>
+            <a href="#" class="blog-read-more">Đọc tiếp →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop" alt="Team Building">
+          </div>
+          <div class="blog-content">
+            <span class="blog-category">Doanh nghiệp</span>
+            <h3>Xây dựng đội ngũ trong thời đại mới</h3>
+            <p>Chiến lược xây dựng team hiệu quả và gắn kết trong bối cảnh làm việc hybrid.</p>
+            <a href="#" class="blog-read-more">Đọc tiếp →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=250&fit=crop" alt="Salary Guide">
+          </div>
+          <div class="blog-content">
+            <span class="blog-category">Báo cáo</span>
+            <h3>Báo cáo lương ngành Tech 2026</h3>
+            <p>Thống kê mức lương chi tiết theo vị trí và kinh nghiệm trong ngành công nghệ.</p>
+            <a href="#" class="blog-read-more">Đọc tiếp →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=250&fit=crop" alt="Leadership">
+          </div>
+          <div class="blog-content">
+            <span class="blog-category">Lãnh đạo</span>
+            <h3>Phẩm chất của một leader xuất sắc</h3>
+            <p>Những kỹ năng và phẩm chất cần có để trở thành nhà lãnh đạo hiệu quả.</p>
+            <a href="#" class="blog-read-more">Đọc tiếp →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=250&fit=crop" alt="Remote Work">
+          </div>
+          <div class="blog-content">
+            <span class="blog-category">Xu hướng</span>
+            <h3>Tương lai của làm việc từ xa</h3>
+            <p>Khám phá mô hình làm việc hybrid và những thách thức cho nhà quản lý.</p>
+            <a href="#" class="blog-read-more">Đọc tiếp →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section class="resources-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="tools.resources.tag">Resources</span>
+        <h2 data-i18n="tools.resources.title">Công cụ & Tài nguyên</h2>
+        <p data-i18n="tools.resources.subtitle">Tải miễn phí các tài liệu hữu ích</p>
+      </div>
+      <div class="resources-grid">
+        <div class="resource-card">
+          <div class="resource-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3>Interview Checklist</h3>
+          <p>Checklist toàn diện để đánh giá ứng viên trong phỏng vấn</p>
+          <a href="#" class="resource-download" data-i18n="tools.resources.download">Tải xuống ↓</a>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3>Salary Benchmark 2026</h3>
+          <p>Báo cáo mức lương thị trường theo ngành và vị trí</p>
+          <a href="#" class="resource-download" data-i18n="tools.resources.download">Tải xuống ↓</a>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3>JD Template</h3>
+          <p>Mẫu mô tả công việc chuẩn để thu hút ứng viên chất lượng</p>
+          <a href="#" class="resource-download" data-i18n="tools.resources.download">Tải xuống ↓</a>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3>Onboarding Guide</h3>
+          <p>Hướng dẫn onboarding hiệu quả cho nhân viên mới</p>
+          <a href="#" class="resource-download" data-i18n="tools.resources.download">Tải xuống ↓</a>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3>Employer Branding</h3>
+          <p>Hướng dẫn xây dựng thương hiệu nhà tuyển dụng hấp dẫn</p>
+          <a href="#" class="resource-download" data-i18n="tools.resources.download">Tải xuống ↓</a>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3>Retention Strategy</h3>
+          <p>Chiến lược giữ chân nhân tài trong thị trường cạnh tranh</p>
+          <a href="#" class="resource-download" data-i18n="tools.resources.download">Tải xuống ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2 data-i18n="tools.newsletter.title">Đăng ký nhận bản tin</h2>
+        <p data-i18n="tools.newsletter.subtitle">Nhận cập nhật xu hướng tuyển dụng và mẹo hữu ích mỗi tuần</p>
+        <form class="newsletter-form">
+          <input type="email" data-i18n-placeholder="tools.newsletter.placeholder" placeholder="Nhập email của bạn" required>
+          <button type="submit" class="btn-magnetic" data-i18n="tools.newsletter.button">Đăng ký</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="TopLead" class="logo-img">
+          </a>
+          <p data-i18n="footer.tagline">Kết nối nhân tài với doanh nghiệp Việt Nam từ năm 2018.</p>
+          <div class="footer-social">
+            <span class="footer-social-label" data-i18n="footer.follow">Theo dõi chúng tôi</span>
+            <div class="footer-social-icons">
+              <a href="https://www.linkedin.com/company/toplead-recruitment/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="LinkedIn">
+                <img src="assets/LinkedIn_icon.svg.webp" alt="LinkedIn">
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61590977005814" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="Facebook">
+                <img src="assets/Logo_de_Facebook.png" alt="Facebook">
+              </a>
+              <a href="https://zalo.me/0839550411" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="Zalo">
+                <img src="assets/Icon_of_Zalo.svg.webp" alt="Zalo">
+              </a>
+              <a href="https://www.instagram.com/toplead.b/" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="Instagram">
+                <img src="assets/Instagram_logo_2022.svg" alt="Instagram">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4 data-i18n="footer.services">Dịch vụ</h4>
+          <a href="services.html" data-i18n="footer.s1">Tìm kiếm nhân sự cấp cao</a>
+          <a href="services.html" data-i18n="footer.s2">Xây dựng đội ngũ</a>
+          <a href="services.html" data-i18n="footer.s3">Tuyển dụng công nghệ</a>
+          <a href="services.html" data-i18n="footer.s4">Đánh giá năng lực</a>
+        </div>
+        <div class="footer-links">
+          <h4 data-i18n="footer.company">Công ty</h4>
+          <a href="about.html" data-i18n="footer.about">Về chúng tôi</a>
+          <a href="approach.html" data-i18n="footer.approach">Cách tiếp cận</a>
+          <a href="jobs.html" data-i18n="footer.jobs">Việc làm</a>
+          <a href="tools.html" data-i18n="footer.tools">Công cụ</a>
+          <a href="contact.html" data-i18n="footer.contact">Liên hệ</a>
+        </div>
+        <div class="footer-links footer-emails">
+          <h4 data-i18n="footer.emailsTitle">Email liên hệ</h4>
+          <a href="mailto:andy.ta@topleadrecruit.com">andy.ta@topleadrecruit.com</a>
+          <a href="mailto:qibi.vu@topleadrecruit.com">qibi.vu@topleadrecruit.com</a>
+          <a href="mailto:jason.nguyen@topleadrecruit.com">jason.nguyen@topleadrecruit.com</a>
+        </div>
+      </div>
+
+      <div class="footer-office">
+        <div class="footer-office-info">
+          <h4 data-i18n="footer.officeTitle">Văn phòng TopLead</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-row">
+              <span class="footer-contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span>
+              <span>
+                <span class="footer-contact-label" data-i18n="footer.addressLabel">Địa chỉ</span>
+                <span class="footer-contact-value" data-i18n="footer.address">791/92F Trần Xuân Soạn, phường Tân Hưng, TP. HCM</span>
+              </span>
+            </li>
+            <li class="footer-contact-row">
+              <span class="footer-contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/>
+                </svg>
+              </span>
+              <span>
+                <span class="footer-contact-label" data-i18n="footer.phoneLabel">Điện thoại</span>
+                <a class="footer-contact-value" href="tel:+84839550411">+84 839 550 411</a>
+              </span>
+            </li>
+            <li class="footer-contact-row">
+              <span class="footer-contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </span>
+              <span>
+                <span class="footer-contact-label" data-i18n="footer.emailLabel">Email</span>
+                <a class="footer-contact-value" href="mailto:andy.ta@topleadrecruit.com">andy.ta@topleadrecruit.com</a>
+              </span>
+            </li>
+          </ul>
+          <a class="footer-directions" href="https://www.google.com/maps/search/?api=1&amp;query=791%2F92F%20Tr%E1%BA%A7n%20Xu%C3%A2n%20So%E1%BA%A1n%2C%20ph%C6%B0%E1%BB%9Dng%20T%C3%A2n%20H%C6%B0ng%2C%20TP.%20HCM" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="footer.directions">Xem chỉ đường</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-map">
+          <iframe title="TopLead Office - 791/92F Trần Xuân Soạn, phường Tân Hưng, TP. HCM" src="https://www.google.com/maps?q=791%2F92F%20Tr%E1%BA%A7n%20Xu%C3%A2n%20So%E1%BA%A1n%2C%20ph%C6%B0%E1%BB%9Dng%20T%C3%A2n%20H%C6%B0ng%2C%20TP.%20HCM&amp;output=embed&amp;z=16" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 TopLead Recruitment. <span data-i18n="footer.rights">Tất cả quyền được bảo lưu.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

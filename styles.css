@@ -4917,3 +4917,62 @@ a.footer-contact-value:hover {
   .section-feature.reverse .section-feature-media { order: -1; }
   .section-feature-media { aspect-ratio: 16 / 11; }
 }
+
+
+/* Who we serve */
+.serve { background: var(--bg-white); padding: 92px 0; }
+.serve-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.serve-media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3 / 2;
+  border: 1px solid rgba(160, 82, 45, 0.15);
+}
+.serve-media img { width: 100%; height: 100%; object-fit: cover; }
+.serve-text h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 10px 0 14px; color: var(--text); }
+.serve-text p { color: var(--text-muted); line-height: 1.75; margin-bottom: 22px; }
+.serve-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.serve-chips span {
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: rgba(160, 82, 45, 0.08);
+  border: 1px solid rgba(160, 82, 45, 0.18);
+  color: var(--gold-dark);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Philosophy band */
+.philosophy { position: relative; overflow: hidden; background: #141210; padding: 84px 0; }
+.philosophy-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(208, 132, 58, 0.22), transparent 62%);
+  pointer-events: none;
+}
+.philosophy-inner { position: relative; z-index: 1; text-align: center; max-width: 800px; margin: 0 auto; }
+.philosophy-mark {
+  display: block;
+  margin: 0 auto 22px;
+  width: min(420px, 78%);
+  height: auto;
+  mix-blend-mode: lighten;
+}
+.philosophy-quote {
+  font-size: clamp(1.5rem, 3.2vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.36;
+  color: #F6EEE3;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .serve-inner { grid-template-columns: 1fr; gap: 28px; }
+  .serve-media { aspect-ratio: 16 / 10; }
+}

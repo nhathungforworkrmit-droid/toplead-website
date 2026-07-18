@@ -331,7 +331,11 @@ var translations = {
     "services.lead": "Chúng tôi không chỉ lấp đầy vị trí trống — chúng tôi ghép đúng người với đúng doanh nghiệp.",
     "services.leadsub": "Và chỉ tính phí khi ứng viên ở lại sau thử việc. Rủi ro thuộc về chúng tôi, kết quả thuộc về bạn.",
     "pain.lead": "Hàng trăm CV, deadline gấp, và nỗi lo tuyển sai người.",
-    "pain.leadsub": "TopLead giúp bạn thoát khỏi mớ hỗn độn đó — sàng lọc kỹ và gửi đúng hồ sơ trong 48 giờ."
+    "pain.leadsub": "TopLead giúp bạn thoát khỏi mớ hỗn độn đó — sàng lọc kỹ và gửi đúng hồ sơ trong 48 giờ.",
+    "serve.tag": "Đối tượng phục vụ",
+    "serve.title": "Chuyên sâu cho doanh nghiệp SME",
+    "serve.desc": "TopLead đồng hành cùng các doanh nghiệp vừa và nhỏ tại Việt Nam — nơi mỗi lần tuyển đúng người tạo ra khác biệt lớn nhất.",
+    "philosophy.quote": "Nhân sự không phải là chi phí — đó là động cơ của mọi thứ theo sau."
   },
   en: {
     "nav.home": "Home",
@@ -661,7 +665,11 @@ var translations = {
     "services.lead": "We don't just fill open roles — we match the right person to the right company.",
     "services.leadsub": "And we only charge once the hire stays past probation. The risk is ours; the result is yours.",
     "pain.lead": "Hundreds of CVs, tight deadlines, and the fear of hiring the wrong person.",
-    "pain.leadsub": "TopLead gets you out of that mess — carefully screened, the right shortlist in 48 hours."
+    "pain.leadsub": "TopLead gets you out of that mess — carefully screened, the right shortlist in 48 hours.",
+    "serve.tag": "Who we serve",
+    "serve.title": "Specialised in SMEs",
+    "serve.desc": "TopLead partners with small and mid-sized businesses across Vietnam — where getting each hire right makes the biggest difference.",
+    "philosophy.quote": "People aren't a cost — they're the engine of everything that follows."
   }
 };
 

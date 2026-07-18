@@ -3094,20 +3094,29 @@ a.footer-contact-value:hover {
 }
 
 .resource-icon {
-  width: 64px;
-  height: 64px;
-  background: rgba(160, 82, 45, 0.1);
+  width: 72px;
+  height: 72px;
+  background: #fff;
+  border: 1px solid rgba(160, 82, 45, 0.15);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(90, 50, 20, 0.08);
 }
 
 .resource-icon svg {
   width: 28px;
   height: 28px;
   stroke: var(--gold);
+}
+
+.resource-icon img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
 }
 
 .resource-card h3 {

@@ -27,19 +27,19 @@ var translations = {
     "hero.slide1.line1": "Người Cũ Vừa Nghỉ.",
     "hero.slide1.line2": "Người Mới Vẫn Chưa Thấy Đâu?",
     "hero.slide1.desc": "TopLead gửi hồ sơ trong 48 giờ. Đã lọc sẵn theo đúng ngành bạn cần.",
-    "hero.slide1.cta": "Tuyển Ngay →",
+    "hero.slide1.cta": "Tuyển ngay →",
     "hero.slide2.line1": "3 Hồ Sơ Đã Lọc Kỹ.",
     "hero.slide2.line2": "Bạn Chỉ Cần Chọn 1.",
     "hero.slide2.desc": "Không đọc hàng chục CV nữa. Chúng tôi lọc, bạn chọn, có người làm việc trong tuần.",
-    "hero.slide2.cta": "Gửi Yêu Cầu →",
+    "hero.slide2.cta": "Gửi yêu cầu →",
     "hero.slide3.line1": "Đang Thiếu Người Làm?",
     "hero.slide3.line2": "Đừng Để Ngày Mai Vẫn Vậy.",
     "hero.slide3.desc": "Mỗi ngày thiếu nhân sự là mỗi ngày doanh thu bị ảnh hưởng. Liên hệ hôm nay, có hồ sơ ngay ngày mai.",
-    "hero.slide3.cta": "Liên Hệ Ngay →",
+    "hero.slide3.cta": "Liên hệ ngay →",
     "hero.slide4.line1": "Không Hợp Thì Đổi.",
     "hero.slide4.line2": "Không Hỏi Nhiều, Không Tốn Thêm.",
     "hero.slide4.desc": "Người TopLead giới thiệu đều có bảo hành thay thế. Vì chúng tôi chỉ gửi người mình tin.",
-    "hero.slide4.cta": "Tìm Hiểu Thêm →",
+    "hero.slide4.cta": "Tìm hiểu thêm →",
     "founders.tag": "Đội ngũ sáng lập",
     "founders.title": "Những người sáng lập",
     "founders.f1.name": "Nguyễn Văn A",
@@ -263,12 +263,14 @@ var translations = {
     "approach.cta.subtitle": "Hãy để TopLead giúp bạn tìm ra nhân tài phù hợp",
     "approach.cta.button": "Bắt đầu ngay",
     "approach.testimonials.tag": "Đánh giá",
-    "approach.testimonials.title": "Đối tác nói gì về TopLead"
-  },
-  en: {
-    "approach.hero.subtitle": "Phương pháp tuyển dụng độc đáo của TopLead",
+    "approach.testimonials.title": "Đối tác nói gì về TopLead",
     "services.hero.title": "Dịch vụ",
-    "services.hero.subtitle": "Giải pháp tuyển dụng toàn diện cho doanh nghiệp"
+    "services.hero.subtitle": "Giải pháp tuyển dụng toàn diện cho doanh nghiệp",
+    "post.readUnit": "phút đọc",
+    "post.cta.title": "Cần một đối tác tuyển dụng có trách nhiệm?",
+    "post.cta.sub": "TopLead chỉ thu phí khi ứng viên vượt qua thử việc. Hãy bắt đầu cuộc trò chuyện.",
+    "post.cta.contact": "Liên hệ TopLead",
+    "post.cta.all": "← Tất cả bài viết"
   },
   en: {
     "nav.home": "Home",
@@ -532,7 +534,12 @@ var translations = {
     "approach.testimonials.tag": "Reviews",
     "approach.testimonials.title": "What Partners Say About TopLead",
     "services.hero.title": "Services",
-    "services.hero.subtitle": "Comprehensive recruitment solutions for businesses"
+    "services.hero.subtitle": "Comprehensive recruitment solutions for businesses",
+    "post.readUnit": "min read",
+    "post.cta.title": "Looking for a recruitment partner that's accountable?",
+    "post.cta.sub": "TopLead only charges once your hire passes probation. Let's start the conversation.",
+    "post.cta.contact": "Contact TopLead",
+    "post.cta.all": "← All posts"
   }
 };
 

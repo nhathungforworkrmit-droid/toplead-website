@@ -327,7 +327,11 @@ var translations = {
     "partner.v2.title": "Tìm kiếm chủ động",
     "partner.v2.desc": "Không chờ ứng viên ứng tuyển — chúng tôi chủ động tìm và tiếp cận đúng người.",
     "cta.services": "Tìm giải pháp phù hợp cho bạn",
-    "cta.pain": "Để TopLead giải quyết cho bạn"
+    "cta.pain": "Để TopLead giải quyết cho bạn",
+    "services.lead": "Chúng tôi không chỉ lấp đầy vị trí trống — chúng tôi ghép đúng người với đúng doanh nghiệp.",
+    "services.leadsub": "Và chỉ tính phí khi ứng viên ở lại sau thử việc. Rủi ro thuộc về chúng tôi, kết quả thuộc về bạn.",
+    "pain.lead": "Hàng trăm CV, deadline gấp, và nỗi lo tuyển sai người.",
+    "pain.leadsub": "TopLead giúp bạn thoát khỏi mớ hỗn độn đó — sàng lọc kỹ và gửi đúng hồ sơ trong 48 giờ."
   },
   en: {
     "nav.home": "Home",
@@ -653,7 +657,11 @@ var translations = {
     "partner.v2.title": "Proactive search",
     "partner.v2.desc": "We don't wait for applications — we actively find and reach the right people.",
     "cta.services": "Find the right solution for you",
-    "cta.pain": "Let TopLead solve it for you"
+    "cta.pain": "Let TopLead solve it for you",
+    "services.lead": "We don't just fill open roles — we match the right person to the right company.",
+    "services.leadsub": "And we only charge once the hire stays past probation. The risk is ours; the result is yours.",
+    "pain.lead": "Hundreds of CVs, tight deadlines, and the fear of hiring the wrong person.",
+    "pain.leadsub": "TopLead gets you out of that mess — carefully screened, the right shortlist in 48 hours."
   }
 };
 
@@ -1438,4 +1446,24 @@ function initMagneticButton() {
     });
   }, { threshold: 0.4 });
   counts.forEach(function(c) { io.observe(c); });
+})();
+
+
+// Contact-page forms — visible submit feedback (connect a backend/action later)
+(function() {
+  ["employer-form", "candidate-form"].forEach(function(id) {
+    var f = document.getElementById(id);
+    if (!f) return;
+    f.addEventListener("submit", function(e) {
+      e.preventDefault();
+      if (!f.checkValidity()) { f.reportValidity(); return; }
+      var btn = f.querySelector('button[type="submit"]');
+      if (!btn) return;
+      var old = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = (typeof currentLang !== "undefined" && currentLang === "en") ? "Sent ✓" : "Đã gửi ✓";
+      f.reset();
+      setTimeout(function() { btn.disabled = false; btn.innerHTML = old; }, 3500);
+    });
+  });
 })();

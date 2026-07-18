@@ -87,23 +87,23 @@
           <form class="contact-form active" id="employer-form">
             <div class="form-group">
               <label>Họ và tên *</label>
-              <input type="text" placeholder="Nhập họ và tên" required>
+              <input name="fullname" type="text" placeholder="Nhập họ và tên" required>
             </div>
             <div class="form-group">
               <label>Email công ty *</label>
-              <input type="email" placeholder="email@company.com" required>
+              <input name="email" type="email" placeholder="email@company.com" required>
             </div>
             <div class="form-group">
               <label>Số điện thoại *</label>
-              <input type="tel" placeholder="+84 xxx xxx xxx" required>
+              <input name="phone" type="tel" placeholder="+84 xxx xxx xxx" required>
             </div>
             <div class="form-group">
               <label>Tên công ty *</label>
-              <input type="text" placeholder="Tên công ty" required>
+              <input name="company" type="text" placeholder="Tên công ty" required>
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.service">Dịch vụ quan tâm</label>
-              <select>
+              <select name="service">
                 <option data-i18n="contact.form.serviceSelect">Chọn dịch vụ...</option>
                 <option data-i18n="services.optionExec">Executive Search</option>
                 <option data-i18n="services.optionStaff">Staffing</option>
@@ -115,7 +115,7 @@
             </div>
             <div class="form-group">
               <label>Số lượng tuyển dụng</label>
-              <select>
+              <select name="quantity">
                 <option>Chọn số lượng...</option>
                 <option>1-5 người</option>
                 <option>5-10 người</option>
@@ -125,7 +125,7 @@
             </div>
             <div class="form-group">
               <label>Nhu cầu tuyển dụng</label>
-              <textarea placeholder="Mô tả ngắn về nhu cầu tuyển dụng..." rows="4"></textarea>
+              <textarea name="message" placeholder="Mô tả ngắn về nhu cầu tuyển dụng..." rows="4"></textarea>
             </div>
             <button type="submit" class="btn-magnetic">Gửi yêu cầu</button>
           </form>
@@ -134,23 +134,23 @@
           <form class="contact-form" id="candidate-form">
             <div class="form-group">
               <label>Họ và tên *</label>
-              <input type="text" placeholder="Nhập họ và tên" required>
+              <input name="fullname" type="text" placeholder="Nhập họ và tên" required>
             </div>
             <div class="form-group">
               <label>Email *</label>
-              <input type="email" placeholder="email@example.com" required>
+              <input name="email" type="email" placeholder="email@example.com" required>
             </div>
             <div class="form-group">
               <label>Số điện thoại *</label>
-              <input type="tel" placeholder="+84 xxx xxx xxx" required>
+              <input name="phone" type="tel" placeholder="+84 xxx xxx xxx" required>
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.position">Vị trí quan tâm</label>
-              <input type="text" placeholder="Vị trí mong muốn">
+              <input name="position" type="text" placeholder="Vị trí mong muốn">
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.experience">Kinh nghiệm</label>
-              <select>
+              <select name="experience">
                 <option data-i18n="contact.form.experienceSelect">Chọn mức kinh nghiệm...</option>
                 <option data-i18n="experience.none">Chưa có kinh nghiệm</option>
                 <option data-i18n="experience.1to2">1-2 năm</option>
@@ -161,16 +161,16 @@
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.linkedin">Link LinkedIn / Portfolio</label>
-              <input type="url" placeholder="https://linkedin.com/in/...">
+              <input name="linkedin" type="url" placeholder="https://linkedin.com/in/...">
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.note">Ghi chú thêm</label>
-              <textarea placeholder="Giới thiệu ngắn về bản thân..." rows="4"></textarea>
+              <textarea name="note" placeholder="Giới thiệu ngắn về bản thân..." rows="4"></textarea>
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.uploadCV">Upload CV</label>
               <div class="file-upload">
-                <input type="file" id="cv-upload" accept=".pdf,.doc,.docx">
+                <input name="cv" type="file" id="cv-upload" accept=".pdf,.doc,.docx">
                 <label for="cv-upload" class="file-upload-label">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>

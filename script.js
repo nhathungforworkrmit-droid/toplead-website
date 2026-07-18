@@ -544,6 +544,7 @@ var translations = {
     "cta.start": "Get Started",
     "testimonials.tag": "Reviews",
     "testimonials.title": "What Our Clients Say",
+    "tst.google": "5★ review on Google",
     "testimonials.t1.text": "“Super-fast support — within 5 days we had 3 suitable candidates to interview. It saved our internal HR team a lot of time.”",
     "testimonials.t2.text": "“For real — TopLead truly understands what a business needs. No mass CV dumps, just carefully selected candidates. Highly recommend!”",
     "testimonials.t3.text": "“Good services — highly recommend for their realistic commitment.”",

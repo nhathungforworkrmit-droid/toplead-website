@@ -1633,8 +1633,8 @@ section {
 
 .contact-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 56px;
   align-items: start;
 }
 
@@ -1665,7 +1665,7 @@ section {
 .contact-icon {
   width: 48px;
   height: 48px;
-  background: rgba(242, 184, 25, 0.1);
+  background: rgba(160, 82, 45, 0.1);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -1690,10 +1690,11 @@ section {
 }
 
 .contact-form-wrapper {
-  background: var(--dark-light);
-  padding: 40px;
+  background: #fff;
+  padding: 36px;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(242, 184, 25, 0.1);
+  border: 1px solid rgba(160, 82, 45, 0.15);
+  box-shadow: 0 14px 44px rgba(90, 50, 20, 0.08);
 }
 
 .form-tabs {
@@ -1706,7 +1707,7 @@ section {
   flex: 1;
   padding: 12px 24px;
   background: transparent;
-  border: 1px solid rgba(242, 184, 25, 0.2);
+  border: 1px solid rgba(160, 82, 45, 0.25);
   color: var(--text-muted);
   font-weight: 500;
   border-radius: var(--radius-sm);
@@ -1746,8 +1747,8 @@ section {
 .form-group textarea {
   width: 100%;
   padding: 14px 16px;
-  background: var(--bg-white);
-  border: 2px solid rgba(200, 168, 75, 0.2);
+  background: var(--bg-beige);
+  border: 1.5px solid rgba(160, 82, 45, 0.2);
   border-radius: var(--radius-sm);
   color: #1A1A1A;
   font-size: 1rem;
@@ -1758,8 +1759,7 @@ section {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--gold);
-  box-shadow: 0 0 0 4px rgba(200, 168, 75, 0.15), var(--shadow-glow);
-  transform: scale(1.01);
+  box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.14);
 }
 
 .form-group input::placeholder,
@@ -5032,3 +5032,9 @@ a.footer-contact-value:hover {
 
 .contact-value { display: block; }
 a.contact-value:hover { color: var(--gold); }
+
+/* Contact section polish */
+.contact-details a.contact-value { font-size: 0.95rem; color: var(--text); padding: 1px 0; line-height: 1.45; }
+.contact-item > div:last-child { min-width: 0; }
+.contact-item .contact-value { word-break: break-word; }
+.contact-form .form-group label { color: var(--text); }

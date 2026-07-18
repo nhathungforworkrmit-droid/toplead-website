@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dịch vụ - TopLead Recruitment</title>
-  <meta name="description" content="Các dịch vụ tuyển dụng của TopLead: Staffing, RPO, Headhunting, HR Consulting, Candidate Screening.">
+  <title>HR Pathway? Why Not? - TopLead Recruitment</title>
+  <meta name="description" content="Nobody grows up wanting to work in HR — yet the ones who stay understand a truth about leverage, culture and impact.">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="post-body" style="--post-accent: #A0522D; --post-accent-dark: #7A3E20;">
+  <div class="post-progress"><span></span></div>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
@@ -42,9 +43,9 @@
               <a href="approach.html#exclusive" data-i18n="nav.exclusive">Độc quyền</a>
             </div>
           </div>
-          <a href="services.html" class="active" data-i18n="nav.services">Dịch vụ</a>
+          <a href="services.html" data-i18n="nav.services">Dịch vụ</a>
           <a href="jobs.html" data-i18n="nav.jobs">Việc làm</a>
-          <a href="tools.html" data-i18n="nav.tools">Tools & Content</a>
+          <a href="tools.html" class="active" data-i18n="nav.tools">Tools & Content</a>
           <a href="contact.html" class="btn-cta" data-i18n="nav.contact">Liên hệ</a>
         </div>
         <div class="lang-switcher" id="langSwitcher">
@@ -60,165 +61,42 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="page-hero">
-    <div class="hero-bg">
-      <div class="hero-circle circle-1"></div>
-      <div class="hero-circle circle-2"></div>
-    </div>
-    <div class="container">
-      <h1 class="page-hero-title" data-i18n="services.hero.title">Dịch vụ</h1>
-      <p class="page-hero-subtitle" data-i18n="services.hero.subtitle">Giải pháp tuyển dụng toàn diện cho doanh nghiệp</p>
-    </div>
-  </section>
+  <article class="post">
+    <header class="post-hero post-hero--dark">
+      <div class="container">
+        <a href="tools.html" class="post-back">&larr; Tools &amp; Content</a>
+        <span class="post-cat" data-i18n="b1.cat">HR Career</span>
+        <h1 class="post-title" data-i18n="b1.title">HR Pathway? Why Not?</h1>
+        <div class="post-meta">TopLead Recruitment<span class="dot"></span>3 <span data-i18n="post.readUnit">phút đọc</span></div>
+        <p class="post-hero-pull" data-i18n="sig.b1">Nghề nghiệp tình cờ trở nên có chủ đích ngay khi con người nhận ra: tầm ảnh hưởng vượt trên quyền lực.</p>
+      </div>
+    </header>
 
-  <!-- Services Overview -->
-  <section class="services-overview">
-    <div class="container">
-      <div class="section-header">
-        <h2 data-i18n="svc.o.title">Giải pháp tuyển dụng toàn diện</h2>
-        <p data-i18n="svc.o.sub">TopLead cung cấp đa dạng dịch vụ phù hợp với mọi nhu cầu nhân sự</p>
-      </div>
-      <div class="services-main-grid">
-        <div class="service-main-card">
-          <div class="service-main-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <h3>Executive Search</h3>
-          <p data-i18n="svc.s1">Tìm kiếm và tiếp cận nhân sự cấp cao (C-level, VP, Director) với quy trình kín đáo và chuyên nghiệp.</p>
-          <ul>
-            <li>CEO, CFO, CTO, COO</li>
-            <li>VP Engineering, VP Sales</li>
-            <li>Director, Head of Departments</li>
-          </ul>
-          <a href="contact.html" class="service-cta" data-i18n="svc.learn">Tìm hiểu thêm →</a>
-        </div>
-        <div class="service-main-card">
-          <div class="service-main-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-            </svg>
-          </div>
-          <h3>Staffing</h3>
-          <p data-i18n="svc.s2">Cung cấp nhân sự theo yêu cầu - từ nhân viên đến quản lý, phù hợp cho các dự án hoặc nhu cầu ngắn hạn.</p>
-          <ul>
-            <li data-i18n="svc.b1">Staffing ngắn hạn</li>
-            <li data-i18n="svc.b2">Staffing dự án</li>
-            <li>Seasonal hiring</li>
-          </ul>
-          <a href="contact.html" class="service-cta" data-i18n="svc.learn">Tìm hiểu thêm →</a>
-        </div>
-        <div class="service-main-card">
-          <div class="service-main-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-          </div>
-          <h3>RPO</h3>
-          <p data-i18n="svc.s3">Recruitment Process Outsourcing — thuê ngoài toàn bộ hoặc một phần quy trình tuyển dụng cho TopLead.</p>
-          <ul>
-            <li>Full RPO</li>
-            <li>Project RPO</li>
-            <li>Selective RPO</li>
-          </ul>
-          <a href="contact.html" class="service-cta" data-i18n="svc.learn">Tìm hiểu thêm →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    <figure class="post-figure">
+      <img src="assets/posts/hr-pathway.jpg" alt="HR Pathway? Why Not?">
+    </figure>
 
-  <!-- More Services -->
-  <section class="more-services">
-    <div class="container">
-      <div class="more-services-grid">
-        <div class="more-service-card">
-          <div class="more-service-icon">🎯</div>
-          <h3>Headhunting</h3>
-          <p data-i18n="svc.m1">Chủ động tiếp cận và thuyết phục ứng viên tiềm năng từ đối thủ cạnh tranh.</p>
-        </div>
-        <div class="more-service-card">
-          <div class="more-service-icon">📊</div>
-          <h3>HR Consulting</h3>
-          <p data-i18n="svc.m2">Tư vấn chiến lược nhân sự, xây dựng quy trình tuyển dụng nội bộ.</p>
-        </div>
-        <div class="more-service-card">
-          <div class="more-service-icon">✅</div>
-          <h3>Candidate Screening</h3>
-          <p data-i18n="svc.m3">Sàng lọc ứng viên theo tiêu chuẩn của doanh nghiệp, tiết kiệm thời gian.</p>
-        </div>
-        <div class="more-service-card">
-          <div class="more-service-icon">📋</div>
-          <h3>Assessment</h3>
-          <p data-i18n="svc.m4">Đánh giá năng lực ứng viên qua các bài test chuyên môn và tâm lý.</p>
-        </div>
-      </div>
+    <div class="post-content" data-i18n="body.b1">
+      <p class="post-lead">Không ai lớn lên mà mơ ước được làm nghề HR.</p>
+      <p>Trẻ con nói bác sĩ, phi công, cầu thủ. Không ai nói “người xây dựng đội ngũ”. Vậy mà nghiên cứu cho thấy phần lớn người làm HR chưa từng dự định đi con đường này — họ tình cờ bước vào, rồi không nỡ rời đi (SHRM 2025).</p>
+      <p>Vì sao? Điều gì phân biệt người chọn công việc này với người xem thường nó? Người bỏ đi chỉ thấy chi phí. Giấy tờ, quy định, những cuộc trò chuyện chẳng ai muốn nhận. Họ muốn một nấc thang rõ ràng và một chức danh dễ đoán. Cũng dễ hiểu thôi — nhưng họ nhầm lẫn giữa khó khăn và sự vô nghĩa.</p>
+      <p>Người ở lại thì thấy đòn bẩy. Họ biết rằng 40% người làm HR bước vào ngành vì muốn phát triển tổ chức, không phải vì nghĩa vụ, và chỉ 7% xem đó là công việc lấy lương (BambooHR 2026). Họ hiểu rằng một quyết định duy nhất — tuyển ai, phát triển ai, giữ ai — sẽ lan tỏa khắp cả một công ty. Văn hóa là tài sản duy nhất đối thủ không thể sao chép, và 97% lãnh đạo HR ngày nay xem đó là ưu tiên hàng đầu (Gartner 2025).</p>
+      <p>Đó mới là ranh giới thật sự. Không phải mềm hay cứng. Không phải an toàn hay rủi ro. Mà là bạn xem con người là chi phí phải quản lý, hay là động cơ của mọi thứ theo sau.</p>
+      <p>Vậy nên hãy lựa chọn một cách có chủ đích. Đội ngũ bạn xây dựng sẽ nhớ bạn đã chọn điều gì.</p>
+      <div class="post-refs"><span class="post-refs-label">Nguồn tham khảo</span><p>BambooHR (2026) The Definitive Guide to HR Career Growth. &middot; Gartner (2025), trích trong Compono (2025) Full Research: Latest HR &amp; Talent Statistics (2025). &middot; SHRM (2025) Breaking into HR Without Official Experience.</p></div>
     </div>
-  </section>
 
-  <!-- Industry Focus -->
-  <section class="industry-focus">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Industries</span>
-        <h2 data-i18n="svc.ind">Ngành nghề chúng tôi phục vụ</h2>
-      </div>
-      <div class="industry-grid">
-        <div class="industry-item">Technology</div>
-        <div class="industry-item">Finance & Banking</div>
-        <div class="industry-item">Retail & E-commerce</div>
-        <div class="industry-item">Manufacturing</div>
-        <div class="industry-item">Real Estate</div>
-        <div class="industry-item">Healthcare</div>
-        <div class="industry-item">Logistics</div>
-        <div class="industry-item">Education</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose -->
-  <section class="why-services">
-    <div class="container">
-      <div class="section-header">
-        <h2 data-i18n="svc.why">Tại sao chọn dịch vụ TopLead?</h2>
-      </div>
-      <div class="why-services-grid">
-        <div class="why-service-item">
-          <span class="why-service-number">48h</span>
-          <p data-i18n="svc.why1">Gửi hồ sơ đầu tiên trong 48 giờ</p>
-        </div>
-        <div class="why-service-item">
-          <span class="why-service-number">5</span>
-          <p data-i18n="svc.why2">Bước sàng lọc nghiêm ngặt</p>
-        </div>
-        <div class="why-service-item">
-          <span class="why-service-number">3</span>
-          <p data-i18n="svc.why3">Tháng bảo hành thay thế</p>
-        </div>
-        <div class="why-service-item">
-          <span class="why-service-number">0đ</span>
-          <p data-i18n="svc.why4">phí trả trước</p>
+    <div class="post-end">
+      <div class="post-cta-box">
+        <h3 data-i18n="post.cta.title">Cần một đối tác tuyển dụng có trách nhiệm?</h3>
+        <p data-i18n="post.cta.sub">TopLead chỉ thu phí khi ứng viên vượt qua thử việc. Hãy bắt đầu cuộc trò chuyện.</p>
+        <div class="post-cta-actions">
+          <a href="contact.html" class="btn-primary" data-i18n="post.cta.contact">Liên hệ TopLead</a>
+          <a href="tools.html" class="post-allposts" data-i18n="post.cta.all">&larr; Tất cả bài viết</a>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-banner">
-    <div class="container">
-      <div class="cta-banner-content">
-        <h2 data-i18n="svc.cta.title">Cần tư vấn dịch vụ?</h2>
-        <p data-i18n="svc.cta.sub">Liên hệ ngay để được tư vấn miễn phí</p>
-        <a href="contact.html" class="btn-magnetic" data-i18n="svc.cta.btn">Liên hệ ngay</a>
-      </div>
-    </div>
-  </section>
+  </article>
 
   <!-- Footer -->
   <footer class="footer">

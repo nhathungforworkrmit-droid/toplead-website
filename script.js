@@ -108,10 +108,10 @@ var translations = {
     "contact.subtitle": "Để lại thông tin, chúng tôi sẽ liên hệ lại trong 24 giờ.",
     "contact.phone": "Điện thoại",
     "contact.address": "Địa chỉ",
-    "contact.addressValue": "Tầng 15, Bitexco Tower, Q.1, TP.HCM",
+    "contact.addressValue": "791/92F Trần Xuân Soạn, phường Tân Hưng, TP. HCM",
     "contact.tab1": "Ứng viên",
     "contact.tab2": "Nhà tuyển dụng",
-    "footer.tagline": "Kết nối nhân tài với doanh nghiệp Việt Nam từ năm 2018.",
+    "footer.tagline": "Kết nối đúng người với đúng doanh nghiệp — đối tác tuyển dụng có trách nhiệm.",
     "footer.follow": "Theo dõi chúng tôi",
     "footer.services": "Dịch vụ",
     "footer.s1": "Tìm kiếm nhân sự cấp cao",
@@ -237,7 +237,7 @@ var translations = {
     "experience.5to10": "5-10 năm",
     "experience.10plus": "10+ năm",
     "about.hero.title": "Về chúng tôi",
-    "about.hero.subtitle": "Kết nối nhân tài với doanh nghiệp Việt Nam từ 2018",
+    "about.hero.subtitle": "Đối tác tuyển dụng có trách nhiệm cho doanh nghiệp Việt Nam",
     "approach.hero.title": "Cách tiếp cận",
     "approach.hero.subtitle": "Phương pháp tuyển dụng độc đáo của TopLead",
     "approach.compare.tag": "So sánh",
@@ -314,7 +314,20 @@ var translations = {
     "about.stat1": "Năm kinh nghiệm cộng dồn",
     "about.stat2": "Doanh nghiệp đối tác",
     "about.stat3": "Ứng viên được kết nối",
-    "about.stat4": "Vượt qua thử việc"
+    "about.stat4": "Vượt qua thử việc",
+    "partner.tag": "Đối tác của bạn",
+    "partner.title": "Bạn đang có một đối tác tốt",
+    "partner.subtitle": "Không phải lời hứa — mà là cách chúng tôi đặt cược cùng bạn.",
+    "partner.s1": "năm kinh nghiệm cộng dồn của đội ngũ sáng lập",
+    "partner.s2": "nhóm ngành chuyên sâu: IT, Tài chính, FMCG, F&B, BĐS, Xây dựng",
+    "partner.s3": "để gửi hồ sơ đầu tiên đã được sàng lọc",
+    "partner.s4": "phí trả trước — bạn chỉ thanh toán sau khi ứng viên vượt qua thử việc",
+    "partner.v1.title": "Mạng lưới chuyên gia",
+    "partner.v1.desc": "Kết nối với ứng viên chất lượng cao trên nhiều nhóm ngành khác nhau.",
+    "partner.v2.title": "Tìm kiếm chủ động",
+    "partner.v2.desc": "Không chờ ứng viên ứng tuyển — chúng tôi chủ động tìm và tiếp cận đúng người.",
+    "cta.services": "Tìm giải pháp phù hợp cho bạn",
+    "cta.pain": "Để TopLead giải quyết cho bạn"
   },
   en: {
     "nav.home": "Home",
@@ -421,10 +434,10 @@ var translations = {
     "contact.subtitle": "Leave your info and we will get back to you within 24 hours.",
     "contact.phone": "Phone",
     "contact.address": "Address",
-    "contact.addressValue": "Floor 15, Bitexco Tower, District 1, HCMC",
+    "contact.addressValue": "791/92F Tran Xuan Soan St., Tan Hung Ward, HCMC",
     "contact.tab1": "Candidate",
     "contact.tab2": "Employer",
-    "footer.tagline": "Connecting talent with Vietnamese businesses since 2018.",
+    "footer.tagline": "Connecting the right people with the right companies — recruitment you can hold accountable.",
     "footer.follow": "Follow Us",
     "footer.services": "Services",
     "footer.s1": "Executive Search",
@@ -550,7 +563,7 @@ var translations = {
     "experience.5to10": "5-10 years",
     "experience.10plus": "10+ years",
     "about.hero.title": "About Us",
-    "about.hero.subtitle": "Connecting talent with Vietnamese businesses since 2018",
+    "about.hero.subtitle": "Accountable recruitment for Vietnamese businesses",
     "approach.hero.title": "Our Approach",
     "approach.hero.subtitle": "TopLead's unique recruitment methodology",
     "approach.compare.tag": "Comparison",
@@ -627,7 +640,20 @@ var translations = {
     "about.stat1": "Combined years of experience",
     "about.stat2": "Partner businesses",
     "about.stat3": "Candidates connected",
-    "about.stat4": "Pass probation"
+    "about.stat4": "Pass probation",
+    "partner.tag": "Your partner",
+    "partner.title": "You have a good partner",
+    "partner.subtitle": "Not a promise — the way we put skin in the game with you.",
+    "partner.s1": "combined years of experience across our founding team",
+    "partner.s2": "specialised industries: IT, Finance, FMCG, F&B, Real Estate, Construction",
+    "partner.s3": "to send the first, pre-screened shortlist",
+    "partner.s4": "upfront fee — you only pay after the candidate passes probation",
+    "partner.v1.title": "Expert network",
+    "partner.v1.desc": "Access to high-quality candidates across many industries.",
+    "partner.v2.title": "Proactive search",
+    "partner.v2.desc": "We don't wait for applications — we actively find and reach the right people.",
+    "cta.services": "Find the right solution for you",
+    "cta.pain": "Let TopLead solve it for you"
   }
 };
 
@@ -1382,4 +1408,34 @@ function initMagneticButton() {
   window.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
   update();
+})();
+
+
+// Count-up animation (Good Partner section)
+(function() {
+  var counts = document.querySelectorAll(".count");
+  if (!counts.length || !("IntersectionObserver" in window)) {
+    counts.forEach(function(el){ el.textContent = (el.getAttribute("data-target")||"0") + (el.getAttribute("data-suffix")||""); });
+    return;
+  }
+  function animate(el) {
+    var target = parseFloat(el.getAttribute("data-target")) || 0;
+    var start = el.getAttribute("data-start"); start = start === null ? 0 : parseFloat(start);
+    var suffix = el.getAttribute("data-suffix") || "";
+    var dur = 1700, t0 = null;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(start + (target - start) * ease) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.4 });
+  counts.forEach(function(c) { io.observe(c); });
 })();

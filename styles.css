@@ -866,11 +866,111 @@ section {
 
 .founder-quote {
   color: var(--copper);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-style: italic;
-  line-height: 1.4;
-  padding-top: 12px;
-  border-top: 1px solid rgba(242, 184, 25, 0.1);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.founder-avatar {
+  width: 84px;
+  height: 84px;
+}
+
+.founder-avatar.is-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+}
+
+.founder-avatar.is-placeholder svg {
+  width: 40px;
+  height: 40px;
+  fill: #fff;
+  opacity: 0.92;
+}
+
+.founder-exp {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(242, 184, 25, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  text-align: left;
+}
+
+.founder-exp li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.founder-exp li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.founder-exp li.has-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 0;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.founder-exp li.has-badge::before {
+  content: none;
+}
+
+.founder-cert {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.founder-contact {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(242, 184, 25, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  text-align: left;
+}
+
+.founder-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.82rem;
+  color: var(--text);
+  transition: var(--transition-fast);
+}
+
+.founder-contact-link svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--gold);
+  flex-shrink: 0;
+}
+
+.founder-contact-link:hover {
+  color: var(--gold);
+}
+
+.founder-contact-link span {
+  word-break: break-word;
 }
 
 /* ========================================
@@ -2356,7 +2456,7 @@ a.footer-contact-value:hover {
   }
 
   .story-stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .why-grid {
@@ -2462,10 +2562,33 @@ a.footer-contact-value:hover {
   font-weight: 600;
 }
 
+.story-lead {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text) !important;
+  line-height: 1.6 !important;
+}
+
+.story-media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(160, 82, 45, 0.15);
+}
+
+.story-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
 .story-stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+  margin-top: 56px;
 }
 
 .stat-item {
@@ -4162,10 +4285,17 @@ a.footer-contact-value:hover {
   background: var(--bg-cream);
 }
 
+.post-card-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.22));
+}
+
 .post-card-media img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 
@@ -4438,24 +4568,19 @@ a.footer-contact-value:hover {
   text-transform: uppercase;
 }
 
-/* Hero image band — show branded slide in full, framed on cream */
+/* Hero image band */
 .post-figure {
   margin: 0;
   width: 100%;
+  height: clamp(240px, 42vw, 460px);
+  overflow: hidden;
   background: var(--bg-cream);
-  display: flex;
-  justify-content: center;
-  padding: 28px 24px;
 }
 
 .post-figure img {
-  display: block;
-  max-width: 1000px;
-  max-height: 560px;
-  width: auto;
-  height: auto;
-  border-radius: var(--radius);
-  box-shadow: 0 10px 30px rgba(90, 50, 20, 0.14);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Article body */

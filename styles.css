@@ -5029,3 +5029,6 @@ a.footer-contact-value:hover {
 .serve-media img { transition: transform 0.6s ease; }
 .section-feature:hover .section-feature-media img,
 .serve-inner:hover .serve-media img { transform: scale(1.04); }
+
+.contact-value { display: block; }
+a.contact-value:hover { color: var(--gold); }

@@ -4150,19 +4150,13 @@ a.footer-contact-value:hover {
   position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-}
-
-.post-card-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.28));
+  background: var(--bg-cream);
 }
 
 .post-card-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.5s ease;
 }
 
@@ -4435,19 +4429,24 @@ a.footer-contact-value:hover {
   text-transform: uppercase;
 }
 
-/* Full-width hero image band */
+/* Hero image band — show branded slide in full, framed on cream */
 .post-figure {
   margin: 0;
   width: 100%;
-  height: clamp(230px, 40vw, 440px);
-  overflow: hidden;
   background: var(--bg-cream);
+  display: flex;
+  justify-content: center;
+  padding: 28px 24px;
 }
 
 .post-figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: block;
+  max-width: 1000px;
+  max-height: 560px;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(90, 50, 20, 0.14);
 }
 
 /* Article body */

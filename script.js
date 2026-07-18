@@ -1273,3 +1273,18 @@ function initMagneticButton() {
     }
   });
 }
+
+// Reading progress bar (blog post pages)
+(function() {
+  var bar = document.querySelector(".post-progress span");
+  if (!bar) return;
+  function update() {
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+    bar.style.width = pct + "%";
+  }
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+})();

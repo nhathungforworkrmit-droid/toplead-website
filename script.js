@@ -1066,27 +1066,96 @@ document.addEventListener("DOMContentLoaded", function() {
   var mobileMenuBtn = document.querySelector(".mobile-menu-btn");
   var navLinks = document.querySelector(".nav-links");
   if (mobileMenuBtn && navLinks) {
+    // The open menu scrolls itself; freeze the page behind it so a swipe does
+    // not drag the content around underneath.
+    function sizeMenu() {
+      if (!navLinks.classList.contains("active")) return;
+      // Fill exactly the space under the bar, so the last item is always
+      // reachable by scrolling the panel itself.
+      var bar = navbar ? navbar.offsetHeight : 0;
+      navLinks.style.maxHeight = (window.innerHeight - bar) + "px";
+    }
+
+    function setMenu(open) {
+      navLinks.classList.toggle("active", open);
+      mobileMenuBtn.classList.toggle("active", open);
+      document.body.classList.toggle("nav-open", open);
+      if (open) sizeMenu();
+      else navLinks.style.maxHeight = "";
+    }
+
+    window.addEventListener("resize", sizeMenu);
+
     mobileMenuBtn.addEventListener("click", function(e) {
       e.stopPropagation();
-      navLinks.classList.toggle("active");
-      this.classList.toggle("active");
+      setMenu(!navLinks.classList.contains("active"));
     });
     // Close on click outside the menu
     document.addEventListener("click", function(e) {
       if (navLinks.classList.contains("active") &&
           !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        navLinks.classList.remove("active");
-        mobileMenuBtn.classList.remove("active");
+        setMenu(false);
       }
     });
     // Close on Escape
     document.addEventListener("keydown", function(e) {
       if (e.key === "Escape" && navLinks.classList.contains("active")) {
-        navLinks.classList.remove("active");
-        mobileMenuBtn.classList.remove("active");
+        setMenu(false);
       }
     });
+    // Close after picking a destination - same-page anchors would otherwise
+    // scroll away with the menu still covering the screen. A dropdown trigger
+    // is not a destination on its first tap: it opens its own list, so closing
+    // the panel here would shut the menu the moment it expanded.
+    navLinks.addEventListener("click", function(e) {
+      var a = e.target.closest("a");
+      if (!a || a.classList.contains("nav-dropdown-trigger")) return;
+      setMenu(false);
+    });
+    // Leaving the mobile breakpoint must not strand the page with scroll locked.
+    window.matchMedia("(min-width: 1200px)").addEventListener("change", function(ev) {
+      if (ev.matches) setMenu(false);
+    });
   }
+
+  // Nav dropdowns open on click, not on hover.
+  // The trigger is also a real link to its own page, so: the first click opens
+  // the list, and a second click on an already-open trigger follows the link.
+  (function initNavDropdowns() {
+    var dropdowns = Array.prototype.slice.call(document.querySelectorAll(".nav-dropdown"));
+    if (!dropdowns.length) return;
+
+    function closeAll(except) {
+      dropdowns.forEach(function (dd) {
+        if (dd === except) return;
+        dd.classList.remove("is-open");
+        var t = dd.querySelector(".nav-dropdown-trigger");
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    dropdowns.forEach(function (dd) {
+      var trigger = dd.querySelector(".nav-dropdown-trigger");
+      if (!trigger) return;
+      trigger.setAttribute("aria-haspopup", "true");
+      trigger.setAttribute("aria-expanded", "false");
+
+      trigger.addEventListener("click", function (e) {
+        if (dd.classList.contains("is-open")) return;   // let the link through
+        e.preventDefault();
+        closeAll(dd);
+        dd.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+      });
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".nav-dropdown")) closeAll();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeAll();
+    });
+  })();
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
@@ -1323,6 +1392,160 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }, 5000);
   }
+
+  // Stat counters: numbers roll up the first time they scroll into view.
+  // The text is parsed in place ("120+" -> prefix "", value 120, suffix "+"),
+  // so the markup and the translations stay the only source of the numbers.
+  (function initCounters() {
+    var stats = document.querySelectorAll(".stat-number");
+    if (!stats.length) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        !("IntersectionObserver" in window)) return;
+
+    function run(el) {
+      var raw = el.textContent.trim();
+      var m = raw.match(/^(\D*?)([\d.,]+)(.*)$/);
+      if (!m) return;
+      var target = parseFloat(m[2].replace(/,/g, ""));
+      if (isNaN(target)) return;
+      var decimals = (m[2].split(".")[1] || "").length;
+      var pre = m[1], post = m[3];
+      var started = null, DURATION = 1400;
+
+      function frame(now) {
+        if (started === null) started = now;
+        var t = Math.min((now - started) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - t, 3);   // ease-out: fast, then settles
+        el.textContent = pre + (target * eased).toFixed(decimals) + post;
+        if (t < 1) requestAnimationFrame(frame);
+        else el.textContent = raw;            // land exactly on the original
+      }
+      requestAnimationFrame(frame);
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);              // count once, not on every pass
+        run(en.target);
+      });
+    }, { threshold: 0.6 });
+
+    stats.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Why Choose TopLead: a circular carousel. The active card sits centred and
+  // full size; the others step outwards, shrinking and fading, and the ends
+  // wrap around so there is no first or last.
+  (function initWhyCarousel() {
+    var root = document.querySelector(".why-carousel");
+    if (!root) return;
+    var stage = root.querySelector(".why-stage");
+    var cards = Array.prototype.slice.call(root.querySelectorAll(".why-card"));
+    var dotsBox = root.querySelector(".why-dots");
+    var n = cards.length;
+    if (n < 2) return;
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var index = 0, timer = null, paused = false;
+    var AUTOPLAY = parseInt(root.getAttribute("data-autoplay"), 10) || 4200;
+
+    var dots = cards.map(function (_, i) {
+      var d = document.createElement("button");
+      d.type = "button";
+      d.className = "why-dot";
+      d.setAttribute("role", "tab");
+      d.setAttribute("aria-label", "Mục " + (i + 1) + " / " + n);
+      d.addEventListener("click", function () { go(i); restart(); });
+      dotsBox.appendChild(d);
+      return d;
+    });
+
+    // Shortest way round the loop: for 6 cards, offset stays within -3..+3 so
+    // a card near the end travels left rather than all the way back.
+    function offsetOf(i) {
+      var d = i - index;
+      if (d > n / 2) d -= n;
+      if (d < -n / 2) d += n;
+      return d;
+    }
+
+    function layout() {
+      var w = cards[0].offsetWidth || 320;
+      var step = Math.min(w * 0.58, stage.offsetWidth * 0.34);
+      cards.forEach(function (card, i) {
+        var o = offsetOf(i);
+        var far = Math.abs(o);
+        var scale = Math.max(1 - far * 0.16, 0.62);
+        var opacity = far === 0 ? 1 : Math.max(0.55 - (far - 1) * 0.18, 0.12);
+        card.style.transform =
+          "translate(-50%, -50%) translateX(" + (o * step) + "px) scale(" + scale + ")";
+        card.style.opacity = opacity;
+        card.style.zIndex = String(n - far);
+        card.classList.toggle("is-active", far === 0);
+        card.setAttribute("aria-hidden", far === 0 ? "false" : "true");
+        dots[i].classList.toggle("is-active", far === 0);
+      });
+    }
+
+    function go(i) {
+      index = ((i % n) + n) % n;
+      layout();
+    }
+    function next() { go(index + 1); }
+    function prev() { go(index - 1); }
+
+    function restart() {
+      if (timer) clearInterval(timer);
+      if (reduce) return;
+      timer = setInterval(function () { if (!paused) next(); }, AUTOPLAY);
+    }
+
+    root.querySelector(".why-next").addEventListener("click", function () { next(); restart(); });
+    root.querySelector(".why-prev").addEventListener("click", function () { prev(); restart(); });
+
+    // Autoplay would otherwise slide the card away mid-sentence.
+    root.addEventListener("pointerenter", function () { paused = true; });
+    root.addEventListener("pointerleave", function () { paused = false; });
+    root.addEventListener("focusin", function () { paused = true; });
+    root.addEventListener("focusout", function () { paused = false; });
+
+    // Drag / swipe.
+    var startX = null, dragged = false;
+    stage.addEventListener("pointerdown", function (e) {
+      startX = e.clientX; dragged = false; paused = true;
+    });
+    stage.addEventListener("pointermove", function (e) {
+      if (startX === null || dragged) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 45) {
+        dx < 0 ? next() : prev();
+        dragged = true;
+        restart();
+      }
+    });
+    function endDrag() { startX = null; paused = false; }
+    stage.addEventListener("pointerup", endDrag);
+    stage.addEventListener("pointercancel", endDrag);
+    stage.addEventListener("pointerleave", endDrag);
+
+    root.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { next(); restart(); }
+      else if (e.key === "ArrowLeft") { prev(); restart(); }
+    });
+
+    // Only spend frames on it while it is on screen.
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        paused = !entries[0].isIntersecting;
+      }, { threshold: 0.2 }).observe(root);
+    }
+
+    window.addEventListener("resize", layout);
+    layout();
+    restart();
+  })();
 
   console.log("TopLead Website loaded");
 });

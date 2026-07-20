@@ -15,6 +15,9 @@
   --bg-dark: #1A1A1A;
   --bg-dark-light: #252525;
   --bg-warm-brown: #2A1A10;
+  /* The footer's ground colour. Any band that sits directly above the footer
+     must end on this exact value, or a seam shows at the join. */
+  --footer-bg: #100C08;
   --bg-white: #FFFFFF;
   --bg-beige: #F9F6F0;
   --bg-cream: #F5F0E8;
@@ -62,7 +65,7 @@
   --text-6xl:  3.75rem;
   --text-7xl:  4.5rem;
 
-  /* Spacing scale — multiples of 4px (Task 2) */
+  /* Spacing scale - multiples of 4px (Task 2) */
   --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
   --space-6: 24px;  --space-8: 32px;  --space-12: 48px; --space-16: 64px;
   --space-20: 80px; --space-24: 96px; --space-30: 120px;
@@ -234,7 +237,7 @@ img {
   gap: 32px;
 }
 
-/* Every top-level nav item — plain link or dropdown trigger — shares one shape */
+/* Every top-level nav item - plain link or dropdown trigger - shares one shape */
 .nav-links > a:not(.btn-cta),
 .nav-dropdown-trigger {
   display: inline-flex;
@@ -1654,7 +1657,13 @@ section {
    CTA Banner Section
    ======================================== */
 .cta-banner {
-  background: linear-gradient(135deg, #7A3E20 0%, #A0522D 50%, #7A3E20 100%);
+  /* Dark base that lands exactly on the footer's colour at the bottom edge, so
+     the band and the footer read as one surface - same move as the homepage,
+     where the particle field runs straight into the footer. The copper glow at
+     the top keeps the CTA's warmth without cutting a hard line. */
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(160, 82, 45, 0.55) 0%, rgba(122, 62, 32, 0.20) 45%, transparent 72%),
+    linear-gradient(180deg, #1A1209 0%, #17100B 55%, var(--footer-bg) 88%, var(--footer-bg) 100%);
   padding: 80px 0;
   text-align: center;
   position: relative;
@@ -1667,6 +1676,10 @@ section {
   position: absolute;
   inset: 0;
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  /* Fade the texture out before the bottom edge - at full strength it lifts the
+     band lighter than the footer and re-draws the seam we just removed. */
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 40%, transparent 88%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 40%, transparent 88%);
 }
 
 .cta-banner-content {
@@ -2053,7 +2066,7 @@ section {
   background: var(--bg-warm-brown);
   border-top: 1px solid rgba(228, 182, 120, 0.18);
   padding: clamp(80px, 10vw, 120px) 0 32px;
-  /* Footer-scoped palette — readable warm tones on the dark ground */
+  /* Footer-scoped palette - readable warm tones on the dark ground */
   --footer-heading: #E4B678;
   --footer-text: #CBBBA8;
   --footer-strong: #F6EEE3;
@@ -2362,6 +2375,39 @@ a.footer-contact-value:hover {
   }
 }
 
+/* The full nav row needs ~1200px: logo + 6 links + CTA + language switcher.
+   Below that it collided with the logo and overflowed the viewport, so the
+   hamburger takes over - not just on phones. */
+@media (max-width: 1199px) {
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+}
+
+/* Laptop: the row fits, but only just - tighten it rather than let it collide. */
+@media (min-width: 1200px) and (max-width: 1379px) {
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links > a:not(.btn-cta),
+  .nav-dropdown-trigger {
+    font-size: 0.875rem;
+  }
+
+  .btn-cta {
+    padding: 10px 18px;
+  }
+
+  .nav-right {
+    gap: 16px;
+  }
+}
+
 /* Tablet: 768px - 1023px */
 @media (min-width: 768px) and (max-width: 1023px) {
   .container {
@@ -2450,9 +2496,7 @@ a.footer-contact-value:hover {
     gap: 16px;
   }
 
-  .nav-links {
-    display: none;
-  }
+  /* .nav-links / .mobile-menu-btn switch over at 1199px above */
 
   .lang-switcher {
     padding: 2px;
@@ -2461,10 +2505,6 @@ a.footer-contact-value:hover {
   .lang-btn {
     padding: 4px 8px;
     font-size: 0.75rem;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
   }
 
   .logo-img {
@@ -3370,7 +3410,10 @@ a.footer-contact-value:hover {
 }
 
 .newsletter-section {
-  background: var(--bg-warm-brown);
+  /* Same dark-into-footer ramp as .cta-banner (see there) */
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(160, 82, 45, 0.45) 0%, rgba(122, 62, 32, 0.16) 45%, transparent 72%),
+    linear-gradient(180deg, #1A1209 0%, #17100B 55%, var(--footer-bg) 88%, var(--footer-bg) 100%);
   padding: 60px 0;
 }
 
@@ -5080,7 +5123,7 @@ a.footer-contact-value:hover {
 
 
 /* ============================================================
-   Decorative graphics — soft brand blobs + dot texture
+   Decorative graphics - soft brand blobs + dot texture
    ============================================================ */
 .services, .serve, .testimonials, .founders {
   position: relative;
@@ -5142,7 +5185,7 @@ a.contact-value:hover { color: var(--gold); }
 
 
 /* ============================================================
-   TopLead 360 — interactive 3D showcase
+   TopLead 360 - interactive 3D showcase
    ============================================================ */
 .showcase { position: relative; overflow: hidden; background: linear-gradient(165deg, #2A1A10, #141210); padding: 100px 0; }
 .showcase-glow { position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 900px; height: 520px; background: radial-gradient(ellipse, rgba(208,132,58,0.28), transparent 65%); pointer-events: none; }
@@ -5193,7 +5236,7 @@ a.contact-value:hover { color: var(--gold); }
   .sc-panel { transition: opacity 0.3s ease; transform: none; }
 }
 
-/* Philosophy band — redesigned with network graphic */
+/* Philosophy band - redesigned with network graphic */
 .philosophy-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr 1fr; gap: 52px; align-items: center; }
 .philosophy-media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 26px 60px rgba(0,0,0,0.4); border: 1px solid rgba(228,182,120,0.18); }
 .philosophy-media img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/11; }
@@ -5208,7 +5251,7 @@ a.contact-value:hover { color: var(--gold); }
 }
 
 /* ============================================================
-   HOMEPAGE REDESIGN — shared 4D background, video, display type
+   HOMEPAGE REDESIGN - shared 4D background, video, display type
    (scoped to the homepage via #bg-canvas / :has where needed)
    ============================================================ */
 
@@ -5228,6 +5271,53 @@ a.contact-value:hover { color: var(--gold); }
 /* Let the fixed canvas show through only on the homepage. Other pages keep
    their own body background (they have no #bg-canvas). */
 body:has(#bg-canvas) { background: transparent; }
+
+/* --- Scoped 4D field: the same particle background as the homepage, sized to
+   a single band. Used for the inner-page heroes and the CTA strip above the
+   footer so every page opens and closes like the landing page. The canvas is
+   injected by background.js and is transparent, so each band keeps its own
+   gradient underneath as the no-WebGL fallback. --- */
+.fx-panel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+/* Bands that need a stacking context of their own to host the field */
+.newsletter-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* A CTA band now ends on the footer's exact colour, so the footer's divider
+   would draw a line straight through the blend. */
+.cta-banner + .footer,
+.newsletter-section + .footer {
+  border-top: none;
+}
+
+/* Additive particles brighten whatever they sit on, which would re-draw the
+   seam at the very bottom of a CTA band. Fade the field out before the join. */
+.cta-banner .fx-panel,
+.newsletter-section .fx-panel {
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 58%, transparent 94%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 58%, transparent 94%);
+}
+
+/* Content always rides above the field */
+.page-hero .container,
+.cta-banner-content,
+.newsletter-content,
+.post-cta-box h3,
+.post-cta-box p,
+.post-cta-actions {
+  position: relative;
+  z-index: 1;
+}
 
 img, video { max-width: 100%; }
 
@@ -5329,7 +5419,7 @@ img, video { max-width: 100%; }
 }
 
 /* ============================================================
-   HOMEPAGE — ONE CONTINUOUS DARK CANVAS
+   HOMEPAGE - ONE CONTINUOUS DARK CANVAS
    Removes the light/dark banding & hard seams so scrolling feels
    like a single evolving scene. All scoped to the homepage
    (only index.html has #bg-canvas) so other pages are untouched.
@@ -5396,7 +5486,7 @@ body:has(#bg-canvas) .contact-icon svg { stroke: #E4B678; }
 body:has(#bg-canvas) .animate-on-scroll { will-change: transform, opacity; }
 
 /* ============================================================
-   POLISH PASS — typography roles, focus, click-safety, header
+   POLISH PASS - typography roles, focus, click-safety, header
    ============================================================ */
 
 /* --- Task 1: responsive display/heading scale (does not touch layout JS) --- */
@@ -5415,7 +5505,7 @@ body:has(#bg-canvas) .animate-on-scroll { will-change: transform, opacity; }
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
-/* Keep prose readable — cap measure, never letter-space body copy */
+/* Keep prose readable - cap measure, never letter-space body copy */
 .section-header p { max-width: 62ch; margin-inline: auto; }
 p { letter-spacing: normal; }
 
@@ -5474,7 +5564,7 @@ body:has(#bg-canvas) .navbar.scrolled .logo-text-top,
 body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
 
 /* ============================================================
-   AWARD PASS — Sections A/B/C/D redesign + global depth/polish
+   AWARD PASS - Sections A/B/C/D redesign + global depth/polish
    ============================================================ */
 
 /* --- Global ghost/secondary button (reusable across sections) --- */
@@ -5504,7 +5594,7 @@ body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
 .philosophy-media img { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 .philosophy-media:hover img { transform: scale(1.04); }
 
-/* ---------- SECTION A — Philosophy editorial panel ---------- */
+/* ---------- SECTION A - Philosophy editorial panel ---------- */
 .philosophy-grid { align-items: center; }
 .philosophy-media {
   aspect-ratio: 4 / 5;
@@ -5547,7 +5637,7 @@ body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
   .philosophy-text { margin-left: -24px; }  /* subtle overlap = depth */
 }
 
-/* ---------- SECTION B — Partner stats: featured grid ---------- */
+/* ---------- SECTION B - Partner stats: featured grid ---------- */
 .partner .section-header h2 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
@@ -5585,7 +5675,7 @@ body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
 .partner-value h3 { font-size: var(--text-xl); }
 .partner-value p { font-size: var(--text-base); }
 
-/* ---------- SECTION C — Cinematic video strip ---------- */
+/* ---------- SECTION C - Cinematic video strip ---------- */
 .cine-strip {
   height: clamp(320px, 42vw, 560px);
   display: block;
@@ -5639,9 +5729,9 @@ body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
 .cine-cta-row { display: flex; align-items: center; gap: 18px; margin-top: 22px; flex-wrap: wrap; }
 .cine-line { width: 48px; height: 2px; background: #E4B678; flex-shrink: 0; }
 
-/* ---------- SECTION D — Footer emerges from the page ---------- */
+/* ---------- SECTION D - Footer emerges from the page ---------- */
 .footer {
-  background: #100C08;                 /* near page-dark warm tint, not brown */
+  background: var(--footer-bg);        /* near page-dark warm tint, not brown */
   border-top: none;
   padding: clamp(80px, 8vw, 112px) 0 48px;
 }
@@ -5651,7 +5741,7 @@ body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
   top: 0; left: 0; right: 0;
   height: 120px;
   transform: translateY(-100%);
-  background: linear-gradient(to bottom, transparent, #100C08);
+  background: linear-gradient(to bottom, transparent, var(--footer-bg));
   pointer-events: none;
 }
 .footer-links h4 { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; }
@@ -5673,7 +5763,7 @@ body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
 }
 
 /* ============================================================
-   "YOU HAVE A GOOD PARTNER" — 4 uniform, balanced stat boxes
+   "YOU HAVE A GOOD PARTNER" - 4 uniform, balanced stat boxes
    (equal size + one clean design; 48h keeps only a subtle accent)
    ============================================================ */
 .partner-grid { gap: 20px; align-items: stretch; }

@@ -2872,6 +2872,134 @@ a.footer-contact-value:hover {
   margin-top: 48px;
 }
 
+/* ------------------------------------------------------------------
+   Why Choose TopLead - circular carousel
+   The six cards ride a loop: the middle one is full size and opaque,
+   its neighbours step down in scale and fade back, like a shelf of
+   products with the current pick pulled forward. script.js sets the
+   transforms; everything here is the look and the easing.
+   ------------------------------------------------------------------ */
+.why-carousel {
+  position: relative;
+  margin-top: 48px;
+  padding: 0 56px;
+}
+
+.why-stage {
+  position: relative;
+  height: 340px;
+  /* The off-centre cards run past the edges by design; clip them so they
+     never widen the page or collide with the section padding. */
+  overflow: hidden;
+}
+
+.why-carousel .why-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(380px, 76vw);
+  margin: 0;
+  /* Set by script.js: translate(-50%, -50%) translateX(...) scale(...) */
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+              opacity 0.55s ease,
+              box-shadow 0.55s ease;
+  will-change: transform, opacity;
+}
+
+.why-carousel .why-card.is-active {
+  box-shadow: 0 24px 60px rgba(122, 62, 32, 0.22);
+  border-color: rgba(160, 82, 45, 0.35);
+}
+
+/* Only the middle card is a live target; the faded ones behind it must not
+   swallow clicks meant for the arrows. */
+.why-carousel .why-card:not(.is-active) {
+  pointer-events: none;
+}
+
+.why-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(160, 82, 45, 0.28);
+  background: var(--bg-white);
+  color: var(--copper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+}
+
+.why-nav svg { width: 20px; height: 20px; }
+.why-nav:hover { background: var(--copper); color: #fff; border-color: var(--copper); }
+.why-prev { left: 0; }
+.why-next { right: 0; }
+
+.why-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.why-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(160, 82, 45, 0.28);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.why-dot.is-active {
+  width: 26px;
+  background: var(--copper);
+}
+
+@media (max-width: 767px) {
+  .why-carousel { padding: 0 12px; }
+  .why-stage { height: 380px; }
+  .why-nav { display: none; }   /* swipe instead - the arrows would crowd the card */
+}
+
+/* ------------------------------------------------------------------
+   Clients & Partners - one panel
+   Heading and logo rail used to sit on two different backgrounds, which
+   split the section into two loose halves. One card holds both.
+   ------------------------------------------------------------------ */
+.clients-panel {
+  background: var(--bg-white);
+  border: 1px solid rgba(160, 82, 45, 0.16);
+  border-radius: var(--radius-lg);
+  padding: clamp(32px, 5vw, 56px) 0 clamp(28px, 4vw, 44px);
+  overflow: hidden;   /* keeps the marquee inside the rounded corners */
+  box-shadow: 0 18px 46px rgba(122, 62, 32, 0.07);
+}
+
+.clients-panel .section-header {
+  margin-bottom: clamp(28px, 4vw, 40px);
+  padding: 0 24px;
+}
+
+.clients-panel .logos {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.clients-panel .logos-label {
+  margin-bottom: 22px;
+}
+
 .why-card {
   background: var(--bg-white);
   padding: 32px;

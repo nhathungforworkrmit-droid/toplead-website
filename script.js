@@ -1392,6 +1392,118 @@ document.addEventListener("DOMContentLoaded", function() {
     stats.forEach(function (el) { io.observe(el); });
   })();
 
+  // Why Choose TopLead: a circular carousel. The active card sits centred and
+  // full size; the others step outwards, shrinking and fading, and the ends
+  // wrap around so there is no first or last.
+  (function initWhyCarousel() {
+    var root = document.querySelector(".why-carousel");
+    if (!root) return;
+    var stage = root.querySelector(".why-stage");
+    var cards = Array.prototype.slice.call(root.querySelectorAll(".why-card"));
+    var dotsBox = root.querySelector(".why-dots");
+    var n = cards.length;
+    if (n < 2) return;
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var index = 0, timer = null, paused = false;
+    var AUTOPLAY = parseInt(root.getAttribute("data-autoplay"), 10) || 4200;
+
+    var dots = cards.map(function (_, i) {
+      var d = document.createElement("button");
+      d.type = "button";
+      d.className = "why-dot";
+      d.setAttribute("role", "tab");
+      d.setAttribute("aria-label", "Mục " + (i + 1) + " / " + n);
+      d.addEventListener("click", function () { go(i); restart(); });
+      dotsBox.appendChild(d);
+      return d;
+    });
+
+    // Shortest way round the loop: for 6 cards, offset stays within -3..+3 so
+    // a card near the end travels left rather than all the way back.
+    function offsetOf(i) {
+      var d = i - index;
+      if (d > n / 2) d -= n;
+      if (d < -n / 2) d += n;
+      return d;
+    }
+
+    function layout() {
+      var w = cards[0].offsetWidth || 320;
+      var step = Math.min(w * 0.58, stage.offsetWidth * 0.34);
+      cards.forEach(function (card, i) {
+        var o = offsetOf(i);
+        var far = Math.abs(o);
+        var scale = Math.max(1 - far * 0.16, 0.62);
+        var opacity = far === 0 ? 1 : Math.max(0.55 - (far - 1) * 0.18, 0.12);
+        card.style.transform =
+          "translate(-50%, -50%) translateX(" + (o * step) + "px) scale(" + scale + ")";
+        card.style.opacity = opacity;
+        card.style.zIndex = String(n - far);
+        card.classList.toggle("is-active", far === 0);
+        card.setAttribute("aria-hidden", far === 0 ? "false" : "true");
+        dots[i].classList.toggle("is-active", far === 0);
+      });
+    }
+
+    function go(i) {
+      index = ((i % n) + n) % n;
+      layout();
+    }
+    function next() { go(index + 1); }
+    function prev() { go(index - 1); }
+
+    function restart() {
+      if (timer) clearInterval(timer);
+      if (reduce) return;
+      timer = setInterval(function () { if (!paused) next(); }, AUTOPLAY);
+    }
+
+    root.querySelector(".why-next").addEventListener("click", function () { next(); restart(); });
+    root.querySelector(".why-prev").addEventListener("click", function () { prev(); restart(); });
+
+    // Autoplay would otherwise slide the card away mid-sentence.
+    root.addEventListener("pointerenter", function () { paused = true; });
+    root.addEventListener("pointerleave", function () { paused = false; });
+    root.addEventListener("focusin", function () { paused = true; });
+    root.addEventListener("focusout", function () { paused = false; });
+
+    // Drag / swipe.
+    var startX = null, dragged = false;
+    stage.addEventListener("pointerdown", function (e) {
+      startX = e.clientX; dragged = false; paused = true;
+    });
+    stage.addEventListener("pointermove", function (e) {
+      if (startX === null || dragged) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 45) {
+        dx < 0 ? next() : prev();
+        dragged = true;
+        restart();
+      }
+    });
+    function endDrag() { startX = null; paused = false; }
+    stage.addEventListener("pointerup", endDrag);
+    stage.addEventListener("pointercancel", endDrag);
+    stage.addEventListener("pointerleave", endDrag);
+
+    root.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { next(); restart(); }
+      else if (e.key === "ArrowLeft") { prev(); restart(); }
+    });
+
+    // Only spend frames on it while it is on screen.
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        paused = !entries[0].isIntersecting;
+      }, { threshold: 0.2 }).observe(root);
+    }
+
+    window.addEventListener("resize", layout);
+    layout();
+    restart();
+  })();
+
   console.log("TopLead Website loaded");
 });
 

@@ -1104,15 +1104,58 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
     // Close after picking a destination - same-page anchors would otherwise
-    // scroll away with the menu still covering the screen.
+    // scroll away with the menu still covering the screen. A dropdown trigger
+    // is not a destination on its first tap: it opens its own list, so closing
+    // the panel here would shut the menu the moment it expanded.
     navLinks.addEventListener("click", function(e) {
-      if (e.target.closest("a")) setMenu(false);
+      var a = e.target.closest("a");
+      if (!a || a.classList.contains("nav-dropdown-trigger")) return;
+      setMenu(false);
     });
     // Leaving the mobile breakpoint must not strand the page with scroll locked.
     window.matchMedia("(min-width: 1200px)").addEventListener("change", function(ev) {
       if (ev.matches) setMenu(false);
     });
   }
+
+  // Nav dropdowns open on click, not on hover.
+  // The trigger is also a real link to its own page, so: the first click opens
+  // the list, and a second click on an already-open trigger follows the link.
+  (function initNavDropdowns() {
+    var dropdowns = Array.prototype.slice.call(document.querySelectorAll(".nav-dropdown"));
+    if (!dropdowns.length) return;
+
+    function closeAll(except) {
+      dropdowns.forEach(function (dd) {
+        if (dd === except) return;
+        dd.classList.remove("is-open");
+        var t = dd.querySelector(".nav-dropdown-trigger");
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    dropdowns.forEach(function (dd) {
+      var trigger = dd.querySelector(".nav-dropdown-trigger");
+      if (!trigger) return;
+      trigger.setAttribute("aria-haspopup", "true");
+      trigger.setAttribute("aria-expanded", "false");
+
+      trigger.addEventListener("click", function (e) {
+        if (dd.classList.contains("is-open")) return;   // let the link through
+        e.preventDefault();
+        closeAll(dd);
+        dd.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+      });
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".nav-dropdown")) closeAll();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeAll();
+    });
+  })();
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {

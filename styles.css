@@ -2781,6 +2781,8 @@ a.footer-contact-value:hover {
   font-weight: 800;
   color: var(--gold);
   margin-bottom: 8px;
+  /* Equal-width digits, so the number does not wobble while it counts up. */
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-label {

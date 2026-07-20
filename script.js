@@ -1350,6 +1350,48 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 5000);
   }
 
+  // Stat counters: numbers roll up the first time they scroll into view.
+  // The text is parsed in place ("120+" -> prefix "", value 120, suffix "+"),
+  // so the markup and the translations stay the only source of the numbers.
+  (function initCounters() {
+    var stats = document.querySelectorAll(".stat-number");
+    if (!stats.length) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        !("IntersectionObserver" in window)) return;
+
+    function run(el) {
+      var raw = el.textContent.trim();
+      var m = raw.match(/^(\D*?)([\d.,]+)(.*)$/);
+      if (!m) return;
+      var target = parseFloat(m[2].replace(/,/g, ""));
+      if (isNaN(target)) return;
+      var decimals = (m[2].split(".")[1] || "").length;
+      var pre = m[1], post = m[3];
+      var started = null, DURATION = 1400;
+
+      function frame(now) {
+        if (started === null) started = now;
+        var t = Math.min((now - started) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - t, 3);   // ease-out: fast, then settles
+        el.textContent = pre + (target * eased).toFixed(decimals) + post;
+        if (t < 1) requestAnimationFrame(frame);
+        else el.textContent = raw;            // land exactly on the original
+      }
+      requestAnimationFrame(frame);
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);              // count once, not on every pass
+        run(en.target);
+      });
+    }, { threshold: 0.6 });
+
+    stats.forEach(function (el) { io.observe(el); });
+  })();
+
   console.log("TopLead Website loaded");
 });
 

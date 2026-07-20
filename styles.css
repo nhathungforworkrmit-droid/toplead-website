@@ -340,6 +340,32 @@ img {
   color: var(--gold) !important;
 }
 
+/* "Về chúng tôi" and "Our Approach" share one trigger; inside, each keeps its
+   own titled column so the two groups stay legible as separate destinations. */
+.nav-dropdown-menu--groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 4px 8px;
+  min-width: 420px;
+  padding: 14px 8px;
+}
+
+.nav-dropdown-head {
+  font-size: 0.72rem !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-dark) !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 4px;
+  border-bottom: 1px solid rgba(160, 82, 45, 0.18);
+}
+
+.nav-dropdown-head:hover {
+  background: transparent !important;
+  color: var(--gold) !important;
+}
+
 .navbar.scrolled .nav-links > a:not(.btn-cta),
 .navbar.scrolled .nav-dropdown-trigger {
   color: #1A1A1A;
@@ -414,9 +440,13 @@ img {
   /* Was var(--dark), which is not a variable this stylesheet defines: the
      whole declaration was dropped and the panel rendered fully transparent,
      leaving the menu unreadable over the page behind it. */
-  background: var(--footer-bg);
+  /* Frosted glass: the hero and its particle field stay visible through the
+     panel, blurred and darkened just enough to keep the links readable. */
+  background: linear-gradient(180deg, rgba(16, 12, 8, 0.80), rgba(16, 12, 8, 0.90));
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
   padding: 20px 20px 32px;
-  border-top: 1px solid rgba(228, 182, 120, 0.14);
+  border-top: 1px solid rgba(228, 182, 120, 0.18);
   gap: 16px;
   /* Every dropdown is expanded inline, so the panel is usually taller than the
      screen. It scrolls on its own; script.js sets max-height to the space left
@@ -441,12 +471,24 @@ body.nav-open {
   overflow: hidden;
 }
 
-/* ...and the bar above it stops being see-through, so the menu reads as one
-   solid panel instead of a dark list floating over the hero. */
+/* The bar takes the same glass treatment, so bar and panel read as one sheet. */
 body.nav-open .navbar,
 body:has(#bg-canvas).nav-open .navbar.scrolled {
-  background: var(--footer-bg);
-  border-bottom-color: rgba(228, 182, 120, 0.14);
+  background: rgba(16, 12, 8, 0.80);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
+  border-bottom-color: transparent;
+}
+
+/* Safari on older iOS and Firefox without the flag get no backdrop-filter at
+   all - there, a translucent panel would leave the links unreadable, so fall
+   back to a solid one. */
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  .nav-links.active,
+  body.nav-open .navbar,
+  body:has(#bg-canvas).nav-open .navbar.scrolled {
+    background: var(--footer-bg);
+  }
 }
 
 body.nav-open .navbar .nav-links > a:not(.btn-cta),
@@ -488,6 +530,23 @@ body.nav-open .navbar .logo-text-bottom {
   font-size: 0.9rem;
   color: #F6EEE3 !important;
   opacity: 0.85;
+}
+
+/* The two-column desktop layout does not fit a phone - stack the groups. */
+.nav-links.active .nav-dropdown-menu--groups {
+  display: block;
+  min-width: 0;
+  padding: 0 0 0 16px;
+}
+
+.nav-links.active .nav-dropdown-group + .nav-dropdown-group {
+  margin-top: 14px;
+}
+
+.nav-links.active .nav-dropdown-head {
+  color: var(--gold-light) !important;
+  opacity: 1;
+  border-bottom-color: rgba(228, 182, 120, 0.22);
 }
 
 .nav-links.active .nav-dropdown-menu a:hover {

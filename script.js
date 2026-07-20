@@ -1066,25 +1066,51 @@ document.addEventListener("DOMContentLoaded", function() {
   var mobileMenuBtn = document.querySelector(".mobile-menu-btn");
   var navLinks = document.querySelector(".nav-links");
   if (mobileMenuBtn && navLinks) {
+    // The open menu scrolls itself; freeze the page behind it so a swipe does
+    // not drag the content around underneath.
+    function sizeMenu() {
+      if (!navLinks.classList.contains("active")) return;
+      // Fill exactly the space under the bar, so the last item is always
+      // reachable by scrolling the panel itself.
+      var bar = navbar ? navbar.offsetHeight : 0;
+      navLinks.style.maxHeight = (window.innerHeight - bar) + "px";
+    }
+
+    function setMenu(open) {
+      navLinks.classList.toggle("active", open);
+      mobileMenuBtn.classList.toggle("active", open);
+      document.body.classList.toggle("nav-open", open);
+      if (open) sizeMenu();
+      else navLinks.style.maxHeight = "";
+    }
+
+    window.addEventListener("resize", sizeMenu);
+
     mobileMenuBtn.addEventListener("click", function(e) {
       e.stopPropagation();
-      navLinks.classList.toggle("active");
-      this.classList.toggle("active");
+      setMenu(!navLinks.classList.contains("active"));
     });
     // Close on click outside the menu
     document.addEventListener("click", function(e) {
       if (navLinks.classList.contains("active") &&
           !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        navLinks.classList.remove("active");
-        mobileMenuBtn.classList.remove("active");
+        setMenu(false);
       }
     });
     // Close on Escape
     document.addEventListener("keydown", function(e) {
       if (e.key === "Escape" && navLinks.classList.contains("active")) {
-        navLinks.classList.remove("active");
-        mobileMenuBtn.classList.remove("active");
+        setMenu(false);
       }
+    });
+    // Close after picking a destination - same-page anchors would otherwise
+    // scroll away with the menu still covering the screen.
+    navLinks.addEventListener("click", function(e) {
+      if (e.target.closest("a")) setMenu(false);
+    });
+    // Leaving the mobile breakpoint must not strand the page with scroll locked.
+    window.matchMedia("(min-width: 1200px)").addEventListener("change", function(ev) {
+      if (ev.matches) setMenu(false);
     });
   }
 

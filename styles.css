@@ -377,6 +377,9 @@ img {
   border: none;
   cursor: pointer;
   padding: 8px;
+  /* Never let the row squeeze this out: it is the only way to open or close
+     the menu, and on a narrow phone it was being pushed off screen entirely. */
+  flex-shrink: 0;
   min-width: 44px;
   min-height: 44px;
 }
@@ -408,10 +411,20 @@ img {
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--dark);
-  padding: 20px;
-  border-bottom: 1px solid rgba(160, 82, 45, 0.1);
+  /* Was var(--dark), which is not a variable this stylesheet defines: the
+     whole declaration was dropped and the panel rendered fully transparent,
+     leaving the menu unreadable over the page behind it. */
+  background: var(--footer-bg);
+  padding: 20px 20px 32px;
+  border-top: 1px solid rgba(228, 182, 120, 0.14);
   gap: 16px;
+  /* Every dropdown is expanded inline, so the panel is usually taller than the
+     screen. It scrolls on its own; script.js sets max-height to the space left
+     under the navbar, which is the only way to get it exactly right across
+     breakpoints (the bar's height changes with the logo size). */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nav-links.active a {
@@ -421,6 +434,35 @@ img {
 
 .nav-links.active a:last-child {
   border-bottom: none;
+}
+
+/* The open menu owns the screen; the page behind it must not scroll away. */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* ...and the bar above it stops being see-through, so the menu reads as one
+   solid panel instead of a dark list floating over the hero. */
+body.nav-open .navbar,
+body:has(#bg-canvas).nav-open .navbar.scrolled {
+  background: var(--footer-bg);
+  border-bottom-color: rgba(228, 182, 120, 0.14);
+}
+
+body.nav-open .navbar .nav-links > a:not(.btn-cta),
+body.nav-open .navbar .logo-text-top,
+body.nav-open .navbar .logo-text-bottom {
+  color: #F6EEE3;
+}
+
+/* Narrow phones: the logo, the language switcher and the menu button have to
+   share ~320px. Drop the logo's second line and tighten everything. */
+@media (max-width: 480px) {
+  .logo { gap: 8px; min-width: 0; }
+  .logo-img { height: 34px; }
+  .logo-text-bottom { display: none; }
+  .nav-right { gap: 10px; }
+  .navbar .container { padding-left: 16px; padding-right: 16px; }
 }
 
 /* Mobile menu: dropdowns expand inline (no hover on touch devices) */

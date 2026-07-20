@@ -50,7 +50,7 @@ var translations = {
     "founders.f2.name": "Nguyễn Trần Nhật Hưng",
     "founders.f2.role": "CFO & Co-Founder",
     "founders.f2.quote": "“Việc làm HR cũng giống như đối diện một vấn đề mà không có lời giải nào là hoàn toàn chính xác.”",
-    "founders.f2.exp1": "5 năm kinh nghiệm tuyển dụng cho SMEs (Finance, Kế toán, Xây dựng, Cơ điện)",
+    "founders.f2.exp1": "5+ năm kinh nghiệm tuyển dụng cho SMEs (Finance, Kế toán, Xây dựng, Cơ điện)",
     "founders.f3.name": "Vũ Quang Bình",
     "founders.f3.role": "CCO & Co-Founder",
     "founders.f3.quote": "“Không phải ai cũng là một cá nhân thiên tài - nhân sự giỏi cần được bồi đắp bởi đúng môi trường.”",
@@ -101,6 +101,26 @@ var translations = {
     "testimonials.tag": "Đánh giá",
     "testimonials.title": "Khách hàng nói gì về chúng tôi",
     "tst.google": "Đánh giá 5★ trên Google",
+    "sc.tag": "TopLead 360°",
+    "sc.title": "Toàn cảnh cách TopLead đồng hành cùng bạn",
+    "sc.sub": "Từ vấn đề đến giải pháp, đến đúng đối tượng và những đối tác đã tin tưởng.",
+    "sc.t0": "Thách thức",
+    "sc.t1": "Giải pháp",
+    "sc.t2": "Đối tượng",
+    "sc.t3": "Đối tác",
+    "sc.c0.h": "Bạn đang gặp vấn đề nào?",
+    "sc.c0.a": "Cần người gấp nhưng tuyển mãi không ra.",
+    "sc.c0.b": "Giỏi chuyên môn nhưng không rành tuyển dụng.",
+    "sc.c0.c": "Người cũ nghỉ, công việc bị đình trệ.",
+    "sc.c0.cta": "Xem giải pháp",
+    "sc.c1.h": "Giải pháp tuyển dụng toàn diện",
+    "sc.c1.a": "nhân sự cấp cao, kín đáo và hiệu quả.",
+    "sc.c1.b": "xây đội ngũ từ giai đoạn đầu.",
+    "sc.c1.c": "Developer, Data, Product cho công ty công nghệ.",
+    "sc.c1.cta": "Tìm hiểu dịch vụ",
+    "sc.c2.h": "Chuyên sâu cho doanh nghiệp SME",
+    "sc.c2.p": "Nơi mỗi lần tuyển đúng người tạo ra khác biệt lớn nhất — TopLead đồng hành cùng SME Việt Nam.",
+    "sc.c3.h": "Đối tác nói gì về TopLead",
     "testimonials.t1.text": "“Agency hỗ trợ tuyển rất nhanh — chỉ sau 5 ngày đã có 3 ứng viên phù hợp để phỏng vấn. Tiết kiệm rất nhiều thời gian cho đội ngũ HR nội bộ.”",
     "testimonials.t2.text": "“For real, TopLead hiểu rõ nhu cầu doanh nghiệp — không gửi hồ sơ đại trà mà chọn lọc rất kỹ. Rất recommend!”",
     "testimonials.t3.text": "“Dịch vụ tốt, rất recommend vì cam kết thực tế của họ.”",
@@ -494,7 +514,7 @@ var translations = {
     "founders.f2.name": "Nguyễn Trần Nhật Hưng",
     "founders.f2.role": "CFO & Co-Founder",
     "founders.f2.quote": "“HR work is like facing a problem where no single answer is ever fully right.”",
-    "founders.f2.exp1": "5 years recruiting for SMEs (Finance, Accounting, Construction, M&E)",
+    "founders.f2.exp1": "5+ years recruiting for SMEs (Finance, Accounting, Construction, M&E)",
     "founders.f3.name": "Vũ Quang Bình",
     "founders.f3.role": "CCO & Co-Founder",
     "founders.f3.quote": "“Not everyone is born a genius — great talent needs the right environment to grow.”",
@@ -544,6 +564,27 @@ var translations = {
     "cta.start": "Get Started",
     "testimonials.tag": "Reviews",
     "testimonials.title": "What Our Clients Say",
+    "tst.google": "5★ review on Google",
+    "sc.tag": "TopLead 360°",
+    "sc.title": "The full picture of how TopLead works with you",
+    "sc.sub": "From the problem to the solution, to the right audience, to the partners who already trust us.",
+    "sc.t0": "Challenges",
+    "sc.t1": "Solutions",
+    "sc.t2": "Who we serve",
+    "sc.t3": "Partners",
+    "sc.c0.h": "Which problem are you facing?",
+    "sc.c0.a": "You need someone urgently but can't find the right hire.",
+    "sc.c0.b": "Great at your craft, but not at recruiting.",
+    "sc.c0.c": "Someone left and the work stalls.",
+    "sc.c0.cta": "See the solution",
+    "sc.c1.h": "Comprehensive recruitment solutions",
+    "sc.c1.a": "senior talent, discreet and effective.",
+    "sc.c1.b": "build a team from the earliest stage.",
+    "sc.c1.c": "Developers, Data, Product for tech companies.",
+    "sc.c1.cta": "Explore services",
+    "sc.c2.h": "Specialised in SMEs",
+    "sc.c2.p": "Where getting each hire right makes the biggest difference — TopLead partners with Vietnamese SMEs.",
+    "sc.c3.h": "What partners say about TopLead",
     "testimonials.t1.text": "“Super-fast support — within 5 days we had 3 suitable candidates to interview. It saved our internal HR team a lot of time.”",
     "testimonials.t2.text": "“For real — TopLead truly understands what a business needs. No mass CV dumps, just carefully selected candidates. Highly recommend!”",
     "testimonials.t3.text": "“Good services — highly recommend for their realistic commitment.”",
@@ -1693,4 +1734,38 @@ function initMagneticButton() {
       setTimeout(function() { btn.disabled = false; btn.innerHTML = old; }, 3500);
     });
   });
+})();
+
+
+// TopLead 360 — interactive 3D showcase
+(function() {
+  var stage = document.getElementById("scStage");
+  if (!stage) return;
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".sc-tab"));
+  var panels = Array.prototype.slice.call(stage.querySelectorAll(".sc-panel"));
+  var cur = 0, timer, desktop = window.matchMedia("(min-width:821px)").matches;
+  function show(i) {
+    i = (i + panels.length) % panels.length;
+    panels.forEach(function(p) { p.style.transform = ""; });
+    tabs.forEach(function(t, k) { t.classList.toggle("active", k === i); });
+    panels.forEach(function(p, k) {
+      p.classList.toggle("active", k === i);
+      var v = p.querySelector("video");
+      if (v) { if (k === i) { v.play().catch(function(){}); } else { v.pause(); } }
+    });
+    cur = i;
+  }
+  function restart() { clearInterval(timer); timer = setInterval(function() { show(cur + 1); }, 7000); }
+  tabs.forEach(function(t) { t.addEventListener("click", function() { show(+t.getAttribute("data-i")); restart(); }); });
+  stage.querySelectorAll("[data-goto]").forEach(function(b) { b.addEventListener("click", function() { show(+b.getAttribute("data-goto")); restart(); }); });
+  if (desktop && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    stage.addEventListener("mousemove", function(e) {
+      var a = stage.querySelector(".sc-panel.active"); if (!a) return;
+      var r = stage.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      a.style.transform = "rotateY(" + (x * 6).toFixed(2) + "deg) rotateX(" + (-y * 5).toFixed(2) + "deg)";
+    });
+    stage.addEventListener("mouseleave", function() { var a = stage.querySelector(".sc-panel.active"); if (a) a.style.transform = ""; });
+  }
+  show(0); restart();
 })();

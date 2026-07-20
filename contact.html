@@ -87,19 +87,19 @@
           <form class="contact-form active" id="employer-form">
             <div class="form-group">
               <label data-i18n="ct.name">Họ và tên *</label>
-              <input name="fullname" type="text" placeholder="Nhập họ và tên" required>
+              <input name="fullname" type="text" data-i18n-placeholder="contact.form.namePlaceholder" placeholder="Nhập họ và tên" required>
             </div>
             <div class="form-group">
               <label data-i18n="ct.emailco">Email công ty *</label>
-              <input name="email" type="email" placeholder="email@company.com" required>
+              <input name="email" type="email" data-i18n-placeholder="contact.form.emailPlaceholder" placeholder="email@company.com" required>
             </div>
             <div class="form-group">
               <label data-i18n="ct.phone">Số điện thoại *</label>
-              <input name="phone" type="tel" placeholder="+84 xxx xxx xxx" required>
+              <input name="phone" type="tel" data-i18n-placeholder="contact.form.phonePlaceholder" placeholder="+84 xxx xxx xxx" required>
             </div>
             <div class="form-group">
               <label data-i18n="ct.company">Tên công ty *</label>
-              <input name="company" type="text" placeholder="Tên công ty" required>
+              <input name="company" type="text" data-i18n-placeholder="contact.form.companyPlaceholder" placeholder="Tên công ty" required>
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.service">Dịch vụ quan tâm</label>
@@ -125,7 +125,7 @@
             </div>
             <div class="form-group">
               <label data-i18n="ct.need">Nhu cầu tuyển dụng</label>
-              <textarea name="message" placeholder="Mô tả ngắn về nhu cầu tuyển dụng..." rows="4"></textarea>
+              <textarea name="message" data-i18n-placeholder="contact.form.demandPlaceholder" placeholder="Mô tả ngắn về nhu cầu tuyển dụng..." rows="4"></textarea>
             </div>
             <button type="submit" class="btn-magnetic" data-i18n="ct.submitEmp">Gửi yêu cầu</button>
           </form>
@@ -134,19 +134,19 @@
           <form class="contact-form" id="candidate-form">
             <div class="form-group">
               <label data-i18n="ct.name">Họ và tên *</label>
-              <input name="fullname" type="text" placeholder="Nhập họ và tên" required>
+              <input name="fullname" type="text" data-i18n-placeholder="contact.form.namePlaceholder" placeholder="Nhập họ và tên" required>
             </div>
             <div class="form-group">
               <label data-i18n="ct.email">Email *</label>
-              <input name="email" type="email" placeholder="email@example.com" required>
+              <input name="email" type="email" data-i18n-placeholder="contact.form.emailPlaceholder" placeholder="email@example.com" required>
             </div>
             <div class="form-group">
               <label data-i18n="ct.phone">Số điện thoại *</label>
-              <input name="phone" type="tel" placeholder="+84 xxx xxx xxx" required>
+              <input name="phone" type="tel" data-i18n-placeholder="contact.form.phonePlaceholder" placeholder="+84 xxx xxx xxx" required>
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.position">Vị trí quan tâm</label>
-              <input name="position" type="text" placeholder="Vị trí mong muốn">
+              <input name="position" type="text" data-i18n-placeholder="contact.form.positionPlaceholder" placeholder="Vị trí mong muốn">
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.experience">Kinh nghiệm</label>
@@ -161,11 +161,11 @@
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.linkedin">Link LinkedIn / Portfolio</label>
-              <input name="linkedin" type="url" placeholder="https://linkedin.com/in/...">
+              <input name="linkedin" type="url" data-i18n-placeholder="contact.form.linkedinPlaceholder" placeholder="https://linkedin.com/in/...">
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.note">Ghi chú thêm</label>
-              <textarea name="note" placeholder="Giới thiệu ngắn về bản thân..." rows="4"></textarea>
+              <textarea name="note" data-i18n-placeholder="contact.form.notePlaceholder" placeholder="Giới thiệu ngắn về bản thân..." rows="4"></textarea>
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.uploadCV">Upload CV</label>
@@ -219,7 +219,7 @@
               </svg>
             </div>
             <div>
-              <h4>Email</h4>
+              <h4 data-i18n="contact.info.email">Email</h4>
               <p><a href="mailto:andy.ta@topleadrecruit.com">andy.ta@topleadrecruit.com</a></p>
               <p><a href="mailto:qibi.vu@topleadrecruit.com">qibi.vu@topleadrecruit.com</a></p>
               <p><a href="mailto:jason.nguyen@topleadrecruit.com">jason.nguyen@topleadrecruit.com</a></p>

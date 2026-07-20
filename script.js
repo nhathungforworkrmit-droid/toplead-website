@@ -169,6 +169,14 @@ var translations = {
     "form.submit": "Gửi thông tin",
     "form.success": "Cảm ơn bạn!",
     "form.successMsg": "Đội ngũ TopLead sẽ liên hệ với bạn trong 24 giờ làm việc.",
+    "form.namePlaceholder": "Nhập họ và tên của bạn",
+    "form.emailPlaceholder": "email@example.com",
+    "form.phonePlaceholder": "+84 xxx xxx xxx",
+    "form.linkedinPlaceholder": "https://linkedin.com/in/your-profile",
+    "form.companyPlaceholder": "Tên công ty của bạn",
+    "form.positionPlaceholder": "VD: Software Engineer",
+    "form.quantityPlaceholder": "VD: 2",
+    "form.messagePlaceholder": "Chia sẻ nhu cầu của bạn...",
     "page.hero.title": "Liên hệ",
     "page.hero.subtitle": "Kết nối với TopLead để tìm kiếm cơ hội hoặc tư vấn dịch vụ",
     "contact.tab.employer": "Nhà tuyển dụng",
@@ -357,6 +365,12 @@ var translations = {
     "serve.title": "Chuyên sâu cho doanh nghiệp SME",
     "serve.desc": "TopLead đồng hành cùng các doanh nghiệp vừa và nhỏ tại Việt Nam — nơi mỗi lần tuyển đúng người tạo ra khác biệt lớn nhất.",
     "philosophy.quote": "Nhân sự không phải là chi phí — đó là động cơ của mọi thứ theo sau.",
+    "cine.caption": "Mỗi lần tuyển đúng người là một chương mới cho doanh nghiệp.",
+    "cine.eyebrow": "Niềm tin của chúng tôi",
+    "cine.cta": "Xem cách chúng tôi làm việc",
+    "phil.eyebrow": "Triết lý của chúng tôi",
+    "phil.body": "Chúng tôi tuyển người phù hợp để ở lại và phát triển — không chỉ để lấp chỗ trống.",
+    "phil.cta": "Tìm hiểu cách chúng tôi làm việc",
     "svc.o.title": "Giải pháp tuyển dụng toàn diện",
     "svc.o.sub": "TopLead cung cấp đa dạng dịch vụ phù hợp với mọi nhu cầu nhân sự",
     "svc.s1": "Tìm kiếm và tiếp cận nhân sự cấp cao (C-level, VP, Director) với quy trình kín đáo và chuyên nghiệp.",
@@ -377,6 +391,8 @@ var translations = {
     "svc.cta.btn": "Liên hệ ngay",
     "svc.b1": "Staffing ngắn hạn",
     "svc.b2": "Staffing dự án",
+    "svc.b3": "Tuyển theo mùa vụ",
+    "svc.indTag": "Ngành nghề",
     "svc.learn": "Tìm hiểu thêm →",
     "ab.team.title": "Đội ngũ sáng lập",
     "ab.team.sub": "Những con người đặt nền móng cho TopLead",
@@ -445,6 +461,13 @@ var translations = {
     "ap.s4": "Gửi top 3-5 hồ sơ đã lọc trong 48 giờ",
     "ap.s5": "Hỗ trợ sắp xếp interview và feedback",
     "ap.s6": "Onboarding support và bảo hành 3 tháng",
+    "ap.tradTitle": "Tuyển dụng truyền thống",
+    "ap.step1": "Tư vấn",
+    "ap.step2": "Tìm nguồn",
+    "ap.step3": "Sàng lọc",
+    "ap.step4": "Giới thiệu hồ sơ",
+    "ap.step5": "Phỏng vấn",
+    "ap.step6": "Nhận việc",
     "ap.w1": "Bước 1: Brief",
     "ap.w1d": "Call với khách hàng để hiểu JD, budget, timeline, văn hóa công ty",
     "ap.w2": "Bước 2: Search",
@@ -612,7 +635,7 @@ var translations = {
     "footer.emailsTitle": "Contact Emails",
     "footer.officeTitle": "TopLead Office",
     "footer.addressLabel": "Address",
-    "footer.address": "791/92F Trần Xuân Soạn, phường Tân Hưng, TP. HCM",
+    "footer.address": "791/92F Tran Xuan Soan St., Tan Hung Ward, HCMC",
     "footer.phoneLabel": "Phone",
     "footer.emailLabel": "Email",
     "footer.directions": "Get Directions",
@@ -633,6 +656,14 @@ var translations = {
     "form.submit": "Submit",
     "form.success": "Thank you!",
     "form.successMsg": "TopLead team will contact you within 24 hours.",
+    "form.namePlaceholder": "Enter your full name",
+    "form.emailPlaceholder": "email@example.com",
+    "form.phonePlaceholder": "+84 xxx xxx xxx",
+    "form.linkedinPlaceholder": "https://linkedin.com/in/your-profile",
+    "form.companyPlaceholder": "Your company name",
+    "form.positionPlaceholder": "e.g. Software Engineer",
+    "form.quantityPlaceholder": "e.g. 2",
+    "form.messagePlaceholder": "Tell us about your needs...",
     "page.hero.title": "Contact",
     "page.hero.subtitle": "Connect with TopLead to explore opportunities or get recruitment consulting",
     "contact.tab.employer": "Employer",
@@ -821,6 +852,12 @@ var translations = {
     "serve.title": "Specialised in SMEs",
     "serve.desc": "TopLead partners with small and mid-sized businesses across Vietnam — where getting each hire right makes the biggest difference.",
     "philosophy.quote": "People aren't a cost — they're the engine of everything that follows.",
+    "cine.caption": "Every right hire is a new chapter for your business.",
+    "cine.eyebrow": "Our belief",
+    "cine.cta": "See how we work",
+    "phil.eyebrow": "Our philosophy",
+    "phil.body": "We hire people who fit, stay, and grow — not just to fill a seat.",
+    "phil.cta": "See how we work",
     "svc.o.title": "Comprehensive recruitment solutions",
     "svc.o.sub": "TopLead offers a range of services for every hiring need",
     "svc.s1": "Find and engage senior talent (C-level, VP, Director) through a discreet, professional process.",
@@ -841,6 +878,8 @@ var translations = {
     "svc.cta.btn": "Contact us",
     "svc.b1": "Short-term staffing",
     "svc.b2": "Project staffing",
+    "svc.b3": "Seasonal hiring",
+    "svc.indTag": "Industries",
     "svc.learn": "Learn more →",
     "ab.team.title": "Our founding team",
     "ab.team.sub": "The people who laid TopLead's foundation",
@@ -909,6 +948,13 @@ var translations = {
     "ap.s4": "Send the top 3–5 screened profiles within 48 hours",
     "ap.s5": "Help coordinate interviews and feedback",
     "ap.s6": "Onboarding support and a 3-month guarantee",
+    "ap.tradTitle": "Traditional Recruitment",
+    "ap.step1": "Consultation",
+    "ap.step2": "Sourcing",
+    "ap.step3": "Screening",
+    "ap.step4": "Presentation",
+    "ap.step5": "Interview",
+    "ap.step6": "Placement",
     "ap.w1": "Step 1: Brief",
     "ap.w1d": "A call to understand the JD, budget, timeline, and company culture",
     "ap.w2": "Step 2: Search",
@@ -1019,10 +1065,26 @@ document.addEventListener("DOMContentLoaded", function() {
   // Mobile menu
   var mobileMenuBtn = document.querySelector(".mobile-menu-btn");
   var navLinks = document.querySelector(".nav-links");
-  if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener("click", function() {
+  if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener("click", function(e) {
+      e.stopPropagation();
       navLinks.classList.toggle("active");
       this.classList.toggle("active");
+    });
+    // Close on click outside the menu
+    document.addEventListener("click", function(e) {
+      if (navLinks.classList.contains("active") &&
+          !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        navLinks.classList.remove("active");
+        mobileMenuBtn.classList.remove("active");
+      }
+    });
+    // Close on Escape
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape" && navLinks.classList.contains("active")) {
+        navLinks.classList.remove("active");
+        mobileMenuBtn.classList.remove("active");
+      }
     });
   }
 
@@ -1033,6 +1095,8 @@ document.addEventListener("DOMContentLoaded", function() {
       // Only prevent default for same-page anchors
       if (href && href.startsWith("#")) {
         e.preventDefault();
+        // Bare "#" links (e.g. dropdown triggers) have no target — just stop the jump
+        if (href.length === 1) return;
         var target = document.querySelector(href);
         if (target) {
           window.scrollTo({ top: target.offsetTop - 80, behavior: "smooth" });
@@ -1086,23 +1150,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  // Smooth reveal for sections
-  var sections = document.querySelectorAll('section');
-  var sectionObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  sections.forEach(function(section) {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    sectionObserver.observe(section);
-  });
+  // NOTE: The previous whole-<section> opacity:0 → reveal observer was removed.
+  // It double-animated with the `.animate-on-scroll` system below, set inline
+  // transforms on every section (creating stacking/containing-block side effects),
+  // and risked leaving content hidden if the observer failed. Section children
+  // already reveal via `.animate-on-scroll`.
 
   console.log("TopLead Website loaded với animations");
 
@@ -1259,16 +1311,18 @@ document.addEventListener("DOMContentLoaded", function() {
     field.focus();
   }
 
-  // Carousel dots
+  // Carousel dots (only run if such a carousel exists on the page)
   var dots = document.querySelectorAll(".carousel-dots .dot");
-  var slide = 0;
-  setInterval(function() {
-    slide = (slide + 1) % 3;
-    dots.forEach(function(d, i) {
-      if (i === slide) d.classList.add("active");
-      else d.classList.remove("active");
-    });
-  }, 5000);
+  if (dots.length) {
+    var slide = 0;
+    setInterval(function() {
+      slide = (slide + 1) % dots.length;
+      dots.forEach(function(d, i) {
+        if (i === slide) d.classList.add("active");
+        else d.classList.remove("active");
+      });
+    }, 5000);
+  }
 
   console.log("TopLead Website loaded");
 });
@@ -1417,6 +1471,9 @@ function initStatsCounter() {
 (function () {
   const slides = document.querySelectorAll('.hero-slide');
   const dots   = document.querySelectorAll('.hero-dot');
+  // Guard: the hero slider only exists on the homepage. Bail out early on every
+  // other page so `slides[0]` / `heroSection.addEventListener` don't throw.
+  if (!slides.length) return;
   const DURATION  = 3500;   // 3.5 giây mỗi slide
   const FADE_TIME = 800;    // 0.8 giây transition
 

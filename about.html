@@ -29,21 +29,20 @@
           <a href="index.html" data-i18n="nav.home">Trang chủ</a>
           <div class="nav-dropdown">
             <a href="about.html" class="nav-dropdown-trigger active" data-i18n="nav.about">Về chúng tôi</a>
-            <div class="nav-dropdown-menu nav-dropdown-menu--groups">
-              <div class="nav-dropdown-group">
-                <a class="nav-dropdown-head" href="about.html" data-i18n="nav.about">Về chúng tôi</a>
-                <a href="about.html#story" data-i18n="nav.ourStory">Our Story</a>
-                <a href="about.html#team" data-i18n="nav.ourTeam">Our Team</a>
-                <a href="about.html#why-choose" data-i18n="nav.whyChoose">Why Choose TopLead</a>
-                <a href="about.html#clients" data-i18n="nav.clients">Clients & Partners</a>
-              </div>
-              <div class="nav-dropdown-group">
-                <a class="nav-dropdown-head" href="approach.html" data-i18n="nav.approach">Our Approach</a>
-                <a href="approach.html#comparison" data-i18n="nav.compare">So sánh</a>
-                <a href="approach.html#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
-                <a href="approach.html#workflow" data-i18n="nav.workflow">Workflow</a>
-                <a href="approach.html#exclusive" data-i18n="nav.exclusive">Độc quyền</a>
-              </div>
+            <div class="nav-dropdown-menu">
+              <a href="about.html#story" data-i18n="nav.ourStory">Our Story</a>
+              <a href="about.html#team" data-i18n="nav.ourTeam">Our Team</a>
+              <a href="about.html#why-choose" data-i18n="nav.whyChoose">Why Choose TopLead</a>
+              <a href="about.html#clients" data-i18n="nav.clients">Clients & Partners</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="approach.html" class="nav-dropdown-trigger" data-i18n="nav.approach">Our Approach</a>
+            <div class="nav-dropdown-menu">
+              <a href="approach.html#comparison" data-i18n="nav.compare">So sánh</a>
+              <a href="approach.html#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+              <a href="approach.html#workflow" data-i18n="nav.workflow">Workflow</a>
+              <a href="approach.html#exclusive" data-i18n="nav.exclusive">Độc quyền</a>
             </div>
           </div>
           <a href="services.html" data-i18n="nav.services">Dịch vụ</a>
@@ -253,30 +252,44 @@
   <!-- Clients & Partners -->
   <section class="clients" id="clients">
     <div class="container">
-      <div class="clients-panel">
-        <div class="section-header">
-          <span class="section-tag" data-i18n="nav.clients">Clients &amp; Partners</span>
-          <h2 data-i18n="ab.cl.title">Khách hàng &amp; Đối tác</h2>
-          <p data-i18n="ab.cl.sub">Đồng hành cùng 120+ doanh nghiệp trên khắp Việt Nam</p>
+      <div class="section-header">
+        <span class="section-tag" data-i18n="nav.clients">Clients &amp; Partners</span>
+        <h2 data-i18n="ab.cl.title">Khách hàng &amp; Đối tác</h2>
+        <p data-i18n="ab.cl.sub">Đồng hành cùng 120+ doanh nghiệp trên khắp Việt Nam</p>
+      </div>
+    </div>
+    <div class="logo-rail" aria-label="Trusted by leading companies">
+      <p class="logo-rail-label" data-i18n="logos.label">Trusted by leading companies</p>
+      <div class="logo-rail-row">
+        <div class="logo-rail-track">
+          <span class="logo-mark">TechCorp</span>
+          <span class="logo-mark">VietRetail</span>
+          <span class="logo-mark">BuildPro</span>
+          <span class="logo-mark">LogiGroup</span>
+          <span class="logo-mark">FinanceHub</span>
+          <span class="logo-mark">MediCare</span>
+          <span class="logo-mark">TechCorp</span>
+          <span class="logo-mark">VietRetail</span>
+          <span class="logo-mark">BuildPro</span>
+          <span class="logo-mark">LogiGroup</span>
+          <span class="logo-mark">FinanceHub</span>
+          <span class="logo-mark">MediCare</span>
         </div>
-        <div class="logos">
-          <p class="logos-label" data-i18n="logos.label">Trusted by leading companies</p>
-          <div class="logos-marquee">
-            <div class="logos-track">
-              <div class="logo-item"><span class="logo-text">TechCorp</span></div>
-              <div class="logo-item"><span class="logo-text">VietRetail</span></div>
-              <div class="logo-item"><span class="logo-text">BuildPro</span></div>
-              <div class="logo-item"><span class="logo-text">LogiGroup</span></div>
-              <div class="logo-item"><span class="logo-text">FinanceHub</span></div>
-              <div class="logo-item"><span class="logo-text">MediCare</span></div>
-              <div class="logo-item"><span class="logo-text">TechCorp</span></div>
-              <div class="logo-item"><span class="logo-text">VietRetail</span></div>
-              <div class="logo-item"><span class="logo-text">BuildPro</span></div>
-              <div class="logo-item"><span class="logo-text">LogiGroup</span></div>
-              <div class="logo-item"><span class="logo-text">FinanceHub</span></div>
-              <div class="logo-item"><span class="logo-text">MediCare</span></div>
-            </div>
-          </div>
+      </div>
+      <div class="logo-rail-row logo-rail-row--reverse">
+        <div class="logo-rail-track">
+          <span class="logo-mark">LogiGroup</span>
+          <span class="logo-mark">MediCare</span>
+          <span class="logo-mark">TechCorp</span>
+          <span class="logo-mark">FinanceHub</span>
+          <span class="logo-mark">VietRetail</span>
+          <span class="logo-mark">BuildPro</span>
+          <span class="logo-mark">LogiGroup</span>
+          <span class="logo-mark">MediCare</span>
+          <span class="logo-mark">TechCorp</span>
+          <span class="logo-mark">FinanceHub</span>
+          <span class="logo-mark">VietRetail</span>
+          <span class="logo-mark">BuildPro</span>
         </div>
       </div>
     </div>

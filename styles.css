@@ -340,32 +340,6 @@ img {
   color: var(--gold) !important;
 }
 
-/* "Về chúng tôi" and "Our Approach" share one trigger; inside, each keeps its
-   own titled column so the two groups stay legible as separate destinations. */
-.nav-dropdown-menu--groups {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(180px, 1fr));
-  gap: 4px 8px;
-  min-width: 420px;
-  padding: 14px 8px;
-}
-
-.nav-dropdown-head {
-  font-size: 0.72rem !important;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--gold-dark) !important;
-  padding-bottom: 8px !important;
-  margin-bottom: 4px;
-  border-bottom: 1px solid rgba(160, 82, 45, 0.18);
-}
-
-.nav-dropdown-head:hover {
-  background: transparent !important;
-  color: var(--gold) !important;
-}
-
 .navbar.scrolled .nav-links > a:not(.btn-cta),
 .navbar.scrolled .nav-dropdown-trigger {
   color: #1A1A1A;
@@ -532,21 +506,70 @@ body.nav-open .navbar .logo-text-bottom {
   opacity: 0.85;
 }
 
-/* The two-column desktop layout does not fit a phone - stack the groups. */
-.nav-links.active .nav-dropdown-menu--groups {
-  display: block;
+/* The open menu owns the screen; the page behind it must not scroll away. */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* The bar takes the same glass treatment, so bar and panel read as one sheet. */
+body.nav-open .navbar,
+body:has(#bg-canvas).nav-open .navbar.scrolled {
+  background: rgba(16, 12, 8, 0.80);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
+  border-bottom-color: transparent;
+}
+
+/* Safari on older iOS and Firefox without the flag get no backdrop-filter at
+   all - there, a translucent panel would leave the links unreadable, so fall
+   back to a solid one. */
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  .nav-links.active,
+  body.nav-open .navbar,
+  body:has(#bg-canvas).nav-open .navbar.scrolled {
+    background: var(--footer-bg);
+  }
+}
+
+body.nav-open .navbar .nav-links > a:not(.btn-cta),
+body.nav-open .navbar .logo-text-top,
+body.nav-open .navbar .logo-text-bottom {
+  color: #F6EEE3;
+}
+
+/* Narrow phones: the logo, the language switcher and the menu button have to
+   share ~320px. Drop the logo's second line and tighten everything. */
+@media (max-width: 480px) {
+  .logo { gap: 8px; min-width: 0; }
+  .logo-img { height: 34px; }
+  .logo-text-bottom { display: none; }
+  .nav-right { gap: 10px; }
+  .navbar .container { padding-left: 16px; padding-right: 16px; }
+}
+
+/* Mobile menu: dropdowns expand inline (no hover on touch devices) */
+.nav-links.active .nav-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-links.active .nav-dropdown-menu {
+  position: static;
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   min-width: 0;
   padding: 0 0 0 16px;
 }
 
-.nav-links.active .nav-dropdown-group + .nav-dropdown-group {
-  margin-top: 14px;
-}
-
-.nav-links.active .nav-dropdown-head {
-  color: var(--gold-light) !important;
-  opacity: 1;
-  border-bottom-color: rgba(228, 182, 120, 0.22);
+.nav-links.active .nav-dropdown-menu a {
+  padding: 10px 0;
+  font-size: 0.9rem;
+  color: #F6EEE3 !important;
+  opacity: 0.85;
 }
 
 .nav-links.active .nav-dropdown-menu a:hover {
@@ -2885,6 +2908,101 @@ a.footer-contact-value:hover {
   padding: 0 56px;
 }
 
+/* ------------------------------------------------------------------
+   Clients & Partners - the logo rail
+   No frame and no container: two rows run the full width of the window
+   in opposite directions and dissolve into the page at both edges, so
+   the list reads as endless rather than as a boxed-in list of six.
+   The names are set as wordmarks, not chips - a border around each one
+   is what made the old version look like a table of buttons.
+   ------------------------------------------------------------------ */
+.logo-rail {
+  margin-top: clamp(40px, 6vw, 64px);
+  /* Break out of any container padding: always the full viewport width. */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+}
+
+.logo-rail-label {
+  text-align: center;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--text-muted, #8A7B6B);
+  margin-bottom: clamp(24px, 3vw, 36px);
+}
+
+.logo-rail-row {
+  overflow: hidden;
+  /* Fade the ends instead of cutting them, so the rows appear to carry on
+     past the edges of the screen. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.logo-rail-row + .logo-rail-row {
+  margin-top: clamp(14px, 2vw, 22px);
+}
+
+.logo-rail-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 6vw, 88px);
+  width: max-content;
+  /* The list is duplicated in the markup, so -50% lands exactly on the copy
+     and the loop has no visible seam. */
+  animation: logo-rail-left 46s linear infinite;
+}
+
+.logo-rail-row--reverse .logo-rail-track {
+  animation-name: logo-rail-right;
+  animation-duration: 58s;   /* a different speed keeps the rows from pairing up */
+}
+
+@keyframes logo-rail-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes logo-rail-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.logo-rail:hover .logo-rail-track {
+  animation-play-state: paused;
+}
+
+.logo-mark {
+  flex-shrink: 0;
+  font-size: clamp(1.15rem, 2.4vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: var(--text);
+  opacity: 0.38;
+  transition: opacity 0.35s ease, color 0.35s ease;
+}
+
+.logo-rail-row:hover .logo-mark {
+  opacity: 0.2;    /* the row recedes so the one under the cursor can stand out */
+}
+
+.logo-rail-row .logo-mark:hover {
+  opacity: 1;
+  color: var(--copper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-rail-track { animation: none; }
+  .logo-rail-row {
+    overflow-x: auto;          /* still reachable, just not moving on its own */
+    scrollbar-width: none;
+  }
+  .logo-rail-row::-webkit-scrollbar { display: none; }
+}
+
 .why-stage {
   position: relative;
   height: 340px;
@@ -2970,35 +3088,6 @@ a.footer-contact-value:hover {
   .why-nav { display: none; }   /* swipe instead - the arrows would crowd the card */
 }
 
-/* ------------------------------------------------------------------
-   Clients & Partners - one panel
-   Heading and logo rail used to sit on two different backgrounds, which
-   split the section into two loose halves. One card holds both.
-   ------------------------------------------------------------------ */
-.clients-panel {
-  background: var(--bg-white);
-  border: 1px solid rgba(160, 82, 45, 0.16);
-  border-radius: var(--radius-lg);
-  padding: clamp(32px, 5vw, 56px) 0 clamp(28px, 4vw, 44px);
-  overflow: hidden;   /* keeps the marquee inside the rounded corners */
-  box-shadow: 0 18px 46px rgba(122, 62, 32, 0.07);
-}
-
-.clients-panel .section-header {
-  margin-bottom: clamp(28px, 4vw, 40px);
-  padding: 0 24px;
-}
-
-.clients-panel .logos {
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.clients-panel .logos-label {
-  margin-bottom: 22px;
-}
 
 .why-card {
   background: var(--bg-white);

@@ -298,7 +298,7 @@ img {
   transition: transform 0.2s ease;
 }
 
-.nav-dropdown:hover .nav-dropdown-trigger::after {
+.nav-dropdown.is-open .nav-dropdown-trigger::after {
   transform: rotate(180deg);
 }
 
@@ -311,16 +311,17 @@ img {
   border-radius: var(--radius);
   border: 1px solid rgba(160, 82, 45, 0.2);
   box-shadow: var(--shadow-lg);
-  min-width: 200px;
-  padding: 8px 0;
+  min-width: 176px;
+  padding: 6px 0;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.2s ease;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
   z-index: 100;
 }
 
-.nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
+/* Opens on click, not on hover: script.js sets .is-open. A menu that dropped
+   open whenever the pointer crossed it kept appearing unasked. */
+.nav-dropdown.is-open .nav-dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
@@ -328,9 +329,10 @@ img {
 
 .nav-dropdown-menu a {
   display: block;
-  padding: 10px 20px;
+  padding: 8px 16px;
   color: var(--text) !important;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
   transition: var(--transition-fast);
   text-decoration: none;
 }
@@ -377,6 +379,9 @@ img {
   border: none;
   cursor: pointer;
   padding: 8px;
+  /* Never let the row squeeze this out: it is the only way to open or close
+     the menu, and on a narrow phone it was being pushed off screen entirely. */
+  flex-shrink: 0;
   min-width: 44px;
   min-height: 44px;
 }
@@ -408,10 +413,24 @@ img {
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--dark);
-  padding: 20px;
-  border-bottom: 1px solid rgba(160, 82, 45, 0.1);
+  /* Was var(--dark), which is not a variable this stylesheet defines: the
+     whole declaration was dropped and the panel rendered fully transparent,
+     leaving the menu unreadable over the page behind it. */
+  /* Frosted glass: the hero and its particle field stay visible through the
+     panel, blurred and darkened just enough to keep the links readable. */
+  background: linear-gradient(180deg, rgba(16, 12, 8, 0.80), rgba(16, 12, 8, 0.90));
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
+  padding: 20px 20px 32px;
+  border-top: 1px solid rgba(228, 182, 120, 0.18);
   gap: 16px;
+  /* Every dropdown is expanded inline, so the panel is usually taller than the
+     screen. It scrolls on its own; script.js sets max-height to the space left
+     under the navbar, which is the only way to get it exactly right across
+     breakpoints (the bar's height changes with the logo size). */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nav-links.active a {
@@ -423,7 +442,80 @@ img {
   border-bottom: none;
 }
 
-/* Mobile menu: dropdowns expand inline (no hover on touch devices) */
+/* The open menu owns the screen; the page behind it must not scroll away. */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* The bar takes the same glass treatment, so bar and panel read as one sheet. */
+body.nav-open .navbar,
+body:has(#bg-canvas).nav-open .navbar.scrolled {
+  background: rgba(16, 12, 8, 0.80);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
+  border-bottom-color: transparent;
+}
+
+/* Safari on older iOS and Firefox without the flag get no backdrop-filter at
+   all - there, a translucent panel would leave the links unreadable, so fall
+   back to a solid one. */
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  .nav-links.active,
+  body.nav-open .navbar,
+  body:has(#bg-canvas).nav-open .navbar.scrolled {
+    background: var(--footer-bg);
+  }
+}
+
+body.nav-open .navbar .nav-links > a:not(.btn-cta),
+body.nav-open .navbar .logo-text-top,
+body.nav-open .navbar .logo-text-bottom {
+  color: #F6EEE3;
+}
+
+/* The open menu owns the screen; the page behind it must not scroll away. */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* The bar takes the same glass treatment, so bar and panel read as one sheet. */
+body.nav-open .navbar,
+body:has(#bg-canvas).nav-open .navbar.scrolled {
+  background: rgba(16, 12, 8, 0.80);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
+  border-bottom-color: transparent;
+}
+
+/* Safari on older iOS and Firefox without the flag get no backdrop-filter at
+   all - there, a translucent panel would leave the links unreadable, so fall
+   back to a solid one. */
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  .nav-links.active,
+  body.nav-open .navbar,
+  body:has(#bg-canvas).nav-open .navbar.scrolled {
+    background: var(--footer-bg);
+  }
+}
+
+body.nav-open .navbar .nav-links > a:not(.btn-cta),
+body.nav-open .navbar .logo-text-top,
+body.nav-open .navbar .logo-text-bottom {
+  color: #F6EEE3;
+}
+
+/* Narrow phones: the logo, the language switcher and the menu button have to
+   share ~320px. Drop the logo's second line and tighten everything. */
+@media (max-width: 480px) {
+  .logo { gap: 8px; min-width: 0; }
+  .logo-img { height: 34px; }
+  .logo-text-bottom { display: none; }
+  .nav-right { gap: 10px; }
+  .navbar .container { padding-left: 16px; padding-right: 16px; }
+}
+
+/* Mobile menu: a dropdown expands inline, and only once it is tapped - having
+   all of them open at once made the panel several screens long. */
 .nav-links.active .nav-dropdown {
   display: flex;
   flex-direction: column;
@@ -432,13 +524,19 @@ img {
 .nav-links.active .nav-dropdown-menu {
   position: static;
   transform: none;
-  opacity: 1;
-  visibility: visible;
   background: transparent;
   border: none;
   box-shadow: none;
   min-width: 0;
   padding: 0 0 0 16px;
+  /* Collapsed by default; .is-open on the parent reveals it. */
+  display: none;
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-links.active .nav-dropdown.is-open .nav-dropdown-menu {
+  display: block;
 }
 
 .nav-links.active .nav-dropdown-menu a {
@@ -2739,6 +2837,8 @@ a.footer-contact-value:hover {
   font-weight: 800;
   color: var(--gold);
   margin-bottom: 8px;
+  /* Equal-width digits, so the number does not wobble while it counts up. */
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-label {
@@ -2768,6 +2868,200 @@ a.footer-contact-value:hover {
   gap: 32px;
   margin-top: 48px;
 }
+
+/* ------------------------------------------------------------------
+   Why Choose TopLead - circular carousel
+   The six cards ride a loop: the middle one is full size and opaque,
+   its neighbours step down in scale and fade back, like a shelf of
+   products with the current pick pulled forward. script.js sets the
+   transforms; everything here is the look and the easing.
+   ------------------------------------------------------------------ */
+.why-carousel {
+  position: relative;
+  margin-top: 48px;
+  padding: 0 56px;
+}
+
+/* ------------------------------------------------------------------
+   Clients & Partners - the logo rail
+   No frame and no container: two rows run the full width of the window
+   in opposite directions and dissolve into the page at both edges, so
+   the list reads as endless rather than as a boxed-in list of six.
+   The names are set as wordmarks, not chips - a border around each one
+   is what made the old version look like a table of buttons.
+   ------------------------------------------------------------------ */
+.logo-rail {
+  margin-top: clamp(40px, 6vw, 64px);
+  /* Break out of any container padding: always the full viewport width. */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+}
+
+.logo-rail-label {
+  text-align: center;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--text-muted, #8A7B6B);
+  margin-bottom: clamp(24px, 3vw, 36px);
+}
+
+.logo-rail-row {
+  overflow: hidden;
+  /* Fade the ends instead of cutting them, so the rows appear to carry on
+     past the edges of the screen. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.logo-rail-row + .logo-rail-row {
+  margin-top: clamp(14px, 2vw, 22px);
+}
+
+.logo-rail-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 6vw, 88px);
+  width: max-content;
+  /* The list is duplicated in the markup, so -50% lands exactly on the copy
+     and the loop has no visible seam. */
+  animation: logo-rail-left 46s linear infinite;
+}
+
+.logo-rail-row--reverse .logo-rail-track {
+  animation-name: logo-rail-right;
+  animation-duration: 58s;   /* a different speed keeps the rows from pairing up */
+}
+
+@keyframes logo-rail-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes logo-rail-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.logo-rail:hover .logo-rail-track {
+  animation-play-state: paused;
+}
+
+.logo-mark {
+  flex-shrink: 0;
+  font-size: clamp(1.15rem, 2.4vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: var(--text);
+  opacity: 0.38;
+  transition: opacity 0.35s ease, color 0.35s ease;
+}
+
+.logo-rail-row:hover .logo-mark {
+  opacity: 0.2;    /* the row recedes so the one under the cursor can stand out */
+}
+
+.logo-rail-row .logo-mark:hover {
+  opacity: 1;
+  color: var(--copper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-rail-track { animation: none; }
+  .logo-rail-row {
+    overflow-x: auto;          /* still reachable, just not moving on its own */
+    scrollbar-width: none;
+  }
+  .logo-rail-row::-webkit-scrollbar { display: none; }
+}
+
+.why-stage {
+  position: relative;
+  height: 340px;
+  /* The off-centre cards run past the edges by design; clip them so they
+     never widen the page or collide with the section padding. */
+  overflow: hidden;
+}
+
+.why-carousel .why-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(380px, 76vw);
+  margin: 0;
+  /* Set by script.js: translate(-50%, -50%) translateX(...) scale(...) */
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+              opacity 0.55s ease,
+              box-shadow 0.55s ease;
+  will-change: transform, opacity;
+}
+
+.why-carousel .why-card.is-active {
+  box-shadow: 0 24px 60px rgba(122, 62, 32, 0.22);
+  border-color: rgba(160, 82, 45, 0.35);
+}
+
+/* Only the middle card is a live target; the faded ones behind it must not
+   swallow clicks meant for the arrows. */
+.why-carousel .why-card:not(.is-active) {
+  pointer-events: none;
+}
+
+.why-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(160, 82, 45, 0.28);
+  background: var(--bg-white);
+  color: var(--copper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+}
+
+.why-nav svg { width: 20px; height: 20px; }
+.why-nav:hover { background: var(--copper); color: #fff; border-color: var(--copper); }
+.why-prev { left: 0; }
+.why-next { right: 0; }
+
+.why-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.why-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(160, 82, 45, 0.28);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.why-dot.is-active {
+  width: 26px;
+  background: var(--copper);
+}
+
+@media (max-width: 767px) {
+  .why-carousel { padding: 0 12px; }
+  .why-stage { height: 380px; }
+  .why-nav { display: none; }   /* swipe instead - the arrows would crowd the card */
+}
+
 
 .why-card {
   background: var(--bg-white);
@@ -5735,7 +6029,11 @@ body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
   border-top: none;
   padding: clamp(80px, 8vw, 112px) 0 48px;
 }
-.footer::before {
+/* Only the homepage footer rises out of a dark field, so only there does this
+   fade make sense. On the inner pages it smeared a dark band up over whatever
+   sat above it - light sections included - and the CTA bands already land on
+   the footer's exact colour, so they need no help. */
+body:has(#bg-canvas) .footer::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;

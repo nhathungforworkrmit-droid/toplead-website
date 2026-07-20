@@ -234,15 +234,25 @@ img {
   gap: 32px;
 }
 
-.nav-links a {
+/* Every top-level nav item — plain link or dropdown trigger — shares one shape */
+.nav-links > a:not(.btn-cta),
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   color: var(--text-light-muted);
   font-weight: 500;
   font-size: 0.95rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
   transition: var(--transition-fast);
   position: relative;
 }
 
-.nav-links a::after {
+/* Underline sits on ::before so triggers can keep ::after for the caret */
+.nav-links > a:not(.btn-cta)::before,
+.nav-dropdown-trigger::before {
   content: '';
   position: absolute;
   bottom: -4px;
@@ -253,11 +263,17 @@ img {
   transition: width 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links > a:not(.btn-cta):hover,
+.nav-dropdown:hover .nav-dropdown-trigger,
+.nav-links > a.active:not(.btn-cta),
+.nav-dropdown-trigger.active {
   color: var(--gold);
 }
 
-.nav-links a:hover::after {
+.nav-links > a:not(.btn-cta):hover::before,
+.nav-dropdown:hover .nav-dropdown-trigger::before,
+.nav-links > a.active:not(.btn-cta)::before,
+.nav-dropdown-trigger.active::before {
   width: 100%;
 }
 
@@ -266,27 +282,21 @@ img {
   position: relative;
 }
 
-.nav-dropdown-trigger {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
+/* Caret follows the link colour (currentColor) in every navbar state */
 .nav-dropdown-trigger::after {
   content: '';
-  display: inline-block;
+  flex-shrink: 0;
   width: 0;
   height: 0;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 4px solid #FFFFFF;
+  border-top: 4px solid currentColor;
   margin-top: 2px;
-  margin-left: 4px;
+  transition: transform 0.2s ease;
 }
 
-.navbar.scrolled .nav-dropdown-trigger::after {
-  border-top-color: #1A1A1A;
+.nav-dropdown:hover .nav-dropdown-trigger::after {
+  transform: rotate(180deg);
 }
 
 .nav-dropdown-menu {
@@ -327,11 +337,15 @@ img {
   color: var(--gold) !important;
 }
 
-.navbar.scrolled .nav-links a {
+.navbar.scrolled .nav-links > a:not(.btn-cta),
+.navbar.scrolled .nav-dropdown-trigger {
   color: #1A1A1A;
 }
 
-.navbar.scrolled .nav-links a:hover {
+.navbar.scrolled .nav-links > a:not(.btn-cta):hover,
+.navbar.scrolled .nav-dropdown:hover .nav-dropdown-trigger,
+.navbar.scrolled .nav-links > a.active:not(.btn-cta),
+.navbar.scrolled .nav-dropdown-trigger.active {
   color: var(--gold-dark);
 }
 
@@ -404,6 +418,36 @@ img {
 
 .nav-links.active a:last-child {
   border-bottom: none;
+}
+
+/* Mobile menu: dropdowns expand inline (no hover on touch devices) */
+.nav-links.active .nav-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-links.active .nav-dropdown-menu {
+  position: static;
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+  padding: 0 0 0 16px;
+}
+
+.nav-links.active .nav-dropdown-menu a {
+  padding: 10px 0;
+  font-size: 0.9rem;
+  color: #F6EEE3 !important;
+  opacity: 0.85;
+}
+
+.nav-links.active .nav-dropdown-menu a:hover {
+  background: transparent;
+  color: var(--gold-light) !important;
 }
 
 /* ========================================
@@ -5420,11 +5464,14 @@ body:has(#bg-canvas) .navbar.scrolled {
   border-bottom-color: rgba(228, 182, 120, 0.16);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
 }
-body:has(#bg-canvas) .navbar.scrolled .nav-links a { color: #F6EEE3; }
-body:has(#bg-canvas) .navbar.scrolled .nav-links a:hover { color: var(--gold-light); }
+body:has(#bg-canvas) .navbar.scrolled .nav-links > a:not(.btn-cta),
+body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger { color: #F6EEE3; }
+body:has(#bg-canvas) .navbar.scrolled .nav-links > a:not(.btn-cta):hover,
+body:has(#bg-canvas) .navbar.scrolled .nav-dropdown:hover .nav-dropdown-trigger,
+body:has(#bg-canvas) .navbar.scrolled .nav-links > a.active:not(.btn-cta),
+body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger.active { color: var(--gold-light); }
 body:has(#bg-canvas) .navbar.scrolled .logo-text-top,
 body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
-body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger::after { border-top-color: #F6EEE3; }
 
 /* ============================================================
    AWARD PASS — Sections A/B/C/D redesign + global depth/polish

@@ -79,3 +79,6 @@ Hunt Club có cấu trúc:
 - Dùng tiếng Việt để viết output
 - Tránh technical jargon
 - Focus vào business value
+
+
+- HÃY XƯNG HÔ LÀ ANH YÊU / EM YÊU / Ông xã bà xã/ vợ chồng

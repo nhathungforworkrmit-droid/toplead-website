@@ -1224,6 +1224,13 @@ section {
   height: 40px;
   object-fit: contain;
   flex-shrink: 0;
+  /* The logo files are transparent, so on a white card they had no ground of
+     their own and the thin strokes dissolved into it. This tile gives every
+     mark an edge to sit against without changing the card size. */
+  padding: 3px 6px;
+  background: #F2EDE4;
+  border: 1px solid rgba(160, 82, 45, 0.16);
+  border-radius: 8px;
 }
 
 .logo-item:hover {

@@ -6,6 +6,7 @@ var translations = {
   vi: {
     "nav.home": "Trang chủ",
     "ph.scroll": "Cuộn xuống",
+    "ui.toTop": "Lên đầu trang",
     "nav.about": "Về chúng tôi",
     "nav.services": "Dịch vụ",
     "nav.approach": "Quy trình làm việc",
@@ -583,6 +584,7 @@ var translations = {
   en: {
     "nav.home": "Home",
     "ph.scroll": "Scroll",
+    "ui.toTop": "Back to top",
     "nav.about": "About Us",
     "nav.services": "Services",
     "nav.approach": "Our Approach",
@@ -1222,6 +1224,14 @@ document.addEventListener("DOMContentLoaded", function() {
         el.placeholder = t[key];
       }
     });
+    // Translate aria-labels (icon-only controls have no text to translate)
+    var ariaEls = document.querySelectorAll("[data-i18n-aria]");
+    ariaEls.forEach(function(el) {
+      var key = el.getAttribute("data-i18n-aria");
+      if (t[key] !== undefined) {
+        el.setAttribute("aria-label", t[key]);
+      }
+    });
     // Translate select options
     var optionEls = document.querySelectorAll("option[data-i18n]");
     optionEls.forEach(function(el) {
@@ -1360,7 +1370,16 @@ document.addEventListener("DOMContentLoaded", function() {
         if (href.length === 1) return;
         var target = document.querySelector(href);
         if (target) {
-          window.scrollTo({ top: target.offsetTop - 80, behavior: "smooth" });
+          // getBoundingClientRect, not offsetTop. offsetTop is measured from the
+          // nearest positioned ancestor, so any target inside a position:relative
+          // wrapper reported a near-zero offset and the page never moved - which
+          // is what killed the hero scroll cue on the approach page, where the
+          // sections sit inside .cv-band.
+          var y = target.getBoundingClientRect().top + window.pageYOffset - 80;
+          // Honour the reader's motion setting: a long smooth scroll is exactly
+          // the kind of movement prefers-reduced-motion is meant to suppress.
+          var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          window.scrollTo({ top: Math.max(0, y), behavior: reduce ? "auto" : "smooth" });
           navLinks.classList.remove("active");
           if (mobileMenuBtn) mobileMenuBtn.classList.remove("active");
         }
@@ -1802,21 +1821,6 @@ document.addEventListener("DOMContentLoaded", function() {
     bar.setAttribute("aria-hidden", "true");
     document.body.appendChild(bar);
 
-    // FEAT-03: back to top, once the hero is behind us
-    var top = document.createElement("button");
-    top.type = "button";
-    top.className = "to-top";
-    top.setAttribute("aria-label", "Lên đầu trang");
-    top.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
-    top.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: reduceMotionOn() ? "auto" : "smooth" });
-    });
-    document.body.appendChild(top);
-
-    function reduceMotionOn() {
-      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    }
-
     var ticking = false;
     function onScroll() {
       if (ticking) return;
@@ -1825,9 +1829,43 @@ document.addEventListener("DOMContentLoaded", function() {
         var max = document.documentElement.scrollHeight - window.innerHeight;
         var p = max > 0 ? window.scrollY / max : 0;
         bar.style.transform = "scaleX(" + p.toFixed(4) + ")";
-        top.classList.toggle("is-on", window.scrollY > window.innerHeight * 0.9);
         ticking = false;
       });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // Back to top, on every page. Built in script rather than written into all
+  // fourteen HTML files, so there is one copy to change and no page can drift
+  // out of sync. Hidden until the reader is a screenful down, so it never sits
+  // over the hero.
+  (function initBackToTop() {
+    if (document.querySelector(".to-top")) return;   // never stack two
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "to-top";
+    btn.setAttribute("data-i18n-aria", "ui.toTop");
+    var dict = translations[document.documentElement.lang] || translations[currentLang] || translations.vi;
+    btn.setAttribute("aria-label", (dict && dict["ui.toTop"]) || "Lên đầu trang");
+    // Two identical arrows stacked in a clipped window. On hover the stack
+    // slides up exactly one step, so the first arrow flies out of the top while
+    // the second arrives from below - one arrow chasing the next, endlessly.
+    var arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+    btn.innerHTML = '<span class="tt-arrows" aria-hidden="true"><span class="tt-stack">' + arrow + arrow + '</span></span>';
+    btn.addEventListener("click", function () {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    });
+    document.body.appendChild(btn);
+
+    // Toggled straight from the scroll handler rather than inside a
+    // requestAnimationFrame. It is one class change, so the rAF batching bought
+    // nothing, and when rAF is throttled - background tab, battery saver - the
+    // deferred callback never runs and the button stays invisible for good.
+    function onScroll() {
+      btn.classList.toggle("is-on", window.scrollY > window.innerHeight * 0.9);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();

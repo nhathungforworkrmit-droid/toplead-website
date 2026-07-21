@@ -7216,7 +7216,65 @@ html { scroll-behavior: smooth; }
 .to-top.is-on { opacity: 1; visibility: visible; transform: none; }
 .to-top:hover { border-color: #E4B678; background: rgba(228, 182, 120, 0.14); }
 .to-top:focus-visible { outline: 2px solid #E4B678; outline-offset: 3px; }
-.to-top svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.to-top svg { width: 19px; height: 19px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* The clipped window the arrow stack slides through. Height is one arrow, so
+   only ever one is visible; the step below must equal arrow + gap. */
+.tt-arrows {
+  display: block;
+  width: 19px;
+  height: 19px;
+  overflow: hidden;
+}
+/* The window stays put and the stack slides inside it. Transforming the window
+   itself moved the clip along with the arrow, so the arrow escaped above the
+   button instead of sliding out of view. */
+.tt-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.42s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.to-top:hover .tt-stack,
+.to-top:focus-visible .tt-stack {
+  animation: none;                       /* let the transition own the transform */
+  transform: translateY(-27px);          /* 19px arrow + 8px gap */
+}
+
+/* Idle: a small hop every few seconds. Long pause between hops on purpose -
+   a constant loop in the corner of the eye reads as a bug, not as charm. */
+@keyframes ttBob {
+  0%, 86%, 100% { transform: translateY(0); }
+  90%           { transform: translateY(-4px); }
+  94%           { transform: translateY(0); }
+}
+.to-top.is-on .tt-stack { animation: ttBob 4.8s ease-in-out infinite; }
+
+/* A gold ring breathing outward, so the button reads as live rather than parked.
+   Lives on the button, not inside .tt-arrows, so the clipping does not eat it. */
+.to-top::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid rgba(228, 182, 120, 0.55);
+  opacity: 0;
+  pointer-events: none;
+}
+.to-top.is-on::after { animation: ttRing 3.4s ease-out infinite; }
+@keyframes ttRing {
+  0%        { opacity: 0.55; transform: scale(1); }
+  70%, 100% { opacity: 0;    transform: scale(1.5); }
+}
+.to-top.is-on:hover { transform: translateY(-3px); }
+.to-top.is-on:hover::after { animation-duration: 1.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .to-top.is-on .tt-stack,
+  .to-top.is-on::after { animation: none; }
+  .tt-stack { transition: none; }
+}
 
 /* ---- TIER 5: the review rail ----
    Three real Google reviews, duplicated once so the loop closes without a

@@ -1415,8 +1415,11 @@ document.addEventListener("DOMContentLoaded", function() {
     { selector: '.job-card', stagger: true },
     { selector: '.founder-card', stagger: true },
     { selector: '.stats-card', stagger: true },
-    { selector: '.pain-card', stagger: true },
-    { selector: '.logo-item', stagger: true }
+    { selector: '.pain-card', stagger: true }
+    // .logo-item is deliberately absent. It lives inside an infinite marquee, so
+    // an entrance reveal fights the loop: the strip is clipped by overflow,
+    // items outside it never intersect, and any that never fire stay at
+    // opacity 0 forever. A marquee should simply be visible.
   ];
 
   animateSelectors.forEach(function(item) {

@@ -1174,13 +1174,28 @@ section {
 }
 
 .logos-label {
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: var(--copper-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
   margin-bottom: 40px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.24em;
 }
+/* Two hairlines that fade outward, so the label reads as a title for the band
+   rather than a caption floating above it. */
+.logos-label::before,
+.logos-label::after {
+  content: "";
+  height: 1px;
+  width: clamp(40px, 12vw, 150px);
+  background: linear-gradient(90deg, transparent, var(--copper));
+  opacity: 0.5;
+}
+.logos-label::after { background: linear-gradient(90deg, var(--copper), transparent); }
 
 .logos-marquee {
   display: flex;
@@ -1206,12 +1221,16 @@ section {
   gap: 14px;
   margin-right: 40px;
   padding: 14px 26px;
-  /* Flat: the band carries the background, so the item needs no card, no border
-     and no shadow of its own. */
-  background: transparent;
-  border: none;
+  position: relative;
+  overflow: hidden;                    /* keeps the sheen inside the card */
+  /* A card one shade lighter than the sand band. Not white: white against this
+     warm ground reads as a hole punched in it. */
+  background: #FAF5EC;
+  border: 1px solid rgba(160, 82, 45, 0.22);
+  border-radius: 14px;
   box-shadow: none;
-  transition: var(--transition);
+  transition: transform 0.35s var(--cv-ease, cubic-bezier(0.22,0.61,0.36,1)),
+              border-color 0.35s ease;
   flex-shrink: 0;
   /* In full colour: the old grayscale-plus-70%-opacity treatment hid them. */
 }
@@ -1227,7 +1246,46 @@ section {
 }
 
 .logo-item:hover {
-  transform: translateY(-3px);      /* movement, not elevation */
+  transform: translateY(-3px);
+  border-color: var(--copper);
+}
+.logo-item:hover .logo-mark { transform: scale(1.08); }
+.logo-mark { transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+/* A band of light travelling across each card. Staggered by position so it
+   runs down the rail as a wave rather than flashing everywhere at once. */
+.logo-item::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -50%;
+  width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+  animation: logoSheen 7.2s ease-in-out infinite;
+}
+@keyframes logoSheen {
+  0%, 58%   { left: -50%; opacity: 0; }
+  62%       { opacity: 1; }
+  88%, 100% { left: 120%; opacity: 0; }
+}
+/* Eight steps, repeating every eight items: the marquee holds two identical
+   sets, so item n and item n+8 must carry the same delay or the loop seam
+   would show two different points of the wave. */
+.logo-item:nth-child(8n+1)::before { animation-delay: 0s; }
+.logo-item:nth-child(8n+2)::before { animation-delay: 0.42s; }
+.logo-item:nth-child(8n+3)::before { animation-delay: 0.84s; }
+.logo-item:nth-child(8n+4)::before { animation-delay: 1.26s; }
+.logo-item:nth-child(8n+5)::before { animation-delay: 1.68s; }
+.logo-item:nth-child(8n+6)::before { animation-delay: 2.1s; }
+.logo-item:nth-child(8n+7)::before { animation-delay: 2.52s; }
+.logo-item:nth-child(8n+8)::before { animation-delay: 2.94s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-item::before { animation: none; opacity: 0; }
+  .logo-item:hover .logo-mark { transform: none; }
 }
 
 .logo-text {
@@ -5907,13 +5965,14 @@ body:has(#bg-canvas) .logos { border-top: none; border-bottom: none; }
 /* Every content section becomes transparent so the shared field runs
    unbroken from top to bottom (the dark "moments" showcase/partner/
    philosophy keep their darker semi-transparent scrim for depth). */
-body:has(#bg-canvas) .founders,
-body:has(#bg-canvas) .logos,
-body:has(#bg-canvas) .contact { background: transparent; }
+body:has(#bg-canvas) .founders { background: transparent; }
+/* .logos deliberately keeps its own band. Partner logos are mostly dark marks on
+   a transparent file, so running the dark field through this strip left them
+   invisible - the one place where breaking the shared field is the right call. */
 
 /* Headings & eyebrows go light on the dark canvas */
 body:has(#bg-canvas) .section-header h2,
-body:has(#bg-canvas) .contact-info h2 { color: #F6EEE3; }
+
 body:has(#bg-canvas) .section-header p { color: #C9B8A6; }
 body:has(#bg-canvas) .section-tag {
   background: rgba(228,182,120,0.14);
@@ -5936,26 +5995,18 @@ body:has(#bg-canvas) .founder-exp li { color: #C9B8A6; }
 body:has(#bg-canvas) .founder-contact-link span { color: #C9B8A6; }
 body:has(#bg-canvas) .founder-contact-link svg { stroke: #E4B678; }
 
-/* Logo chips: cream -> subtle glass, light text */
-body:has(#bg-canvas) .logo-item {
-  background: rgba(255,255,255,0.03);
-  border-color: rgba(228,182,120,0.22);
-  filter: none;
-  opacity: 0.85;
-}
-body:has(#bg-canvas) .logo-text { color: #C9B8A6; }
-body:has(#bg-canvas) .logo-item:hover { opacity: 1; border-color: rgba(228,182,120,0.5); }
-body:has(#bg-canvas) .logo-item:hover .logo-text { color: #F6EEE3; }
-body:has(#bg-canvas) .logos-label { color: #B7A48F; }
+/* No homepage override for the logo strip: it uses the same flat band as every
+   other page. The old dark-glass chip sat at opacity 0.85, which dimmed the
+   partner marks themselves on top of hiding them against the dark field. */
 
-/* Contact: left info column goes light; the form stays a white card */
-body:has(#bg-canvas) .contact-info > p { color: #C9B8A6; }
-body:has(#bg-canvas) .contact-label { color: #B7A48F; }
-body:has(#bg-canvas) .contact-value,
-body:has(#bg-canvas) .contact-details a.contact-value { color: #E7DCCB; }
+/* Contact keeps its own light section: the dark field ran behind a white form
+   card and light text, which left the block reading as two unrelated halves. */
+
+
+
 body:has(#bg-canvas) a.contact-value:hover { color: #E4B678; }
-body:has(#bg-canvas) .contact-icon { background: rgba(228,182,120,0.12); }
-body:has(#bg-canvas) .contact-icon svg { stroke: #E4B678; }
+
+
 
 /* will-change only on the elements that actually animate on scroll */
 body:has(#bg-canvas) .animate-on-scroll { will-change: transform, opacity; }
@@ -6341,19 +6392,11 @@ body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
   border-top: none;
   padding: clamp(80px, 8vw, 112px) 0 48px;
 }
-/* Only the homepage footer rises out of a dark field, so only there does this
-   fade make sense. On the inner pages it smeared a dark band up over whatever
-   sat above it - light sections included - and the CTA bands already land on
-   the footer's exact colour, so they need no help. */
-body:has(#bg-canvas) .footer::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 120px;
-  transform: translateY(-100%);
-  background: linear-gradient(to bottom, transparent, var(--footer-bg));
-  pointer-events: none;
-}
+/* No fade above the footer anywhere now. It existed for when the homepage
+   footer rose straight out of the dark particle field; with the contact section
+   above it opaque and light, the gradient ran from transparent to near-black
+   over a pale ground and read as a grey smear. A clean edge is correct here -
+   the same as every inner page. */
 .footer-links h4 { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; }
 .footer-links a { font-size: var(--text-sm); transition: color 0.2s ease; }
 .footer-emails a {

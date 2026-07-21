@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Why SMEs Keep Losing Good Candidates to Corporations - TopLead Recruitment</title>
-  <meta name="description" content="SMEs can't out-pay corporations — but they lose on process, and that's fixable.">
+  <meta name="description" content="SMEs can't out-pay corporations - but they lose on process, and that's fixable.">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Shared 4D background engine (Three.js, CDN, deferred so it never blocks render) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="background.js"></script>
 </head>
 <body class="post-body" style="--post-accent: #2F6E6A; --post-accent-dark: #1F4F4C;">
   <div class="post-progress"><span></span></div>
@@ -35,17 +38,16 @@
             </div>
           </div>
           <div class="nav-dropdown">
-            <a href="approach.html" class="nav-dropdown-trigger" data-i18n="nav.approach">Our Approach</a>
+            <a href="approach.html" class="nav-dropdown-trigger" data-i18n="nav.approach">Quy trình làm việc</a>
             <div class="nav-dropdown-menu">
               <a href="approach.html#comparison" data-i18n="nav.compare">So sánh</a>
-              <a href="approach.html#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
-              <a href="approach.html#workflow" data-i18n="nav.workflow">Workflow</a>
+              <a href="approach.html#journey" data-i18n="nav.journey">Hành trình</a>
               <a href="approach.html#exclusive" data-i18n="nav.exclusive">Độc quyền</a>
             </div>
           </div>
           <a href="services.html" data-i18n="nav.services">Dịch vụ</a>
           <a href="jobs.html" data-i18n="nav.jobs">Việc làm</a>
-          <a href="tools.html" class="active" data-i18n="nav.tools">Tools & Content</a>
+          <a href="tools.html" class="active" data-i18n="nav.tools">Blog</a>
           <a href="contact.html" class="btn-cta" data-i18n="nav.contact">Liên hệ</a>
         </div>
         <div class="lang-switcher" id="langSwitcher">
@@ -62,9 +64,9 @@
   </nav>
 
   <article class="post">
-    <header class="post-hero ">
+    <header class="post-hero post-hero--dark">
       <div class="container">
-        <a href="tools.html" class="post-back">&larr; Tools &amp; Content</a>
+        <a href="tools.html" class="post-back">&larr; Blog</a>
         <span class="post-cat" data-i18n="b6.cat">SMEs</span>
         <h1 class="post-title" data-i18n="b6.title">Why SMEs Keep Losing Good Candidates to Corporations</h1>
         <div class="post-meta">TopLead Recruitment<span class="dot"></span>4 <span data-i18n="post.readUnit">phút đọc</span></div>
@@ -78,21 +80,21 @@
 
     <div class="post-content" data-i18n="body.b6">
       <p class="post-lead">89% doanh nghiệp SME không thể trả lương ngang tập đoàn (Employment Hero 2024), nhưng lương không phải lý do khiến họ thua.</p>
-      <p>Khoảng cách thật sự nằm ở quy trình. Thời gian trung bình từ khi đăng tin đến khi tuyển được đã lên tới 48 ngày — tăng 65% chỉ trong ba năm (BambooHR 2026). Trong khi đó, ứng viên hàng đầu rời khỏi thị trường trong vòng 10 ngày (Movement Search &amp; Delivery 2026).</p>
+      <p>Khoảng cách thật sự nằm ở quy trình. Thời gian trung bình từ khi đăng tin đến khi tuyển được đã lên tới 48 ngày - tăng 65% chỉ trong ba năm (BambooHR 2026). Trong khi đó, ứng viên hàng đầu rời khỏi thị trường trong vòng 10 ngày (Movement Search &amp; Delivery 2026).</p>
       <p>Và ứng viên nhận ra điều đó: 42% rút khỏi quá trình tuyển dụng chỉ vì việc sắp lịch quá lâu (iHire 2023). 93% quản lý tuyển dụng cũng thừa nhận quy trình chậm hơn so với hai năm trước (Robert Half 2025).</p>
       <p>Điều trớ trêu là: SME vốn đã có thứ mà ứng viên ngày nay mong muốn:</p>
       <ul>
         <li>71% người lao động nói rằng cơ hội phát triển quyết định sự hài lòng trong công việc (Gallup, trích trong COSE 2025).</li>
-        <li>39% xếp tiềm năng thăng tiến là yếu tố quan trọng nhất (Yoh 2025). Công ty nhỏ mang lại cả hai — thăng tiến nhanh hơn, va chạm rộng hơn, tiếp cận lãnh đạo trực tiếp hơn.</li>
+        <li>39% xếp tiềm năng thăng tiến là yếu tố quan trọng nhất (Yoh 2025). Công ty nhỏ mang lại cả hai - thăng tiến nhanh hơn, va chạm rộng hơn, tiếp cận lãnh đạo trực tiếp hơn.</li>
       </ul>
       <p>Nhưng phần lớn SME không bao giờ nói rõ điều này. Họ đăng những bản mô tả công việc chung chung, vận hành quy trình chậm chạp, và mất ứng viên vào tay những công ty đơn giản là ra tay trước.</p>
       <h2>Ba cách khắc phục cho SME</h2>
       <ul>
         <li><strong>Bán vị trí.</strong> Người này sẽ đảm nhận chính xác điều gì? Họ sẽ xây dựng gì? Đóng góp gì? Tất cả nên rõ ràng trong JD.</li>
-        <li><strong>Rút ngắn tiến độ.</strong> Hai vòng phỏng vấn. Một tuần. Một lời mời dứt khoát. Cho thấy lộ trình phát triển — chỉ cần một câu trả lời rõ ràng cho “12 tháng nữa vị trí này dẫn đến đâu?”.</li>
+        <li><strong>Rút ngắn tiến độ.</strong> Hai vòng phỏng vấn. Một tuần. Một lời mời dứt khoát. Cho thấy lộ trình phát triển - chỉ cần một câu trả lời rõ ràng cho “12 tháng nữa vị trí này dẫn đến đâu?”.</li>
         <li><strong>Cạnh tranh bằng cấu trúc.</strong> Tập đoàn không thắng nhờ bản chất. Họ thắng nhờ cấu trúc.</li>
       </ul>
-      <p>Tại TopLead, chúng tôi giúp các SME Việt Nam thu hẹp khoảng cách đó — ghép đúng ứng viên vào các vị trí chuyên môn trong Sales, Marketing, Tài chính, HR và Vận hành. Chúng tôi không chỉ gửi CV. Chúng tôi đảm bảo nhân tài nhìn thấy điều khiến công ty bạn đáng để gia nhập.</p>
+      <p>Tại TopLead, chúng tôi giúp các SME Việt Nam thu hẹp khoảng cách đó - ghép đúng ứng viên vào các vị trí chuyên môn trong Sales, Marketing, Tài chính, HR và Vận hành. Chúng tôi không chỉ gửi CV. Chúng tôi đảm bảo nhân tài nhìn thấy điều khiến công ty bạn đáng để gia nhập.</p>
     </div>
 
     <div class="post-end">
@@ -115,7 +117,7 @@
           <a href="index.html" class="logo">
             <img src="assets/images/logo.png" alt="TopLead" class="logo-img">
           </a>
-          <p data-i18n="footer.tagline">Kết nối đúng người với đúng doanh nghiệp — đối tác tuyển dụng có trách nhiệm.</p>
+          <p data-i18n="footer.tagline">Kết nối đúng người với đúng doanh nghiệp - đối tác tuyển dụng có trách nhiệm.</p>
           <div class="footer-social">
             <span class="footer-social-label" data-i18n="footer.follow">Theo dõi chúng tôi</span>
             <div class="footer-social-icons">
@@ -144,9 +146,9 @@
         <div class="footer-links">
           <h4 data-i18n="footer.company">Công ty</h4>
           <a href="about.html" data-i18n="footer.about">Về chúng tôi</a>
-          <a href="approach.html" data-i18n="footer.approach">Cách tiếp cận</a>
+          <a href="approach.html" data-i18n="footer.approach">Quy trình làm việc</a>
           <a href="jobs.html" data-i18n="footer.jobs">Việc làm</a>
-          <a href="tools.html" data-i18n="footer.tools">Công cụ</a>
+          <a href="tools.html" data-i18n="footer.tools">Blog</a>
           <a href="contact.html" data-i18n="footer.contact">Liên hệ</a>
         </div>
         <div class="footer-links footer-emails">

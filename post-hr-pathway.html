@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HR Pathway? Why Not? - TopLead Recruitment</title>
-  <meta name="description" content="Nobody grows up wanting to work in HR — yet the ones who stay understand a truth about leverage, culture and impact.">
+  <meta name="description" content="Nobody grows up wanting to work in HR - yet the ones who stay understand a truth about leverage, culture and impact.">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Shared 4D background engine (Three.js, CDN, deferred so it never blocks render) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="background.js"></script>
 </head>
 <body class="post-body" style="--post-accent: #A0522D; --post-accent-dark: #7A3E20;">
   <div class="post-progress"><span></span></div>
@@ -35,17 +38,16 @@
             </div>
           </div>
           <div class="nav-dropdown">
-            <a href="approach.html" class="nav-dropdown-trigger" data-i18n="nav.approach">Our Approach</a>
+            <a href="approach.html" class="nav-dropdown-trigger" data-i18n="nav.approach">Quy trình làm việc</a>
             <div class="nav-dropdown-menu">
               <a href="approach.html#comparison" data-i18n="nav.compare">So sánh</a>
-              <a href="approach.html#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
-              <a href="approach.html#workflow" data-i18n="nav.workflow">Workflow</a>
+              <a href="approach.html#journey" data-i18n="nav.journey">Hành trình</a>
               <a href="approach.html#exclusive" data-i18n="nav.exclusive">Độc quyền</a>
             </div>
           </div>
           <a href="services.html" data-i18n="nav.services">Dịch vụ</a>
           <a href="jobs.html" data-i18n="nav.jobs">Việc làm</a>
-          <a href="tools.html" class="active" data-i18n="nav.tools">Tools & Content</a>
+          <a href="tools.html" class="active" data-i18n="nav.tools">Blog</a>
           <a href="contact.html" class="btn-cta" data-i18n="nav.contact">Liên hệ</a>
         </div>
         <div class="lang-switcher" id="langSwitcher">
@@ -64,7 +66,7 @@
   <article class="post">
     <header class="post-hero post-hero--dark">
       <div class="container">
-        <a href="tools.html" class="post-back">&larr; Tools &amp; Content</a>
+        <a href="tools.html" class="post-back">&larr; Blog</a>
         <span class="post-cat" data-i18n="b1.cat">HR Career</span>
         <h1 class="post-title" data-i18n="b1.title">HR Pathway? Why Not?</h1>
         <div class="post-meta">TopLead Recruitment<span class="dot"></span>3 <span data-i18n="post.readUnit">phút đọc</span></div>
@@ -78,9 +80,9 @@
 
     <div class="post-content" data-i18n="body.b1">
       <p class="post-lead">Không ai lớn lên mà mơ ước được làm nghề HR.</p>
-      <p>Trẻ con nói bác sĩ, phi công, cầu thủ. Không ai nói “người xây dựng đội ngũ”. Vậy mà nghiên cứu cho thấy phần lớn người làm HR chưa từng dự định đi con đường này — họ tình cờ bước vào, rồi không nỡ rời đi (SHRM 2025).</p>
-      <p>Vì sao? Điều gì phân biệt người chọn công việc này với người xem thường nó? Người bỏ đi chỉ thấy chi phí. Giấy tờ, quy định, những cuộc trò chuyện chẳng ai muốn nhận. Họ muốn một nấc thang rõ ràng và một chức danh dễ đoán. Cũng dễ hiểu thôi — nhưng họ nhầm lẫn giữa khó khăn và sự vô nghĩa.</p>
-      <p>Người ở lại thì thấy đòn bẩy. Họ biết rằng 40% người làm HR bước vào ngành vì muốn phát triển tổ chức, không phải vì nghĩa vụ, và chỉ 7% xem đó là công việc lấy lương (BambooHR 2026). Họ hiểu rằng một quyết định duy nhất — tuyển ai, phát triển ai, giữ ai — sẽ lan tỏa khắp cả một công ty. Văn hóa là tài sản duy nhất đối thủ không thể sao chép, và 97% lãnh đạo HR ngày nay xem đó là ưu tiên hàng đầu (Gartner 2025).</p>
+      <p>Trẻ con nói bác sĩ, phi công, cầu thủ. Không ai nói “người xây dựng đội ngũ”. Vậy mà nghiên cứu cho thấy phần lớn người làm HR chưa từng dự định đi con đường này - họ tình cờ bước vào, rồi không nỡ rời đi (SHRM 2025).</p>
+      <p>Vì sao? Điều gì phân biệt người chọn công việc này với người xem thường nó? Người bỏ đi chỉ thấy chi phí. Giấy tờ, quy định, những cuộc trò chuyện chẳng ai muốn nhận. Họ muốn một nấc thang rõ ràng và một chức danh dễ đoán. Cũng dễ hiểu thôi - nhưng họ nhầm lẫn giữa khó khăn và sự vô nghĩa.</p>
+      <p>Người ở lại thì thấy đòn bẩy. Họ biết rằng 40% người làm HR bước vào ngành vì muốn phát triển tổ chức, không phải vì nghĩa vụ, và chỉ 7% xem đó là công việc lấy lương (BambooHR 2026). Họ hiểu rằng một quyết định duy nhất - tuyển ai, phát triển ai, giữ ai - sẽ lan tỏa khắp cả một công ty. Văn hóa là tài sản duy nhất đối thủ không thể sao chép, và 97% lãnh đạo HR ngày nay xem đó là ưu tiên hàng đầu (Gartner 2025).</p>
       <p>Đó mới là ranh giới thật sự. Không phải mềm hay cứng. Không phải an toàn hay rủi ro. Mà là bạn xem con người là chi phí phải quản lý, hay là động cơ của mọi thứ theo sau.</p>
       <p>Vậy nên hãy lựa chọn một cách có chủ đích. Đội ngũ bạn xây dựng sẽ nhớ bạn đã chọn điều gì.</p>
       <div class="post-refs"><span class="post-refs-label">Nguồn tham khảo</span><p>BambooHR (2026) The Definitive Guide to HR Career Growth. &middot; Gartner (2025), trích trong Compono (2025) Full Research: Latest HR &amp; Talent Statistics (2025). &middot; SHRM (2025) Breaking into HR Without Official Experience.</p></div>
@@ -106,7 +108,7 @@
           <a href="index.html" class="logo">
             <img src="assets/images/logo.png" alt="TopLead" class="logo-img">
           </a>
-          <p data-i18n="footer.tagline">Kết nối đúng người với đúng doanh nghiệp — đối tác tuyển dụng có trách nhiệm.</p>
+          <p data-i18n="footer.tagline">Kết nối đúng người với đúng doanh nghiệp - đối tác tuyển dụng có trách nhiệm.</p>
           <div class="footer-social">
             <span class="footer-social-label" data-i18n="footer.follow">Theo dõi chúng tôi</span>
             <div class="footer-social-icons">
@@ -135,9 +137,9 @@
         <div class="footer-links">
           <h4 data-i18n="footer.company">Công ty</h4>
           <a href="about.html" data-i18n="footer.about">Về chúng tôi</a>
-          <a href="approach.html" data-i18n="footer.approach">Cách tiếp cận</a>
+          <a href="approach.html" data-i18n="footer.approach">Quy trình làm việc</a>
           <a href="jobs.html" data-i18n="footer.jobs">Việc làm</a>
-          <a href="tools.html" data-i18n="footer.tools">Công cụ</a>
+          <a href="tools.html" data-i18n="footer.tools">Blog</a>
           <a href="contact.html" data-i18n="footer.contact">Liên hệ</a>
         </div>
         <div class="footer-links footer-emails">

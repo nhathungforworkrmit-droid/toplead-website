@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Approach - TopLead Recruitment</title>
-  <meta name="description" content="Tìm hiểu về phương pháp tuyển dụng của TopLead. So sánh Traditional Recruitment vs TopLead, Guardian Screen Process, Trustcare Framework, và Guarantee Framework.">
+  <title>Phương pháp tuyển dụng | TopLead Recruitment</title>
+  <meta name="description" content="Cách TopLead đưa doanh nghiệp và ứng viên gặp nhau: so sánh với tuyển dụng truyền thống, hành trình 6 bước từ brief đến hết bảo hành, và ba lớp bảo vệ - Guardian Screen 5 lớp, Trustcare, bảo hành 3 tháng.">
+  <link rel="canonical" href="https://topleadrecruit.com/approach.html">
+  <meta property="og:title" content="Phương pháp tuyển dụng | TopLead Recruitment">
+  <meta property="og:description" content="So sánh tuyển dụng truyền thống với TopLead. Hành trình 6 bước, Guardian Screen 5 lớp, bảo hành 3 tháng.">
+  <meta property="og:image" content="https://topleadrecruit.com/assets/approach/toplead.jpg">
+  <meta property="og:url" content="https://topleadrecruit.com/approach.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +20,10 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script defer src="background.js"></script>
 </head>
-<body>
+<body class="no-js">
+  <noscript>
+    <p class="noscript-note">Trang đang chạy không có JavaScript: mọi nội dung vẫn hiển thị đầy đủ, chỉ các thao tác kéo và mở rộng là không dùng được.</p>
+  </noscript>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
@@ -37,17 +47,16 @@
             </div>
           </div>
           <div class="nav-dropdown">
-            <a href="approach.html" class="nav-dropdown-trigger active" data-i18n="nav.approach">Our Approach</a>
+            <a href="approach.html" class="nav-dropdown-trigger active" data-i18n="nav.approach">Quy trình làm việc</a>
             <div class="nav-dropdown-menu">
               <a href="approach.html#comparison" data-i18n="nav.compare">So sánh</a>
-              <a href="approach.html#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
-              <a href="approach.html#workflow" data-i18n="nav.workflow">Workflow</a>
+              <a href="approach.html#journey" data-i18n="nav.journey">Hành trình</a>
               <a href="approach.html#exclusive" data-i18n="nav.exclusive">Độc quyền</a>
             </div>
           </div>
           <a href="services.html" data-i18n="nav.services">Dịch vụ</a>
           <a href="jobs.html" data-i18n="nav.jobs">Việc làm</a>
-          <a href="tools.html" data-i18n="nav.tools">Tools & Content</a>
+          <a href="tools.html" data-i18n="nav.tools">Blog</a>
           <a href="contact.html" class="btn-cta" data-i18n="nav.contact">Liên hệ</a>
         </div>
         <div class="lang-switcher" id="langSwitcher">
@@ -70,290 +79,474 @@
       <div class="hero-circle circle-2"></div>
     </div>
     <div class="container">
-      <h1 class="page-hero-title" data-i18n="nav.approach">Our Approach</h1>
-      <p class="page-hero-subtitle" data-i18n="approach.hero.subtitle">Phương pháp tuyển dụng độc đáo của TopLead</p>
+      <div class="ph-inner">
+        <nav class="ph-crumb" aria-label="Breadcrumb">
+          <a href="index.html" data-i18n="nav.home">Trang chủ</a>
+          <span class="ph-crumb-sep" aria-hidden="true">/</span>
+          <span aria-current="page" data-i18n="nav.approach">Quy trình làm việc</span>
+        </nav>
+        <h1 class="page-hero-title" data-i18n="nav.approach">Quy trình làm việc</h1>
+        <p class="page-hero-subtitle" data-i18n="approach.hero.subtitle">Phương pháp tuyển dụng độc đáo của TopLead</p>
+      </div>
     </div>
+    <a class="ph-scroll" href="#comparison">
+      <span class="ph-scroll-label" data-i18n="ph.scroll">Cuộn xuống</span>
+      <span class="ph-scroll-line" aria-hidden="true"></span>
+    </a>
   </section>
 
-  <!-- So sánh Traditional vs TopLead -->
-  <section class="comparison" id="comparison">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="approach.compare.tag">So sánh</span>
-        <h2 data-i18n="approach.compare.title">Traditional Recruitment vs TopLead</h2>
-        <p data-i18n="approach.compare.subtitle">Sự khác biệt rõ rệt trong cách tiếp cận tuyển dụng</p>
-      </div>
-      <div class="comparison-grid">
-        <div class="comparison-traditional">
-          <h3 data-i18n="ap.tradTitle">Traditional Recruitment</h3>
-          <ul class="comparison-list">
-            <li>
-              <span class="comparison-icon">❌</span>
-              <div>
-                <strong data-i18n="ap.t1">Đăng tin chờ ứng viên</strong>
-                <p data-i18n="ap.t1d">Chờ ứng viên nộp CV, không chủ động tìm kiếm</p>
-              </div>
+  <div class="cv-band">
+    <!-- SECTION 1 - Convergence: two flows, one broken, one continuous -->
+    <section class="cv cv-compare" id="comparison">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="approach.compare.tag">So sánh</span>
+          <h2 data-i18n="cmp.title">Hai cách để hai bên gặp nhau</h2>
+          <p data-i18n="cmp.sub">Kéo thanh ở giữa để chuyển trọng tâm giữa hai cách làm.</p>
+        </div>
+
+        <div class="cmp-stage" id="cmpStage">
+          <div class="cmp-art" aria-hidden="true">
+            <figure class="cmp-fig cmp-fig--trad">
+              <img src="assets/approach/trad.jpg" alt="" loading="lazy" decoding="async">
+            </figure>
+            <figure class="cmp-fig cmp-fig--tl">
+              <img src="assets/approach/toplead.jpg" alt="" loading="lazy" decoding="async">
+            </figure>
+          </div>
+
+          <div class="cmp-heads">
+            <h3 class="cmp-head cmp-head--trad" data-i18n="cmp.trad">Tuyển dụng truyền thống</h3>
+            <h3 class="cmp-head cmp-head--tl" data-i18n="cmp.tl">TopLead Recruitment Co. Ltd.</h3>
+          </div>
+
+          <ul class="cmp-rows">
+            <li class="cmp-row" style="--i:0">
+              <p class="cmp-cell cmp-cell--trad"><span data-i18n="ap.t1">Đăng tin, chờ ứng viên đến</span><span class="cmp-detail cmp-detail--trad" data-i18n="ap.t1.x">Phụ thuộc vào lượng CV tự đến - chất lượng không kiểm soát được, thời gian không dự đoán được.</span></p>
+              <p class="cmp-cell cmp-cell--tl"><span class="cmp-mark" aria-hidden="true"></span><span data-i18n="ap.l1">Chủ động headhunt - không chờ</span><span class="cmp-detail cmp-detail--tl" data-i18n="ap.l1.x">Chủ động tiếp cận từ database, referral network, và headhunt trực tiếp trên LinkedIn.</span></p>
             </li>
-            <li>
-              <span class="comparison-icon">❌</span>
-              <div>
-                <strong data-i18n="ap.t2">Lọc sơ bộ</strong>
-                <p data-i18n="ap.t2d">CV được lọc qua keyword, không đánh giá sâu</p>
-              </div>
+            <li class="cmp-row" style="--i:1">
+              <p class="cmp-cell cmp-cell--trad"><span data-i18n="ap.t2">CV lọc bằng keyword</span><span class="cmp-detail cmp-detail--trad" data-i18n="ap.t2.x">CV lọc bằng từ khóa tự động - bỏ sót người giỏi không dùng đúng keyword, giữ lại người biết viết CV cho máy đọc.</span></p>
+              <p class="cmp-cell cmp-cell--tl"><span class="cmp-mark" aria-hidden="true"></span><a href="#exclusive"><span data-i18n="ap.l2">Guardian Screen - quy trình 5 lớp riêng của TopLead</span><span class="cmp-detail cmp-detail--tl" data-i18n="ap.l2.x">Năm lớp sàng lọc thật: kỹ năng, phỏng vấn, văn hóa, tham chiếu, duyệt cuối. Từ 80 ứng viên chỉ còn 3.</span></a></p>
             </li>
-            <li>
-              <span class="comparison-icon">❌</span>
-              <div>
-                <strong data-i18n="ap.t3">Không check reference</strong>
-                <p data-i18n="ap.t3d">Ít khi kiểm tra background thực tế</p>
-              </div>
+            <li class="cmp-row" style="--i:2">
+              <p class="cmp-cell cmp-cell--trad"><span data-i18n="ap.t3">Reference check hình thức</span><span class="cmp-detail cmp-detail--trad" data-i18n="ap.t3.x">Gọi một reference cho có thủ tục - thường là người ứng viên tự chọn, không phản ánh thực tế.</span></p>
+              <p class="cmp-cell cmp-cell--tl"><span class="cmp-mark" aria-hidden="true"></span><span data-i18n="ap.l3">3+ reference call sâu trước mỗi shortlist</span><span class="cmp-detail cmp-detail--tl" data-i18n="ap.l3.x">Gọi tối thiểu 3 references do TopLead chọn - hỏi sâu về hiệu suất, thái độ làm việc, và lý do nghỉ thật sự.</span></p>
             </li>
-            <li>
-              <span class="comparison-icon">❌</span>
-              <div>
-                <strong data-i18n="ap.t4">Không bảo hành</strong>
-                <p data-i18n="ap.t4d">Không hỗ trợ nếu ứng viên nghỉ sớm</p>
-              </div>
+            <li class="cmp-row" style="--i:3">
+              <p class="cmp-cell cmp-cell--trad"><span data-i18n="ap.t4">Không cam kết sau tuyển</span><span class="cmp-detail cmp-detail--trad" data-i18n="ap.t4.x">Ứng viên nghỉ sau hai tuần? Đó là việc của bạn - phí đã thu xong rồi.</span></p>
+              <p class="cmp-cell cmp-cell--tl"><span class="cmp-mark" aria-hidden="true"></span><span data-i18n="ap.l4">Bảo hành 3 tháng - thay thế miễn phí</span><span class="cmp-detail cmp-detail--tl" data-i18n="ap.l4.x">90 ngày theo dõi chủ động. Không phù hợp trong 3 tháng thì thay thế miễn phí, không phát sinh chi phí.</span></p>
             </li>
-            <li>
-              <span class="comparison-icon">❌</span>
-              <div>
-                <strong data-i18n="ap.t5">Thời gian dài</strong>
-                <p data-i18n="ap.t5d">Mất 2-3 tháng để fill một vị trí</p>
-              </div>
+            <li class="cmp-row" style="--i:4">
+              <p class="cmp-cell cmp-cell--trad"><span data-i18n="ap.t5">Fill role trong 2-3 tháng</span><span class="cmp-detail cmp-detail--trad" data-i18n="ap.t5.x">Từ lúc đăng tin đến lúc có người nhận offer thường mất 45-90 ngày. Ghế trống càng lâu, chi phí ẩn càng lớn.</span></p>
+              <p class="cmp-cell cmp-cell--tl"><span class="cmp-mark" aria-hidden="true"></span><span data-i18n="ap.l5">Shortlist 48 giờ, fill 2-4 tuần</span><span class="cmp-detail cmp-detail--tl" data-i18n="ap.l5.x">Shortlist 3-5 hồ sơ trong 48 giờ đầu. Phỏng vấn ngay tuần đầu. Trung bình 2-4 tuần là có người.</span></p>
             </li>
           </ul>
-        </div>
-        <div class="comparison-toplead">
-          <h3>TopLead</h3>
-          <ul class="comparison-list">
-            <li>
-              <span class="comparison-icon">✅</span>
-              <div>
-                <strong data-i18n="ap.l1">Chủ động tìm kiếm</strong>
-                <p data-i18n="ap.l1d">Proactive search, tiếp cận ứng viên tiềm năng</p>
-              </div>
-            </li>
-            <li>
-              <span class="comparison-icon">✅</span>
-              <div>
-                <strong data-i18n="ap.l2">Sàng lọc 5 bước</strong>
-                <p data-i18n="ap.l2d">Guardian Screen Process với 5 vòng kiểm tra</p>
-              </div>
-            </li>
-            <li>
-              <span class="comparison-icon">✅</span>
-              <div>
-                <strong data-i18n="ap.l3">Deep Reference Check</strong>
-                <p data-i18n="ap.l3d">Kiểm tra 3+ references trước khi giới thiệu</p>
-              </div>
-            </li>
-            <li>
-              <span class="comparison-icon">✅</span>
-              <div>
-                <strong data-i18n="ap.l4">Clear Guarantee</strong>
-                <p data-i18n="ap.l4d">Miễn phí thay thế trong 3 tháng</p>
-              </div>
-            </li>
-            <li>
-              <span class="comparison-icon">✅</span>
-              <div>
-                <strong data-i18n="ap.l5">Nhanh 48h</strong>
-                <p data-i18n="ap.l5d">Gửi hồ sơ trong 48 giờ, interview trong tuần đầu</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Độc quyền -->
-  <section class="exclusive-section" id="exclusive">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="approach.exclusive.tag">Độc quyền</span>
-        <h2 data-i18n="approach.exclusive.title">3 Đặc trưng của TopLead</h2>
-        <p data-i18n="approach.exclusive.subtitle">Những quy trình và cam kết riêng có của TopLead</p>
-      </div>
-      <div class="exclusive-grid">
-        <div class="exclusive-card" id="guardian">
-          <div class="exclusive-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
+          <div class="cmp-divider" id="cmpDivider" role="slider" tabindex="0"
+               aria-label="So sánh Traditional và TopLead"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50%">
+            <span class="cmp-grip" aria-hidden="true"></span>
+            <span class="cmp-hint" aria-hidden="true" data-i18n="cmp.hint">Kéo về giữa để so sánh</span>
           </div>
-          <h3 data-i18n="approach.guardian.title">Guardian Screen</h3>
-          <p data-i18n="approach.guardian.desc">Quy trình sàng lọc 5 bước đảm bảo chất lượng ứng viên</p>
         </div>
-        <div class="exclusive-card" id="trustcare">
-          <div class="exclusive-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <h3 data-i18n="approach.trustcare.title">Trustcare</h3>
-          <p data-i18n="approach.trustcare.desc">Cam kết chất lượng dựa trên 3 trụ cột minh bạch</p>
-        </div>
-        <div class="exclusive-card" id="guarantee">
-          <div class="exclusive-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              <polyline points="9 12 12 15 22 5"/>
-            </svg>
-          </div>
-          <h3 data-i18n="approach.guarantee.title">Guarantee</h3>
-          <p data-i18n="approach.guarantee.desc">3 tháng bảo hành thay thế miễn phí</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- How It Works -->
-  <section class="how-it-works" id="how-it-works">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="approach.howitworks.tag">Process</span>
-        <h2 data-i18n="approach.howitworks.title">How It Works</h2>
-        <p data-i18n="approach.howitworks.subtitle">Quy trình 6 bước để tìm đúng người cho đúng vị trí</p>
+        <p class="cmp-cta">
+          <span data-i18n="cmp.cta">Muốn biết quy trình cụ thể? Kéo xuống - hoặc</span>
+          <a href="contact.html" data-i18n="cmp.ctaLink">liên hệ ngay</a>
+        </p>
       </div>
-      <div class="steps-grid">
-        <div class="step-item">
-          <div class="step-number">01</div>
-          <h3 data-i18n="ap.step1">Consultation</h3>
-          <p data-i18n="ap.s1">Tìm hiểu nhu cầu, văn hóa công ty và yêu cầu chi tiết</p>
-        </div>
-        <div class="step-item">
-          <div class="step-number">02</div>
-          <h3 data-i18n="ap.step2">Sourcing</h3>
-          <p data-i18n="ap.s2">Chủ động tìm kiếm và tiếp cận ứng viên phù hợp</p>
-        </div>
-        <div class="step-item">
-          <div class="step-number">03</div>
-          <h3 data-i18n="ap.step3">Screening</h3>
-          <p data-i18n="ap.s3">Áp dụng Guardian Screen Process - sàng lọc 5 bước</p>
-        </div>
-        <div class="step-item">
-          <div class="step-number">04</div>
-          <h3 data-i18n="ap.step4">Presentation</h3>
-          <p data-i18n="ap.s4">Gửi top 3-5 hồ sơ đã lọc trong 48 giờ</p>
-        </div>
-        <div class="step-item">
-          <div class="step-number">05</div>
-          <h3 data-i18n="ap.step5">Interview</h3>
-          <p data-i18n="ap.s5">Hỗ trợ sắp xếp interview và feedback</p>
-        </div>
-        <div class="step-item">
-          <div class="step-number">06</div>
-          <h3 data-i18n="ap.step6">Placement</h3>
-          <p data-i18n="ap.s6">Onboarding support và bảo hành 3 tháng</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Workflow Process -->
-  <section class="workflow" id="workflow">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="approach.workflow.tag">Workflow</span>
-        <h2 data-i18n="approach.workflow.title">Quy trình làm việc</h2>
-        <p data-i18n="approach.workflow.subtitle">Công khai - Minh bạch - Hiệu quả</p>
-      </div>
-      <div class="workflow-timeline">
-        <div class="workflow-step">
-          <div class="workflow-icon">📋</div>
-          <div class="workflow-content">
-            <h4 data-i18n="ap.w1">Bước 1: Brief</h4>
-            <p data-i18n="ap.w1d">Call với khách hàng để hiểu JD, budget, timeline, văn hóa công ty</p>
-          </div>
+    <!-- SECTION 2 - Convergence: the gap closes step by step -->
+    <section class="cv cv-journey" id="journey">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="jr.tag">Hành trình</span>
+          <h2 data-i18n="jr.title">Hành trình 6 bước</h2>
+          <p data-i18n="jr.sub">Từ lúc nhận brief đến khi ứng viên qua thời gian bảo hành</p>
         </div>
-        <div class="workflow-arrow">→</div>
-        <div class="workflow-step">
-          <div class="workflow-icon">🔍</div>
-          <div class="workflow-content">
-            <h4 data-i18n="ap.w2">Bước 2: Search</h4>
-            <p data-i18n="ap.w2d">Database + Proactive search + Headhunting</p>
-          </div>
-        </div>
-        <div class="workflow-arrow">→</div>
-        <div class="workflow-step">
-          <div class="workflow-icon">✅</div>
-          <div class="workflow-content">
-            <h4 data-i18n="ap.w3">Bước 3: Screen</h4>
-            <p data-i18n="ap.w3d">Guardian Screen - lọc 5 bước</p>
-          </div>
-        </div>
-        <div class="workflow-arrow">→</div>
-        <div class="workflow-step">
-          <div class="workflow-icon">📤</div>
-          <div class="workflow-content">
-            <h4 data-i18n="ap.w4">Bước 4: Present</h4>
-            <p data-i18n="ap.w4d">Gửi CV + interview notes trong 48h</p>
-          </div>
-        </div>
-        <div class="workflow-arrow">→</div>
-        <div class="workflow-step">
-          <div class="workflow-icon">🎯</div>
-          <div class="workflow-content">
-            <h4 data-i18n="ap.w5">Bước 5: Interview</h4>
-            <p data-i18n="ap.w5d">Coordinate + feedback loop</p>
-          </div>
-        </div>
-        <div class="workflow-arrow">→</div>
-        <div class="workflow-step">
-          <div class="workflow-icon">🚀</div>
-          <div class="workflow-content">
-            <h4 data-i18n="ap.w6">Bước 6: Close</h4>
-            <p data-i18n="ap.w6d">Offer + onboarding + guarantee</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-
-  <!-- Partner Testimonials -->
-  <section class="partner-testimonials">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="approach.testimonials.tag">Đánh giá</span>
-        <h2 data-i18n="approach.testimonials.title">Đối tác nói gì về TopLead</h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p class="testimonial-text" data-i18n="ap.q1">“Mình rất hài lòng với dịch vụ tư vấn của TopLead. Đội ngũ rất chuyên nghiệp, hỗ trợ tận tâm và đưa ra những lời khuyên hữu ích cho lộ trình nghề nghiệp của mình. Rất đáng tin cậy!”</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">MA</div>
-            <div class="author-info">
-              <div class="author-name">Minh Anh</div>
-              <div class="author-title" data-i18n="tst.google">Đánh giá 5★ trên Google</div>
+        <div class="jr-steps">
+          <article class="jr-step" style="--i:0" data-step="01">
+            <figure class="jr-photo">
+              <img src="assets/journey/step1.jpg" alt="Tư vấn: hai người trao đổi nhu cầu tuyển dụng bên bàn làm việc" loading="eager" fetchpriority="high" decoding="async">
+            </figure>
+            <div class="jr-body">
+              <p class="jr-num" aria-hidden="true">01</p>
+              <h3 data-i18n="ap.step1">Tư vấn</h3>
+              <p class="jr-chip" data-i18n="jr.time1">Ngày 1</p>
+              <p class="jr-desc" data-i18n="ap.s1">Tìm hiểu nhu cầu tuyển dụng, văn hóa công ty, và yêu cầu chi tiết cho vị trí</p>
+              <p class="jr-deliv"><span class="jr-deliv-lbl" data-i18n="jr.youGet">Bạn nhận được</span><span data-i18n="jr.dl1">Tài liệu brief - nhu cầu, ngân sách, thời hạn, văn hóa công ty</span></p>
             </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-text" data-i18n="ap.q2">“Sau khi nhận việc, agency vẫn hỏi thăm và hỗ trợ trong suốt thời gian thử việc.”</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">TH</div>
-            <div class="author-info">
-              <div class="author-name">Thanh Hà</div>
-              <div class="author-title" data-i18n="tst.google">Đánh giá 5★ trên Google</div>
+          </article>
+          <article class="jr-step" style="--i:1" data-step="02">
+            <figure class="jr-photo">
+              <img src="assets/journey/step2.jpg" alt="Tìm kiếm: chuyên viên rà soát hồ sơ và gọi điện tiếp cận ứng viên" loading="lazy" decoding="async">
+            </figure>
+            <div class="jr-body">
+              <p class="jr-num" aria-hidden="true">02</p>
+              <h3 data-i18n="ap.step2">Tìm kiếm</h3>
+              <p class="jr-chip" data-i18n="jr.time2">Ngày 2-5</p>
+              <p class="jr-desc" data-i18n="ap.s2">Chủ động headhunt và tiếp cận ứng viên phù hợp từ database, referral, và thị trường</p>
+              <p class="jr-deliv"><span class="jr-deliv-lbl" data-i18n="jr.youGet">Bạn nhận được</span><span data-i18n="jr.dl2">Long list 15-25 ứng viên tiềm năng</span></p>
             </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-text" data-i18n="ap.q3">“Em đã có job thông qua TopLead, bạn Cường cũng vậy, bạn Quân cũng thế. Bạn Hiếu rồi cũng sẽ qua!”</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">TN</div>
-            <div class="author-info">
-              <div class="author-name">Tiến Nam Dương</div>
-              <div class="author-title" data-i18n="tst.google">Đánh giá 5★ trên Google</div>
+          </article>
+          <article class="jr-step" style="--i:2" data-step="03">
+            <figure class="jr-photo">
+              <img src="assets/journey/step3.jpg" alt="Sàng lọc: phân loại hồ sơ in ra thành từng nhóm" loading="lazy" decoding="async">
+            </figure>
+            <div class="jr-body">
+              <p class="jr-num" aria-hidden="true">03</p>
+              <h3 data-i18n="ap.step3">Sàng lọc</h3>
+              <p class="jr-chip" data-i18n="jr.time3">Ngày 3-7</p>
+              <p class="jr-desc" data-i18n="ap.s3">Áp dụng Guardian Screen - quy trình 5 lớp sàng lọc riêng của TopLead</p>
+              <p class="jr-deliv"><span class="jr-deliv-lbl" data-i18n="jr.youGet">Bạn nhận được</span><span data-i18n="jr.dl3">Kết quả Guardian Screen - chi tiết pass/fail từng lớp</span></p>
             </div>
-          </div>
+          </article>
+          <article class="jr-step" style="--i:3" data-step="04">
+            <figure class="jr-photo">
+              <img src="assets/journey/step4.jpg" alt="Trình hồ sơ: hai đồng nghiệp cùng xem shortlist trên laptop" loading="lazy" decoding="async">
+            </figure>
+            <div class="jr-body">
+              <p class="jr-num" aria-hidden="true">04</p>
+              <h3 data-i18n="ap.step4">Trình hồ sơ</h3>
+              <p class="jr-chip" data-i18n="jr.time4">Ngày 5-7</p>
+              <p class="jr-desc" data-i18n="ap.s4">Gửi 3-5 hồ sơ đã sàng lọc kỹ kèm interview notes</p>
+              <p class="jr-deliv"><span class="jr-deliv-lbl" data-i18n="jr.youGet">Bạn nhận được</span><span data-i18n="jr.dl4">Shortlist 3-5 CV trong 48 giờ</span></p>
+            </div>
+          </article>
+          <article class="jr-step" style="--i:4" data-step="05">
+            <figure class="jr-photo">
+              <img src="assets/journey/step5.jpg" alt="Phỏng vấn: buổi phỏng vấn trong phòng họp" loading="lazy" decoding="async">
+            </figure>
+            <div class="jr-body">
+              <p class="jr-num" aria-hidden="true">05</p>
+              <h3 data-i18n="ap.step5">Phỏng vấn</h3>
+              <p class="jr-chip" data-i18n="jr.time5">Tuần 2</p>
+              <p class="jr-desc" data-i18n="ap.s5">Hỗ trợ sắp xếp lịch phỏng vấn và thu thập feedback hai chiều</p>
+              <p class="jr-deliv"><span class="jr-deliv-lbl" data-i18n="jr.youGet">Bạn nhận được</span><span data-i18n="jr.dl5">Điều phối phỏng vấn và báo cáo feedback hai chiều</span></p>
+            </div>
+          </article>
+          <article class="jr-step" style="--i:5" data-step="06">
+            <figure class="jr-photo">
+              <img src="assets/journey/step6.jpg" alt="Tuyển dụng: ngày đầu đi làm của nhân sự mới" loading="lazy" decoding="async">
+            </figure>
+            <div class="jr-body">
+              <p class="jr-num" aria-hidden="true">06</p>
+              <h3 data-i18n="ap.step6">Tuyển dụng</h3>
+              <p class="jr-chip" data-i18n="jr.time6">Tháng 1-3</p>
+              <p class="jr-desc" data-i18n="ap.s6">Hỗ trợ onboarding và theo dõi trong suốt thời gian bảo hành</p>
+              <p class="jr-deliv"><span class="jr-deliv-lbl" data-i18n="jr.youGet">Bạn nhận được</span><span data-i18n="jr.dl6">Hỗ trợ offer, onboarding, và bảo hành 3 tháng</span></p>
+            </div>
+          </article>
+        </div>
+
+        <div class="jr-meet">
+          <svg class="jr-meet-svg" viewBox="0 0 640 130" role="img" aria-labelledby="jrMeetTitle">
+            <title id="jrMeetTitle">Hai luồng gặp nhau</title>
+            <desc>Doanh nghiệp và ứng viên đi từ hai phía và gặp nhau ở cuối hành trình.</desc>
+            <defs>
+              <radialGradient id="jrGlow">
+                <stop offset="0%" stop-color="#F0D2A0" stop-opacity="0.7"/>
+                <stop offset="55%" stop-color="#E4B678" stop-opacity="0.16"/>
+                <stop offset="100%" stop-color="#E4B678" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="320" cy="96" r="62" fill="url(#jrGlow)"/>
+            <path class="jr-mcurve" d="M8 12 C 190 12, 250 78, 320 96"/>
+            <path class="jr-mcurve" d="M632 12 C 450 12, 390 78, 320 96"/>
+            <circle class="jr-mdot" cx="320" cy="96" r="6"/>
+          </svg>
+          <p class="jr-meet-l" data-i18n="jr.meet">Điểm gặp nhau</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- SECTION 3 - Convergence: what guards the join -->
+    <section class="cv cv-exclusive" id="exclusive">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="approach.exclusive.tag">Độc quyền</span>
+          <h2 data-i18n="approach.exclusive.title">3 Đặc trưng của TopLead</h2>
+          <p data-i18n="approach.exclusive.subtitle">Những quy trình và cam kết riêng có của TopLead</p>
+        </div>
+
+        <div class="ex-stack">
+          <!-- V-01 Guardian Screen -->
+          <article class="ex-card" style="--i:0" id="guardian" data-phase="1" data-vault="guardian">
+            <div class="ex-visual">
+              <svg viewBox="0 0 240 210" class="ex-mini" aria-hidden="true">
+                <rect class="ex-fb" x="20" y="16"  width="200" height="20" rx="10" style="--o:1"/>
+                <rect class="ex-fb" x="57" y="46"  width="126" height="20" rx="10" style="--o:.86"/>
+                <rect class="ex-fb" x="82" y="76"  width="76"  height="20" rx="10" style="--o:.74"/>
+                <rect class="ex-fb" x="100" y="106" width="40" height="20" rx="10" style="--o:.64"/>
+                <rect class="ex-fb" x="105" y="136" width="30" height="20" rx="10" style="--o:.56"/>
+                <rect class="ex-fb ex-fb--out" x="112" y="166" width="16" height="20" rx="8" style="--o:1"/>
+                <text class="ex-mini-a" x="120" y="31">80</text>
+                <text class="ex-mini-b" x="120" y="181">3</text>
+              </svg>
+            </div>
+            <div class="ex-body">
+              <p class="ex-role" data-i18n="ex.g.role">Bộ lọc đầu vào - ai được bước lên hành trình</p>
+              <h3 data-i18n="approach.guardian.title">Guardian Screen</h3>
+              <p class="ex-sub" data-i18n="ex.g.sub">Quy trình 5 lớp sàng lọc</p>
+              <p class="ex-summary" data-i18n="ex.g.summary">Từ 80 ứng viên đầu vào, chỉ 3 hồ sơ đến tay khách hàng - khoảng 4% đi hết cả năm lớp.</p>
+              <button class="ex-toggle" type="button" aria-expanded="false" aria-controls="exPanelGuardian">
+                <span data-i18n="ex.more">Xem chi tiết</span>
+              </button>
+            </div>
+            <div class="ex-panel" id="exPanelGuardian" hidden>
+              <button class="ex-close" type="button" aria-label="Đóng"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button>
+              <ol class="ex-funnel">
+                <li style="--w:100%" aria-label="Lớp 1: Năng lực và kinh nghiệm. 80 ứng viên vào, 30 ứng viên ra, khoảng 40 phần trăm vượt qua."><span class="ex-l-name" data-i18n="ex.g.l1">Lớp 1: Năng lực &amp; kinh nghiệm</span><span class="ex-l-num">80 <i>&rarr;</i> 30</span><span class="ex-l-pct">~40% pass</span><span class="ex-l-desc" data-i18n="ex.g.l1d">Kỹ năng chuyên môn, số năm kinh nghiệm, mức độ phù hợp với ngành, lộ trình nghề nghiệp</span></li>
+                <li style="--w:74%" aria-label="Lớp 2: Phỏng vấn sàng lọc. 30 ứng viên vào, 15 ứng viên ra, khoảng 50 phần trăm vượt qua."><span class="ex-l-name" data-i18n="ex.g.l2">Lớp 2: Phỏng vấn sàng lọc</span><span class="ex-l-num">30 <i>&rarr;</i> 15</span><span class="ex-l-pct">~50% pass</span><span class="ex-l-desc" data-i18n="ex.g.l2d">Kỹ năng giao tiếp, động lực làm việc, kỳ vọng lương, thời gian sẵn sàng</span></li>
+                <li style="--w:56%" aria-label="Lớp 3: Tương thích văn hóa. 15 ứng viên vào, 8 ứng viên ra, khoảng 55 phần trăm vượt qua."><span class="ex-l-name" data-i18n="ex.g.l3">Lớp 3: Tương thích văn hóa</span><span class="ex-l-num">15 <i>&rarr;</i> 8</span><span class="ex-l-pct">~55% pass</span><span class="ex-l-desc" data-i18n="ex.g.l3d">Phong cách làm việc, sở thích quản lý, sự phù hợp với giá trị và văn hóa doanh nghiệp</span></li>
+                <li style="--w:40%" aria-label="Lớp 4: Xác minh tham chiếu. 8 ứng viên vào, 6 ứng viên ra, khoảng 75 phần trăm vượt qua."><span class="ex-l-name" data-i18n="ex.g.l4">Lớp 4: Xác minh tham chiếu</span><span class="ex-l-num">8 <i>&rarr;</i> 6</span><span class="ex-l-pct">~75% pass</span><span class="ex-l-desc" data-i18n="ex.g.l4d">3+ cuộc gọi tham chiếu - lịch sử hiệu suất, thái độ làm việc, lý do nghỉ việc thực tế</span></li>
+                <li style="--w:28%" aria-label="Lớp 5: Duyệt cuối và shortlist. 6 ứng viên vào, 3 ứng viên ra, khoảng 50 phần trăm vượt qua."><span class="ex-l-name" data-i18n="ex.g.l5">Lớp 5: Duyệt cuối &amp; shortlist</span><span class="ex-l-num">6 <i>&rarr;</i> 3</span><span class="ex-l-pct">~50% pass</span><span class="ex-l-desc" data-i18n="ex.g.l5d">Hội đồng TopLead đánh giá toàn diện hồ sơ, chọn top 3 gửi khách hàng</span></li>
+              </ol>
+              <p class="ex-note" data-i18n="ex.g.note">Chỉ ~4% ứng viên vượt qua toàn bộ Guardian Screen</p>
+            </div>
+          </article>
+
+          <!-- V-02 Trustcare -->
+          <article class="ex-card ex-card--flip" style="--i:1" id="trustcare" data-phase="2" data-vault="trustcare">
+            <div class="ex-visual">
+              <svg viewBox="0 0 240 210" class="ex-mini" aria-hidden="true">
+                <path class="ex-beam" d="M26 44h188"/>
+                <text class="ex-beam-l" x="120" y="34">Cam kết chất lượng</text>
+                <g class="ex-pil"><rect x="44" y="56" width="30" height="112" rx="15"/></g>
+                <g class="ex-pil" style="--d:.35s"><rect x="105" y="56" width="30" height="112" rx="15"/></g>
+                <g class="ex-pil" style="--d:.7s"><rect x="166" y="56" width="30" height="112" rx="15"/></g>
+                <path class="ex-pil-link" d="M74 112h31M135 112h31"/>
+                <path class="ex-base" d="M30 172h180"/>
+                <text class="ex-pil-l" x="59"  y="192">Trung thực</text>
+                <text class="ex-pil-l" x="120" y="192">Trách nhiệm</text>
+                <text class="ex-pil-l" x="181" y="192">Đồng hành</text>
+              </svg>
+            </div>
+            <div class="ex-body">
+              <p class="ex-role" data-i18n="ex.t.role">Sự đồng nhất - giữ hai bên đi đúng hướng</p>
+              <h3 data-i18n="approach.trustcare.title">Trustcare</h3>
+              <p class="ex-sub" data-i18n="ex.t.sub">3 trụ cột cam kết</p>
+              <p class="ex-summary" data-i18n="ex.t.summary">Trung thực, Trách nhiệm và Đồng hành - ba điều TopLead cam kết ngay cả khi điều đó khiến chúng tôi mất hợp đồng.</p>
+              <button class="ex-toggle" type="button" aria-expanded="false" aria-controls="exPanelTrustcare">
+                <span data-i18n="ex.more">Xem chi tiết</span>
+              </button>
+            </div>
+            <div class="ex-panel" id="exPanelTrustcare" hidden>
+              <button class="ex-close" type="button" aria-label="Đóng"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button>
+              <figure class="ex-photo">
+              <img src="assets/approach/trustcare.jpg" alt="Buổi trao đổi thẳng thắn giữa TopLead và khách hàng" loading="lazy" decoding="async">
+              <figcaption data-i18n="ex.t.cap">Nói thẳng từ đầu, kể cả khi đó không phải điều khách hàng muốn nghe.</figcaption>
+            </figure>
+            <div class="ex-pillars">
+                <article class="ex-pillar">
+                  <h4><span class="ex-p-n">01</span><span data-i18n="ex.t.p1">Trung thực</span></h4>
+                  <p data-i18n="ex.t.p1d">Nếu JD không hợp lý - nói thẳng. Nếu thị trường không có người ở mức lương đó - nói thẳng. Không hứa để lấy deal. TopLead từ chối nhận project nếu biết trước không thể deliver.</p>
+                </article>
+                <article class="ex-pillar">
+                  <h4><span class="ex-p-n">02</span><span data-i18n="ex.t.p2">Trách nhiệm</span></h4>
+                  <p data-i18n="ex.t.p2d">Mỗi placement có 1 người chịu trách nhiệm rõ ràng - không phải "team". Follow-up chủ động tại Day 30, Day 60, Day 90. Nếu sai, TopLead sửa và chịu chi phí.</p>
+                </article>
+                <article class="ex-pillar">
+                  <h4><span class="ex-p-n">03</span><span data-i18n="ex.t.p3">Đồng hành</span></h4>
+                  <p data-i18n="ex.t.p3d">Không phải vendor bán CV - mà là đối tác cùng giải bài toán nhân sự. Tư vấn JD, salary benchmark, onboarding support. Vẫn hỗ trợ sau khi placement hoàn tất.</p>
+                </article>
+              </div>
+            </div>
+          </article>
+
+          <!-- V-03 Guarantee -->
+          <article class="ex-card" style="--i:2" id="guarantee" data-phase="3" data-vault="guarantee">
+            <div class="ex-visual">
+              <svg viewBox="0 0 240 210" class="ex-mini" aria-hidden="true">
+                <path class="ex-arc" d="M26 78 Q120 34 214 78"/>
+                <path class="ex-rail" d="M26 112h188"/>
+                <path class="ex-fill" d="M26 112h188"/>
+                <circle class="ex-tick" cx="82"  cy="112" r="7"/>
+                <circle class="ex-tick" cx="140" cy="112" r="7"/>
+                <circle class="ex-tick" cx="198" cy="112" r="7"/>
+                <text class="ex-tick-l" x="82"  y="136">D30</text>
+                <text class="ex-tick-l" x="140" y="136">D60</text>
+                <text class="ex-tick-l" x="198" y="136">D90</text>
+                <text class="ex-tick-n" x="82"  y="152">Review</text>
+                <text class="ex-tick-n" x="140" y="152">Check-in</text>
+                <text class="ex-tick-n" x="198" y="152">Đánh giá</text>
+                <text class="ex-cover" x="120" y="182">Thay thế miễn phí trong 90 ngày</text>
+              </svg>
+            </div>
+            <div class="ex-body">
+              <p class="ex-role" data-i18n="ex.gr.role">Bảo vệ - giữ kết nối bền vững sau khi đã khớp</p>
+              <h3 data-i18n="approach.guarantee.title">Guarantee</h3>
+              <p class="ex-sub" data-i18n="ex.gr.sub">Bảo hành 3 tháng</p>
+              <p class="ex-summary" data-i18n="ex.gr.summary">Theo dõi tại mốc 30, 60 và 90 ngày. Trong 90 ngày, nếu ứng viên không phù hợp - TopLead thay thế miễn phí.</p>
+              <button class="ex-toggle" type="button" aria-expanded="false" aria-controls="exPanelGuarantee">
+                <span data-i18n="ex.more">Xem chi tiết</span>
+              </button>
+            </div>
+            <div class="ex-panel" id="exPanelGuarantee" hidden>
+              <button class="ex-close" type="button" aria-label="Đóng"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11"/></svg></button>
+              <ol class="ex-timeline">
+                <li><span class="ex-tl-d">Day 30</span><span class="ex-tl-t" data-i18n="ex.gr.m1">Performance review call</span><span class="ex-tl-x" data-i18n="ex.gr.m1d">Đánh giá mức độ hòa nhập ban đầu của ứng viên</span></li>
+                <li><span class="ex-tl-d">Day 60</span><span class="ex-tl-t" data-i18n="ex.gr.m2">Mid-point check-in</span><span class="ex-tl-x" data-i18n="ex.gr.m2d">Theo dõi tiến độ, xử lý vấn đề sớm trước khi thành lớn</span></li>
+                <li><span class="ex-tl-d">Day 90</span><span class="ex-tl-t" data-i18n="ex.gr.m3">Full evaluation</span><span class="ex-tl-x" data-i18n="ex.gr.m3d">Đánh giá toàn diện, kết thúc thời gian bảo hành</span></li>
+              </ol>
+              <p class="ex-note" data-i18n="ex.gr.note">Trong 90 ngày, nếu ứng viên không phù hợp - TopLead thay thế miễn phí, không phát sinh chi phí.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partner Testimonials -->
+    <section class="cv cv-reviews partner-testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="approach.testimonials.tag">Đánh giá</span>
+          <h2 data-i18n="approach.testimonials.title">Khách hàng và ứng viên nói gì về TopLead</h2>
+        </div>
+      </div>
+
+      <div class="tst-rail" id="tstRail">
+        <div class="tst-track">
+            <article class="testimonial-card">
+              <span class="tst-stars" role="img" aria-label="Đánh giá 5 trên 5 sao"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg></span>
+              <p class="testimonial-text" data-i18n="ap.q1">“Mình rất hài lòng với dịch vụ tư vấn của TopLead. Đội ngũ rất chuyên nghiệp, hỗ trợ tận tâm và đưa ra những lời khuyên hữu ích cho lộ trình nghề nghiệp của mình. Rất đáng tin cậy!”</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">MA</div>
+                <div class="author-info">
+                  <div class="author-name">Minh Anh</div>
+                  <div class="author-title" data-i18n="tst.google">Đánh giá 5★ trên Google</div>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card testimonial-card--client">
+              <span class="tst-badge" data-i18n="tst.clientbadge">Phản hồi từ khách hàng</span>
+              <p class="testimonial-text" data-i18n="ap.q4">Dịch vụ tuyển dụng nhanh, hiệu quả và tiết kiệm. Mức phí cân bằng so với mặt bằng chung của thị trường.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar author-avatar--logo"><img src="assets/partners/tan-nhat.png" alt="" loading="lazy" decoding="async"></div>
+                <div class="author-info">
+                  <div class="author-name">Tân Nhật Furnitures Co. Ltd.</div>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <span class="tst-stars" role="img" aria-label="Đánh giá 5 trên 5 sao"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg></span>
+              <p class="testimonial-text" data-i18n="ap.q2">“Sau khi nhận việc, agency vẫn hỏi thăm và hỗ trợ trong suốt thời gian thử việc.”</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">TH</div>
+                <div class="author-info">
+                  <div class="author-name">Thanh Hà</div>
+                  <div class="author-title" data-i18n="tst.google">Đánh giá 5★ trên Google</div>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card testimonial-card--client">
+              <span class="tst-badge" data-i18n="tst.clientbadge">Phản hồi từ khách hàng</span>
+              <p class="testimonial-text" data-i18n="ap.q5">TopLead làm việc chuyên nghiệp và tận tâm. Nhân sự được bổ sung nhanh, chất lượng đúng như cam kết.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar author-avatar--logo"><img src="assets/partners/miso-do.png" alt="" loading="lazy" decoding="async"></div>
+                <div class="author-info">
+                  <div class="author-name">Miso Do Co. Ltd.</div>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <span class="tst-stars" role="img" aria-label="Đánh giá 5 trên 5 sao"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg></span>
+              <p class="testimonial-text" data-i18n="ap.q3">“Em đã có job thông qua TopLead, bạn Cường cũng vậy, bạn Quân cũng thế. Bạn Hiếu rồi cũng sẽ qua!”</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">TN</div>
+                <div class="author-info">
+                  <div class="author-name">Tiến Nam Dương</div>
+                  <div class="author-title" data-i18n="tst.google">Đánh giá 5★ trên Google</div>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card testimonial-card--client">
+              <span class="tst-badge" data-i18n="tst.clientbadge">Phản hồi từ khách hàng</span>
+              <p class="testimonial-text" data-i18n="ap.q6">Ứng viên TopLead giới thiệu đều rất chất lượng. Khâu đặt lịch hẹn nhanh gọn, tiết kiệm thời gian cho cả hai bên.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar author-avatar--logo"><img src="assets/partners/yourfit.jpg" alt="" loading="lazy" decoding="async"></div>
+                <div class="author-info">
+                  <div class="author-name">YourFit &amp; YourSupplement</div>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card" aria-hidden="true">
+              <span class="tst-stars" role="img" aria-label="Đánh giá 5 trên 5 sao"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg></span>
+              <p class="testimonial-text" data-i18n="ap.q1">“Mình rất hài lòng với dịch vụ tư vấn của TopLead. Đội ngũ rất chuyên nghiệp, hỗ trợ tận tâm và đưa ra những lời khuyên hữu ích cho lộ trình nghề nghiệp của mình. Rất đáng tin cậy!”</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">MA</div>
+                <div class="author-info">
+                  <div class="author-name">Minh Anh</div>
+                  <div class="author-title" data-i18n="tst.google">Đánh giá 5★ trên Google</div>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card testimonial-card--client" aria-hidden="true">
+              <span class="tst-badge" data-i18n="tst.clientbadge">Phản hồi từ khách hàng</span>
+              <p class="testimonial-text" data-i18n="ap.q4">Dịch vụ tuyển dụng nhanh, hiệu quả và tiết kiệm. Mức phí cân bằng so với mặt bằng chung của thị trường.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar author-avatar--logo"><img src="assets/partners/tan-nhat.png" alt="" loading="lazy" decoding="async"></div>
+                <div class="author-info">
+                  <div class="author-name">Tân Nhật Furnitures Co. Ltd.</div>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card" aria-hidden="true">
+              <span class="tst-stars" role="img" aria-label="Đánh giá 5 trên 5 sao"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg></span>
+              <p class="testimonial-text" data-i18n="ap.q2">“Sau khi nhận việc, agency vẫn hỏi thăm và hỗ trợ trong suốt thời gian thử việc.”</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">TH</div>
+                <div class="author-info">
+                  <div class="author-name">Thanh Hà</div>
+                  <div class="author-title" data-i18n="tst.google">Đánh giá 5★ trên Google</div>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card testimonial-card--client" aria-hidden="true">
+              <span class="tst-badge" data-i18n="tst.clientbadge">Phản hồi từ khách hàng</span>
+              <p class="testimonial-text" data-i18n="ap.q5">TopLead làm việc chuyên nghiệp và tận tâm. Nhân sự được bổ sung nhanh, chất lượng đúng như cam kết.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar author-avatar--logo"><img src="assets/partners/miso-do.png" alt="" loading="lazy" decoding="async"></div>
+                <div class="author-info">
+                  <div class="author-name">Miso Do Co. Ltd.</div>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card" aria-hidden="true">
+              <span class="tst-stars" role="img" aria-label="Đánh giá 5 trên 5 sao"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg></span>
+              <p class="testimonial-text" data-i18n="ap.q3">“Em đã có job thông qua TopLead, bạn Cường cũng vậy, bạn Quân cũng thế. Bạn Hiếu rồi cũng sẽ qua!”</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">TN</div>
+                <div class="author-info">
+                  <div class="author-name">Tiến Nam Dương</div>
+                  <div class="author-title" data-i18n="tst.google">Đánh giá 5★ trên Google</div>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card testimonial-card--client" aria-hidden="true">
+              <span class="tst-badge" data-i18n="tst.clientbadge">Phản hồi từ khách hàng</span>
+              <p class="testimonial-text" data-i18n="ap.q6">Ứng viên TopLead giới thiệu đều rất chất lượng. Khâu đặt lịch hẹn nhanh gọn, tiết kiệm thời gian cho cả hai bên.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar author-avatar--logo"><img src="assets/partners/yourfit.jpg" alt="" loading="lazy" decoding="async"></div>
+                <div class="author-info">
+                  <div class="author-name">YourFit &amp; YourSupplement</div>
+                </div>
+              </div>
+            </article>
+        </div>
+      </div>
+
+      <div class="container">
+        <p class="tst-more">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=TopLead%20Recruitment%2C%20791%2F92F%20Tr%E1%BA%A7n%20Xu%C3%A2n%20So%E1%BA%A1n%2C%20TP.%20HCM"
+             target="_blank" rel="noopener noreferrer" data-i18n="tst.all">Xem tất cả đánh giá trên Google</a>
+        </p>
+      </div>
+    </section>
+  </div>
 
   <!-- CTA -->
   <section class="cta-banner">
@@ -403,9 +596,9 @@
         <div class="footer-links">
           <h4 data-i18n="footer.company">Công ty</h4>
           <a href="about.html" data-i18n="footer.about">Về chúng tôi</a>
-          <a href="approach.html" data-i18n="footer.approach">Cách tiếp cận</a>
+          <a href="approach.html" data-i18n="footer.approach">Quy trình làm việc</a>
           <a href="jobs.html" data-i18n="footer.jobs">Việc làm</a>
-          <a href="tools.html" data-i18n="footer.tools">Công cụ</a>
+          <a href="tools.html" data-i18n="footer.tools">Blog</a>
           <a href="contact.html" data-i18n="footer.contact">Liên hệ</a>
         </div>
         <div class="footer-links footer-emails">

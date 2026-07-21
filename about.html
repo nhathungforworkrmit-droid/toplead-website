@@ -37,17 +37,16 @@
             </div>
           </div>
           <div class="nav-dropdown">
-            <a href="approach.html" class="nav-dropdown-trigger" data-i18n="nav.approach">Our Approach</a>
+            <a href="approach.html" class="nav-dropdown-trigger" data-i18n="nav.approach">Quy trình làm việc</a>
             <div class="nav-dropdown-menu">
               <a href="approach.html#comparison" data-i18n="nav.compare">So sánh</a>
-              <a href="approach.html#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
-              <a href="approach.html#workflow" data-i18n="nav.workflow">Workflow</a>
+              <a href="approach.html#journey" data-i18n="nav.journey">Hành trình</a>
               <a href="approach.html#exclusive" data-i18n="nav.exclusive">Độc quyền</a>
             </div>
           </div>
           <a href="services.html" data-i18n="nav.services">Dịch vụ</a>
           <a href="jobs.html" data-i18n="nav.jobs">Việc làm</a>
-          <a href="tools.html" data-i18n="nav.tools">Tools & Content</a>
+          <a href="tools.html" data-i18n="nav.tools">Blog</a>
           <a href="contact.html" class="btn-cta" data-i18n="nav.contact">Liên hệ</a>
         </div>
         <div class="lang-switcher" id="langSwitcher">
@@ -70,9 +69,20 @@
       <div class="hero-circle circle-2"></div>
     </div>
     <div class="container">
-      <h1 class="page-hero-title" data-i18n="about.hero.title">Về chúng tôi</h1>
-      <p class="page-hero-subtitle" data-i18n="about.hero.subtitle">Đối tác tuyển dụng có trách nhiệm cho doanh nghiệp Việt Nam</p>
+      <div class="ph-inner">
+        <nav class="ph-crumb" aria-label="Breadcrumb">
+          <a href="index.html" data-i18n="nav.home">Trang chủ</a>
+          <span class="ph-crumb-sep" aria-hidden="true">/</span>
+          <span aria-current="page" data-i18n="about.hero.title">Về chúng tôi</span>
+        </nav>
+        <h1 class="page-hero-title" data-i18n="about.hero.title">Về chúng tôi</h1>
+        <p class="page-hero-subtitle" data-i18n="about.hero.subtitle">Đối tác tuyển dụng có trách nhiệm cho doanh nghiệp Việt Nam</p>
+      </div>
     </div>
+    <a class="ph-scroll" href="#story">
+      <span class="ph-scroll-label" data-i18n="ph.scroll">Cuộn xuống</span>
+      <span class="ph-scroll-line" aria-hidden="true"></span>
+    </a>
   </section>
 
   <!-- Our Story -->
@@ -251,51 +261,138 @@
 
   <!-- Clients & Partners -->
   <section class="clients" id="clients">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="nav.clients">Clients &amp; Partners</span>
-        <h2 data-i18n="ab.cl.title">Khách hàng &amp; Đối tác</h2>
-        <p data-i18n="ab.cl.sub">Đồng hành cùng 120+ doanh nghiệp trên khắp Việt Nam</p>
-      </div>
+    <div class="partner-wall-head">
+      <span class="section-tag" data-i18n="nav.clients">Clients &amp; Partners</span>
+      <p class="partner-wall-label" data-i18n="pw.label">Được tin dùng bởi các doanh nghiệp</p>
+      <p class="partner-wall-sub" data-i18n="pw.sub">Từ SME đến các đơn vị chuyên môn - TopLead đồng hành trong bài toán tuyển dụng của họ.</p>
     </div>
-    <div class="logo-rail" aria-label="Trusted by leading companies">
-      <p class="logo-rail-label" data-i18n="logos.label">Trusted by leading companies</p>
-      <div class="logo-rail-row">
-        <div class="logo-rail-track">
-          <span class="logo-mark">TechCorp</span>
-          <span class="logo-mark">VietRetail</span>
-          <span class="logo-mark">BuildPro</span>
-          <span class="logo-mark">LogiGroup</span>
-          <span class="logo-mark">FinanceHub</span>
-          <span class="logo-mark">MediCare</span>
-          <span class="logo-mark">TechCorp</span>
-          <span class="logo-mark">VietRetail</span>
-          <span class="logo-mark">BuildPro</span>
-          <span class="logo-mark">LogiGroup</span>
-          <span class="logo-mark">FinanceHub</span>
-          <span class="logo-mark">MediCare</span>
-        </div>
-      </div>
-      <div class="logo-rail-row logo-rail-row--reverse">
-        <div class="logo-rail-track">
-          <span class="logo-mark">LogiGroup</span>
-          <span class="logo-mark">MediCare</span>
-          <span class="logo-mark">TechCorp</span>
-          <span class="logo-mark">FinanceHub</span>
-          <span class="logo-mark">VietRetail</span>
-          <span class="logo-mark">BuildPro</span>
-          <span class="logo-mark">LogiGroup</span>
-          <span class="logo-mark">MediCare</span>
-          <span class="logo-mark">TechCorp</span>
-          <span class="logo-mark">FinanceHub</span>
-          <span class="logo-mark">VietRetail</span>
-          <span class="logo-mark">BuildPro</span>
-        </div>
+    <div class="partner-wall">
+      <div class="partner-track">
+        <article class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/partners/b1-smart.png" alt="B1 Smart Solutions logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">B1 Smart Solutions</h3>
+          <p class="partner-desc" data-i18n="pw.b1">Công nghệ thông tin, tích hợp hệ thống (SI/ICT)</p>
+        </article>
+        <article class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/partners/miso-do.png" alt="Miso Do Co. Ltd. logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">Miso Do Co. Ltd.</h3>
+          <p class="partner-desc" data-i18n="pw.miso">Ẩm thực &amp; đồ uống (F&amp;B)</p>
+        </article>
+        <article class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/partners/rmit.webp" alt="RMIT University logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">RMIT University</h3>
+          <p class="partner-desc" data-i18n="pw.rmit">Đối tác độc quyền trong tuyển chọn ứng viên</p>
+        </article>
+        <article class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/partners/tan-nhat.png" alt="Tân Nhật Furnitures Co. Ltd. logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">Tân Nhật Furnitures Co. Ltd.</h3>
+          <p class="partner-desc" data-i18n="pw.tan">Gỗ &amp; nội thất - khách hàng tuyển dụng</p>
+        </article>
+        <article class="partner-card partner-card--tile">
+          <div class="partner-logo">
+            <img src="assets/partners/yourfit.jpg" alt="YourFit Co. Ltd. logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">YourFit Co. Ltd.</h3>
+          <p class="partner-desc" data-i18n="pw.fit">Gym, lifestyle &amp; tổ chức sự kiện</p>
+        </article>
+        <article class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/partners/yoursupplement.png" alt="YourSupplement Co. Ltd. logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">YourSupplement Co. Ltd.</h3>
+          <p class="partner-desc" data-i18n="pw.supp">Gym &amp; sản phẩm bảo vệ sức khỏe</p>
+        </article>
+        <article class="partner-card partner-card--tile">
+          <div class="partner-logo">
+            <img src="assets/partners/xuan-vinh.jpg" alt="Công Ty TNHH Xuan Vinh logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">Công Ty TNHH Xuan Vinh</h3>
+          <p class="partner-desc" data-i18n="pw.xuanvinh">Chuỗi cửa hàng trang sức</p>
+        </article>
+        <article class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/partners/thadico.png" alt="Thadico Dai Quang Minh Co. Ltd. logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">Thadico Dai Quang Minh Co. Ltd.</h3>
+          <p class="partner-desc" data-i18n="pw.thadico">Bất động sản &amp; xây dựng</p>
+        </article>
+        <article class="partner-card" aria-hidden="true">
+          <div class="partner-logo">
+            <img src="assets/partners/b1-smart.png" alt="B1 Smart Solutions logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">B1 Smart Solutions</h3>
+          <p class="partner-desc" data-i18n="pw.b1">Công nghệ thông tin, tích hợp hệ thống (SI/ICT)</p>
+        </article>
+        <article class="partner-card" aria-hidden="true">
+          <div class="partner-logo">
+            <img src="assets/partners/miso-do.png" alt="Miso Do Co. Ltd. logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">Miso Do Co. Ltd.</h3>
+          <p class="partner-desc" data-i18n="pw.miso">Ẩm thực &amp; đồ uống (F&amp;B)</p>
+        </article>
+        <article class="partner-card" aria-hidden="true">
+          <div class="partner-logo">
+            <img src="assets/partners/rmit.webp" alt="RMIT University logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">RMIT University</h3>
+          <p class="partner-desc" data-i18n="pw.rmit">Đối tác độc quyền trong tuyển chọn ứng viên</p>
+        </article>
+        <article class="partner-card" aria-hidden="true">
+          <div class="partner-logo">
+            <img src="assets/partners/tan-nhat.png" alt="Tân Nhật Furnitures Co. Ltd. logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">Tân Nhật Furnitures Co. Ltd.</h3>
+          <p class="partner-desc" data-i18n="pw.tan">Gỗ &amp; nội thất - khách hàng tuyển dụng</p>
+        </article>
+        <article class="partner-card partner-card--tile" aria-hidden="true">
+          <div class="partner-logo">
+            <img src="assets/partners/yourfit.jpg" alt="YourFit Co. Ltd. logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">YourFit Co. Ltd.</h3>
+          <p class="partner-desc" data-i18n="pw.fit">Gym, lifestyle &amp; tổ chức sự kiện</p>
+        </article>
+        <article class="partner-card" aria-hidden="true">
+          <div class="partner-logo">
+            <img src="assets/partners/yoursupplement.png" alt="YourSupplement Co. Ltd. logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">YourSupplement Co. Ltd.</h3>
+          <p class="partner-desc" data-i18n="pw.supp">Gym &amp; sản phẩm bảo vệ sức khỏe</p>
+        </article>
+        <article class="partner-card partner-card--tile" aria-hidden="true">
+          <div class="partner-logo">
+            <img src="assets/partners/xuan-vinh.jpg" alt="Công Ty TNHH Xuan Vinh logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">Công Ty TNHH Xuan Vinh</h3>
+          <p class="partner-desc" data-i18n="pw.xuanvinh">Chuỗi cửa hàng trang sức</p>
+        </article>
+        <article class="partner-card" aria-hidden="true">
+          <div class="partner-logo">
+            <img src="assets/partners/thadico.png" alt="Thadico Dai Quang Minh Co. Ltd. logo" loading="lazy" decoding="async">
+          </div>
+          <h3 class="partner-name">Thadico Dai Quang Minh Co. Ltd.</h3>
+          <p class="partner-desc" data-i18n="pw.thadico">Bất động sản &amp; xây dựng</p>
+        </article>
       </div>
     </div>
   </section>
 
-
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-content">
+        <h2 data-i18n="ab.cta.title">Sẵn sàng tìm nhân sự phù hợp?</h2>
+        <p data-i18n="ab.cta.subtitle">Hãy để TopLead đồng hành cùng bạn trong bài toán tuyển dụng</p>
+        <a href="contact.html" class="btn-magnetic" data-i18n="ab.cta.button">Liên hệ ngay</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
@@ -334,9 +431,9 @@
         <div class="footer-links">
           <h4 data-i18n="footer.company">Công ty</h4>
           <a href="about.html" data-i18n="footer.about">Về chúng tôi</a>
-          <a href="approach.html" data-i18n="footer.approach">Cách tiếp cận</a>
+          <a href="approach.html" data-i18n="footer.approach">Quy trình làm việc</a>
           <a href="jobs.html" data-i18n="footer.jobs">Việc làm</a>
-          <a href="tools.html" data-i18n="footer.tools">Công cụ</a>
+          <a href="tools.html" data-i18n="footer.tools">Blog</a>
           <a href="contact.html" data-i18n="footer.contact">Liên hệ</a>
         </div>
         <div class="footer-links footer-emails">

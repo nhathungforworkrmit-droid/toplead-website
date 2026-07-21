@@ -5,11 +5,12 @@ var currentLang = "vi";
 var translations = {
   vi: {
     "nav.home": "Trang chủ",
+    "ph.scroll": "Cuộn xuống",
     "nav.about": "Về chúng tôi",
     "nav.services": "Dịch vụ",
-    "nav.approach": "Cách tiếp cận",
+    "nav.approach": "Quy trình làm việc",
     "nav.jobs": "Việc làm",
-    "nav.tools": "Tools & Content",
+    "nav.tools": "Blog",
     "nav.contact": "Liên hệ",
     "nav.ourStory": "Câu chuyện",
     "nav.ourTeam": "Đội ngũ",
@@ -20,8 +21,7 @@ var translations = {
     "nav.guardian": "Guardian Screen",
     "nav.trustcare": "Trustcare Framework",
     "nav.guarantee": "Guarantee Framework",
-    "nav.howItWorks": "Quy trình",
-    "nav.workflow": "Cách làm việc",
+    "nav.journey": "Hành trình",
     "nav.exclusive": "Độc quyền",
     "hero.badge": "TopLead Recruitment",
     "hero.slide1.line1": "Người Cũ Vừa Nghỉ.",
@@ -94,13 +94,13 @@ var translations = {
     "jobs.tag": "Việc làm",
     "jobs.title": "Vị trí đang tuyển dụng",
     "jobs.subtitle": "Cơ hội nghề nghiệp hấp dẫn từ các doanh nghiệp hàng đầu",
-    "jobs.apply": "Ứng tuyển ngay",
     "cta.title": "Sẵn sàng xây dựng đội ngũ xuất sắc?",
     "cta.subtitle": "Hãy để TopLead giúp bạn tìm ra nhân tài phù hợp",
     "cta.start": "Bắt đầu ngay",
     "testimonials.tag": "Đánh giá",
     "testimonials.title": "Khách hàng nói gì về chúng tôi",
     "tst.google": "Đánh giá 5★ trên Google",
+    "tst.clientbadge": "Phản hồi từ khách hàng",
     "sc.tag": "TopLead 360°",
     "sc.title": "Toàn cảnh cách TopLead đồng hành cùng bạn",
     "sc.sub": "Từ vấn đề đến giải pháp, đến đúng đối tượng và những đối tác đã tin tưởng.",
@@ -141,9 +141,9 @@ var translations = {
     "footer.s4": "Đánh giá năng lực",
     "footer.company": "Công ty",
     "footer.about": "Về chúng tôi",
-    "footer.approach": "Cách tiếp cận",
+    "footer.approach": "Quy trình làm việc",
     "footer.jobs": "Việc làm",
-    "footer.tools": "Công cụ",
+    "footer.tools": "Blog",
     "footer.contact": "Liên hệ",
     "footer.emailsTitle": "Email liên hệ",
     "footer.officeTitle": "Văn phòng TopLead",
@@ -237,8 +237,8 @@ var translations = {
     "jobs.cta.title": "Không tìm thấy vị trí phù hợp?",
     "jobs.cta.subtitle": "Để lại CV, chúng tôi sẽ liên hệ khi có cơ hội phù hợp",
     "jobs.cta.button": "Gửi CV ngay",
-    "tools.hero.title": "Tools & Content",
-    "tools.hero.subtitle": "Tài nguyên hữu ích cho nhà tuyển dụng và ứng viên",
+    "tools.hero.title": "Blog",
+    "tools.hero.subtitle": "Góc nhìn và kinh nghiệm tuyển dụng từ đội ngũ TopLead",
     "tools.blog.tag": "Blog",
     "tools.blog.title": "Bài viết mới nhất",
     "tools.blog.subtitle": "Cập nhật xu hướng và kinh nghiệm tuyển dụng",
@@ -293,7 +293,7 @@ var translations = {
     "approach.cta.subtitle": "Hãy để TopLead giúp bạn tìm ra nhân tài phù hợp",
     "approach.cta.button": "Bắt đầu ngay",
     "approach.testimonials.tag": "Đánh giá",
-    "approach.testimonials.title": "Đối tác nói gì về TopLead",
+    "approach.testimonials.title": "Khách hàng và ứng viên nói gì về TopLead",
     "services.hero.title": "Dịch vụ",
     "services.hero.subtitle": "Giải pháp tuyển dụng toàn diện cho doanh nghiệp",
     "post.readUnit": "phút đọc",
@@ -371,6 +371,23 @@ var translations = {
     "phil.eyebrow": "Triết lý của chúng tôi",
     "phil.body": "Chúng tôi tuyển người phù hợp để ở lại và phát triển - không chỉ để lấp chỗ trống.",
     "phil.cta": "Tìm hiểu cách chúng tôi làm việc",
+    "phil.caption": "Người thật. Doanh nghiệp thật. Kết quả ở lại.",
+    "pw.label": "Được tin dùng bởi các doanh nghiệp",
+    "pw.sub": "Từ SME đến các đơn vị chuyên môn - TopLead đồng hành trong bài toán tuyển dụng của họ.",
+    "pw.b1": "Công nghệ thông tin, tích hợp hệ thống (SI/ICT)",
+    "pw.miso": "Ẩm thực & đồ uống (F&B)",
+    "pw.rmit": "Đối tác độc quyền trong tuyển chọn ứng viên",
+    "pw.tan": "Gỗ & nội thất - khách hàng tuyển dụng",
+    "pw.fit": "Gym, lifestyle & tổ chức sự kiện",
+    "pw.supp": "Gym & sản phẩm bảo vệ sức khỏe",
+    "pw.xuanvinh": "Chuỗi cửa hàng trang sức",
+    "pw.thadico": "Bất động sản & xây dựng",
+    "ab.cta.title": "Sẵn sàng tìm nhân sự phù hợp?",
+    "ab.cta.subtitle": "Hãy để TopLead đồng hành cùng bạn trong bài toán tuyển dụng",
+    "ab.cta.button": "Liên hệ ngay",
+    "ct.cta.title": "Chưa chắc bắt đầu từ đâu?",
+    "ct.cta.subtitle": "Khám phá dịch vụ tuyển dụng toàn diện của TopLead",
+    "ct.cta.button": "Xem dịch vụ",
     "svc.o.title": "Giải pháp tuyển dụng toàn diện",
     "svc.o.sub": "TopLead cung cấp đa dạng dịch vụ phù hợp với mọi nhu cầu nhân sự",
     "svc.s1": "Tìm kiếm và tiếp cận nhân sự cấp cao (C-level, VP, Director) với quy trình kín đáo và chuyên nghiệp.",
@@ -435,39 +452,109 @@ var translations = {
     "ct.i.hours": "Giờ làm việc",
     "ct.h1": "Thứ 2 - Thứ 6: 8:30 - 18:00",
     "ct.h2": "Thứ 7: 8:30 - 12:00",
-    "ap.t1": "Đăng tin chờ ứng viên",
+    "ap.t1": "Đăng tin, chờ ứng viên đến",
     "ap.t1d": "Chờ ứng viên nộp CV, không chủ động tìm kiếm",
-    "ap.t2": "Lọc sơ bộ",
+    "ap.t2": "CV lọc bằng keyword",
     "ap.t2d": "CV được lọc qua keyword, không đánh giá sâu",
-    "ap.t3": "Không check reference",
+    "ap.t3": "Reference check hình thức",
     "ap.t3d": "Ít khi kiểm tra background thực tế",
-    "ap.t4": "Không bảo hành",
+    "ap.t4": "Không cam kết sau tuyển",
     "ap.t4d": "Không hỗ trợ nếu ứng viên nghỉ sớm",
-    "ap.t5": "Thời gian dài",
+    "ap.t5": "Fill role trong 2-3 tháng",
     "ap.t5d": "Mất 2-3 tháng để fill một vị trí",
-    "ap.l1": "Chủ động tìm kiếm",
+    "ap.l1": "Chủ động headhunt - không chờ",
     "ap.l1d": "Proactive search, tiếp cận ứng viên tiềm năng",
-    "ap.l2": "Sàng lọc 5 bước",
-    "ap.l2d": "Guardian Screen Process với 5 vòng kiểm tra",
-    "ap.l3": "Deep Reference Check",
+    "ap.l2": "Guardian Screen - quy trình 5 lớp riêng của TopLead",
+    "ap.l2d": "Năm lớp sàng lọc liên tiếp, chỉ khoảng 4% ứng viên đi hết chặng.",
+    "ap.l3": "3+ reference call sâu trước mỗi shortlist",
     "ap.l3d": "Kiểm tra 3+ references trước khi giới thiệu",
-    "ap.l4": "Clear Guarantee",
+    "ap.l4": "Bảo hành 3 tháng - thay thế miễn phí",
     "ap.l4d": "Miễn phí thay thế trong 3 tháng",
-    "ap.l5": "Nhanh 48h",
-    "ap.l5d": "Gửi hồ sơ trong 48 giờ, interview trong tuần đầu",
-    "ap.s1": "Tìm hiểu nhu cầu, văn hóa công ty và yêu cầu chi tiết",
-    "ap.s2": "Chủ động tìm kiếm và tiếp cận ứng viên phù hợp",
-    "ap.s3": "Áp dụng Guardian Screen Process - sàng lọc 5 bước",
-    "ap.s4": "Gửi top 3-5 hồ sơ đã lọc trong 48 giờ",
-    "ap.s5": "Hỗ trợ sắp xếp interview và feedback",
-    "ap.s6": "Onboarding support và bảo hành 3 tháng",
+    "ap.l5": "Shortlist trong 48 giờ",
+    "ap.l5d": "Nhận 3-5 hồ sơ đã sàng lọc trong 48 giờ đầu tiên - không phải chờ vài tuần.",
+    "ap.s1": "Tìm hiểu nhu cầu tuyển dụng, văn hóa công ty, và yêu cầu chi tiết cho vị trí",
+    "ap.s2": "Chủ động headhunt và tiếp cận ứng viên phù hợp từ database, referral, và thị trường",
+    "ap.s3": "Áp dụng Guardian Screen - quy trình 5 lớp sàng lọc riêng của TopLead",
+    "ap.s4": "Gửi 3-5 hồ sơ đã sàng lọc kỹ kèm interview notes",
+    "ap.s5": "Hỗ trợ sắp xếp lịch phỏng vấn và thu thập feedback hai chiều",
+    "ap.s6": "Hỗ trợ onboarding và theo dõi trong suốt thời gian bảo hành",
     "ap.tradTitle": "Tuyển dụng truyền thống",
     "ap.step1": "Tư vấn",
-    "ap.step2": "Tìm nguồn",
+    "ap.step2": "Tìm kiếm",
     "ap.step3": "Sàng lọc",
-    "ap.step4": "Giới thiệu hồ sơ",
+    "ap.step4": "Trình hồ sơ",
     "ap.step5": "Phỏng vấn",
-    "ap.step6": "Nhận việc",
+    "ap.step6": "Tuyển dụng",
+    "jr.tag": "Hành trình",
+    "cmp.title": "Hai cách để hai bên gặp nhau",
+    "cmp.sub": "Kéo thanh ở giữa để chuyển trọng tâm giữa hai cách làm.",
+    "cmp.trad": "Tuyển dụng truyền thống",
+    "cmp.tl": "TopLead Recruitment Co. Ltd.",
+    "cmp.hint": "Kéo về giữa để so sánh",
+    "ap.t1.x": "Phụ thuộc vào lượng CV tự đến - chất lượng không kiểm soát được, thời gian không dự đoán được.",
+    "ap.t2.x": "CV lọc bằng từ khóa tự động - bỏ sót người giỏi không dùng đúng keyword, giữ lại người biết viết CV cho máy đọc.",
+    "ap.t3.x": "Gọi một reference cho có thủ tục - thường là người ứng viên tự chọn, không phản ánh thực tế.",
+    "ap.t4.x": "Ứng viên nghỉ sau hai tuần? Đó là việc của bạn - phí đã thu xong rồi.",
+    "ap.t5.x": "Từ lúc đăng tin đến lúc có người nhận offer thường mất 45-90 ngày. Ghế trống càng lâu, chi phí ẩn càng lớn.",
+    "ap.l1.x": "Chủ động tiếp cận từ database, referral network, và headhunt trực tiếp trên LinkedIn.",
+    "ap.l2.x": "Năm lớp sàng lọc thật: kỹ năng, phỏng vấn, văn hóa, tham chiếu, duyệt cuối. Từ 80 ứng viên chỉ còn 3.",
+    "ap.l3.x": "Gọi tối thiểu 3 references do TopLead chọn - hỏi sâu về hiệu suất, thái độ làm việc, và lý do nghỉ thật sự.",
+    "ap.l4.x": "90 ngày theo dõi chủ động. Không phù hợp trong 3 tháng thì thay thế miễn phí, không phát sinh chi phí.",
+    "ap.l5.x": "Shortlist 3-5 hồ sơ trong 48 giờ đầu. Phỏng vấn ngay tuần đầu. Trung bình 2-4 tuần là có người.",
+    "tst.all": "Xem tất cả đánh giá trên Google",
+    "cmp.cta": "Muốn biết quy trình cụ thể? Kéo xuống - hoặc",
+    "cmp.ctaLink": "liên hệ ngay",
+    "jr.meet": "Điểm gặp nhau",
+    "ex.more": "Xem chi tiết",
+    "ex.g.l1": "Lớp 1: Năng lực & kinh nghiệm",
+    "ex.g.l1d": "Kỹ năng chuyên môn, số năm kinh nghiệm, mức độ phù hợp với ngành, lộ trình nghề nghiệp",
+    "ex.g.l2": "Lớp 2: Phỏng vấn sàng lọc",
+    "ex.g.l2d": "Kỹ năng giao tiếp, động lực làm việc, kỳ vọng lương, thời gian sẵn sàng",
+    "ex.g.l3": "Lớp 3: Tương thích văn hóa",
+    "ex.g.l3d": "Phong cách làm việc, sở thích quản lý, sự phù hợp với giá trị và văn hóa doanh nghiệp",
+    "ex.g.l4": "Lớp 4: Xác minh tham chiếu",
+    "ex.g.l4d": "3+ cuộc gọi tham chiếu - lịch sử hiệu suất, thái độ làm việc, lý do nghỉ việc thực tế",
+    "ex.g.l5": "Lớp 5: Duyệt cuối & shortlist",
+    "ex.g.l5d": "Hội đồng TopLead đánh giá toàn diện hồ sơ, chọn top 3 gửi khách hàng",
+    "ex.g.note": "Chỉ ~4% ứng viên vượt qua toàn bộ Guardian Screen",
+    "ex.t.cap": "Nói thẳng từ đầu, kể cả khi đó không phải điều khách hàng muốn nghe.",
+    "ex.t.p1": "Trung thực",
+    "ex.t.p1d": "Nếu JD không hợp lý - nói thẳng. Nếu thị trường không có người ở mức lương đó - nói thẳng. Không hứa để lấy deal. TopLead từ chối nhận project nếu biết trước không thể deliver.",
+    "ex.t.p2": "Trách nhiệm",
+    "ex.t.p2d": "Mỗi placement có 1 người chịu trách nhiệm rõ ràng - không phải \"team\". Follow-up chủ động tại Day 30, Day 60, Day 90. Nếu sai, TopLead sửa và chịu chi phí.",
+    "ex.t.p3": "Đồng hành",
+    "ex.t.p3d": "Không phải vendor bán CV - mà là đối tác cùng giải bài toán nhân sự. Tư vấn JD, salary benchmark, onboarding support. Vẫn hỗ trợ sau khi placement hoàn tất.",
+    "ex.gr.m1": "Performance review call",
+    "ex.gr.m1d": "Đánh giá mức độ hòa nhập ban đầu của ứng viên",
+    "ex.gr.m2": "Mid-point check-in",
+    "ex.gr.m2d": "Theo dõi tiến độ, xử lý vấn đề sớm trước khi thành lớn",
+    "ex.gr.m3": "Full evaluation",
+    "ex.gr.m3d": "Đánh giá toàn diện, kết thúc thời gian bảo hành",
+    "ex.gr.note": "Trong 90 ngày, nếu ứng viên không phù hợp - TopLead thay thế miễn phí, không phát sinh chi phí.",
+    "jr.title": "Hành trình 6 bước",
+    "jr.sub": "Từ lúc nhận brief đến khi ứng viên qua thời gian bảo hành",
+    "jr.youGet": "Bạn nhận được",
+    "jr.time1": "Ngày 1",
+    "jr.time2": "Ngày 2-5",
+    "jr.time3": "Ngày 3-7",
+    "jr.time4": "Ngày 5-7",
+    "jr.time5": "Tuần 2",
+    "jr.time6": "Tháng 1-3",
+    "jr.dl1": "Tài liệu brief - nhu cầu, ngân sách, thời hạn, văn hóa công ty",
+    "jr.dl2": "Long list 15-25 ứng viên tiềm năng",
+    "jr.dl3": "Kết quả Guardian Screen - chi tiết pass/fail từng lớp",
+    "jr.dl4": "Shortlist 3-5 CV trong 48 giờ",
+    "jr.dl5": "Điều phối phỏng vấn và báo cáo feedback hai chiều",
+    "jr.dl6": "Hỗ trợ offer, onboarding, và bảo hành 3 tháng",
+    "ex.g.role": "Bộ lọc đầu vào - ai được bước lên hành trình",
+    "ex.g.sub": "Quy trình 5 lớp sàng lọc",
+    "ex.g.summary": "Từ 80 ứng viên đầu vào, chỉ 3 hồ sơ đến tay khách hàng - khoảng 4% đi hết cả năm lớp.",
+    "ex.t.role": "Sự đồng nhất - giữ hai bên đi đúng hướng",
+    "ex.t.sub": "3 trụ cột cam kết",
+    "ex.t.summary": "Trung thực, Trách nhiệm và Đồng hành - ba điều TopLead cam kết ngay cả khi điều đó khiến chúng tôi mất hợp đồng.",
+    "ex.gr.role": "Bảo vệ - giữ kết nối bền vững sau khi đã khớp",
+    "ex.gr.sub": "Bảo hành 3 tháng",
+    "ex.gr.summary": "Theo dõi tại mốc 30, 60 và 90 ngày. Trong 90 ngày, nếu ứng viên không phù hợp - TopLead thay thế miễn phí.",
     "ap.w1": "Bước 1: Brief",
     "ap.w1d": "Call với khách hàng để hiểu JD, budget, timeline, văn hóa công ty",
     "ap.w2": "Bước 2: Search",
@@ -483,6 +570,9 @@ var translations = {
     "ap.q1": "“Mình rất hài lòng với dịch vụ tư vấn của TopLead. Đội ngũ rất chuyên nghiệp, hỗ trợ tận tâm và đưa ra những lời khuyên hữu ích cho lộ trình nghề nghiệp của mình. Rất đáng tin cậy!”",
     "ap.q2": "“Sau khi nhận việc, agency vẫn hỏi thăm và hỗ trợ trong suốt thời gian thử việc.”",
     "ap.q3": "“Em đã có job thông qua TopLead, bạn Cường cũng vậy, bạn Quân cũng thế. Bạn Hiếu rồi cũng sẽ qua!”",
+    "ap.q4": "Dịch vụ tuyển dụng nhanh, hiệu quả và tiết kiệm. Mức phí cân bằng so với mặt bằng chung của thị trường.",
+    "ap.q5": "TopLead làm việc chuyên nghiệp và tận tâm. Nhân sự được bổ sung nhanh, chất lượng đúng như cam kết.",
+    "ap.q6": "Ứng viên TopLead giới thiệu đều rất chất lượng. Khâu đặt lịch hẹn nhanh gọn, tiết kiệm thời gian cho cả hai bên.",
     "chip.fin": "Tài chính",
     "chip.re": "Bất động sản",
     "chip.con": "Xây dựng",
@@ -492,11 +582,12 @@ var translations = {
   },
   en: {
     "nav.home": "Home",
+    "ph.scroll": "Scroll",
     "nav.about": "About Us",
     "nav.services": "Services",
     "nav.approach": "Our Approach",
     "nav.jobs": "Jobs",
-    "nav.tools": "Tools & Content",
+    "nav.tools": "Blog",
     "nav.contact": "Contact",
     "nav.ourStory": "Our Story",
     "nav.ourTeam": "Our Team",
@@ -507,8 +598,7 @@ var translations = {
     "nav.guardian": "Guardian Screen",
     "nav.trustcare": "Trustcare Framework",
     "nav.guarantee": "Guarantee Framework",
-    "nav.howItWorks": "How It Works",
-    "nav.workflow": "Workflow",
+    "nav.journey": "The Journey",
     "nav.exclusive": "Exclusive",
     "hero.badge": "TopLead Recruitment",
     "hero.slide1.line1": "Your Star Employee Just Quit.",
@@ -581,13 +671,13 @@ var translations = {
     "jobs.tag": "Jobs",
     "jobs.title": "Open Positions",
     "jobs.subtitle": "Exciting career opportunities from leading companies",
-    "jobs.apply": "Apply Now",
     "cta.title": "Ready to build an exceptional team?",
     "cta.subtitle": "Let TopLead help you find the perfect talent",
     "cta.start": "Get Started",
     "testimonials.tag": "Reviews",
     "testimonials.title": "What Our Clients Say",
     "tst.google": "5★ review on Google",
+    "tst.clientbadge": "Client feedback",
     "sc.tag": "TopLead 360°",
     "sc.title": "The full picture of how TopLead works with you",
     "sc.sub": "From the problem to the solution, to the right audience, to the partners who already trust us.",
@@ -630,7 +720,7 @@ var translations = {
     "footer.about": "About Us",
     "footer.approach": "Our Approach",
     "footer.jobs": "Jobs",
-    "footer.tools": "Tools",
+    "footer.tools": "Blog",
     "footer.contact": "Contact",
     "footer.emailsTitle": "Contact Emails",
     "footer.officeTitle": "TopLead Office",
@@ -724,7 +814,7 @@ var translations = {
     "jobs.cta.title": "Can't find a suitable position?",
     "jobs.cta.subtitle": "Leave your CV, we will contact you when there's a matching opportunity",
     "jobs.cta.button": "Submit CV Now",
-    "tools.hero.title": "Tools & Content",
+    "tools.hero.title": "Blog",
     "tools.hero.subtitle": "Useful resources for employers and candidates",
     "tools.blog.tag": "Blog",
     "tools.blog.title": "Latest Articles",
@@ -780,7 +870,7 @@ var translations = {
     "approach.cta.subtitle": "Let TopLead help you find the perfect talent",
     "approach.cta.button": "Get Started",
     "approach.testimonials.tag": "Reviews",
-    "approach.testimonials.title": "What Partners Say About TopLead",
+    "approach.testimonials.title": "What clients and candidates say about TopLead",
     "services.hero.title": "Services",
     "services.hero.subtitle": "Comprehensive recruitment solutions for businesses",
     "post.readUnit": "min read",
@@ -858,6 +948,23 @@ var translations = {
     "phil.eyebrow": "Our philosophy",
     "phil.body": "We hire people who fit, stay, and grow - not just to fill a seat.",
     "phil.cta": "See how we work",
+    "phil.caption": "Real people. Real businesses. Results that stay.",
+    "pw.label": "Trusted by businesses across Vietnam",
+    "pw.sub": "From SMEs to specialist firms - TopLead works alongside them on their hiring.",
+    "pw.b1": "IT, systems integration (SI/ICT)",
+    "pw.miso": "Food & beverage (F&B)",
+    "pw.rmit": "Exclusive partner for candidate sourcing",
+    "pw.tan": "Timber & furniture - hiring client",
+    "pw.fit": "Gym, lifestyle & event hosting",
+    "pw.supp": "Gym & health supplement products",
+    "pw.xuanvinh": "Jewelry store chain",
+    "pw.thadico": "Real estate & construction",
+    "ab.cta.title": "Ready to find the right hire?",
+    "ab.cta.subtitle": "Let TopLead work alongside you on your hiring",
+    "ab.cta.button": "Get in touch",
+    "ct.cta.title": "Not sure where to start?",
+    "ct.cta.subtitle": "Explore TopLead's full range of recruitment services",
+    "ct.cta.button": "See services",
     "svc.o.title": "Comprehensive recruitment solutions",
     "svc.o.sub": "TopLead offers a range of services for every hiring need",
     "svc.s1": "Find and engage senior talent (C-level, VP, Director) through a discreet, professional process.",
@@ -955,6 +1062,76 @@ var translations = {
     "ap.step4": "Presentation",
     "ap.step5": "Interview",
     "ap.step6": "Placement",
+    "jr.tag": "The Journey",
+    "cmp.title": "Two ways for the two sides to meet",
+    "cmp.sub": "Drag the divider to shift the weight between the two approaches.",
+    "cmp.trad": "Traditional recruitment",
+    "cmp.tl": "TopLead Recruitment Co. Ltd.",
+    "cmp.hint": "Drag back to the middle to compare",
+    "ap.t1.x": "You get whatever applies - quality you cannot control, on a timeline you cannot predict.",
+    "ap.t2.x": "Keyword filters miss strong people who word things differently, and keep people who write CVs for the parser.",
+    "ap.t3.x": "One reference call for form's sake - usually a referee the candidate picked, so it tells you little.",
+    "ap.t4.x": "The hire leaves after two weeks? That is your problem now. The fee was collected.",
+    "ap.t5.x": "Posting to signed offer usually runs 45-90 days. The longer the seat stays empty, the higher the hidden cost.",
+    "ap.l1.x": "We go to them: our database, referral network, and direct headhunting on LinkedIn.",
+    "ap.l2.x": "Five real layers: skills, screening interview, culture, references, final panel. Eighty candidates become three.",
+    "ap.l3.x": "At least three references, chosen by us - on performance, work ethic, and the real reason they left.",
+    "ap.l4.x": "Ninety days of active follow-up. Not the right fit within three months and we replace them, at no extra cost.",
+    "ap.l5.x": "A shortlist of 3-5 within the first 48 hours. Interviews in week one. Filled in two to four weeks on average.",
+    "tst.all": "See all reviews on Google",
+    "cmp.cta": "Want the process in detail? Keep scrolling - or",
+    "cmp.ctaLink": "get in touch",
+    "jr.meet": "The meeting point",
+    "ex.more": "See the detail",
+    "ex.g.l1": "Layer 1: Skills & experience",
+    "ex.g.l1d": "Hard skills, years of experience, industry relevance, career trajectory",
+    "ex.g.l2": "Layer 2: Screening interview",
+    "ex.g.l2d": "Communication, motivation, salary expectation alignment, availability",
+    "ex.g.l3": "Layer 3: Culture & team fit",
+    "ex.g.l3d": "Working style, management preference, values aligned with the client's culture",
+    "ex.g.l4": "Layer 4: Reference verification",
+    "ex.g.l4d": "3+ reference calls - performance history, work ethic, reason for leaving",
+    "ex.g.l5": "Layer 5: Final review & shortlist",
+    "ex.g.l5d": "The TopLead panel reviews every file and picks the top 3 for the client",
+    "ex.g.note": "Only about 4% of candidates clear the whole Guardian Screen",
+    "ex.t.cap": "We say it straight from the start, even when it is not what the client wants to hear.",
+    "ex.t.p1": "Honesty",
+    "ex.t.p1d": "If the JD does not add up, we say so. If nobody exists at that salary, we say so. We do not promise to win the deal - TopLead turns work down when we know we cannot deliver.",
+    "ex.t.p2": "Accountability",
+    "ex.t.p2d": "Every placement has one named owner, not a \"team\". Proactive follow-ups at day 30, 60 and 90. If we get it wrong, we fix it and carry the cost.",
+    "ex.t.p3": "Partnership",
+    "ex.t.p3d": "Not a CV vendor - a partner working the hiring problem with you. JD advice, salary benchmarking, onboarding support, and we stay on after the placement closes.",
+    "ex.gr.m1": "Performance review call",
+    "ex.gr.m1d": "How well the hire has settled in so far",
+    "ex.gr.m2": "Mid-point check-in",
+    "ex.gr.m2d": "Track progress and catch problems while they are still small",
+    "ex.gr.m3": "Full evaluation",
+    "ex.gr.m3d": "A complete review, closing the guarantee period",
+    "ex.gr.note": "Within 90 days, if the hire is not right, TopLead replaces them free of charge.",
+    "jr.title": "The 6-Step Journey",
+    "jr.sub": "From the first brief to the end of the guarantee period",
+    "jr.youGet": "What you get",
+    "jr.time1": "Day 1",
+    "jr.time2": "Day 2-5",
+    "jr.time3": "Day 3-7",
+    "jr.time4": "Day 5-7",
+    "jr.time5": "Week 2",
+    "jr.time6": "Month 1-3",
+    "jr.dl1": "Brief document - need, budget, timeline, culture",
+    "jr.dl2": "Long list of 15-25 potential candidates",
+    "jr.dl3": "Guardian Screen results - pass/fail detail at every layer",
+    "jr.dl4": "A shortlist of 3-5 CVs within 48 hours",
+    "jr.dl5": "Interview coordination + feedback report",
+    "jr.dl6": "Offer support + onboarding + 3-month guarantee",
+    "ex.g.role": "Entry filter - who gets onto the path",
+    "ex.g.sub": "A five-layer screening process",
+    "ex.g.summary": "Of 80 candidates sourced, 3 reach the client - roughly 4% clear all five layers.",
+    "ex.t.role": "Alignment - keeping both sides pointed the same way",
+    "ex.t.sub": "Three pillars of commitment",
+    "ex.t.summary": "Honesty, Accountability and Partnership - three things TopLead holds to even when they cost us the deal.",
+    "ex.gr.role": "Protection - keeping the match sound after it is made",
+    "ex.gr.sub": "A three-month guarantee",
+    "ex.gr.summary": "Check-ins at day 30, 60 and 90. Within 90 days, if the hire is not right, TopLead replaces them at no cost.",
     "ap.w1": "Step 1: Brief",
     "ap.w1d": "A call to understand the JD, budget, timeline, and company culture",
     "ap.w2": "Step 2: Search",
@@ -970,6 +1147,9 @@ var translations = {
     "ap.q1": "“I'm really happy with TopLead's advisory service. The team is professional and dedicated, with genuinely useful advice for my career path. Truly trustworthy!”",
     "ap.q2": "“Even after I started the job, the agency kept checking in and supporting me throughout probation.”",
     "ap.q3": "“I landed a job through TopLead - so did Cường and Quân. Hiếu will get there too!”",
+    "ap.q4": "Fast, effective and cost-efficient recruitment. Their fees sit right in line with the market.",
+    "ap.q5": "TopLead works professionally and with real care. Roles get filled quickly, at the quality they promised.",
+    "ap.q6": "Every candidate TopLead sent us was strong. Scheduling was quick and tidy, saving time on both sides.",
     "chip.fin": "Finance",
     "chip.re": "Real Estate",
     "chip.con": "Construction",
@@ -980,6 +1160,7 @@ var translations = {
 };
 
 document.addEventListener("DOMContentLoaded", function() {
+  document.body.classList.remove("no-js");
   // Hero Particles Animation
   initHeroParticles();
 
@@ -1117,6 +1298,17 @@ document.addEventListener("DOMContentLoaded", function() {
       if (ev.matches) setMenu(false);
     });
   }
+
+  // Autoplaying footage is the one thing reduced-motion most clearly rules out.
+  // Hold the poster frame instead of the loop.
+  (function respectReducedMotionVideo() {
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.querySelectorAll("video[autoplay]").forEach(function (v) {
+      v.removeAttribute("autoplay");
+      v.removeAttribute("loop");
+      try { v.pause(); } catch (e) { /* nothing playing yet */ }
+    });
+  })();
 
   // Nav dropdowns open on click, not on hover.
   // The trigger is also a real link to its own page, so: the first click opens
@@ -1433,6 +1625,266 @@ document.addEventListener("DOMContentLoaded", function() {
     }, { threshold: 0.6 });
 
     stats.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Comparison divider. The rows carry the full comparison as plain text, so
+  // this only shifts emphasis between the two sides - nothing is hidden by it.
+  (function initCompare() {
+    var stage = document.getElementById("cmpStage");
+    var divider = document.getElementById("cmpDivider");
+    if (!stage || !divider) return;
+
+    var SNAP = [25, 50, 75], TOL = 4;
+    var pct = 50, dragging = false;
+
+    function apply(v, snap) {
+      if (snap) {
+        for (var i = 0; i < SNAP.length; i++) {
+          if (Math.abs(v - SNAP[i]) <= TOL) { v = SNAP[i]; break; }
+        }
+      }
+      pct = Math.min(100, Math.max(0, v));
+      stage.style.setProperty("--split", pct + "%");
+      divider.setAttribute("aria-valuenow", Math.round(pct));
+      divider.setAttribute("aria-valuetext", Math.round(pct) + "%");
+
+      // Past 60% one way or 40% the other, that side earns its detail. This is
+      // what makes dragging worth doing rather than a decorative wipe.
+      var reveal = pct > 60 ? "tl" : (pct < 40 ? "trad" : "");
+      if (reveal) stage.setAttribute("data-reveal", reveal);
+      else stage.removeAttribute("data-reveal");
+      if (pct > 85 || pct < 15) stage.setAttribute("data-edge", "1");
+      else stage.removeAttribute("data-edge");
+    }
+
+    function fromEvent(e) {
+      var r = stage.getBoundingClientRect();
+      return r.width ? ((e.clientX - r.left) / r.width) * 100 : pct;
+    }
+
+    divider.addEventListener("pointerdown", function (e) {
+      dragging = true;
+      divider.setPointerCapture(e.pointerId);
+      divider.style.willChange = "left";
+      e.preventDefault();
+    });
+    divider.addEventListener("pointermove", function (e) {
+      if (dragging) apply(fromEvent(e), false);
+    });
+    function end(e) {
+      if (!dragging) return;
+      dragging = false;
+      try { divider.releasePointerCapture(e.pointerId); } catch (err) {}
+      divider.style.willChange = "";
+      apply(pct, true);
+    }
+    divider.addEventListener("pointerup", end);
+    divider.addEventListener("pointercancel", end);
+
+    divider.addEventListener("keydown", function (e) {
+      var step = e.shiftKey ? 10 : 5;
+      if (e.key === "ArrowLeft") { apply(pct - step, false); e.preventDefault(); }
+      else if (e.key === "ArrowRight") { apply(pct + step, false); e.preventDefault(); }
+      else if (e.key === "Home") { apply(0, false); e.preventDefault(); }
+      else if (e.key === "End") { apply(100, false); e.preventDefault(); }
+    });
+
+    apply(50, false);
+  })();
+
+  // The three safeguards. One card open at a time; the panel is a real
+  // [hidden] region so nothing collapsed is reachable by tab or read out.
+  (function initVaults() {
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".ex-card"));
+    if (!cards.length) return;
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // `hidden` is what keeps a collapsed panel out of the tab order and off the
+    // screen reader, but it cannot be transitioned - so height is animated and
+    // `hidden` is applied only once the collapse has finished.
+    function close(card) {
+      var panel = card.querySelector(".ex-panel");
+      var toggle = card.querySelector(".ex-toggle");
+      if (!panel || !toggle || panel.hidden) return;
+      card.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      clearTimeout(panel._settle);
+      if (reduce) { panel.hidden = true; panel.style.height = ""; return; }
+      panel.style.height = panel.scrollHeight + "px";
+      panel.offsetHeight;                       // commit that height first
+      panel.style.height = "0px";
+      // A timer rather than transitionend. If transitions are off - a user
+      // stylesheet, a browser setting - or the height does not actually
+      // change, transitionend never fires and the panel stays stuck open.
+      panel._settle = setTimeout(function () {
+        panel.hidden = true;
+        panel.style.height = "";
+      }, 460);
+    }
+
+    function open(card) {
+      cards.forEach(function (c) { if (c !== card) close(c); });
+      var panel = card.querySelector(".ex-panel");
+      var toggle = card.querySelector(".ex-toggle");
+      if (!panel || !toggle) return;
+      card.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+      panel.hidden = false;
+      clearTimeout(panel._settle);
+      if (reduce) return;
+      panel.style.height = "0px";
+      panel.offsetHeight;
+      panel.style.height = panel.scrollHeight + "px";
+      panel._settle = setTimeout(function () {
+        panel.style.height = "auto";            // let it grow if content reflows
+      }, 460);
+      // INT-05: move the reader into what they just opened
+      var cb = panel.querySelector('.ex-close');
+      if (cb) cb.focus({ preventScroll: true });
+    }
+
+    cards.forEach(function (card) {
+      var toggle = card.querySelector(".ex-toggle");
+      var closeBtn = card.querySelector(".ex-close");
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          if (card.classList.contains("is-open")) close(card);
+          else open(card);
+        });
+      }
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+          close(card);
+          if (toggle) toggle.focus();   // never strand focus inside a hidden region
+        });
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      var openCard = cards.filter(function (c) { return c.classList.contains("is-open"); })[0];
+      if (!openCard) return;
+      close(openCard);
+      var t = openCard.querySelector(".ex-toggle");
+      if (t) t.focus();
+    });
+
+    document.addEventListener("click", function (e) {
+      if (e.target.closest(".ex-card")) return;
+      cards.forEach(close);
+    });
+  })();
+
+  // Entrance reveals, scroll progress and back-to-top. All three are additive:
+  // with scripting off the CSS already leaves everything visible.
+  (function initApproachChrome() {
+    if (!document.querySelector(".cv")) return;
+
+    // VIS-11: sections arrive as the reader reaches them
+    var targets = document.querySelectorAll(".cv .section-header, .cmp-row, .ex-card, .jr-step");
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          en.target.classList.add("in-view");
+          io.unobserve(en.target);          // reveal once, then stop watching
+        });
+      }, { threshold: 0.15 });
+      targets.forEach(function (t) { io.observe(t); });
+    } else {
+      targets.forEach(function (t) { t.classList.add("in-view"); });
+    }
+
+    // FEAT-02: a thin read-position bar, so a long page still has a horizon
+    var bar = document.createElement("div");
+    bar.className = "read-progress";
+    bar.setAttribute("aria-hidden", "true");
+    document.body.appendChild(bar);
+
+    // FEAT-03: back to top, once the hero is behind us
+    var top = document.createElement("button");
+    top.type = "button";
+    top.className = "to-top";
+    top.setAttribute("aria-label", "Lên đầu trang");
+    top.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+    top.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduceMotionOn() ? "auto" : "smooth" });
+    });
+    document.body.appendChild(top);
+
+    function reduceMotionOn() {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var p = max > 0 ? window.scrollY / max : 0;
+        bar.style.transform = "scaleX(" + p.toFixed(4) + ")";
+        top.classList.toggle("is-on", window.scrollY > window.innerHeight * 0.9);
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // Philosophy panel: four photos cross-fading in slow rotation, so the
+  // section reads as a slice of real consultations rather than one staged
+  // shot. Autoplays, pauses on hover/focus and while off screen.
+  (function initPhilCarousel() {
+    var root = document.querySelector(".phil-carousel");
+    if (!root) return;
+    var slides = Array.prototype.slice.call(root.querySelectorAll(".phil-slide"));
+    var dotsBox = root.querySelector(".phil-dots");
+    var n = slides.length;
+    if (n < 2) return;
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var index = 0, timer = null, paused = false;
+    var AUTOPLAY = parseInt(root.getAttribute("data-autoplay"), 10) || 4600;
+
+    var dots = slides.map(function (_, i) {
+      var d = document.createElement("button");
+      d.type = "button";
+      d.className = "phil-dot";
+      d.setAttribute("role", "tab");
+      d.setAttribute("aria-label", "Ảnh " + (i + 1) + " / " + n);
+      d.addEventListener("click", function () { go(i); restart(); });
+      dotsBox.appendChild(d);
+      return d;
+    });
+
+    function go(i) {
+      index = ((i % n) + n) % n;
+      slides.forEach(function (s, j) { s.classList.toggle("is-active", j === index); });
+      dots.forEach(function (d, j) { d.classList.toggle("is-active", j === index); });
+    }
+    function next() { go(index + 1); }
+
+    function restart() {
+      if (timer) clearInterval(timer);
+      if (reduce) return;
+      timer = setInterval(function () { if (!paused) next(); }, AUTOPLAY);
+    }
+
+    root.addEventListener("pointerenter", function () { paused = true; });
+    root.addEventListener("pointerleave", function () { paused = false; });
+    root.addEventListener("focusin", function () { paused = true; });
+    root.addEventListener("focusout", function () { paused = false; });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        paused = !entries[0].isIntersecting;
+      }, { threshold: 0.2 }).observe(root);
+    }
+
+    go(0);
+    restart();
   })();
 
   // Why Choose TopLead: a circular carousel. The active card sits centred and

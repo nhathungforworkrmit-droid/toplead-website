@@ -36,7 +36,9 @@
   // Bands on the inner pages that get their own scoped field. The canvas is
   // injected by JS, so no page markup has to carry it.
   var PANELS = [
-    { selector: ".page-hero",          color: SECTION_COLORS.hero },
+    { selector: ".page-hero",          color: SECTION_COLORS.hero, dim: 0.55 },
+    { selector: ".post-hero--dark",    color: SECTION_COLORS.hero },
+    { selector: ".cv-band",            color: SECTION_COLORS.partner, dim: 0.3, fixed: true },
     { selector: ".cta-banner",         color: SECTION_COLORS.showcase },
     { selector: ".newsletter-section", color: SECTION_COLORS.showcase },
     { selector: ".post-cta-box",       color: SECTION_COLORS.showcase }
@@ -160,7 +162,7 @@
         depthWrite: false,
         depthTest: false,      // nothing clears the depth buffer now; additive
                                // blending makes draw order irrelevant anyway
-        blending: THREE.AdditiveBlending,
+        blending: opts.blending || THREE.AdditiveBlending,
         sizeAttenuation: true
       });
       p.obj = new THREE.Points(geo, p.mat);
@@ -184,7 +186,7 @@
         opacity: 0.3,
         depthWrite: false,
         depthTest: false,
-        blending: THREE.AdditiveBlending
+        blending: opts.blending || THREE.AdditiveBlending
       }));
       group.add(p.trailObj);
       return p;
@@ -206,7 +208,7 @@
       opacity: 0.9,
       depthWrite: false,
       depthTest: false,
-      blending: THREE.AdditiveBlending
+      blending: opts.blending || THREE.AdditiveBlending
     }));
     group.add(linkObj);
 
@@ -520,8 +522,12 @@
      Panel mode - inner pages: the same field, sized to one band. The canvas is
      transparent, so the band's own gradient stays as the no-WebGL fallback.
      ========================================================================== */
-  function initPanel(el, color) {
-    var w = el.clientWidth, h = el.clientHeight;
+  function initPanel(el, color, light, dim, fixed) {
+    // A band can run many screens tall. Sizing the canvas to all of it spreads
+    // the field so thin it disappears and allocates an enormous buffer, so a
+    // fixed band renders one viewport's worth and lets the page scroll past it.
+    var w = fixed ? window.innerWidth : el.clientWidth;
+    var h = fixed ? window.innerHeight : el.clientHeight;
     if (!w || !h) return;
 
     var canvas = document.createElement("canvas");
@@ -533,10 +539,17 @@
     try {
       f = makeField(canvas, {
         width: w, height: h,
-        dustCount: densityFor(w, h, 2800), dustSize: 0.22,
-        nodeCount: nodesFor(w, h, 165),    nodeSize: 0.48,
+        // `dim` thins the field for bands that carry a drawing of their own,
+        // so the particles stay atmosphere instead of competing with it.
+        dustCount: Math.round(densityFor(w, h, 2800) * (dim || 1)),
+        dustSize: 0.22,
+        nodeCount: Math.round(nodesFor(w, h, 165) * (dim || 1)),
+        nodeSize: 0.48,
         clearColor: 0x000000, clearAlpha: 0,  // band keeps its own gradient underneath
-        fog: false, opacity: 1
+        fog: false, opacity: (light ? 0.5 : 1) * (dim ? 0.55 : 1),
+        // Additive light is invisible on a pale ground, so panels drawn on the
+        // page's own cream paper composite normally instead.
+        blending: light ? THREE.NormalBlending : THREE.AdditiveBlending
       });
     } catch (err) {
       canvas.remove();  // WebGL unavailable - leave the band exactly as it was
@@ -577,7 +590,8 @@
     function stop() { running = false; }
 
     function onResize() {
-      w = el.clientWidth; h = el.clientHeight;
+      w = fixed ? window.innerWidth : el.clientWidth;
+      h = fixed ? window.innerHeight : el.clientHeight;
       if (!w || !h) return;
       f.camera.aspect = w / h;
       f.camera.updateProjectionMatrix();
@@ -636,7 +650,7 @@
   function initPanels() {
     PANELS.forEach(function (p) {
       Array.prototype.forEach.call(document.querySelectorAll(p.selector), function (el) {
-        try { initPanel(el, p.color); } catch (err) { /* band keeps its gradient */ }
+        try { initPanel(el, p.color, p.light, p.dim, p.fixed); } catch (err) { /* band keeps its gradient */ }
       });
     });
   }

@@ -15,6 +15,9 @@
   --bg-dark: #1A1A1A;
   --bg-dark-light: #252525;
   --bg-warm-brown: #2A1A10;
+  /* The footer's ground colour. Any band that sits directly above the footer
+     must end on this exact value, or a seam shows at the join. */
+  --footer-bg: #100C08;
   --bg-white: #FFFFFF;
   --bg-beige: #F9F6F0;
   --bg-cream: #F5F0E8;
@@ -62,7 +65,7 @@
   --text-6xl:  3.75rem;
   --text-7xl:  4.5rem;
 
-  /* Spacing scale — multiples of 4px (Task 2) */
+  /* Spacing scale - multiples of 4px (Task 2) */
   --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
   --space-6: 24px;  --space-8: 32px;  --space-12: 48px; --space-16: 64px;
   --space-20: 80px; --space-24: 96px; --space-30: 120px;
@@ -234,15 +237,25 @@ img {
   gap: 32px;
 }
 
-.nav-links a {
+/* Every top-level nav item - plain link or dropdown trigger - shares one shape */
+.nav-links > a:not(.btn-cta),
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   color: var(--text-light-muted);
   font-weight: 500;
   font-size: 0.95rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
   transition: var(--transition-fast);
   position: relative;
 }
 
-.nav-links a::after {
+/* Underline sits on ::before so triggers can keep ::after for the caret */
+.nav-links > a:not(.btn-cta)::before,
+.nav-dropdown-trigger::before {
   content: '';
   position: absolute;
   bottom: -4px;
@@ -253,11 +266,17 @@ img {
   transition: width 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links > a:not(.btn-cta):hover,
+.nav-dropdown:hover .nav-dropdown-trigger,
+.nav-links > a.active:not(.btn-cta),
+.nav-dropdown-trigger.active {
   color: var(--gold);
 }
 
-.nav-links a:hover::after {
+.nav-links > a:not(.btn-cta):hover::before,
+.nav-dropdown:hover .nav-dropdown-trigger::before,
+.nav-links > a.active:not(.btn-cta)::before,
+.nav-dropdown-trigger.active::before {
   width: 100%;
 }
 
@@ -266,27 +285,21 @@ img {
   position: relative;
 }
 
-.nav-dropdown-trigger {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
+/* Caret follows the link colour (currentColor) in every navbar state */
 .nav-dropdown-trigger::after {
   content: '';
-  display: inline-block;
+  flex-shrink: 0;
   width: 0;
   height: 0;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 4px solid #FFFFFF;
+  border-top: 4px solid currentColor;
   margin-top: 2px;
-  margin-left: 4px;
+  transition: transform 0.2s ease;
 }
 
-.navbar.scrolled .nav-dropdown-trigger::after {
-  border-top-color: #1A1A1A;
+.nav-dropdown.is-open .nav-dropdown-trigger::after {
+  transform: rotate(180deg);
 }
 
 .nav-dropdown-menu {
@@ -298,16 +311,17 @@ img {
   border-radius: var(--radius);
   border: 1px solid rgba(160, 82, 45, 0.2);
   box-shadow: var(--shadow-lg);
-  min-width: 200px;
-  padding: 8px 0;
+  min-width: 176px;
+  padding: 6px 0;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.2s ease;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
   z-index: 100;
 }
 
-.nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
+/* Opens on click, not on hover: script.js sets .is-open. A menu that dropped
+   open whenever the pointer crossed it kept appearing unasked. */
+.nav-dropdown.is-open .nav-dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
@@ -315,9 +329,10 @@ img {
 
 .nav-dropdown-menu a {
   display: block;
-  padding: 10px 20px;
+  padding: 8px 16px;
   color: var(--text) !important;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
   transition: var(--transition-fast);
   text-decoration: none;
 }
@@ -327,11 +342,15 @@ img {
   color: var(--gold) !important;
 }
 
-.navbar.scrolled .nav-links a {
+.navbar.scrolled .nav-links > a:not(.btn-cta),
+.navbar.scrolled .nav-dropdown-trigger {
   color: #1A1A1A;
 }
 
-.navbar.scrolled .nav-links a:hover {
+.navbar.scrolled .nav-links > a:not(.btn-cta):hover,
+.navbar.scrolled .nav-dropdown:hover .nav-dropdown-trigger,
+.navbar.scrolled .nav-links > a.active:not(.btn-cta),
+.navbar.scrolled .nav-dropdown-trigger.active {
   color: var(--gold-dark);
 }
 
@@ -360,6 +379,9 @@ img {
   border: none;
   cursor: pointer;
   padding: 8px;
+  /* Never let the row squeeze this out: it is the only way to open or close
+     the menu, and on a narrow phone it was being pushed off screen entirely. */
+  flex-shrink: 0;
   min-width: 44px;
   min-height: 44px;
 }
@@ -391,10 +413,24 @@ img {
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--dark);
-  padding: 20px;
-  border-bottom: 1px solid rgba(160, 82, 45, 0.1);
+  /* Was var(--dark), which is not a variable this stylesheet defines: the
+     whole declaration was dropped and the panel rendered fully transparent,
+     leaving the menu unreadable over the page behind it. */
+  /* Frosted glass: the hero and its particle field stay visible through the
+     panel, blurred and darkened just enough to keep the links readable. */
+  background: linear-gradient(180deg, rgba(16, 12, 8, 0.80), rgba(16, 12, 8, 0.90));
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
+  padding: 20px 20px 32px;
+  border-top: 1px solid rgba(228, 182, 120, 0.18);
   gap: 16px;
+  /* Every dropdown is expanded inline, so the panel is usually taller than the
+     screen. It scrolls on its own; script.js sets max-height to the space left
+     under the navbar, which is the only way to get it exactly right across
+     breakpoints (the bar's height changes with the logo size). */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nav-links.active a {
@@ -404,6 +440,115 @@ img {
 
 .nav-links.active a:last-child {
   border-bottom: none;
+}
+
+/* The open menu owns the screen; the page behind it must not scroll away. */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* The bar takes the same glass treatment, so bar and panel read as one sheet. */
+body.nav-open .navbar,
+body:has(#bg-canvas).nav-open .navbar.scrolled {
+  background: rgba(16, 12, 8, 0.80);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
+  border-bottom-color: transparent;
+}
+
+/* Safari on older iOS and Firefox without the flag get no backdrop-filter at
+   all - there, a translucent panel would leave the links unreadable, so fall
+   back to a solid one. */
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  .nav-links.active,
+  body.nav-open .navbar,
+  body:has(#bg-canvas).nav-open .navbar.scrolled {
+    background: var(--footer-bg);
+  }
+}
+
+body.nav-open .navbar .nav-links > a:not(.btn-cta),
+body.nav-open .navbar .logo-text-top,
+body.nav-open .navbar .logo-text-bottom {
+  color: #F6EEE3;
+}
+
+/* The open menu owns the screen; the page behind it must not scroll away. */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* The bar takes the same glass treatment, so bar and panel read as one sheet. */
+body.nav-open .navbar,
+body:has(#bg-canvas).nav-open .navbar.scrolled {
+  background: rgba(16, 12, 8, 0.80);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
+  border-bottom-color: transparent;
+}
+
+/* Safari on older iOS and Firefox without the flag get no backdrop-filter at
+   all - there, a translucent panel would leave the links unreadable, so fall
+   back to a solid one. */
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  .nav-links.active,
+  body.nav-open .navbar,
+  body:has(#bg-canvas).nav-open .navbar.scrolled {
+    background: var(--footer-bg);
+  }
+}
+
+body.nav-open .navbar .nav-links > a:not(.btn-cta),
+body.nav-open .navbar .logo-text-top,
+body.nav-open .navbar .logo-text-bottom {
+  color: #F6EEE3;
+}
+
+/* Narrow phones: the logo, the language switcher and the menu button have to
+   share ~320px. Drop the logo's second line and tighten everything. */
+@media (max-width: 480px) {
+  .logo { gap: 8px; min-width: 0; }
+  .logo-img { height: 34px; }
+  .logo-text-bottom { display: none; }
+  .nav-right { gap: 10px; }
+  .navbar .container { padding-left: 16px; padding-right: 16px; }
+}
+
+/* Mobile menu: a dropdown expands inline, and only once it is tapped - having
+   all of them open at once made the panel several screens long. */
+.nav-links.active .nav-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-links.active .nav-dropdown-menu {
+  position: static;
+  transform: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+  padding: 0 0 0 16px;
+  /* Collapsed by default; .is-open on the parent reveals it. */
+  display: none;
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-links.active .nav-dropdown.is-open .nav-dropdown-menu {
+  display: block;
+}
+
+.nav-links.active .nav-dropdown-menu a {
+  padding: 10px 0;
+  font-size: 0.9rem;
+  color: #F6EEE3 !important;
+  opacity: 0.85;
+}
+
+.nav-links.active .nav-dropdown-menu a:hover {
+  background: transparent;
+  color: var(--gold-light) !important;
 }
 
 /* ========================================
@@ -1610,7 +1755,13 @@ section {
    CTA Banner Section
    ======================================== */
 .cta-banner {
-  background: linear-gradient(135deg, #7A3E20 0%, #A0522D 50%, #7A3E20 100%);
+  /* Dark base that lands exactly on the footer's colour at the bottom edge, so
+     the band and the footer read as one surface - same move as the homepage,
+     where the particle field runs straight into the footer. The copper glow at
+     the top keeps the CTA's warmth without cutting a hard line. */
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(160, 82, 45, 0.55) 0%, rgba(122, 62, 32, 0.20) 45%, transparent 72%),
+    linear-gradient(180deg, #1A1209 0%, #17100B 55%, var(--footer-bg) 88%, var(--footer-bg) 100%);
   padding: 80px 0;
   text-align: center;
   position: relative;
@@ -1623,6 +1774,10 @@ section {
   position: absolute;
   inset: 0;
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  /* Fade the texture out before the bottom edge - at full strength it lifts the
+     band lighter than the footer and re-draws the seam we just removed. */
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 40%, transparent 88%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 40%, transparent 88%);
 }
 
 .cta-banner-content {
@@ -2009,7 +2164,7 @@ section {
   background: var(--bg-warm-brown);
   border-top: 1px solid rgba(228, 182, 120, 0.18);
   padding: clamp(80px, 10vw, 120px) 0 32px;
-  /* Footer-scoped palette — readable warm tones on the dark ground */
+  /* Footer-scoped palette - readable warm tones on the dark ground */
   --footer-heading: #E4B678;
   --footer-text: #CBBBA8;
   --footer-strong: #F6EEE3;
@@ -2318,6 +2473,43 @@ a.footer-contact-value:hover {
   }
 }
 
+/* The full nav row needs ~1200px: logo + 6 links + CTA + language switcher.
+   Below that it collided with the logo and overflowed the viewport, so the
+   hamburger takes over - not just on phones. */
+@media (max-width: 1199px) {
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+}
+
+/* Laptop: the row fits, but only just - tighten it rather than let it collide.
+   The upper bound is 1439px, not 1379px: .container stays capped at 1200px all
+   the way to 1439px, so the nav has no more room at 1400px than at 1200px. Ending
+   this block at 1379px left 1380-1439px on the untightened 32px gaps, and the
+   logo ran straight into the first link. */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links > a:not(.btn-cta),
+  .nav-dropdown-trigger {
+    font-size: 0.875rem;
+  }
+
+  .btn-cta {
+    padding: 10px 18px;
+  }
+
+  .nav-right {
+    gap: 16px;
+  }
+}
+
 /* Tablet: 768px - 1023px */
 @media (min-width: 768px) and (max-width: 1023px) {
   .container {
@@ -2406,9 +2598,7 @@ a.footer-contact-value:hover {
     gap: 16px;
   }
 
-  .nav-links {
-    display: none;
-  }
+  /* .nav-links / .mobile-menu-btn switch over at 1199px above */
 
   .lang-switcher {
     padding: 2px;
@@ -2417,10 +2607,6 @@ a.footer-contact-value:hover {
   .lang-btn {
     padding: 4px 8px;
     font-size: 0.75rem;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
   }
 
   .logo-img {
@@ -2515,15 +2701,32 @@ a.footer-contact-value:hover {
    Page Hero (for subpages)
    ======================================== */
 .page-hero {
-  min-height: 50vh;
+  /* Tall enough that the particle field reads as an environment rather than a
+     strip of texture behind two lines of text. Not 100vh: the first section
+     should still peek above the fold so the page invites a scroll. */
+  min-height: 72vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding: 150px 0 110px;
   background: linear-gradient(135deg, #7A3E20 0%, #1A1A1A 50%, #0D0D0D 100%);
-  border-bottom: 3px solid var(--gold-light);
+  /* No 3px slab across the bottom. That hard rule is what made the hero read as
+     a boxed-off panel; a hairline that dissolves at both ends still separates
+     the dark hero from the light section below without drawing a lid on it. */
+  border-bottom: none;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-light) 25%, var(--gold-light) 75%, transparent);
+  opacity: 0.55;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .page-hero .hero-bg {
@@ -2565,11 +2768,106 @@ a.footer-contact-value:hover {
 }
 
 .page-hero-subtitle {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(1.0625rem, 1.5vw, 1.375rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.72);
   text-align: center;
   position: relative;
   z-index: 1;
+  /* Cap the measure so the lead breaks into a shape, not one wide ribbon */
+  max-width: 48ch;
+  margin-inline: auto;
+  line-height: 1.6;
+  letter-spacing: 0.005em;
+}
+
+/* ---- Page hero: structure around the title ---- */
+.ph-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Breadcrumb doubles as the eyebrow: it tells you where you are, which is
+   exactly the job a page hero has and the old one was not doing. */
+.ph-crumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.ph-crumb a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.ph-crumb a:hover { color: var(--gold-light); }
+.ph-crumb-sep { color: var(--gold-light); opacity: 0.6; }
+.ph-crumb [aria-current="page"] { color: var(--gold-light); }
+
+/* Scroll cue: a hairline that grows out of the bottom edge, so the hero reads
+   as continuing into the page instead of stopping at a border. */
+.ph-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 0;
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+}
+.ph-scroll:hover { color: var(--gold-light); }
+.ph-scroll-line {
+  width: 1px;
+  height: 56px;
+  background: linear-gradient(180deg, transparent, var(--gold-light));
+  transform-origin: top;
+  animation: phCue 2.4s ease-in-out infinite;
+}
+@keyframes phCue {
+  0%, 100% { transform: scaleY(0.45); opacity: 0.45; }
+  50%      { transform: scaleY(1);    opacity: 1; }
+}
+
+/* Staggered entrance so the hero assembles instead of appearing as a slab */
+.ph-inner > * {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: phIn 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+.ph-inner > *:nth-child(1) { animation-delay: 0.05s; }
+.ph-inner > *:nth-child(2) { animation-delay: 0.16s; }
+.ph-inner > *:nth-child(3) { animation-delay: 0.27s; }
+.ph-inner > *:nth-child(4) { animation-delay: 0.38s; }
+@keyframes phIn { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ph-inner > * { animation: none; opacity: 1; transform: none; }
+  .ph-scroll-line { animation: none; }
+}
+
+@media (max-width: 767px) {
+  .page-hero { min-height: 62vh; padding: 120px 0 96px; }
+  .ph-crumb { font-size: 0.7rem; letter-spacing: 0.12em; }
+  .ph-scroll { display: none; }
 }
 
 /* ========================================
@@ -2655,6 +2953,8 @@ a.footer-contact-value:hover {
   font-weight: 800;
   color: var(--gold);
   margin-bottom: 8px;
+  /* Equal-width digits, so the number does not wobble while it counts up. */
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-label {
@@ -2684,6 +2984,248 @@ a.footer-contact-value:hover {
   gap: 32px;
   margin-top: 48px;
 }
+
+/* ------------------------------------------------------------------
+   Why Choose TopLead - circular carousel
+   The six cards ride a loop: the middle one is full size and opaque,
+   its neighbours step down in scale and fade back, like a shelf of
+   products with the current pick pulled forward. script.js sets the
+   transforms; everything here is the look and the easing.
+   ------------------------------------------------------------------ */
+.why-carousel {
+  position: relative;
+  margin-top: 48px;
+  padding: 0 56px;
+}
+
+/* ------------------------------------------------------------------
+   Partner wall - real logos with names and what each one does
+   A static grid, not a moving strip: these are named relationships, so
+   they get room to be read rather than scrolled past.
+   ------------------------------------------------------------------ */
+.partner-wall-head {
+  text-align: center;
+  margin-top: clamp(56px, 7vw, 84px);
+  margin-bottom: clamp(32px, 4vw, 48px);
+  padding: 0 20px;
+}
+
+.partner-wall-head .section-tag {
+  margin-bottom: 16px;
+}
+
+/* Was a small uppercase eyebrow sitting under its own section-header - now
+   that the section-header above it is gone, this carries the section title
+   on its own, so it takes the same weight as every other section's h2. */
+.partner-wall-label {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.partner-wall-sub {
+  font-size: 1.125rem;
+  color: var(--text-muted, #6F6257);
+  max-width: 56ch;
+  margin: 0 auto;
+}
+
+/* The cards run as a rail rather than sit in a grid: full width of the window,
+   dissolving at both edges so the row reads as continuing past the screen. */
+.partner-wall {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.partner-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding: 6px 10px;
+  /* The set is duplicated in the markup, so -50% lands exactly on the copy
+     and the loop has no visible seam. */
+  animation: partner-run 37s linear infinite;  /* 25% faster than the original 46s */
+}
+
+@keyframes partner-run {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Stop so a card can actually be read. */
+.partner-wall:hover .partner-track,
+.partner-wall:focus-within .partner-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-track { animation: none; }
+  .partner-wall { overflow-x: auto; scrollbar-width: none; }
+  .partner-wall::-webkit-scrollbar { display: none; }
+}
+
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 0 0 auto;
+  width: 252px;
+  padding: 24px;
+  border: 1px solid rgba(160, 82, 45, 0.16);
+  border-radius: var(--radius-lg);
+  background: var(--bg-white);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.partner-card:hover {
+  border-color: var(--copper);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(122, 62, 32, 0.10);
+}
+
+/* Flexbox centring, so logos of different heights share one baseline. */
+.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 60px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.partner-logo img {
+  max-height: 60px;
+  max-width: 100%;
+  width: auto;
+  height: auto;          /* never distort: cap the height, keep the ratio */
+  object-fit: contain;
+  transition: transform 200ms ease;
+}
+
+.partner-card:hover .partner-logo img {
+  transform: scale(1.04);
+}
+
+/* YourFit's mark is white-on-black artwork; stripping the background would
+   erase the wordmark, so it keeps its own tile and gets rounded to match. */
+.partner-card--tile .partner-logo img {
+  border-radius: 10px;
+}
+
+.partner-name {
+  font-size: var(--text-sm, 0.95rem);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 4px;
+}
+
+.partner-desc {
+  font-size: var(--text-xs, 0.8rem);
+  line-height: 1.5;
+  color: var(--text-muted, #6F6257);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .partner-track { gap: 12px; }
+  .partner-card { width: 208px; padding: 16px; }
+  .partner-logo { height: 46px; margin-bottom: 12px; }
+  .partner-logo img { max-height: 46px; }
+}
+
+
+.why-stage {
+  position: relative;
+  height: 340px;
+  /* The off-centre cards run past the edges by design; clip them so they
+     never widen the page or collide with the section padding. */
+  overflow: hidden;
+}
+
+.why-carousel .why-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(380px, 76vw);
+  margin: 0;
+  /* Set by script.js: translate(-50%, -50%) translateX(...) scale(...) */
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+              opacity 0.55s ease,
+              box-shadow 0.55s ease;
+  will-change: transform, opacity;
+}
+
+.why-carousel .why-card.is-active {
+  box-shadow: 0 24px 60px rgba(122, 62, 32, 0.22);
+  border-color: rgba(160, 82, 45, 0.35);
+}
+
+/* Only the middle card is a live target; the faded ones behind it must not
+   swallow clicks meant for the arrows. */
+.why-carousel .why-card:not(.is-active) {
+  pointer-events: none;
+}
+
+.why-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(160, 82, 45, 0.28);
+  background: var(--bg-white);
+  color: var(--copper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+}
+
+.why-nav svg { width: 20px; height: 20px; }
+.why-nav:hover { background: var(--copper); color: #fff; border-color: var(--copper); }
+.why-prev { left: 0; }
+.why-next { right: 0; }
+
+.why-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.why-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(160, 82, 45, 0.28);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.why-dot.is-active {
+  width: 26px;
+  background: var(--copper);
+}
+
+@media (max-width: 767px) {
+  .why-carousel { padding: 0 12px; }
+  .why-stage { height: 380px; }
+  .why-nav { display: none; }   /* swipe instead - the arrows would crowd the card */
+}
+
 
 .why-card {
   background: var(--bg-white);
@@ -3326,7 +3868,10 @@ a.footer-contact-value:hover {
 }
 
 .newsletter-section {
-  background: var(--bg-warm-brown);
+  /* Same dark-into-footer ramp as .cta-banner (see there) */
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(160, 82, 45, 0.45) 0%, rgba(122, 62, 32, 0.16) 45%, transparent 72%),
+    linear-gradient(180deg, #1A1209 0%, #17100B 55%, var(--footer-bg) 88%, var(--footer-bg) 100%);
   padding: 60px 0;
 }
 
@@ -5036,7 +5581,7 @@ a.footer-contact-value:hover {
 
 
 /* ============================================================
-   Decorative graphics — soft brand blobs + dot texture
+   Decorative graphics - soft brand blobs + dot texture
    ============================================================ */
 .services, .serve, .testimonials, .founders {
   position: relative;
@@ -5098,7 +5643,7 @@ a.contact-value:hover { color: var(--gold); }
 
 
 /* ============================================================
-   TopLead 360 — interactive 3D showcase
+   TopLead 360 - interactive 3D showcase
    ============================================================ */
 .showcase { position: relative; overflow: hidden; background: linear-gradient(165deg, #2A1A10, #141210); padding: 100px 0; }
 .showcase-glow { position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 900px; height: 520px; background: radial-gradient(ellipse, rgba(208,132,58,0.28), transparent 65%); pointer-events: none; }
@@ -5149,7 +5694,7 @@ a.contact-value:hover { color: var(--gold); }
   .sc-panel { transition: opacity 0.3s ease; transform: none; }
 }
 
-/* Philosophy band — redesigned with network graphic */
+/* Philosophy band - redesigned with network graphic */
 .philosophy-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr 1fr; gap: 52px; align-items: center; }
 .philosophy-media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 26px 60px rgba(0,0,0,0.4); border: 1px solid rgba(228,182,120,0.18); }
 .philosophy-media img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/11; }
@@ -5164,7 +5709,7 @@ a.contact-value:hover { color: var(--gold); }
 }
 
 /* ============================================================
-   HOMEPAGE REDESIGN — shared 4D background, video, display type
+   HOMEPAGE REDESIGN - shared 4D background, video, display type
    (scoped to the homepage via #bg-canvas / :has where needed)
    ============================================================ */
 
@@ -5184,6 +5729,54 @@ a.contact-value:hover { color: var(--gold); }
 /* Let the fixed canvas show through only on the homepage. Other pages keep
    their own body background (they have no #bg-canvas). */
 body:has(#bg-canvas) { background: transparent; }
+
+/* --- Scoped 4D field: the same particle background as the homepage, sized to
+   a single band. Used for the inner-page heroes and the CTA strip above the
+   footer so every page opens and closes like the landing page. The canvas is
+   injected by background.js and is transparent, so each band keeps its own
+   gradient underneath as the no-WebGL fallback. --- */
+.fx-panel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+/* Bands that need a stacking context of their own to host the field */
+.newsletter-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* A CTA band now ends on the footer's exact colour, so the footer's divider
+   would draw a line straight through the blend. */
+.cta-banner + .footer,
+.newsletter-section + .footer {
+  border-top: none;
+}
+
+/* Additive particles brighten whatever they sit on, which would re-draw the
+   seam at the very bottom of a CTA band. Fade the field out before the join. */
+.cta-banner .fx-panel,
+.newsletter-section .fx-panel {
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 58%, transparent 94%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 58%, transparent 94%);
+}
+
+/* Content always rides above the field */
+.page-hero .container,
+.post-hero .container,
+.cta-banner-content,
+.newsletter-content,
+.post-cta-box h3,
+.post-cta-box p,
+.post-cta-actions {
+  position: relative;
+  z-index: 1;
+}
 
 img, video { max-width: 100%; }
 
@@ -5285,7 +5878,7 @@ img, video { max-width: 100%; }
 }
 
 /* ============================================================
-   HOMEPAGE — ONE CONTINUOUS DARK CANVAS
+   HOMEPAGE - ONE CONTINUOUS DARK CANVAS
    Removes the light/dark banding & hard seams so scrolling feels
    like a single evolving scene. All scoped to the homepage
    (only index.html has #bg-canvas) so other pages are untouched.
@@ -5352,7 +5945,7 @@ body:has(#bg-canvas) .contact-icon svg { stroke: #E4B678; }
 body:has(#bg-canvas) .animate-on-scroll { will-change: transform, opacity; }
 
 /* ============================================================
-   POLISH PASS — typography roles, focus, click-safety, header
+   POLISH PASS - typography roles, focus, click-safety, header
    ============================================================ */
 
 /* --- Task 1: responsive display/heading scale (does not touch layout JS) --- */
@@ -5366,12 +5959,18 @@ body:has(#bg-canvas) .animate-on-scroll { will-change: transform, opacity; }
   line-height: 1.2;
   letter-spacing: -0.01em;
 }
+/* The hero carries itself on type alone - no buttons, no extra furniture - so
+   the title has to be genuinely display-scale, not body copy that happens to be
+   bold. 800 is the heaviest weight loaded, and at this size a slightly tighter
+   track keeps the word reading as one solid mass. */
 .page-hero-title {
-  font-size: clamp(2.25rem, 4.5vw, 3rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.75rem, 7vw, 5.25rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin-bottom: 24px;
 }
-/* Keep prose readable — cap measure, never letter-space body copy */
+/* Keep prose readable - cap measure, never letter-space body copy */
 .section-header p { max-width: 62ch; margin-inline: auto; }
 p { letter-spacing: normal; }
 
@@ -5420,14 +6019,17 @@ body:has(#bg-canvas) .navbar.scrolled {
   border-bottom-color: rgba(228, 182, 120, 0.16);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
 }
-body:has(#bg-canvas) .navbar.scrolled .nav-links a { color: #F6EEE3; }
-body:has(#bg-canvas) .navbar.scrolled .nav-links a:hover { color: var(--gold-light); }
+body:has(#bg-canvas) .navbar.scrolled .nav-links > a:not(.btn-cta),
+body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger { color: #F6EEE3; }
+body:has(#bg-canvas) .navbar.scrolled .nav-links > a:not(.btn-cta):hover,
+body:has(#bg-canvas) .navbar.scrolled .nav-dropdown:hover .nav-dropdown-trigger,
+body:has(#bg-canvas) .navbar.scrolled .nav-links > a.active:not(.btn-cta),
+body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger.active { color: var(--gold-light); }
 body:has(#bg-canvas) .navbar.scrolled .logo-text-top,
 body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
-body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger::after { border-top-color: #F6EEE3; }
 
 /* ============================================================
-   AWARD PASS — Sections A/B/C/D redesign + global depth/polish
+   AWARD PASS - Sections A/B/C/D redesign + global depth/polish
    ============================================================ */
 
 /* --- Global ghost/secondary button (reusable across sections) --- */
@@ -5457,7 +6059,132 @@ body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger::after { border-top-
 .philosophy-media img { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 .philosophy-media:hover img { transform: scale(1.04); }
 
-/* ---------- SECTION A — Philosophy editorial panel ---------- */
+/* ------------------------------------------------------------------
+   Philosophy media - the film panel
+   The quote says people are the engine, not a cost, so the panel shows
+   people rather than a stock graphic. Three pieces sit over the footage:
+   a scrim that keeps the lower half readable, the TopLead mark pressed
+   in like a seal on a document, and a caption that signs the claim.
+   ------------------------------------------------------------------ */
+.philosophy-media {
+  position: relative;
+  margin: 0;              /* it is a <figure> now */
+  isolation: isolate;     /* keeps the scrim and seal off the page's stacking */
+}
+
+/* Four real photos in rotation rather than one static frame, so the panel
+   still reads as a slice of life rather than a single staged shot. */
+.phil-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.phil-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+  opacity: 0;
+  transition: opacity 1.1s ease, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.phil-slide.is-active {
+  opacity: 1;
+}
+
+.phil-dots {
+  position: absolute;
+  top: clamp(14px, 2.2vw, 22px);
+  left: clamp(18px, 3vw, 28px);
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+}
+
+.phil-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.2s ease, width 0.2s ease;
+}
+
+.phil-dot.is-active {
+  width: 20px;
+  background: var(--gold-light, #E4B678);
+}
+
+/* Dark at the foot, clear at the top: the caption gets its contrast without
+   dimming the faces in the frame. */
+.phil-media-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(12, 9, 7, 0.88) 0%, rgba(12, 9, 7, 0.45) 26%, rgba(12, 9, 7, 0) 55%),
+    linear-gradient(to bottom, rgba(12, 9, 7, 0.45) 0%, transparent 30%);
+}
+
+/* The mark, pressed into the top corner like a seal. */
+.phil-seal {
+  position: absolute;
+  top: clamp(14px, 2.2vw, 22px);
+  right: clamp(14px, 2.2vw, 22px);
+  width: clamp(52px, 7vw, 68px);
+  height: clamp(52px, 7vw, 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(20, 15, 11, 0.42);
+  border: 1px solid rgba(228, 182, 120, 0.45);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+}
+
+.phil-seal img {
+  width: 58%;
+  height: auto;
+  opacity: 0.92;
+}
+
+.phil-media-caption {
+  position: absolute;
+  left: clamp(18px, 3vw, 28px);
+  right: clamp(18px, 3vw, 28px);
+  bottom: clamp(18px, 3vw, 26px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #F1E5D6;
+  font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
+}
+
+.phil-caption-rule {
+  flex-shrink: 0;
+  width: clamp(22px, 4vw, 40px);
+  height: 2px;
+  background: var(--gold-light, #E4B678);
+}
+
+/* Auto-advancing slides is exactly what reduced-motion asks us not to do;
+   script.js stops the rotation and the first photo stands in as a still. */
+@media (prefers-reduced-motion: reduce) {
+  .phil-slide { transition: none; }
+  .philosophy-media:hover img { transform: none; }
+}
+
+/* ---------- SECTION A - Philosophy editorial panel ---------- */
 .philosophy-grid { align-items: center; }
 .philosophy-media {
   aspect-ratio: 4 / 5;
@@ -5500,7 +6227,7 @@ body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger::after { border-top-
   .philosophy-text { margin-left: -24px; }  /* subtle overlap = depth */
 }
 
-/* ---------- SECTION B — Partner stats: featured grid ---------- */
+/* ---------- SECTION B - Partner stats: featured grid ---------- */
 .partner .section-header h2 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
@@ -5538,7 +6265,7 @@ body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger::after { border-top-
 .partner-value h3 { font-size: var(--text-xl); }
 .partner-value p { font-size: var(--text-base); }
 
-/* ---------- SECTION C — Cinematic video strip ---------- */
+/* ---------- SECTION C - Cinematic video strip ---------- */
 .cine-strip {
   height: clamp(320px, 42vw, 560px);
   display: block;
@@ -5592,19 +6319,23 @@ body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger::after { border-top-
 .cine-cta-row { display: flex; align-items: center; gap: 18px; margin-top: 22px; flex-wrap: wrap; }
 .cine-line { width: 48px; height: 2px; background: #E4B678; flex-shrink: 0; }
 
-/* ---------- SECTION D — Footer emerges from the page ---------- */
+/* ---------- SECTION D - Footer emerges from the page ---------- */
 .footer {
-  background: #100C08;                 /* near page-dark warm tint, not brown */
+  background: var(--footer-bg);        /* near page-dark warm tint, not brown */
   border-top: none;
   padding: clamp(80px, 8vw, 112px) 0 48px;
 }
-.footer::before {
+/* Only the homepage footer rises out of a dark field, so only there does this
+   fade make sense. On the inner pages it smeared a dark band up over whatever
+   sat above it - light sections included - and the CTA bands already land on
+   the footer's exact colour, so they need no help. */
+body:has(#bg-canvas) .footer::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 120px;
   transform: translateY(-100%);
-  background: linear-gradient(to bottom, transparent, #100C08);
+  background: linear-gradient(to bottom, transparent, var(--footer-bg));
   pointer-events: none;
 }
 .footer-links h4 { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; }
@@ -5626,7 +6357,7 @@ body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger::after { border-top-
 }
 
 /* ============================================================
-   "YOU HAVE A GOOD PARTNER" — 4 uniform, balanced stat boxes
+   "YOU HAVE A GOOD PARTNER" - 4 uniform, balanced stat boxes
    (equal size + one clean design; 48h keeps only a subtle accent)
    ============================================================ */
 .partner-grid { gap: 20px; align-items: stretch; }
@@ -5661,3 +6392,1167 @@ body:has(#bg-canvas) .navbar.scrolled .nav-dropdown-trigger::after { border-top-
 @media (max-width: 420px) {
   .partner-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   CONVERGENCE (approach.html)
+   Two flows - one from each side - moving toward a meeting point.
+   Section 1 sets them against each other, section 2 walks them
+   together, section 3 guards the join. Scoped to .cv so none of
+   it can leak into the rest of the site.
+   ============================================================ */
+:root {
+  /* The gold that reads on dark ground. --gold/--gold-light are copper
+     tones meant for light backgrounds and would sink into this. */
+  --cv-gold: #E4B678;
+  --cv-gold-hi: #F0D2A0;
+  --cv-ink: #100C08;
+  --cv-text: #E7DCCB;
+  --cv-dim: #A99C8C;
+  --cv-mute: #7C7268;
+  --cv-line: rgba(228, 182, 120, 0.22);
+  --cv-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.cv {
+  position: relative;
+  /* No background of its own - the three sit on one continuous ground painted
+     by .cv-band below, so the run reads as a single surface rather than three
+     slabs butted together. */
+  background: transparent;
+  color: var(--cv-text);
+  padding: 80px 0;
+  overflow: hidden;
+}
+.cv .section-header h2 { color: #F6EEE3; }
+.cv .section-header > p { color: var(--cv-dim); }
+.cv .section-tag {
+  background: rgba(228, 182, 120, 0.14);
+  border-color: rgba(228, 182, 120, 0.3);
+  color: var(--cv-gold);
+}
+.cv a { color: var(--cv-gold); }
+.cv a:focus-visible,
+.cv [tabindex]:focus-visible { outline: 2px solid var(--cv-gold); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- Section 1: the comparison ---------- */
+.cmp-stage {
+  position: relative;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 74px 0 24px;
+  --split: 50%;
+}
+
+/* Two illustrations carry the contrast: an anonymous crowd on one side,
+   many hands meeting over a map on the other. */
+.cmp-art {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+.cmp-fig {
+  margin: 0;
+  border: 1px solid var(--cv-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  transition: opacity 0.5s var(--cv-ease), border-color 0.5s var(--cv-ease), transform 0.5s var(--cv-ease);
+}
+.cmp-fig img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* the traditional image is drained of colour - it is the one being argued against */
+.cmp-fig--trad img { filter: grayscale(1) contrast(0.9) brightness(0.72); }
+.cmp-fig--tl { border-color: rgba(228, 182, 120, 0.45); }
+.cmp-fig--tl img { filter: saturate(1.05); }
+
+.cmp-heads {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 22px;
+}
+.cmp-head {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: opacity 0.4s var(--cv-ease), color 0.4s var(--cv-ease);
+}
+.cmp-head--trad { color: var(--cv-mute); text-align: right; padding-right: 24px; }
+.cmp-head--tl { color: var(--cv-gold); padding-left: 24px; }
+
+.cmp-rows { position: relative; list-style: none; margin: 0; padding: 0; }
+.cmp-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 15px 0;
+  border-top: 1px solid var(--cv-line);
+}
+.cmp-row:last-child { border-bottom: 1px solid var(--cv-line); }
+
+.cmp-cell { margin: 0; font-size: 0.98rem; line-height: 1.55; transition: opacity 0.45s var(--cv-ease); }
+.cmp-cell--trad {
+  color: var(--cv-dim);
+  text-align: right;
+  padding-right: 24px;
+  /* a thin rule through it instead of a cross emoji */
+  text-decoration: line-through;
+  text-decoration-color: rgba(196, 120, 104, 0.5);
+  text-decoration-thickness: 1px;
+}
+.cmp-cell--tl {
+  color: #F3E9DA;
+  font-weight: 500;
+  padding-left: 24px;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.cmp-mark {
+  flex-shrink: 0;
+  width: 7px; height: 7px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--cv-gold);
+  box-shadow: 0 0 10px rgba(228, 182, 120, 0.6);
+}
+
+/* dragging shifts which side carries the weight */
+.cmp-stage .cmp-cell--trad,
+.cmp-stage .cmp-head--trad { opacity: calc(0.35 + (100% - var(--split)) / 100 * 0.9); }
+.cmp-stage .cmp-cell--tl,
+.cmp-stage .cmp-head--tl { opacity: calc(0.35 + var(--split) / 100 * 0.9); }
+.cmp-stage .cmp-fig--tl { opacity: calc(0.32 + var(--split) / 100 * 0.85); }
+.cmp-stage .cmp-fig--trad { opacity: calc(0.32 + (100% - var(--split)) / 100 * 0.85); }
+
+.cmp-divider {
+  position: absolute;
+  top: 56px;
+  bottom: 8px;
+  left: var(--split);
+  width: 2px;
+  margin-left: -1px;
+  background: linear-gradient(to bottom, transparent, var(--cv-gold) 12%, var(--cv-gold) 88%, transparent);
+  cursor: grab;
+  touch-action: none;
+  z-index: 3;
+}
+.cmp-divider:active { cursor: grabbing; }
+.cmp-grip {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 22px; height: 22px;
+  margin: -11px 0 0 -11px;
+  background: var(--cv-ink);
+  border: 1.5px solid var(--cv-gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 16px rgba(228, 182, 120, 0.4);
+  transition: transform 0.3s var(--cv-ease), box-shadow 0.3s var(--cv-ease);
+}
+.cmp-divider:hover .cmp-grip,
+.cmp-divider:focus-visible .cmp-grip { transform: rotate(45deg) scale(1.18); box-shadow: 0 0 24px rgba(228, 182, 120, 0.65); }
+.cmp-divider:focus-visible { outline: 2px solid var(--cv-gold); outline-offset: 4px; }
+
+@media (max-width: 767px) {
+  .cmp-stage { padding-top: 20px; --split: 50%; }
+  .cmp-divider { display: none; }
+  .cmp-art { gap: 12px; margin-bottom: 22px; }
+  .cmp-fig { opacity: 1 !important; }
+  .cmp-heads { display: none; }
+  .cmp-row { grid-template-columns: 1fr; gap: 8px; padding: 16px 0; }
+  .cmp-cell--trad, .cmp-cell--tl { text-align: left; padding: 0; opacity: 1 !important; }
+  .cmp-cell--trad::before, .cmp-cell--tl::before {
+    display: block;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    text-decoration: none;
+  }
+  .cmp-cell--trad::before { content: "Truyền thống"; color: var(--cv-mute); }
+  .cmp-cell--tl::before { content: "TopLead"; color: var(--cv-gold); }
+  .cmp-cell--tl { display: block; }
+  .cmp-cell--tl .cmp-mark { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv *, .cv *::before, .cv *::after { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Section 3: what guards the join ---------- */
+.ex-stack { display: flex; flex-direction: column; gap: clamp(20px, 3vw, 32px); }
+
+.ex-card {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid var(--cv-line);
+  border-radius: var(--radius-lg);
+  background: rgba(23, 17, 12, 0.34);
+  transition: border-color 0.4s var(--cv-ease), background 0.4s var(--cv-ease);
+}
+.ex-card:hover { border-color: rgba(228, 182, 120, 0.4); }
+.ex-card--flip .ex-visual { order: 2; }      /* alternate the alignment */
+.ex-card.is-open { border-color: var(--cv-gold); background: rgba(23, 17, 12, 0.55); }
+
+.ex-visual { display: flex; align-items: center; justify-content: center; }
+.ex-mini { width: 100%; max-width: 220px; height: auto; }
+
+.ex-role {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cv-gold); opacity: 0.75; margin-bottom: 10px;
+}
+.ex-body h3 { font-size: clamp(1.35rem, 2.4vw, 1.75rem); font-weight: 700; color: #F6EEE3; margin-bottom: 4px; }
+.ex-sub { color: var(--cv-gold); font-size: 0.92rem; margin-bottom: 12px; }
+.ex-summary { color: var(--cv-dim); line-height: 1.65; margin-bottom: 18px; max-width: 58ch; }
+
+.ex-toggle {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: transparent;
+  border: 1px solid var(--cv-line);
+  border-radius: 50px;
+  color: var(--cv-gold);
+  font-family: inherit; font-size: 0.88rem; font-weight: 600;
+  padding: 9px 20px;
+  cursor: pointer;
+  transition: background 0.3s var(--cv-ease), border-color 0.3s var(--cv-ease);
+}
+.ex-toggle::after {
+  content: "";
+  width: 7px; height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 0.3s var(--cv-ease);
+}
+.ex-toggle:hover { background: rgba(228, 182, 120, 0.1); border-color: var(--cv-gold); }
+.ex-toggle:focus-visible { outline: 2px solid var(--cv-gold); outline-offset: 3px; }
+.ex-card.is-open .ex-toggle::after { transform: rotate(-135deg) translate(-3px, -3px); }
+
+/* --- expanded panel --- */
+.ex-panel {
+  grid-column: 1 / -1;
+  position: relative;
+  margin-top: 26px;
+  /* Room for the close button, which is absolute and so does not push content
+     down on its own. Without this it lands on top of whatever the panel opens
+     with - the funnel, the pillars, the timeline. */
+  padding-top: 58px;
+  border-top: 1px solid var(--cv-line);
+}
+.ex-close {
+  position: absolute; top: 12px; right: 0;
+  width: 34px; height: 34px;
+  background: transparent;
+  border: 1px solid var(--cv-line);
+  border-radius: 50%;
+  color: var(--cv-gold);
+  font-size: 1.15rem; line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.3s var(--cv-ease), background 0.3s var(--cv-ease);
+}
+.ex-close:hover { border-color: var(--cv-gold); background: rgba(228, 182, 120, 0.1); }
+.ex-close:focus-visible { outline: 2px solid var(--cv-gold); outline-offset: 3px; }
+
+/* funnel: bar width is proportional to how many candidates remain */
+.ex-funnel { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.ex-funnel li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 6px 16px;
+  align-items: baseline;
+  padding: 13px 18px;
+  border: 1px solid var(--cv-line);
+  border-radius: var(--radius-sm);
+  width: var(--w);
+  min-width: 300px;
+  background: linear-gradient(90deg, rgba(228,182,120,0.12), rgba(228,182,120,0.02));
+  transition: border-color 0.3s var(--cv-ease), transform 0.3s var(--cv-ease);
+}
+.ex-funnel li:hover { border-color: var(--cv-gold); transform: translateX(4px); }
+.ex-l-name { font-weight: 600; color: #F3E9DA; font-size: 0.95rem; }
+.ex-l-num { font-size: 1.15rem; font-weight: 800; color: var(--cv-gold); white-space: nowrap; }
+.ex-l-num i { font-style: normal; opacity: 0.5; margin: 0 3px; }
+.ex-l-pct { font-size: 0.76rem; color: var(--cv-mute); white-space: nowrap; }
+.ex-l-desc { grid-column: 1 / -1; font-size: 0.85rem; color: var(--cv-dim); line-height: 1.5; }
+
+.ex-note {
+  color: var(--cv-gold);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-left: 14px;
+  border-left: 2px solid var(--cv-gold);
+}
+
+/* three pillars of light */
+.ex-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.ex-pillar {
+  padding: 20px;
+  border: 1px solid var(--cv-line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(228,182,120,0.09), transparent 70%);
+  transition: border-color 0.35s var(--cv-ease), opacity 0.35s var(--cv-ease);
+}
+.ex-pillars:hover .ex-pillar { opacity: 0.45; }
+.ex-pillars .ex-pillar:hover { opacity: 1; border-color: var(--cv-gold); }
+.ex-pillar h4 { display: flex; align-items: baseline; gap: 10px; font-size: 1.05rem; color: #F6EEE3; margin-bottom: 10px; }
+.ex-p-n { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; color: var(--cv-gold); opacity: 0.7; }
+.ex-pillar p { font-size: 0.88rem; line-height: 1.6; color: var(--cv-dim); }
+
+/* 90-day timeline */
+.ex-timeline { list-style: none; margin: 0 0 18px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; position: relative; }
+.ex-timeline::before {
+  content: ""; position: absolute; left: 6%; right: 6%; top: 7px;
+  height: 1px; background: linear-gradient(90deg, var(--cv-gold), rgba(228,182,120,0.25));
+}
+.ex-timeline li { position: relative; padding-top: 26px; }
+.ex-timeline li::before {
+  content: ""; position: absolute; top: 2px; left: 0;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--cv-gold); box-shadow: 0 0 10px rgba(228,182,120,0.7);
+}
+.ex-tl-d { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cv-gold); margin-bottom: 4px; }
+.ex-tl-t { display: block; font-weight: 600; color: #F3E9DA; margin-bottom: 4px; }
+.ex-tl-x { display: block; font-size: 0.86rem; color: var(--cv-dim); line-height: 1.55; }
+
+/* mini previews */
+.ex-mini .ex-fn { fill: rgba(228,182,120,0.14); stroke: var(--cv-gold); stroke-width: 1.2; }
+.ex-mini .ex-mini-a, .ex-mini .ex-mini-b { fill: var(--cv-gold); font-size: 20px; font-weight: 800; text-anchor: middle; }
+.ex-mini .ex-pil rect { fill: rgba(228,182,120,0.2); stroke: var(--cv-gold); stroke-width: 1.2; animation: exPulse 3.2s var(--cv-ease) infinite; animation-delay: var(--d, 0s); }
+@keyframes exPulse { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
+.ex-mini .ex-beam { stroke: var(--cv-gold); stroke-width: 2; }
+.ex-mini .ex-rail { stroke: rgba(228,182,120,0.4); stroke-width: 1.5; }
+.ex-mini .ex-tick { fill: var(--cv-gold); }
+.ex-mini .ex-tick-l { fill: var(--cv-mute); font-size: 13px; text-anchor: middle; }
+
+@media (max-width: 900px) {
+  .ex-card { grid-template-columns: 1fr; gap: 20px; }
+  .ex-card--flip .ex-visual { order: 0; }
+  .ex-visual { justify-content: flex-start; }
+  .ex-mini { max-width: 170px; }
+  .ex-pillars, .ex-timeline { grid-template-columns: 1fr; }
+  .ex-timeline::before { display: none; }
+  .ex-funnel li { width: auto; min-width: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-mini .ex-pil rect { animation: none; opacity: 0.85; }
+}
+
+/* Each step carries a photograph of that moment, so the journey is grounded
+   in real work rather than abstract shapes alone. */
+.jr-photo {
+  margin: 0 0 18px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--cv-line);
+  aspect-ratio: 3 / 2;
+  max-width: 340px;
+}
+.jr-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.jr-card .jr-num { font-size: clamp(52px, 6vw, 84px); margin-bottom: 4px; }
+@media (max-width: 767px) {
+  .jr-photo { max-width: 100%; }
+}
+
+/* ============================================================
+   CONVERGENCE - presence pass
+   The three sections read as one continuous descent: each gets its
+   own depth, the type carries more weight, and the gold is spent on
+   a few accents rather than spread thin.
+   ============================================================ */
+
+/* A soft warm pool behind each section keeps the three from reading
+   as flat black slabs stacked on each other. */
+.cv::before { content: none; }
+.cv > .container { position: relative; z-index: 1; }
+
+/* Headings carry the section. Larger, tighter, with the eyebrow tag
+   sitting closer so the block reads as one unit. */
+.cv .section-header { margin-bottom: clamp(38px, 5vw, 60px); }
+.cv .section-header h2 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  line-height: 1.06;
+  letter-spacing: -0.028em;
+  margin-bottom: 14px;
+}
+.cv .section-header > p { font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 54ch; margin-inline: auto; }
+.cv .section-tag { letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.72rem; }
+
+/* --- Section 1 --- */
+.cmp-fig { aspect-ratio: 4 / 3; }
+.cmp-fig--tl { box-shadow: 0 0 0 1px rgba(228,182,120,0.25), 0 24px 60px rgba(0,0,0,0.5); }
+.cmp-head { font-size: 0.86rem; }
+.cmp-row { padding: 19px 0; }
+.cmp-cell { font-size: 1.04rem; }
+.cmp-cell--tl { font-weight: 600; }
+/* the winning side gets a faint warm wash so the eye lands there first */
+.cmp-rows::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 50%; right: 0;
+  background: linear-gradient(90deg, rgba(228,182,120,0.05), transparent 60%);
+  pointer-events: none;
+}
+.cmp-grip { width: 26px; height: 26px; margin: -13px 0 0 -13px; }
+
+/* --- Section 2 --- */
+.jr-photo { max-width: 400px; box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
+.jr-card h3 { font-size: clamp(1.7rem, 3.2vw, 2.5rem); letter-spacing: -0.02em; }
+.jr-num {
+  font-size: clamp(60px, 7vw, 104px);
+  -webkit-text-stroke-width: 1.5px;
+  opacity: 0.4;
+}
+.jr-desc { font-size: 1.06rem; }
+.jr-chip { font-size: 0.78rem; padding: 6px 16px; }
+
+.jr-curve { stroke-width: 2.5; }
+.jr-curve--a { stroke: url(#jrFadeA); opacity: 1; }
+.jr-curve--b { stroke: url(#jrFadeB); opacity: 1; }
+.jr-flowdots circle { fill: var(--cv-gold-hi); filter: drop-shadow(0 0 6px rgba(228,182,120,0.9)); }
+.jr-wp { fill: #14100C; stroke: var(--cv-gold); stroke-width: 1.5; opacity: 0.55; }
+.jr-wp.is-on {
+  fill: var(--cv-gold);
+  opacity: 1;
+  filter: drop-shadow(0 0 12px rgba(228,182,120,0.95));
+}
+.jr-end { font-size: 14px; font-weight: 600; letter-spacing: 0.2em; }
+.jr-dot { width: 10px; height: 10px; }
+.jr-dot.is-active { width: 30px; }
+
+/* --- Section 3 --- */
+.ex-card { padding: clamp(28px, 3.4vw, 44px); }
+.ex-body h3 { font-size: clamp(1.5rem, 2.8vw, 2.05rem); letter-spacing: -0.02em; }
+.ex-sub { font-size: 1rem; font-weight: 600; }
+.ex-summary { font-size: 1.04rem; }
+.ex-role { font-size: 0.7rem; }
+.ex-toggle { font-size: 0.92rem; padding: 11px 24px; }
+/* a hairline of gold down the leading edge ties the three cards together */
+.ex-card { position: relative; overflow: hidden; }
+.ex-card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 22%; bottom: 22%;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--cv-gold), transparent);
+  opacity: 0.5;
+  transition: opacity 0.4s var(--cv-ease), top 0.4s var(--cv-ease), bottom 0.4s var(--cv-ease);
+}
+.ex-card:hover::before, .ex-card.is-open::before { opacity: 1; top: 6%; bottom: 6%; }
+.ex-l-num { font-size: 1.3rem; }
+
+@media (max-width: 767px) {
+  .cmp-rows::after { display: none; }
+  .cv .section-header h2 { font-size: clamp(1.8rem, 7vw, 2.3rem); }
+}
+
+/* The step control lives on the curve itself: each waypoint is the button for
+   its own step, so the marker you click is the marker that lights up. The
+   separate row of dots is kept only where the curve is static (phones). */
+.jr-wp--hit { cursor: pointer; }
+.jr-wp--hit:hover { fill: var(--cv-gold); opacity: 0.85; }
+.jr-wp--hit:focus-visible { outline: 2px solid var(--cv-gold); outline-offset: 3px; }
+/* a wider invisible target than the 6px dot, so it is easy to hit */
+.jr-wp--hit { stroke-width: 8; stroke: transparent; paint-order: stroke; }
+.jr-wp--hit.is-on { stroke: transparent; }
+
+@media (min-width: 768px) {
+  .jr-dots { display: none; }
+  .jr-card { inset: 0; }
+}
+
+/* With motion turned down the rotation never runs, so every step has to be
+   present at once - otherwise the reader is stranded on step 01. Same
+   treatment the phone layout gets. */
+@media (prefers-reduced-motion: reduce) {
+  .jr-layout { display: block; }
+  .jr-col { min-height: 0; }
+  .jr-col--art { margin-bottom: 28px; }
+  .jr-panel { min-height: 0; }
+  .jr-card {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    padding: 26px 0;
+    border-top: 1px solid var(--cv-line);
+  }
+  .jr-photo { max-width: 320px; }
+  .jr-dots { display: none; }
+}
+
+/* ============================================================
+   Section 1 - the drag has to pay for itself
+   At rest the two headlines sit side by side. Push the divider
+   toward a side and that side's reasoning opens up, while the
+   other recedes. That is the whole point of the control: it buys
+   the reader detail, not decoration.
+   ============================================================ */
+.cmp-detail {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  font-weight: 400;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.3s var(--cv-ease), transform 0.3s var(--cv-ease), max-height 0.35s var(--cv-ease);
+}
+.cmp-detail--trad { color: #9A8E82; }
+.cmp-detail--tl { color: var(--cv-dim); }
+
+/* --reveal-tl / --reveal-trad are set by script.js from the divider position */
+.cmp-stage { --reveal-tl: 0; --reveal-trad: 0; }
+.cmp-stage[data-reveal="tl"] .cmp-detail--tl,
+.cmp-stage[data-reveal="trad"] .cmp-detail--trad {
+  opacity: 1;
+  max-height: 12em;
+  transform: none;
+}
+
+/* the side being pushed away steps back rather than vanishing */
+.cmp-stage[data-reveal="tl"] .cmp-cell--trad { opacity: 0.4; }
+.cmp-stage[data-reveal="trad"] .cmp-cell--tl { opacity: 0.4; }
+
+.cmp-hint {
+  position: absolute;
+  top: calc(50% + 26px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--cv-gold);
+  opacity: 0;
+  transition: opacity 0.35s var(--cv-ease);
+  pointer-events: none;
+}
+.cmp-stage[data-edge="1"] .cmp-hint { opacity: 0.8; }
+
+/* Two zones rather than one flat field: the traditional half reads cold and
+   tired, the TopLead half warm and lit. */
+.cmp-rows { position: relative; }
+.cmp-rows::before {
+  content: "";
+  position: absolute;
+  inset: 0 50% 0 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.028), transparent);
+  pointer-events: none;
+}
+.cmp-fig--trad img { filter: grayscale(1) contrast(0.88) brightness(0.6); }
+.cmp-fig--trad { border-color: rgba(255,255,255,0.08); }
+.cmp-fig--tl {
+  border-color: rgba(228,182,120,0.5);
+  box-shadow: 0 0 0 1px rgba(228,182,120,0.18), 0 26px 64px rgba(0,0,0,0.55);
+}
+.cmp-grip { cursor: grab; }
+.cmp-divider:active .cmp-grip { transform: rotate(45deg) scale(1.15); cursor: grabbing; }
+
+/* BUG-07: animateMotion is SMIL - a CSS media query cannot reach it, so the
+   dots have to be removed from the render instead. */
+@media (prefers-reduced-motion: reduce) {
+  .jr-flowdots { display: none; }
+  .cmp-detail { opacity: 1; max-height: 12em; transform: none; }
+  .cmp-cell--trad, .cmp-cell--tl { opacity: 1 !important; }
+}
+
+/* BUG-08: with scripting off nothing can be revealed on demand, so open it all */
+.no-js .cmp-detail { opacity: 1; max-height: 12em; transform: none; }
+.no-js .cmp-divider { display: none; }
+.no-js .jr-card { position: static; opacity: 1; visibility: visible; transform: none; padding: 26px 0; border-top: 1px solid var(--cv-line); }
+.no-js .jr-panel, .no-js .jr-col { min-height: 0; }
+.no-js .jr-layout { display: block; }
+.no-js .jr-dots { display: none; }
+.no-js .ex-panel { display: block !important; }
+.no-js .ex-toggle, .no-js .ex-close { display: none; }
+.noscript-note {
+  background: rgba(228,182,120,0.12);
+  border-bottom: 1px solid rgba(228,182,120,0.3);
+  color: #F3E9DA;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+
+/* Two names, set large enough to be the anchor of the section. Dragging does
+   not just move a line - it lights one company up and pushes the other back
+   into the dark. */
+.cmp-heads { align-items: end; margin-bottom: 26px; }
+.cmp-head {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.6vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-transform: none;
+  transition: color 0.45s var(--cv-ease), text-shadow 0.45s var(--cv-ease),
+              opacity 0.45s var(--cv-ease), transform 0.45s var(--cv-ease);
+}
+.cmp-head--trad { color: #8A8078; }
+.cmp-head--tl { color: #F6EEE3; }
+
+/* lit */
+.cmp-stage[data-reveal="tl"] .cmp-head--tl {
+  color: var(--cv-gold-hi);
+  text-shadow: 0 0 26px rgba(228, 182, 120, 0.75), 0 0 60px rgba(228, 182, 120, 0.35);
+  transform: translateY(-2px);
+}
+.cmp-stage[data-reveal="trad"] .cmp-head--trad {
+  color: #D8CDC2;
+  text-shadow: 0 0 22px rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+}
+/* pressed back into shadow */
+.cmp-stage[data-reveal="tl"] .cmp-head--trad,
+.cmp-stage[data-reveal="trad"] .cmp-head--tl {
+  color: #5C544C;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.75);
+  opacity: 0.55;
+  transform: translateY(3px);
+}
+
+/* The TopLead cell is a flex row (marker + headline), so the revealed detail
+   became a third column instead of a paragraph underneath. Let it wrap and
+   claim the full width, indented past the marker. */
+.cmp-cell--tl { flex-wrap: wrap; }
+.cmp-cell--tl .cmp-detail { flex: 0 0 100%; margin-left: 19px; }
+.cmp-cell--tl > a { flex: 1 1 auto; }
+
+/* INT-04: the panel animates its height; script.js swaps `hidden` on either
+   side of the transition so a collapsed panel is still out of the tab order. */
+.ex-panel {
+  overflow: hidden;
+  transition: height 0.42s var(--cv-ease), opacity 0.32s var(--cv-ease);
+}
+.ex-card.is-open .ex-panel { opacity: 1; }
+.ex-panel[style*="height: 0"] { opacity: 0; }
+
+.ex-close svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+
+/* INT-03: steps slide as they change rather than blinking in place */
+.jr-card { transform: translateX(28px); }
+.jr-card.is-active { transform: none; }
+.jr-card { transition: opacity 0.4s var(--cv-ease), transform 0.4s var(--cv-ease), visibility 0.4s; }
+
+/* INT-06: anchor jumps from the nav dropdown should glide, and clear the
+   fixed navbar rather than hiding the heading underneath it. */
+html { scroll-behavior: smooth; }
+#comparison, #journey, #exclusive { scroll-margin-top: 96px; }
+/* Targets of the hero scroll cue: clear the fixed navbar on arrival */
+#story, #services-overview, #jobs-list, #contact-form, #blog-list { scroll-margin-top: 96px; }
+
+/* VIS-15: the step control shows which step it is, not just a dot */
+.jr-dot {
+  position: relative;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  font: 600 0.72rem/1 var(--font);
+  color: var(--cv-gold);
+  background: transparent;
+  border: 1px solid var(--cv-line);
+}
+.jr-dot::after { content: attr(aria-label); font-size: 0; }
+.jr-dot.is-active { width: 30px; background: var(--cv-gold); border-color: var(--cv-gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ex-panel { transition: none; }
+  .jr-card { transform: none; }
+}
+
+/* ---- VIS-02: the funnel, as bars whose width is the candidate count ----
+   The drop from 80 to 3 has to be felt, not read. Bars make the difference
+   legible at a glance in a way trapezoids never did. */
+.ex-mini .ex-fb {
+  fill: var(--cv-gold);
+  opacity: var(--o, 1);
+  transform-origin: 120px center;
+  transform: scaleX(0);
+  transition: transform 0.6s var(--cv-ease);
+}
+.ex-card.in-view .ex-mini .ex-fb { transform: scaleX(1); }
+.ex-card.in-view .ex-mini .ex-fb:nth-of-type(2) { transition-delay: 0.09s; }
+.ex-card.in-view .ex-mini .ex-fb:nth-of-type(3) { transition-delay: 0.18s; }
+.ex-card.in-view .ex-mini .ex-fb:nth-of-type(4) { transition-delay: 0.27s; }
+.ex-card.in-view .ex-mini .ex-fb:nth-of-type(5) { transition-delay: 0.36s; }
+.ex-card.in-view .ex-mini .ex-fb--out { transition-delay: 0.45s; }
+.ex-mini .ex-fb--out { fill: var(--cv-gold-hi); }
+.ex-mini .ex-mini-a, .ex-mini .ex-mini-b { fill: #17110C; font-size: 13px; font-weight: 800; }
+.ex-mini .ex-mini-b { fill: var(--cv-gold-hi); font-size: 15px; }
+
+/* ---- VIS-03: three pillars holding a beam ---- */
+.ex-mini .ex-pil rect {
+  fill: url(#exPilGrad, rgba(228,182,120,0.22));
+  fill: rgba(228,182,120,0.22);
+  stroke: var(--cv-gold);
+  stroke-width: 1.2;
+  transform-origin: center bottom;
+  transform: scaleY(0);
+  transition: transform 0.55s var(--cv-ease);
+  transition-delay: var(--d, 0s);
+  animation: none;
+}
+.ex-card.in-view .ex-mini .ex-pil rect { transform: scaleY(1); }
+.ex-mini .ex-beam { stroke: var(--cv-gold); stroke-width: 2.5; }
+.ex-mini .ex-base { stroke: rgba(228,182,120,0.45); stroke-width: 1.5; }
+.ex-mini .ex-pil-link { stroke: var(--cv-gold); stroke-width: 1; stroke-dasharray: 3 4; opacity: 0.5; }
+.ex-mini .ex-beam-l { fill: var(--cv-gold); font-size: 11px; font-weight: 600; text-anchor: middle; letter-spacing: 0.04em; }
+.ex-mini .ex-pil-l { fill: var(--cv-dim); font-size: 10px; text-anchor: middle; }
+
+/* ---- VIS-04: 90 days of cover, not three dots ---- */
+.ex-mini .ex-arc { fill: none; stroke: var(--cv-gold); stroke-width: 1; stroke-dasharray: 4 5; opacity: 0.4; }
+.ex-mini .ex-rail { stroke: rgba(228,182,120,0.28); stroke-width: 2; }
+.ex-mini .ex-fill {
+  stroke: var(--cv-gold); stroke-width: 2.5; stroke-linecap: round;
+  stroke-dasharray: 188; stroke-dashoffset: 188;
+  transition: stroke-dashoffset 1.1s var(--cv-ease);
+}
+.ex-card.in-view .ex-mini .ex-fill { stroke-dashoffset: 0; }
+.ex-mini .ex-tick { fill: var(--cv-gold); }
+.ex-mini .ex-tick-l { fill: var(--cv-gold); font-size: 11px; font-weight: 700; text-anchor: middle; }
+.ex-mini .ex-tick-n { fill: var(--cv-dim); font-size: 9.5px; text-anchor: middle; }
+.ex-mini .ex-cover { fill: var(--cv-gold-hi); font-size: 10px; font-weight: 600; text-anchor: middle; }
+
+/* ---- VIS-05 / VIS-06: the three read as one system, in order ---- */
+.ex-stack { position: relative; }
+.ex-stack::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 40px; bottom: 40px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(228,182,120,0.45) 12%, rgba(228,182,120,0.45) 88%, transparent);
+}
+.ex-card::after {
+  content: attr(data-phase);
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--cv-ink);
+  border: 1px solid var(--cv-gold);
+  color: var(--cv-gold);
+  font-size: 0.66rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- VIS-07: sections meet instead of butting up against each other ---- */
+.cv + .cv { position: relative; }
+.cv + .cv::after { content: none; }
+
+/* ---- VIS-09: the palette warms as the reader descends ---- */
+.cv-compare   { --cv-gold: #D4A76A; }
+.cv-journey   { --cv-gold: #E4B678; }
+.cv-exclusive { --cv-gold: #F0D2A0; }
+
+/* ---- VIS-11: sections arrive rather than appear ---- */
+.cv .section-header, .cmp-row, .ex-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s var(--cv-ease), transform 0.55s var(--cv-ease);
+}
+.cv .section-header.in-view, .cmp-row.in-view, .ex-card.in-view { opacity: 1; transform: none; }
+.cmp-row.in-view { transition-delay: calc(var(--i, 0) * 80ms); }
+.ex-card.in-view { transition-delay: calc(var(--i, 0) * 110ms); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cv .section-header, .cmp-row, .ex-card { opacity: 1; transform: none; transition: none; }
+  .ex-mini .ex-fb { transform: scaleX(1); transition: none; }
+  .ex-mini .ex-pil rect { transform: scaleY(1); transition: none; }
+  .ex-mini .ex-fill { stroke-dashoffset: 0; transition: none; }
+}
+.no-js .cv .section-header, .no-js .cmp-row, .no-js .ex-card { opacity: 1; transform: none; }
+.no-js .ex-mini .ex-fb { transform: scaleX(1); }
+.no-js .ex-mini .ex-pil rect { transform: scaleY(1); }
+.no-js .ex-mini .ex-fill { stroke-dashoffset: 0; }
+
+/* FEAT-02: read position. Fixed under the navbar, scaled by scroll fraction. */
+.read-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cv-gold, #E4B678), #F0D2A0);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 1200;
+  pointer-events: none;
+}
+
+/* FEAT-03: back to top, appears once the hero is behind the reader */
+.to-top {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  bottom: clamp(16px, 3vw, 32px);
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: rgba(16, 12, 8, 0.82);
+  border: 1px solid rgba(228, 182, 120, 0.45);
+  color: #E4B678;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s, border-color 0.25s ease;
+  z-index: 1100;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.to-top.is-on { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { border-color: #E4B678; background: rgba(228, 182, 120, 0.14); }
+.to-top:focus-visible { outline: 2px solid #E4B678; outline-offset: 3px; }
+.to-top svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- TIER 5: the review rail ----
+   Three real Google reviews, duplicated once so the loop closes without a
+   seam. Adding more is just adding cards - the rail does not need changing. */
+.cv-reviews { overflow: hidden; }
+.tst-rail {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.tst-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  /* Vertical padding only: horizontal padding is not halved by translateX(-50%),
+     so it would put a small jump at the loop seam. */
+  padding: 6px 0;
+  /* 6 cards per set now instead of 3, so the distance doubled - double the
+     duration to keep the same reading pace. */
+  animation: tstRun 84s linear infinite;
+}
+@keyframes tstRun { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.tst-rail:hover .tst-track,
+.tst-rail:focus-within .tst-track { animation-play-state: paused; }
+
+.cv-reviews .testimonial-card {
+  flex: 0 0 auto;
+  width: min(380px, 82vw);
+  background: rgba(23, 17, 12, 0.42);
+  border: 1px solid var(--cv-line);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  transition: border-color 0.35s var(--cv-ease);
+}
+.cv-reviews .testimonial-card:hover { border-color: rgba(228, 182, 120, 0.45); }
+
+.tst-stars { display: flex; gap: 3px; margin-bottom: 14px; }
+.tst-stars svg { width: 15px; height: 15px; fill: var(--cv-gold); }
+
+.cv-reviews .testimonial-text { color: var(--cv-text); font-size: 0.97rem; line-height: 1.65; margin-bottom: 20px; }
+.cv-reviews .testimonial-author { display: flex; align-items: center; gap: 12px; }
+/* TEST-04: circular, gold, consistent */
+.cv-reviews .author-avatar {
+  width: 48px; height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--cv-gold), #B98A4E);
+  color: #17110C;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Client cards carry a label where the candidate cards carry stars, so both
+   kinds start their quote at the same height in the rail. No stars here: these
+   are relayed feedback, not a rated Google review. */
+.tst-badge {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 3px 10px;
+  border: 1px solid var(--cv-line);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cv-gold);
+}
+.cv-reviews .author-avatar--logo {
+  background: #F6F1E8;
+  padding: 6px;
+  overflow: hidden;
+}
+.cv-reviews .author-avatar--logo img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+.cv-reviews .author-name { color: #F3E9DA; font-weight: 600; }
+.cv-reviews .author-title { color: var(--cv-dim); font-size: 0.84rem; }
+
+.tst-more { text-align: center; margin-top: 30px; }
+.tst-more a {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--cv-gold);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(228, 182, 120, 0.4);
+  padding-bottom: 3px;
+}
+.tst-more a:hover { border-bottom-color: var(--cv-gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  .tst-track { animation: none; }
+  .tst-rail { overflow-x: auto; scrollbar-width: none; }
+  .tst-rail::-webkit-scrollbar { display: none; }
+}
+.no-js .tst-track { animation: none; }
+
+/* FEAT-01: catch the reader at the moment the comparison has convinced them */
+.cmp-cta {
+  text-align: center;
+  margin-top: 34px;
+  color: var(--cv-dim);
+  font-size: 1rem;
+}
+.cmp-cta a {
+  color: var(--cv-gold);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(228, 182, 120, 0.45);
+  padding-bottom: 2px;
+  margin-left: 5px;
+}
+.cmp-cta a:hover { border-bottom-color: var(--cv-gold); }
+
+/* ---------- Section 2: the journey, as a timeline ----------
+   Six steps down a single gold line, the same spine Section 3 uses. Every
+   step is on screen at once: no rotation to wait through, no step hidden
+   behind a control the reader has to discover. */
+.jr-steps { position: relative; padding-left: 34px; }
+.jr-steps::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 26px; bottom: 26px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(228,182,120,0.5) 8%, rgba(228,182,120,0.5) 92%, transparent);
+}
+
+.jr-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: clamp(22px, 3.4vw, 44px);
+  align-items: center;
+  padding: clamp(24px, 3vw, 38px) 0;
+  border-top: 1px solid var(--cv-line);
+}
+.jr-step:first-child { border-top: none; }
+
+/* the node on the spine carries the step number */
+.jr-step::before {
+  content: attr(data-step);
+  position: absolute;
+  left: -34px; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--cv-ink);
+  border: 1px solid var(--cv-gold);
+  color: var(--cv-gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jr-photo {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--cv-line);
+  aspect-ratio: 3 / 2;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.45);
+}
+.jr-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.jr-body { min-width: 0; }
+.jr-num {
+  font-size: clamp(44px, 5vw, 68px);
+  line-height: 0.9;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--cv-gold);
+  opacity: 0.3;
+  margin-bottom: 2px;
+}
+.jr-body h3 {
+  font-size: clamp(1.35rem, 2.6vw, 1.95rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #F6EEE3;
+  margin-bottom: 12px;
+}
+.jr-chip {
+  display: inline-block;
+  background: var(--cv-gold);
+  color: #1A1208;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  padding: 5px 14px;
+  margin-bottom: 14px;
+}
+.jr-desc { color: var(--cv-dim); font-size: 1.02rem; line-height: 1.65; margin-bottom: 16px; max-width: 52ch; }
+.jr-deliv {
+  border-left: 3px solid var(--cv-gold);
+  background: rgba(228, 182, 120, 0.05);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 12px 16px;
+  color: var(--cv-text);
+  font-size: 0.94rem;
+  line-height: 1.55;
+  max-width: 52ch;
+}
+.jr-deliv-lbl {
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cv-gold);
+  margin-bottom: 4px;
+}
+
+/* the convergence pays off at the end of the line, not beside it */
+.jr-meet { text-align: center; margin-top: 34px; }
+.jr-meet-svg { width: min(640px, 100%); height: auto; display: block; margin: 0 auto; }
+.jr-mcurve { fill: none; stroke: var(--cv-gold); stroke-width: 2; stroke-linecap: round; opacity: 0.85; }
+.jr-mdot { fill: var(--cv-gold-hi); }
+.jr-meet-l {
+  margin-top: 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cv-gold);
+}
+
+.jr-step { opacity: 0; transform: translateY(20px); transition: opacity 0.55s var(--cv-ease), transform 0.55s var(--cv-ease); }
+.jr-step.in-view { opacity: 1; transform: none; transition-delay: calc(var(--i, 0) * 70ms); }
+
+@media (max-width: 767px) {
+  .jr-steps { padding-left: 26px; }
+  .jr-step { grid-template-columns: 1fr; gap: 16px; }
+  .jr-step::before { left: -26px; top: 34px; }
+  .jr-num { font-size: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jr-step { opacity: 1; transform: none; transition: none; }
+}
+.no-js .jr-step { opacity: 1; transform: none; }
+
+/* ============================================================
+   One ground under all three sections
+   A single wrapper paints the surface once, so the run from the
+   comparison through the journey to the safeguards reads as one
+   continuous descent rather than three tiles set side by side.
+   ============================================================ */
+.cv-band {
+  position: relative;
+  isolation: isolate;
+  /* Solid black floor for contrast. background.js drops its particle canvas in
+     here as a child, so the moving field paints on top of the black while the
+     content above stays clear of both. */
+  background: #0D0A07;
+}
+.cv-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  /* three soft pools placed along the length of the whole run - they overlap
+     across section boundaries, which is what removes the seams */
+  background:
+    radial-gradient(48% 26% at 22% 6%,  rgba(212, 167, 106, 0.07), transparent 70%),
+    radial-gradient(52% 24% at 78% 40%, rgba(228, 182, 120, 0.06), transparent 72%),
+    radial-gradient(46% 26% at 30% 74%, rgba(240, 210, 160, 0.05), transparent 70%);
+}
+.cv-band > * { position: relative; z-index: 1; }
+
+/* the reviews close the run on the same ground */
+.cv-reviews { background: transparent; }
+
+/* The particle canvas is a child of .cv-band, so it must sit above the black
+   floor but under everything that has to be read. */
+.cv-band > .fx-panel { z-index: 0; }
+.cv-band > .cv,
+.cv-band > .cv-reviews { position: relative; z-index: 1; background: transparent; }
+
+/* The band's field is pinned to the viewport rather than stretched over the
+   whole run: constant density and constant cost however tall the band gets.
+   clip-path both contains the fixed child and keeps it inside the band. */
+.cv-band { clip-path: inset(0); }
+.cv-band > .fx-panel {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+/* The hero used to end on a hard 3px copper rule. Now that the hero's field
+   runs straight into the band below it, that line reads as a seam across the
+   middle of one continuous surface. */
+body:has(.cv-band) .page-hero { border-bottom: none; }
+
+/* Trustcare's expanded panel had the three pillars in a row and a wide gap
+   beside them. The photograph fills that gap and grounds the claim: this is
+   what an honest conversation actually looks like. */
+/* :not([hidden]) matters: the `hidden` attribute only sets display:none via
+   the UA stylesheet, so any author `display` here would override it and the
+   panel could never close again. */
+#trustcare .ex-panel:not([hidden]) { display: grid; grid-template-columns: 340px 1fr; gap: clamp(20px, 3vw, 36px); align-items: start; }
+#trustcare .ex-close { grid-column: 2; justify-self: end; }
+.ex-photo {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--cv-line);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.45);
+}
+.ex-photo img { display: block; width: 100%; height: 260px; object-fit: cover; }
+.ex-photo figcaption {
+  padding: 12px 14px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--cv-dim);
+  background: rgba(228, 182, 120, 0.05);
+  border-top: 1px solid var(--cv-line);
+}
+#trustcare .ex-pillars { grid-template-columns: 1fr; gap: 14px; }
+
+@media (max-width: 900px) {
+  #trustcare .ex-panel:not([hidden]) { grid-template-columns: 1fr; }
+  #trustcare .ex-close { grid-column: 1; }
+  .ex-photo img { height: 200px; }
+}
+
+/* Once the panel is open the three pillars are spelled out in full, so the
+   small pillar diagram in the card header is saying the same thing twice.
+   Keep it as the collapsed preview, drop it once the detail is showing. */
+#trustcare.is-open .ex-visual { display: none; }
+#trustcare.is-open { grid-template-columns: 1fr; }

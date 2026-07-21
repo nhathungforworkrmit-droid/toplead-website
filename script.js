@@ -5,11 +5,12 @@ var currentLang = "vi";
 var translations = {
   vi: {
     "nav.home": "Trang chủ",
+    "ph.scroll": "Cuộn xuống",
     "nav.about": "Về chúng tôi",
     "nav.services": "Dịch vụ",
-    "nav.approach": "Cách tiếp cận",
+    "nav.approach": "Quy trình làm việc",
     "nav.jobs": "Việc làm",
-    "nav.tools": "Tools & Content",
+    "nav.tools": "Blog",
     "nav.contact": "Liên hệ",
     "nav.ourStory": "Câu chuyện",
     "nav.ourTeam": "Đội ngũ",
@@ -20,8 +21,7 @@ var translations = {
     "nav.guardian": "Guardian Screen",
     "nav.trustcare": "Trustcare Framework",
     "nav.guarantee": "Guarantee Framework",
-    "nav.howItWorks": "Quy trình",
-    "nav.workflow": "Cách làm việc",
+    "nav.journey": "Hành trình",
     "nav.exclusive": "Độc quyền",
     "hero.badge": "TopLead Recruitment",
     "hero.slide1.line1": "Người Cũ Vừa Nghỉ.",
@@ -94,13 +94,13 @@ var translations = {
     "jobs.tag": "Việc làm",
     "jobs.title": "Vị trí đang tuyển dụng",
     "jobs.subtitle": "Cơ hội nghề nghiệp hấp dẫn từ các doanh nghiệp hàng đầu",
-    "jobs.apply": "Ứng tuyển ngay",
     "cta.title": "Sẵn sàng xây dựng đội ngũ xuất sắc?",
     "cta.subtitle": "Hãy để TopLead giúp bạn tìm ra nhân tài phù hợp",
     "cta.start": "Bắt đầu ngay",
     "testimonials.tag": "Đánh giá",
     "testimonials.title": "Khách hàng nói gì về chúng tôi",
     "tst.google": "Đánh giá 5★ trên Google",
+    "tst.clientbadge": "Phản hồi từ khách hàng",
     "sc.tag": "TopLead 360°",
     "sc.title": "Toàn cảnh cách TopLead đồng hành cùng bạn",
     "sc.sub": "Từ vấn đề đến giải pháp, đến đúng đối tượng và những đối tác đã tin tưởng.",
@@ -119,10 +119,10 @@ var translations = {
     "sc.c1.c": "Developer, Data, Product cho công ty công nghệ.",
     "sc.c1.cta": "Tìm hiểu dịch vụ",
     "sc.c2.h": "Chuyên sâu cho doanh nghiệp SME",
-    "sc.c2.p": "Nơi mỗi lần tuyển đúng người tạo ra khác biệt lớn nhất — TopLead đồng hành cùng SME Việt Nam.",
+    "sc.c2.p": "Nơi mỗi lần tuyển đúng người tạo ra khác biệt lớn nhất - TopLead đồng hành cùng SME Việt Nam.",
     "sc.c3.h": "Đối tác nói gì về TopLead",
-    "testimonials.t1.text": "“Agency hỗ trợ tuyển rất nhanh — chỉ sau 5 ngày đã có 3 ứng viên phù hợp để phỏng vấn. Tiết kiệm rất nhiều thời gian cho đội ngũ HR nội bộ.”",
-    "testimonials.t2.text": "“For real, TopLead hiểu rõ nhu cầu doanh nghiệp — không gửi hồ sơ đại trà mà chọn lọc rất kỹ. Rất recommend!”",
+    "testimonials.t1.text": "“Agency hỗ trợ tuyển rất nhanh - chỉ sau 5 ngày đã có 3 ứng viên phù hợp để phỏng vấn. Tiết kiệm rất nhiều thời gian cho đội ngũ HR nội bộ.”",
+    "testimonials.t2.text": "“For real, TopLead hiểu rõ nhu cầu doanh nghiệp - không gửi hồ sơ đại trà mà chọn lọc rất kỹ. Rất recommend!”",
     "testimonials.t3.text": "“Dịch vụ tốt, rất recommend vì cam kết thực tế của họ.”",
     "contact.tag": "Liên hệ",
     "contact.title": "Bắt đầu hợp tác",
@@ -132,7 +132,7 @@ var translations = {
     "contact.addressValue": "791/92F Trần Xuân Soạn, phường Tân Hưng, TP. HCM",
     "contact.tab1": "Ứng viên",
     "contact.tab2": "Nhà tuyển dụng",
-    "footer.tagline": "Kết nối đúng người với đúng doanh nghiệp — đối tác tuyển dụng có trách nhiệm.",
+    "footer.tagline": "Kết nối đúng người với đúng doanh nghiệp - đối tác tuyển dụng có trách nhiệm.",
     "footer.follow": "Theo dõi chúng tôi",
     "footer.services": "Dịch vụ",
     "footer.s1": "Tìm kiếm nhân sự cấp cao",
@@ -141,9 +141,9 @@ var translations = {
     "footer.s4": "Đánh giá năng lực",
     "footer.company": "Công ty",
     "footer.about": "Về chúng tôi",
-    "footer.approach": "Cách tiếp cận",
+    "footer.approach": "Quy trình làm việc",
     "footer.jobs": "Việc làm",
-    "footer.tools": "Công cụ",
+    "footer.tools": "Blog",
     "footer.contact": "Liên hệ",
     "footer.emailsTitle": "Email liên hệ",
     "footer.officeTitle": "Văn phòng TopLead",
@@ -237,8 +237,8 @@ var translations = {
     "jobs.cta.title": "Không tìm thấy vị trí phù hợp?",
     "jobs.cta.subtitle": "Để lại CV, chúng tôi sẽ liên hệ khi có cơ hội phù hợp",
     "jobs.cta.button": "Gửi CV ngay",
-    "tools.hero.title": "Tools & Content",
-    "tools.hero.subtitle": "Tài nguyên hữu ích cho nhà tuyển dụng và ứng viên",
+    "tools.hero.title": "Blog",
+    "tools.hero.subtitle": "Góc nhìn và kinh nghiệm tuyển dụng từ đội ngũ TopLead",
     "tools.blog.tag": "Blog",
     "tools.blog.title": "Bài viết mới nhất",
     "tools.blog.subtitle": "Cập nhật xu hướng và kinh nghiệm tuyển dụng",
@@ -293,7 +293,7 @@ var translations = {
     "approach.cta.subtitle": "Hãy để TopLead giúp bạn tìm ra nhân tài phù hợp",
     "approach.cta.button": "Bắt đầu ngay",
     "approach.testimonials.tag": "Đánh giá",
-    "approach.testimonials.title": "Đối tác nói gì về TopLead",
+    "approach.testimonials.title": "Khách hàng và ứng viên nói gì về TopLead",
     "services.hero.title": "Dịch vụ",
     "services.hero.subtitle": "Giải pháp tuyển dụng toàn diện cho doanh nghiệp",
     "post.readUnit": "phút đọc",
@@ -305,8 +305,8 @@ var translations = {
     "b1.title": "Nghề HR? Tại sao không?",
     "b1.teaser": "Nghề nghiệp tình cờ trở nên có chủ đích ngay khi bạn xem con người là đòn bẩy, không phải chi phí.",
     "b2.cat": "Bền vững",
-    "b2.title": "Không chỉ là một dự án — Đó là một tư duy",
-    "b2.teaser": "Vì sao TopLead không thu phí cho đến khi ứng viên vượt qua thử việc — và cái giá thật sự của sự bền vững.",
+    "b2.title": "Không chỉ là một dự án - Đó là một tư duy",
+    "b2.teaser": "Vì sao TopLead không thu phí cho đến khi ứng viên vượt qua thử việc - và cái giá thật sự của sự bền vững.",
     "b3.cat": "Mô hình tuyển dụng",
     "b3.title": "Thử việc mới là buổi phỏng vấn thật sự",
     "b3.teaser": "Ai cũng có thể tỏa sáng trong 30 phút. Buổi phỏng vấn thật sự bắt đầu từ ngày thứ 60.",
@@ -315,30 +315,30 @@ var translations = {
     "b4.teaser": "Mọi hệ thống đều tạo ra hành vi mà nó tưởng thưởng. Vấn đề thật sự của tuyển dụng không phải là nhân tài.",
     "b5.cat": "Ứng viên",
     "b5.title": "Sự do dự khiến bạn trả giá nhiều hơn bạn nghĩ",
-    "b5.teaser": "Người được nhận không phải là người giỏi nhất trên giấy — mà là người hành động trước.",
+    "b5.teaser": "Người được nhận không phải là người giỏi nhất trên giấy - mà là người hành động trước.",
     "b6.cat": "Doanh nghiệp SME",
     "b6.title": "Vì sao SME liên tục mất ứng viên giỏi vào tay tập đoàn",
-    "b6.teaser": "SME không thể trả lương cao hơn tập đoàn. Họ thua ở quy trình — và điều đó có thể khắc phục.",
+    "b6.teaser": "SME không thể trả lương cao hơn tập đoàn. Họ thua ở quy trình - và điều đó có thể khắc phục.",
     "b7.cat": "Giữ chân nhân sự",
-    "b7.title": "Nghỉ việc thầm lặng — Trường hợp trăm năm",
+    "b7.title": "Nghỉ việc thầm lặng - Trường hợp trăm năm",
     "b7.teaser": "Kiểu nghỉ việc tốn kém nhất là kiểu không bao giờ nộp đơn xin nghỉ.",
     "sig.b1": "Nghề nghiệp tình cờ trở nên có chủ đích ngay khi con người nhận ra: tầm ảnh hưởng vượt trên quyền lực.",
-    "body.b1": "<p class=\"post-lead\">Không ai lớn lên mà mơ ước được làm nghề HR.</p>\n      <p>Trẻ con nói bác sĩ, phi công, cầu thủ. Không ai nói “người xây dựng đội ngũ”. Vậy mà nghiên cứu cho thấy phần lớn người làm HR chưa từng dự định đi con đường này — họ tình cờ bước vào, rồi không nỡ rời đi (SHRM 2025).</p>\n      <p>Vì sao? Điều gì phân biệt người chọn công việc này với người xem thường nó? Người bỏ đi chỉ thấy chi phí. Giấy tờ, quy định, những cuộc trò chuyện chẳng ai muốn nhận. Họ muốn một nấc thang rõ ràng và một chức danh dễ đoán. Cũng dễ hiểu thôi — nhưng họ nhầm lẫn giữa khó khăn và sự vô nghĩa.</p>\n      <p>Người ở lại thì thấy đòn bẩy. Họ biết rằng 40% người làm HR bước vào ngành vì muốn phát triển tổ chức, không phải vì nghĩa vụ, và chỉ 7% xem đó là công việc lấy lương (BambooHR 2026). Họ hiểu rằng một quyết định duy nhất — tuyển ai, phát triển ai, giữ ai — sẽ lan tỏa khắp cả một công ty. Văn hóa là tài sản duy nhất đối thủ không thể sao chép, và 97% lãnh đạo HR ngày nay xem đó là ưu tiên hàng đầu (Gartner 2025).</p>\n      <p>Đó mới là ranh giới thật sự. Không phải mềm hay cứng. Không phải an toàn hay rủi ro. Mà là bạn xem con người là chi phí phải quản lý, hay là động cơ của mọi thứ theo sau.</p>\n      <p>Vậy nên hãy lựa chọn một cách có chủ đích. Đội ngũ bạn xây dựng sẽ nhớ bạn đã chọn điều gì.</p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">Nguồn tham khảo</span><p>BambooHR (2026) The Definitive Guide to HR Career Growth. &middot; Gartner (2025), trích trong Compono (2025) Full Research: Latest HR &amp; Talent Statistics (2025). &middot; SHRM (2025) Breaking into HR Without Official Experience.</p></div>",
+    "body.b1": "<p class=\"post-lead\">Không ai lớn lên mà mơ ước được làm nghề HR.</p>\n      <p>Trẻ con nói bác sĩ, phi công, cầu thủ. Không ai nói “người xây dựng đội ngũ”. Vậy mà nghiên cứu cho thấy phần lớn người làm HR chưa từng dự định đi con đường này - họ tình cờ bước vào, rồi không nỡ rời đi (SHRM 2025).</p>\n      <p>Vì sao? Điều gì phân biệt người chọn công việc này với người xem thường nó? Người bỏ đi chỉ thấy chi phí. Giấy tờ, quy định, những cuộc trò chuyện chẳng ai muốn nhận. Họ muốn một nấc thang rõ ràng và một chức danh dễ đoán. Cũng dễ hiểu thôi - nhưng họ nhầm lẫn giữa khó khăn và sự vô nghĩa.</p>\n      <p>Người ở lại thì thấy đòn bẩy. Họ biết rằng 40% người làm HR bước vào ngành vì muốn phát triển tổ chức, không phải vì nghĩa vụ, và chỉ 7% xem đó là công việc lấy lương (BambooHR 2026). Họ hiểu rằng một quyết định duy nhất - tuyển ai, phát triển ai, giữ ai - sẽ lan tỏa khắp cả một công ty. Văn hóa là tài sản duy nhất đối thủ không thể sao chép, và 97% lãnh đạo HR ngày nay xem đó là ưu tiên hàng đầu (Gartner 2025).</p>\n      <p>Đó mới là ranh giới thật sự. Không phải mềm hay cứng. Không phải an toàn hay rủi ro. Mà là bạn xem con người là chi phí phải quản lý, hay là động cơ của mọi thứ theo sau.</p>\n      <p>Vậy nên hãy lựa chọn một cách có chủ đích. Đội ngũ bạn xây dựng sẽ nhớ bạn đã chọn điều gì.</p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">Nguồn tham khảo</span><p>BambooHR (2026) The Definitive Guide to HR Career Growth. &middot; Gartner (2025), trích trong Compono (2025) Full Research: Latest HR &amp; Talent Statistics (2025). &middot; SHRM (2025) Breaking into HR Without Official Experience.</p></div>",
     "sig.b2": "Sự bền vững chỉ thật sự có ý nghĩa khi việc giữ gìn nó khiến bạn phải trả giá.",
-    "body.b2": "<p class=\"post-lead\">Tôi từng nghĩ sự bền vững là thứ có thể chứng minh được. Một dự án. Một tấm chứng nhận. Một cái bắt tay từ người có tầm ảnh hưởng. Rồi tôi nhận ra mình đã sai ngay từ đầu.</p>\n      <p>Bền vững không phải thứ bạn giành được trong một cuộc thi. Đó là điều bạn lựa chọn — một cách lặng lẽ, nhất quán — trong mỗi quyết định không có khán giả và không ai chấm điểm. Và chính nhận thức đó đã định hình cách tôi xây dựng công ty của mình. Không phí trả trước. Không thu phí cho đến khi ứng viên vượt qua thử việc. Chỉ thanh toán khi kết quả là thật — khi người được tuyển thật sự phù hợp, thật sự gắn bó, thật sự đóng góp. Phần lớn trong ngành né tránh mô hình này vì nó không thoải mái. Bạn phải gánh rủi ro. Bạn phải hấp thụ sự bất định. Nhưng chính sự khó chịu đó mới là mấu chốt — bởi bền vững chỉ có ý nghĩa khi việc giữ gìn nó khiến bạn phải trả giá.</p>\n      <p>Chiến thắng cuộc thi ấy không dạy tôi bền vững trông ra sao trên một tấm chứng nhận. Nó dạy tôi bền vững phải trông ra sao trong thực tế: mỗi lần tuyển, mỗi khách hàng, mỗi quyết định mà không ai chấm điểm ngoài chính bạn. Tiêu chuẩn không nằm trên tường. Nó nằm trong cách bạn vận hành khi không ai nhìn.</p>",
+    "body.b2": "<p class=\"post-lead\">Tôi từng nghĩ sự bền vững là thứ có thể chứng minh được. Một dự án. Một tấm chứng nhận. Một cái bắt tay từ người có tầm ảnh hưởng. Rồi tôi nhận ra mình đã sai ngay từ đầu.</p>\n      <p>Bền vững không phải thứ bạn giành được trong một cuộc thi. Đó là điều bạn lựa chọn - một cách lặng lẽ, nhất quán - trong mỗi quyết định không có khán giả và không ai chấm điểm. Và chính nhận thức đó đã định hình cách tôi xây dựng công ty của mình. Không phí trả trước. Không thu phí cho đến khi ứng viên vượt qua thử việc. Chỉ thanh toán khi kết quả là thật - khi người được tuyển thật sự phù hợp, thật sự gắn bó, thật sự đóng góp. Phần lớn trong ngành né tránh mô hình này vì nó không thoải mái. Bạn phải gánh rủi ro. Bạn phải hấp thụ sự bất định. Nhưng chính sự khó chịu đó mới là mấu chốt - bởi bền vững chỉ có ý nghĩa khi việc giữ gìn nó khiến bạn phải trả giá.</p>\n      <p>Chiến thắng cuộc thi ấy không dạy tôi bền vững trông ra sao trên một tấm chứng nhận. Nó dạy tôi bền vững phải trông ra sao trong thực tế: mỗi lần tuyển, mỗi khách hàng, mỗi quyết định mà không ai chấm điểm ngoài chính bạn. Tiêu chuẩn không nằm trên tường. Nó nằm trong cách bạn vận hành khi không ai nhìn.</p>",
     "sig.b3": "<div class=\"post-stat\"><b>46%</b><span>nhân sự mới thất bại trong 18 tháng đầu</span></div><div class=\"post-stat\"><b>82%</b><span>quản lý tuyển dụng đã nhận ra dấu hiệu từ trước (TriNet 2026)</span></div>",
-    "body.b3": "<p class=\"post-lead\">Ai cũng có thể tỏa sáng trong 30 phút bên bàn phỏng vấn. Câu hỏi là họ là ai vào ngày thứ 60.</p>\n      <p>Đây chính là khoảng trống đã tạo nên mô hình của TopLead ngay từ đầu. Không phí khi tuyển. Chỉ thanh toán sau khi ứng viên vượt qua thử việc — vì đó mới là lúc việc tuyển dụng thật sự được chứng minh. Chúng tôi gánh rủi ro cho đến khi kết quả là thật.</p>\n      <p>Phần lớn công ty tuyển dụng sẽ không đưa ra cam kết này. Không phải vì bất khả thi, mà vì nó đòi hỏi một điều không thoải mái: cùng đặt cược, rất lâu sau cái bắt tay. Trách nhiệm trong tuyển dụng không phải một chính sách. Đó là một lập trường. Nó có nghĩa là thành công của bạn gắn liền về mặt cấu trúc với thành công của khách hàng — chứ không tách rời ngay khi hợp đồng được ký.</p>\n      <p>Doanh nghiệp mất 20% nhân sự mới trong 45 ngày đầu (Reworked 2026). Con số đó sẽ không thay đổi cho đến khi những người chịu trách nhiệm tuyển họ vẫn còn chịu trách nhiệm sau khi tuyển.</p>\n      <p>Giai đoạn thử việc phơi bày mọi thứ mà buổi phỏng vấn không bao giờ làm được. Câu hỏi duy nhất là: đối tác tuyển dụng của bạn có còn dõi theo khi điều đó xảy ra hay không.</p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">Nguồn tham khảo</span><p>TriNet (2026) &middot; Reworked (2026) — 20% nhân sự mới rời đi trong 45 ngày đầu.</p></div>",
+    "body.b3": "<p class=\"post-lead\">Ai cũng có thể tỏa sáng trong 30 phút bên bàn phỏng vấn. Câu hỏi là họ là ai vào ngày thứ 60.</p>\n      <p>Đây chính là khoảng trống đã tạo nên mô hình của TopLead ngay từ đầu. Không phí khi tuyển. Chỉ thanh toán sau khi ứng viên vượt qua thử việc - vì đó mới là lúc việc tuyển dụng thật sự được chứng minh. Chúng tôi gánh rủi ro cho đến khi kết quả là thật.</p>\n      <p>Phần lớn công ty tuyển dụng sẽ không đưa ra cam kết này. Không phải vì bất khả thi, mà vì nó đòi hỏi một điều không thoải mái: cùng đặt cược, rất lâu sau cái bắt tay. Trách nhiệm trong tuyển dụng không phải một chính sách. Đó là một lập trường. Nó có nghĩa là thành công của bạn gắn liền về mặt cấu trúc với thành công của khách hàng - chứ không tách rời ngay khi hợp đồng được ký.</p>\n      <p>Doanh nghiệp mất 20% nhân sự mới trong 45 ngày đầu (Reworked 2026). Con số đó sẽ không thay đổi cho đến khi những người chịu trách nhiệm tuyển họ vẫn còn chịu trách nhiệm sau khi tuyển.</p>\n      <p>Giai đoạn thử việc phơi bày mọi thứ mà buổi phỏng vấn không bao giờ làm được. Câu hỏi duy nhất là: đối tác tuyển dụng của bạn có còn dõi theo khi điều đó xảy ra hay không.</p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">Nguồn tham khảo</span><p>TriNet (2026) &middot; Reworked (2026) - 20% nhân sự mới rời đi trong 45 ngày đầu.</p></div>",
     "sig.b4": "Đó không phải vấn đề tuyển dụng. Đó là vấn đề cơ chế.",
-    "body.b4": "<p class=\"post-lead\">Tuyển dụng chưa bao giờ rẻ. Chi phí trung bình cho mỗi lần tuyển nay đã vượt 5.400 USD, và lấp đầy một vị trí không thuộc cấp điều hành mất trung bình 44 ngày (SHRM 2025).</p>\n      <p>Vậy mà trong nhiều mô hình tuyển dụng, một bên được thưởng ngay khoảnh khắc thư mời được ký. Bên còn lại phải nhiều tuần — hoặc nhiều tháng — sau mới biết quyết định tuyển dụng có thật sự hiệu quả hay không.</p>\n      <p>Suy cho cùng, mọi hệ thống đều tạo ra hành vi mà nó tưởng thưởng. Nếu thành công được đo bằng số lần tuyển, hãy chờ đợi nhiều lần tuyển hơn. Nếu thành công được đo bằng số lần tuyển thành công, thì mọi quyết định — từ tìm nguồn, sàng lọc đến theo dõi sau tuyển — sẽ trông hoàn toàn khác.</p>\n      <p>Những mô hình tuyển dụng tốt nhất không chỉ tìm ra ứng viên. Chúng khiến trách nhiệm kéo dài đúng bằng chính quyết định tuyển dụng.</p>",
+    "body.b4": "<p class=\"post-lead\">Tuyển dụng chưa bao giờ rẻ. Chi phí trung bình cho mỗi lần tuyển nay đã vượt 5.400 USD, và lấp đầy một vị trí không thuộc cấp điều hành mất trung bình 44 ngày (SHRM 2025).</p>\n      <p>Vậy mà trong nhiều mô hình tuyển dụng, một bên được thưởng ngay khoảnh khắc thư mời được ký. Bên còn lại phải nhiều tuần - hoặc nhiều tháng - sau mới biết quyết định tuyển dụng có thật sự hiệu quả hay không.</p>\n      <p>Suy cho cùng, mọi hệ thống đều tạo ra hành vi mà nó tưởng thưởng. Nếu thành công được đo bằng số lần tuyển, hãy chờ đợi nhiều lần tuyển hơn. Nếu thành công được đo bằng số lần tuyển thành công, thì mọi quyết định - từ tìm nguồn, sàng lọc đến theo dõi sau tuyển - sẽ trông hoàn toàn khác.</p>\n      <p>Những mô hình tuyển dụng tốt nhất không chỉ tìm ra ứng viên. Chúng khiến trách nhiệm kéo dài đúng bằng chính quyết định tuyển dụng.</p>",
     "sig.b5": "Chần chừ không phải là thận trọng. Trong thị trường hôm nay, đó là đánh mất cơ hội.",
-    "body.b5": "<p class=\"post-lead\">Lý do phổ biến nhất khiến người tài bỏ lỡ cơ hội không phải là thiếu năng lực — mà là sự do dự.</p>\n      <ul>\n        <li>Chờ đợi “thời điểm hoàn hảo”.</li>\n        <li>Bản năng im lặng cho đến khi cảm thấy sẵn sàng 100%.</li>\n        <li>Quyết định lịch sự rằng sẽ “theo dõi sau”.</li>\n      </ul>\n      <p>Trong thị trường cạnh tranh ngày nay, chần chừ không chỉ là thận trọng, mà còn là đánh mất cơ hội. Người được nhận không phải lúc nào cũng giỏi nhất trên giấy. Nhưng chắc chắn, họ là người hành động trước — người ứng tuyển trước khi cảm thấy hoàn toàn sẵn sàng, người lên tiếng trong phỏng vấn thay vì chờ được hỏi, người theo đuổi đến cùng thay vì chờ được chọn.</p>\n      <p>Nhà tuyển dụng đọc được sự quyết đoán đó rất rõ — họ thấy tinh thần làm chủ, sự chủ động và động lực ở con người: chính là những phẩm chất phân biệt một ứng viên tốt với một ứng viên dễ bị lãng quên. Nếu bạn là ứng viên, lời khuyên của tôi rất đơn giản: đừng chờ thời điểm hoàn hảo vì nó không tồn tại. Hãy tiến lên, đặt câu hỏi táo bạo, và để sự chủ động lên tiếng trước cả CV của bạn.</p>\n      <p>Tại TopLead, chúng tôi không tưởng thưởng cho những hồ sơ ồn ào nhất — chúng tôi ghép nối thái độ và năng lực với đúng nhà tuyển dụng. Nhưng chúng tôi chỉ có thể mở cánh cửa khi bạn sẵn sàng bước qua.</p>",
+    "body.b5": "<p class=\"post-lead\">Lý do phổ biến nhất khiến người tài bỏ lỡ cơ hội không phải là thiếu năng lực - mà là sự do dự.</p>\n      <ul>\n        <li>Chờ đợi “thời điểm hoàn hảo”.</li>\n        <li>Bản năng im lặng cho đến khi cảm thấy sẵn sàng 100%.</li>\n        <li>Quyết định lịch sự rằng sẽ “theo dõi sau”.</li>\n      </ul>\n      <p>Trong thị trường cạnh tranh ngày nay, chần chừ không chỉ là thận trọng, mà còn là đánh mất cơ hội. Người được nhận không phải lúc nào cũng giỏi nhất trên giấy. Nhưng chắc chắn, họ là người hành động trước - người ứng tuyển trước khi cảm thấy hoàn toàn sẵn sàng, người lên tiếng trong phỏng vấn thay vì chờ được hỏi, người theo đuổi đến cùng thay vì chờ được chọn.</p>\n      <p>Nhà tuyển dụng đọc được sự quyết đoán đó rất rõ - họ thấy tinh thần làm chủ, sự chủ động và động lực ở con người: chính là những phẩm chất phân biệt một ứng viên tốt với một ứng viên dễ bị lãng quên. Nếu bạn là ứng viên, lời khuyên của tôi rất đơn giản: đừng chờ thời điểm hoàn hảo vì nó không tồn tại. Hãy tiến lên, đặt câu hỏi táo bạo, và để sự chủ động lên tiếng trước cả CV của bạn.</p>\n      <p>Tại TopLead, chúng tôi không tưởng thưởng cho những hồ sơ ồn ào nhất - chúng tôi ghép nối thái độ và năng lực với đúng nhà tuyển dụng. Nhưng chúng tôi chỉ có thể mở cánh cửa khi bạn sẵn sàng bước qua.</p>",
     "sig.b6": "<div class=\"post-split-col\"><b>SME</b><span>89% không thể trả lương ngang tập đoàn (Employment Hero 2024)</span></div><div class=\"post-split-vs\">vs</div><div class=\"post-split-col\"><b>Tập đoàn</b><span>Thắng nhờ cấu trúc, không phải bản chất</span></div>",
-    "body.b6": "<p class=\"post-lead\">89% doanh nghiệp SME không thể trả lương ngang tập đoàn (Employment Hero 2024), nhưng lương không phải lý do khiến họ thua.</p>\n      <p>Khoảng cách thật sự nằm ở quy trình. Thời gian trung bình từ khi đăng tin đến khi tuyển được đã lên tới 48 ngày — tăng 65% chỉ trong ba năm (BambooHR 2026). Trong khi đó, ứng viên hàng đầu rời khỏi thị trường trong vòng 10 ngày (Movement Search &amp; Delivery 2026).</p>\n      <p>Và ứng viên nhận ra điều đó: 42% rút khỏi quá trình tuyển dụng chỉ vì việc sắp lịch quá lâu (iHire 2023). 93% quản lý tuyển dụng cũng thừa nhận quy trình chậm hơn so với hai năm trước (Robert Half 2025).</p>\n      <p>Điều trớ trêu là: SME vốn đã có thứ mà ứng viên ngày nay mong muốn:</p>\n      <ul>\n        <li>71% người lao động nói rằng cơ hội phát triển quyết định sự hài lòng trong công việc (Gallup, trích trong COSE 2025).</li>\n        <li>39% xếp tiềm năng thăng tiến là yếu tố quan trọng nhất (Yoh 2025). Công ty nhỏ mang lại cả hai — thăng tiến nhanh hơn, va chạm rộng hơn, tiếp cận lãnh đạo trực tiếp hơn.</li>\n      </ul>\n      <p>Nhưng phần lớn SME không bao giờ nói rõ điều này. Họ đăng những bản mô tả công việc chung chung, vận hành quy trình chậm chạp, và mất ứng viên vào tay những công ty đơn giản là ra tay trước.</p>\n      <h2>Ba cách khắc phục cho SME</h2>\n      <ul>\n        <li><strong>Bán vị trí.</strong> Người này sẽ đảm nhận chính xác điều gì? Họ sẽ xây dựng gì? Đóng góp gì? Tất cả nên rõ ràng trong JD.</li>\n        <li><strong>Rút ngắn tiến độ.</strong> Hai vòng phỏng vấn. Một tuần. Một lời mời dứt khoát. Cho thấy lộ trình phát triển — chỉ cần một câu trả lời rõ ràng cho “12 tháng nữa vị trí này dẫn đến đâu?”.</li>\n        <li><strong>Cạnh tranh bằng cấu trúc.</strong> Tập đoàn không thắng nhờ bản chất. Họ thắng nhờ cấu trúc.</li>\n      </ul>\n      <p>Tại TopLead, chúng tôi giúp các SME Việt Nam thu hẹp khoảng cách đó — ghép đúng ứng viên vào các vị trí chuyên môn trong Sales, Marketing, Tài chính, HR và Vận hành. Chúng tôi không chỉ gửi CV. Chúng tôi đảm bảo nhân tài nhìn thấy điều khiến công ty bạn đáng để gia nhập.</p>",
-    "sig.b7": "<div class=\"post-stat\"><b>24%</b><span>tỷ lệ nghỉ việc tại Việt Nam, so với mức lý tưởng ~10% (Anphabe 2023)</span></div><div class=\"post-stat\"><b>$228&ndash;355M</b><span>thất thoát mỗi năm do mất gắn kết tại một công ty S&amp;P 500 cỡ trung (McKinsey 2023)</span></div>",
-    "body.b7": "<p class=\"post-lead\">Phần lớn chủ doanh nghiệp SME chỉ ghi nhận việc nghỉ việc vào thời điểm nộp đơn. Nhưng khi đó, tổn thất đã cũ.</p>\n      <p>Chi phí thật sự bắt đầu từ nhiều tháng trước, khi một nhân viên vẫn còn hiện diện, vẫn làm ở mức tối thiểu, nhưng đã mất gắn kết. Đó gọi là nghỉ việc thầm lặng, và nó không xuất hiện trên bất kỳ báo cáo nào cho đến khi quá muộn để ngăn chặn.</p>\n      <h2>Dữ liệu và theo dõi</h2>\n      <p>Tỷ lệ nghỉ việc tại Việt Nam đã lên tới 24%, so với mức “lý tưởng” khoảng 10% cho một tổ chức ổn định. Tỷ lệ nghỉ cao nhất lại rơi vào đúng những bộ phận mà SME phụ thuộc nhiều nhất: Marketing, Sales, IT và Tài chính (Anphabe 2023). Sự mất gắn kết đi trước đó thậm chí còn tốn kém hơn cả việc rời đi. McKinsey ước tính một công ty S&amp;P 500 cỡ trung mất từ 228 đến 355 triệu USD mỗi năm do mất gắn kết và nghỉ việc, với hơn một nửa lực lượng lao động điển hình mất gắn kết tại bất kỳ thời điểm nào (McKinsey &amp; Company 2023). Quy luật này đúng bất kể quy mô công ty: sự rút lui diễn ra âm thầm, năng suất hao hụt liên tục, và chi phí tích tụ từ rất lâu trước khi lá đơn xin nghỉ xuất hiện.</p>\n      <h2>Nguyên nhân gốc rễ</h2>\n      <p>Những lần ra đi này hiếm khi vì lương. Chúng bắt nguồn từ sự lệch pha ngay tại thời điểm tuyển — sai người, sai kỳ vọng, hoặc sai văn hóa. Khi một doanh nghiệp tuyển vội để lấp chỗ trống, họ không giải quyết được vấn đề. Họ khởi động lại đúng vòng lặp đó, và gánh chi phí mất gắn kết thêm một lần nữa.</p>\n      <h2>Ý nghĩa đối với SME</h2>\n      <p>Tất cả nằm ở độ chính xác của lần tuyển đầu tiên. Đó là lý do TopLead sàng lọc cả hai phía của sự phù hợp, đánh giá ứng viên cho doanh nghiệp và đánh giá doanh nghiệp cho ứng viên. Khi sự phù hợp là thật ở cả hai đầu, mức gắn kết bắt đầu cao và được duy trì, thu hẹp khoảng trống nơi nghỉ việc thầm lặng bén rễ.</p>\n      <p><strong>Ngừng tuyển lại. Bắt đầu phát triển.</strong></p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">Nguồn tham khảo</span><p>Anphabe (2023), qua Vietnam News / Staffing Industry Analysts — tỷ lệ nghỉ việc tại Việt Nam ở mức 24% so với 10% tối ưu; nghỉ nhiều nhất ở marketing, sales, IT, tài chính. &middot; McKinsey &amp; Company (2023), “Some employees are destroying value. Others are building it.”</p></div>",
+    "body.b6": "<p class=\"post-lead\">89% doanh nghiệp SME không thể trả lương ngang tập đoàn (Employment Hero 2024), nhưng lương không phải lý do khiến họ thua.</p>\n      <p>Khoảng cách thật sự nằm ở quy trình. Thời gian trung bình từ khi đăng tin đến khi tuyển được đã lên tới 48 ngày - tăng 65% chỉ trong ba năm (BambooHR 2026). Trong khi đó, ứng viên hàng đầu rời khỏi thị trường trong vòng 10 ngày (Movement Search &amp; Delivery 2026).</p>\n      <p>Và ứng viên nhận ra điều đó: 42% rút khỏi quá trình tuyển dụng chỉ vì việc sắp lịch quá lâu (iHire 2023). 93% quản lý tuyển dụng cũng thừa nhận quy trình chậm hơn so với hai năm trước (Robert Half 2025).</p>\n      <p>Điều trớ trêu là: SME vốn đã có thứ mà ứng viên ngày nay mong muốn:</p>\n      <ul>\n        <li>71% người lao động nói rằng cơ hội phát triển quyết định sự hài lòng trong công việc (Gallup, trích trong COSE 2025).</li>\n        <li>39% xếp tiềm năng thăng tiến là yếu tố quan trọng nhất (Yoh 2025). Công ty nhỏ mang lại cả hai - thăng tiến nhanh hơn, va chạm rộng hơn, tiếp cận lãnh đạo trực tiếp hơn.</li>\n      </ul>\n      <p>Nhưng phần lớn SME không bao giờ nói rõ điều này. Họ đăng những bản mô tả công việc chung chung, vận hành quy trình chậm chạp, và mất ứng viên vào tay những công ty đơn giản là ra tay trước.</p>\n      <h2>Ba cách khắc phục cho SME</h2>\n      <ul>\n        <li><strong>Bán vị trí.</strong> Người này sẽ đảm nhận chính xác điều gì? Họ sẽ xây dựng gì? Đóng góp gì? Tất cả nên rõ ràng trong JD.</li>\n        <li><strong>Rút ngắn tiến độ.</strong> Hai vòng phỏng vấn. Một tuần. Một lời mời dứt khoát. Cho thấy lộ trình phát triển - chỉ cần một câu trả lời rõ ràng cho “12 tháng nữa vị trí này dẫn đến đâu?”.</li>\n        <li><strong>Cạnh tranh bằng cấu trúc.</strong> Tập đoàn không thắng nhờ bản chất. Họ thắng nhờ cấu trúc.</li>\n      </ul>\n      <p>Tại TopLead, chúng tôi giúp các SME Việt Nam thu hẹp khoảng cách đó - ghép đúng ứng viên vào các vị trí chuyên môn trong Sales, Marketing, Tài chính, HR và Vận hành. Chúng tôi không chỉ gửi CV. Chúng tôi đảm bảo nhân tài nhìn thấy điều khiến công ty bạn đáng để gia nhập.</p>",
+    "sig.b7": "<div class=\"post-stat\"><b>24%</b><span>tỷ lệ nghỉ việc tại Việt Nam, so với mức lý tưởng ~10% (Anphabe 2023)</span></div><div class=\"post-stat\"><b>$228-355M</b><span>thất thoát mỗi năm do mất gắn kết tại một công ty S&amp;P 500 cỡ trung (McKinsey 2023)</span></div>",
+    "body.b7": "<p class=\"post-lead\">Phần lớn chủ doanh nghiệp SME chỉ ghi nhận việc nghỉ việc vào thời điểm nộp đơn. Nhưng khi đó, tổn thất đã cũ.</p>\n      <p>Chi phí thật sự bắt đầu từ nhiều tháng trước, khi một nhân viên vẫn còn hiện diện, vẫn làm ở mức tối thiểu, nhưng đã mất gắn kết. Đó gọi là nghỉ việc thầm lặng, và nó không xuất hiện trên bất kỳ báo cáo nào cho đến khi quá muộn để ngăn chặn.</p>\n      <h2>Dữ liệu và theo dõi</h2>\n      <p>Tỷ lệ nghỉ việc tại Việt Nam đã lên tới 24%, so với mức “lý tưởng” khoảng 10% cho một tổ chức ổn định. Tỷ lệ nghỉ cao nhất lại rơi vào đúng những bộ phận mà SME phụ thuộc nhiều nhất: Marketing, Sales, IT và Tài chính (Anphabe 2023). Sự mất gắn kết đi trước đó thậm chí còn tốn kém hơn cả việc rời đi. McKinsey ước tính một công ty S&amp;P 500 cỡ trung mất từ 228 đến 355 triệu USD mỗi năm do mất gắn kết và nghỉ việc, với hơn một nửa lực lượng lao động điển hình mất gắn kết tại bất kỳ thời điểm nào (McKinsey &amp; Company 2023). Quy luật này đúng bất kể quy mô công ty: sự rút lui diễn ra âm thầm, năng suất hao hụt liên tục, và chi phí tích tụ từ rất lâu trước khi lá đơn xin nghỉ xuất hiện.</p>\n      <h2>Nguyên nhân gốc rễ</h2>\n      <p>Những lần ra đi này hiếm khi vì lương. Chúng bắt nguồn từ sự lệch pha ngay tại thời điểm tuyển - sai người, sai kỳ vọng, hoặc sai văn hóa. Khi một doanh nghiệp tuyển vội để lấp chỗ trống, họ không giải quyết được vấn đề. Họ khởi động lại đúng vòng lặp đó, và gánh chi phí mất gắn kết thêm một lần nữa.</p>\n      <h2>Ý nghĩa đối với SME</h2>\n      <p>Tất cả nằm ở độ chính xác của lần tuyển đầu tiên. Đó là lý do TopLead sàng lọc cả hai phía của sự phù hợp, đánh giá ứng viên cho doanh nghiệp và đánh giá doanh nghiệp cho ứng viên. Khi sự phù hợp là thật ở cả hai đầu, mức gắn kết bắt đầu cao và được duy trì, thu hẹp khoảng trống nơi nghỉ việc thầm lặng bén rễ.</p>\n      <p><strong>Ngừng tuyển lại. Bắt đầu phát triển.</strong></p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">Nguồn tham khảo</span><p>Anphabe (2023), qua Vietnam News / Staffing Industry Analysts - tỷ lệ nghỉ việc tại Việt Nam ở mức 24% so với 10% tối ưu; nghỉ nhiều nhất ở marketing, sales, IT, tài chính. &middot; McKinsey &amp; Company (2023), “Some employees are destroying value. Others are building it.”</p></div>",
     "about.story.title": "Câu chuyện TopLead",
     "about.story.p1": "TopLead ra đời từ một niềm tin đơn giản nhưng khó thực hiện: mỗi người xứng đáng thuộc về đúng nơi họ cần, và mỗi doanh nghiệp xứng đáng có đúng người.",
-    "about.story.p2": "Trong một thị trường nơi tuyển dụng thường được đo bằng số lượng hồ sơ, chúng tôi chọn đo bằng kết quả thật sự. Đó là lý do TopLead chỉ thu phí khi ứng viên vượt qua thử việc — cùng gánh rủi ro với khách hàng, và sàng lọc hai chiều để sự phù hợp bền vững ngay từ ngày đầu.",
+    "about.story.p2": "Trong một thị trường nơi tuyển dụng thường được đo bằng số lượng hồ sơ, chúng tôi chọn đo bằng kết quả thật sự. Đó là lý do TopLead chỉ thu phí khi ứng viên vượt qua thử việc - cùng gánh rủi ro với khách hàng, và sàng lọc hai chiều để sự phù hợp bền vững ngay từ ngày đầu.",
     "about.story.p3": "Với kinh nghiệm trải rộng nhiều ngành (IT, Tài chính, FMCG, F&B, Bất động sản, Xây dựng…), đội ngũ TopLead không chỉ lấp đầy vị trí trống. Chúng tôi kết nối con người với đúng môi trường để phát triển, và giúp doanh nghiệp giữ được người giỏi lâu hơn.",
     "about.stat1": "Năm kinh nghiệm cộng dồn",
     "about.stat2": "Doanh nghiệp đối tác",
@@ -346,36 +346,53 @@ var translations = {
     "about.stat4": "Vượt qua thử việc",
     "partner.tag": "Đối tác của bạn",
     "partner.title": "Bạn đang có một đối tác tốt",
-    "partner.subtitle": "Không phải lời hứa — mà là cách chúng tôi đặt cược cùng bạn.",
+    "partner.subtitle": "Không phải lời hứa - mà là cách chúng tôi đặt cược cùng bạn.",
     "partner.s1": "năm kinh nghiệm cộng dồn của đội ngũ sáng lập",
     "partner.s2": "nhóm ngành chuyên sâu: IT, Tài chính, FMCG, F&B, BĐS, Xây dựng",
     "partner.s3": "để gửi hồ sơ đầu tiên đã được sàng lọc",
-    "partner.s4": "phí trả trước — bạn chỉ thanh toán sau khi ứng viên vượt qua thử việc",
+    "partner.s4": "phí trả trước - bạn chỉ thanh toán sau khi ứng viên vượt qua thử việc",
     "partner.v1.title": "Mạng lưới chuyên gia",
     "partner.v1.desc": "Kết nối với ứng viên chất lượng cao trên nhiều nhóm ngành khác nhau.",
     "partner.v2.title": "Tìm kiếm chủ động",
-    "partner.v2.desc": "Không chờ ứng viên ứng tuyển — chúng tôi chủ động tìm và tiếp cận đúng người.",
+    "partner.v2.desc": "Không chờ ứng viên ứng tuyển - chúng tôi chủ động tìm và tiếp cận đúng người.",
     "cta.services": "Tìm giải pháp phù hợp cho bạn",
     "cta.pain": "Để TopLead giải quyết cho bạn",
-    "services.lead": "Chúng tôi không chỉ lấp đầy vị trí trống — chúng tôi ghép đúng người với đúng doanh nghiệp.",
+    "services.lead": "Chúng tôi không chỉ lấp đầy vị trí trống - chúng tôi ghép đúng người với đúng doanh nghiệp.",
     "services.leadsub": "Và chỉ tính phí khi ứng viên ở lại sau thử việc. Rủi ro thuộc về chúng tôi, kết quả thuộc về bạn.",
     "pain.lead": "Hàng trăm CV, deadline gấp, và nỗi lo tuyển sai người.",
-    "pain.leadsub": "TopLead giúp bạn thoát khỏi mớ hỗn độn đó — sàng lọc kỹ và gửi đúng hồ sơ trong 48 giờ.",
+    "pain.leadsub": "TopLead giúp bạn thoát khỏi mớ hỗn độn đó - sàng lọc kỹ và gửi đúng hồ sơ trong 48 giờ.",
     "serve.tag": "Đối tượng phục vụ",
     "serve.title": "Chuyên sâu cho doanh nghiệp SME",
-    "serve.desc": "TopLead đồng hành cùng các doanh nghiệp vừa và nhỏ tại Việt Nam — nơi mỗi lần tuyển đúng người tạo ra khác biệt lớn nhất.",
-    "philosophy.quote": "Nhân sự không phải là chi phí — đó là động cơ của mọi thứ theo sau.",
+    "serve.desc": "TopLead đồng hành cùng các doanh nghiệp vừa và nhỏ tại Việt Nam - nơi mỗi lần tuyển đúng người tạo ra khác biệt lớn nhất.",
+    "philosophy.quote": "Nhân sự không phải là chi phí - đó là động cơ của mọi thứ theo sau.",
     "cine.caption": "Mỗi lần tuyển đúng người là một chương mới cho doanh nghiệp.",
     "cine.eyebrow": "Niềm tin của chúng tôi",
     "cine.cta": "Xem cách chúng tôi làm việc",
     "phil.eyebrow": "Triết lý của chúng tôi",
-    "phil.body": "Chúng tôi tuyển người phù hợp để ở lại và phát triển — không chỉ để lấp chỗ trống.",
+    "phil.body": "Chúng tôi tuyển người phù hợp để ở lại và phát triển - không chỉ để lấp chỗ trống.",
     "phil.cta": "Tìm hiểu cách chúng tôi làm việc",
+    "phil.caption": "Người thật. Doanh nghiệp thật. Kết quả ở lại.",
+    "pw.label": "Được tin dùng bởi các doanh nghiệp",
+    "pw.sub": "Từ SME đến các đơn vị chuyên môn - TopLead đồng hành trong bài toán tuyển dụng của họ.",
+    "pw.b1": "Công nghệ thông tin, tích hợp hệ thống (SI/ICT)",
+    "pw.miso": "Ẩm thực & đồ uống (F&B)",
+    "pw.rmit": "Đối tác độc quyền trong tuyển chọn ứng viên",
+    "pw.tan": "Gỗ & nội thất - khách hàng tuyển dụng",
+    "pw.fit": "Gym, lifestyle & tổ chức sự kiện",
+    "pw.supp": "Gym & sản phẩm bảo vệ sức khỏe",
+    "pw.xuanvinh": "Chuỗi cửa hàng trang sức",
+    "pw.thadico": "Bất động sản & xây dựng",
+    "ab.cta.title": "Sẵn sàng tìm nhân sự phù hợp?",
+    "ab.cta.subtitle": "Hãy để TopLead đồng hành cùng bạn trong bài toán tuyển dụng",
+    "ab.cta.button": "Liên hệ ngay",
+    "ct.cta.title": "Chưa chắc bắt đầu từ đâu?",
+    "ct.cta.subtitle": "Khám phá dịch vụ tuyển dụng toàn diện của TopLead",
+    "ct.cta.button": "Xem dịch vụ",
     "svc.o.title": "Giải pháp tuyển dụng toàn diện",
     "svc.o.sub": "TopLead cung cấp đa dạng dịch vụ phù hợp với mọi nhu cầu nhân sự",
     "svc.s1": "Tìm kiếm và tiếp cận nhân sự cấp cao (C-level, VP, Director) với quy trình kín đáo và chuyên nghiệp.",
     "svc.s2": "Cung cấp nhân sự theo yêu cầu - từ nhân viên đến quản lý, phù hợp cho các dự án hoặc nhu cầu ngắn hạn.",
-    "svc.s3": "Recruitment Process Outsourcing — thuê ngoài toàn bộ hoặc một phần quy trình tuyển dụng cho TopLead.",
+    "svc.s3": "Recruitment Process Outsourcing - thuê ngoài toàn bộ hoặc một phần quy trình tuyển dụng cho TopLead.",
     "svc.m1": "Chủ động tiếp cận và thuyết phục ứng viên tiềm năng từ đối thủ cạnh tranh.",
     "svc.m2": "Tư vấn chiến lược nhân sự, xây dựng quy trình tuyển dụng nội bộ.",
     "svc.m3": "Sàng lọc ứng viên theo tiêu chuẩn của doanh nghiệp, tiết kiệm thời gian.",
@@ -435,39 +452,109 @@ var translations = {
     "ct.i.hours": "Giờ làm việc",
     "ct.h1": "Thứ 2 - Thứ 6: 8:30 - 18:00",
     "ct.h2": "Thứ 7: 8:30 - 12:00",
-    "ap.t1": "Đăng tin chờ ứng viên",
+    "ap.t1": "Đăng tin, chờ ứng viên đến",
     "ap.t1d": "Chờ ứng viên nộp CV, không chủ động tìm kiếm",
-    "ap.t2": "Lọc sơ bộ",
+    "ap.t2": "CV lọc bằng keyword",
     "ap.t2d": "CV được lọc qua keyword, không đánh giá sâu",
-    "ap.t3": "Không check reference",
+    "ap.t3": "Reference check hình thức",
     "ap.t3d": "Ít khi kiểm tra background thực tế",
-    "ap.t4": "Không bảo hành",
+    "ap.t4": "Không cam kết sau tuyển",
     "ap.t4d": "Không hỗ trợ nếu ứng viên nghỉ sớm",
-    "ap.t5": "Thời gian dài",
+    "ap.t5": "Fill role trong 2-3 tháng",
     "ap.t5d": "Mất 2-3 tháng để fill một vị trí",
-    "ap.l1": "Chủ động tìm kiếm",
+    "ap.l1": "Chủ động headhunt - không chờ",
     "ap.l1d": "Proactive search, tiếp cận ứng viên tiềm năng",
-    "ap.l2": "Sàng lọc 5 bước",
-    "ap.l2d": "Guardian Screen Process với 5 vòng kiểm tra",
-    "ap.l3": "Deep Reference Check",
+    "ap.l2": "Guardian Screen - quy trình 5 lớp riêng của TopLead",
+    "ap.l2d": "Năm lớp sàng lọc liên tiếp, chỉ khoảng 4% ứng viên đi hết chặng.",
+    "ap.l3": "3+ reference call sâu trước mỗi shortlist",
     "ap.l3d": "Kiểm tra 3+ references trước khi giới thiệu",
-    "ap.l4": "Clear Guarantee",
+    "ap.l4": "Bảo hành 3 tháng - thay thế miễn phí",
     "ap.l4d": "Miễn phí thay thế trong 3 tháng",
-    "ap.l5": "Nhanh 48h",
-    "ap.l5d": "Gửi hồ sơ trong 48 giờ, interview trong tuần đầu",
-    "ap.s1": "Tìm hiểu nhu cầu, văn hóa công ty và yêu cầu chi tiết",
-    "ap.s2": "Chủ động tìm kiếm và tiếp cận ứng viên phù hợp",
-    "ap.s3": "Áp dụng Guardian Screen Process - sàng lọc 5 bước",
-    "ap.s4": "Gửi top 3-5 hồ sơ đã lọc trong 48 giờ",
-    "ap.s5": "Hỗ trợ sắp xếp interview và feedback",
-    "ap.s6": "Onboarding support và bảo hành 3 tháng",
+    "ap.l5": "Shortlist trong 48 giờ",
+    "ap.l5d": "Nhận 3-5 hồ sơ đã sàng lọc trong 48 giờ đầu tiên - không phải chờ vài tuần.",
+    "ap.s1": "Tìm hiểu nhu cầu tuyển dụng, văn hóa công ty, và yêu cầu chi tiết cho vị trí",
+    "ap.s2": "Chủ động headhunt và tiếp cận ứng viên phù hợp từ database, referral, và thị trường",
+    "ap.s3": "Áp dụng Guardian Screen - quy trình 5 lớp sàng lọc riêng của TopLead",
+    "ap.s4": "Gửi 3-5 hồ sơ đã sàng lọc kỹ kèm interview notes",
+    "ap.s5": "Hỗ trợ sắp xếp lịch phỏng vấn và thu thập feedback hai chiều",
+    "ap.s6": "Hỗ trợ onboarding và theo dõi trong suốt thời gian bảo hành",
     "ap.tradTitle": "Tuyển dụng truyền thống",
     "ap.step1": "Tư vấn",
-    "ap.step2": "Tìm nguồn",
+    "ap.step2": "Tìm kiếm",
     "ap.step3": "Sàng lọc",
-    "ap.step4": "Giới thiệu hồ sơ",
+    "ap.step4": "Trình hồ sơ",
     "ap.step5": "Phỏng vấn",
-    "ap.step6": "Nhận việc",
+    "ap.step6": "Tuyển dụng",
+    "jr.tag": "Hành trình",
+    "cmp.title": "Hai cách để hai bên gặp nhau",
+    "cmp.sub": "Kéo thanh ở giữa để chuyển trọng tâm giữa hai cách làm.",
+    "cmp.trad": "Tuyển dụng truyền thống",
+    "cmp.tl": "TopLead Recruitment Co. Ltd.",
+    "cmp.hint": "Kéo về giữa để so sánh",
+    "ap.t1.x": "Phụ thuộc vào lượng CV tự đến - chất lượng không kiểm soát được, thời gian không dự đoán được.",
+    "ap.t2.x": "CV lọc bằng từ khóa tự động - bỏ sót người giỏi không dùng đúng keyword, giữ lại người biết viết CV cho máy đọc.",
+    "ap.t3.x": "Gọi một reference cho có thủ tục - thường là người ứng viên tự chọn, không phản ánh thực tế.",
+    "ap.t4.x": "Ứng viên nghỉ sau hai tuần? Đó là việc của bạn - phí đã thu xong rồi.",
+    "ap.t5.x": "Từ lúc đăng tin đến lúc có người nhận offer thường mất 45-90 ngày. Ghế trống càng lâu, chi phí ẩn càng lớn.",
+    "ap.l1.x": "Chủ động tiếp cận từ database, referral network, và headhunt trực tiếp trên LinkedIn.",
+    "ap.l2.x": "Năm lớp sàng lọc thật: kỹ năng, phỏng vấn, văn hóa, tham chiếu, duyệt cuối. Từ 80 ứng viên chỉ còn 3.",
+    "ap.l3.x": "Gọi tối thiểu 3 references do TopLead chọn - hỏi sâu về hiệu suất, thái độ làm việc, và lý do nghỉ thật sự.",
+    "ap.l4.x": "90 ngày theo dõi chủ động. Không phù hợp trong 3 tháng thì thay thế miễn phí, không phát sinh chi phí.",
+    "ap.l5.x": "Shortlist 3-5 hồ sơ trong 48 giờ đầu. Phỏng vấn ngay tuần đầu. Trung bình 2-4 tuần là có người.",
+    "tst.all": "Xem tất cả đánh giá trên Google",
+    "cmp.cta": "Muốn biết quy trình cụ thể? Kéo xuống - hoặc",
+    "cmp.ctaLink": "liên hệ ngay",
+    "jr.meet": "Điểm gặp nhau",
+    "ex.more": "Xem chi tiết",
+    "ex.g.l1": "Lớp 1: Năng lực & kinh nghiệm",
+    "ex.g.l1d": "Kỹ năng chuyên môn, số năm kinh nghiệm, mức độ phù hợp với ngành, lộ trình nghề nghiệp",
+    "ex.g.l2": "Lớp 2: Phỏng vấn sàng lọc",
+    "ex.g.l2d": "Kỹ năng giao tiếp, động lực làm việc, kỳ vọng lương, thời gian sẵn sàng",
+    "ex.g.l3": "Lớp 3: Tương thích văn hóa",
+    "ex.g.l3d": "Phong cách làm việc, sở thích quản lý, sự phù hợp với giá trị và văn hóa doanh nghiệp",
+    "ex.g.l4": "Lớp 4: Xác minh tham chiếu",
+    "ex.g.l4d": "3+ cuộc gọi tham chiếu - lịch sử hiệu suất, thái độ làm việc, lý do nghỉ việc thực tế",
+    "ex.g.l5": "Lớp 5: Duyệt cuối & shortlist",
+    "ex.g.l5d": "Hội đồng TopLead đánh giá toàn diện hồ sơ, chọn top 3 gửi khách hàng",
+    "ex.g.note": "Chỉ ~4% ứng viên vượt qua toàn bộ Guardian Screen",
+    "ex.t.cap": "Nói thẳng từ đầu, kể cả khi đó không phải điều khách hàng muốn nghe.",
+    "ex.t.p1": "Trung thực",
+    "ex.t.p1d": "Nếu JD không hợp lý - nói thẳng. Nếu thị trường không có người ở mức lương đó - nói thẳng. Không hứa để lấy deal. TopLead từ chối nhận project nếu biết trước không thể deliver.",
+    "ex.t.p2": "Trách nhiệm",
+    "ex.t.p2d": "Mỗi placement có 1 người chịu trách nhiệm rõ ràng - không phải \"team\". Follow-up chủ động tại Day 30, Day 60, Day 90. Nếu sai, TopLead sửa và chịu chi phí.",
+    "ex.t.p3": "Đồng hành",
+    "ex.t.p3d": "Không phải vendor bán CV - mà là đối tác cùng giải bài toán nhân sự. Tư vấn JD, salary benchmark, onboarding support. Vẫn hỗ trợ sau khi placement hoàn tất.",
+    "ex.gr.m1": "Performance review call",
+    "ex.gr.m1d": "Đánh giá mức độ hòa nhập ban đầu của ứng viên",
+    "ex.gr.m2": "Mid-point check-in",
+    "ex.gr.m2d": "Theo dõi tiến độ, xử lý vấn đề sớm trước khi thành lớn",
+    "ex.gr.m3": "Full evaluation",
+    "ex.gr.m3d": "Đánh giá toàn diện, kết thúc thời gian bảo hành",
+    "ex.gr.note": "Trong 90 ngày, nếu ứng viên không phù hợp - TopLead thay thế miễn phí, không phát sinh chi phí.",
+    "jr.title": "Hành trình 6 bước",
+    "jr.sub": "Từ lúc nhận brief đến khi ứng viên qua thời gian bảo hành",
+    "jr.youGet": "Bạn nhận được",
+    "jr.time1": "Ngày 1",
+    "jr.time2": "Ngày 2-5",
+    "jr.time3": "Ngày 3-7",
+    "jr.time4": "Ngày 5-7",
+    "jr.time5": "Tuần 2",
+    "jr.time6": "Tháng 1-3",
+    "jr.dl1": "Tài liệu brief - nhu cầu, ngân sách, thời hạn, văn hóa công ty",
+    "jr.dl2": "Long list 15-25 ứng viên tiềm năng",
+    "jr.dl3": "Kết quả Guardian Screen - chi tiết pass/fail từng lớp",
+    "jr.dl4": "Shortlist 3-5 CV trong 48 giờ",
+    "jr.dl5": "Điều phối phỏng vấn và báo cáo feedback hai chiều",
+    "jr.dl6": "Hỗ trợ offer, onboarding, và bảo hành 3 tháng",
+    "ex.g.role": "Bộ lọc đầu vào - ai được bước lên hành trình",
+    "ex.g.sub": "Quy trình 5 lớp sàng lọc",
+    "ex.g.summary": "Từ 80 ứng viên đầu vào, chỉ 3 hồ sơ đến tay khách hàng - khoảng 4% đi hết cả năm lớp.",
+    "ex.t.role": "Sự đồng nhất - giữ hai bên đi đúng hướng",
+    "ex.t.sub": "3 trụ cột cam kết",
+    "ex.t.summary": "Trung thực, Trách nhiệm và Đồng hành - ba điều TopLead cam kết ngay cả khi điều đó khiến chúng tôi mất hợp đồng.",
+    "ex.gr.role": "Bảo vệ - giữ kết nối bền vững sau khi đã khớp",
+    "ex.gr.sub": "Bảo hành 3 tháng",
+    "ex.gr.summary": "Theo dõi tại mốc 30, 60 và 90 ngày. Trong 90 ngày, nếu ứng viên không phù hợp - TopLead thay thế miễn phí.",
     "ap.w1": "Bước 1: Brief",
     "ap.w1d": "Call với khách hàng để hiểu JD, budget, timeline, văn hóa công ty",
     "ap.w2": "Bước 2: Search",
@@ -483,6 +570,9 @@ var translations = {
     "ap.q1": "“Mình rất hài lòng với dịch vụ tư vấn của TopLead. Đội ngũ rất chuyên nghiệp, hỗ trợ tận tâm và đưa ra những lời khuyên hữu ích cho lộ trình nghề nghiệp của mình. Rất đáng tin cậy!”",
     "ap.q2": "“Sau khi nhận việc, agency vẫn hỏi thăm và hỗ trợ trong suốt thời gian thử việc.”",
     "ap.q3": "“Em đã có job thông qua TopLead, bạn Cường cũng vậy, bạn Quân cũng thế. Bạn Hiếu rồi cũng sẽ qua!”",
+    "ap.q4": "Dịch vụ tuyển dụng nhanh, hiệu quả và tiết kiệm. Mức phí cân bằng so với mặt bằng chung của thị trường.",
+    "ap.q5": "TopLead làm việc chuyên nghiệp và tận tâm. Nhân sự được bổ sung nhanh, chất lượng đúng như cam kết.",
+    "ap.q6": "Ứng viên TopLead giới thiệu đều rất chất lượng. Khâu đặt lịch hẹn nhanh gọn, tiết kiệm thời gian cho cả hai bên.",
     "chip.fin": "Tài chính",
     "chip.re": "Bất động sản",
     "chip.con": "Xây dựng",
@@ -492,11 +582,12 @@ var translations = {
   },
   en: {
     "nav.home": "Home",
+    "ph.scroll": "Scroll",
     "nav.about": "About Us",
     "nav.services": "Services",
     "nav.approach": "Our Approach",
     "nav.jobs": "Jobs",
-    "nav.tools": "Tools & Content",
+    "nav.tools": "Blog",
     "nav.contact": "Contact",
     "nav.ourStory": "Our Story",
     "nav.ourTeam": "Our Team",
@@ -507,8 +598,7 @@ var translations = {
     "nav.guardian": "Guardian Screen",
     "nav.trustcare": "Trustcare Framework",
     "nav.guarantee": "Guarantee Framework",
-    "nav.howItWorks": "How It Works",
-    "nav.workflow": "Workflow",
+    "nav.journey": "The Journey",
     "nav.exclusive": "Exclusive",
     "hero.badge": "TopLead Recruitment",
     "hero.slide1.line1": "Your Star Employee Just Quit.",
@@ -540,7 +630,7 @@ var translations = {
     "founders.f2.exp1": "5+ years recruiting for SMEs (Finance, Accounting, Construction, M&E)",
     "founders.f3.name": "Vũ Quang Bình",
     "founders.f3.role": "CCO & Co-Founder",
-    "founders.f3.quote": "“Not everyone is born a genius — great talent needs the right environment to grow.”",
+    "founders.f3.quote": "“Not everyone is born a genius - great talent needs the right environment to grow.”",
     "founders.f3.exp1": "4+ years in professional B2C/B2B sales recruitment & business development (Insurance, Real Estate, Construction)",
     "logos.label": "Trusted by leading companies",
     "value.title": "Great hires always come from people you trust",
@@ -581,13 +671,13 @@ var translations = {
     "jobs.tag": "Jobs",
     "jobs.title": "Open Positions",
     "jobs.subtitle": "Exciting career opportunities from leading companies",
-    "jobs.apply": "Apply Now",
     "cta.title": "Ready to build an exceptional team?",
     "cta.subtitle": "Let TopLead help you find the perfect talent",
     "cta.start": "Get Started",
     "testimonials.tag": "Reviews",
     "testimonials.title": "What Our Clients Say",
     "tst.google": "5★ review on Google",
+    "tst.clientbadge": "Client feedback",
     "sc.tag": "TopLead 360°",
     "sc.title": "The full picture of how TopLead works with you",
     "sc.sub": "From the problem to the solution, to the right audience, to the partners who already trust us.",
@@ -606,11 +696,11 @@ var translations = {
     "sc.c1.c": "Developers, Data, Product for tech companies.",
     "sc.c1.cta": "Explore services",
     "sc.c2.h": "Specialised in SMEs",
-    "sc.c2.p": "Where getting each hire right makes the biggest difference — TopLead partners with Vietnamese SMEs.",
+    "sc.c2.p": "Where getting each hire right makes the biggest difference - TopLead partners with Vietnamese SMEs.",
     "sc.c3.h": "What partners say about TopLead",
-    "testimonials.t1.text": "“Super-fast support — within 5 days we had 3 suitable candidates to interview. It saved our internal HR team a lot of time.”",
-    "testimonials.t2.text": "“For real — TopLead truly understands what a business needs. No mass CV dumps, just carefully selected candidates. Highly recommend!”",
-    "testimonials.t3.text": "“Good services — highly recommend for their realistic commitment.”",
+    "testimonials.t1.text": "“Super-fast support - within 5 days we had 3 suitable candidates to interview. It saved our internal HR team a lot of time.”",
+    "testimonials.t2.text": "“For real - TopLead truly understands what a business needs. No mass CV dumps, just carefully selected candidates. Highly recommend!”",
+    "testimonials.t3.text": "“Good services - highly recommend for their realistic commitment.”",
     "contact.tag": "Contact",
     "contact.title": "Start Your Partnership",
     "contact.subtitle": "Leave your info and we will get back to you within 24 hours.",
@@ -619,7 +709,7 @@ var translations = {
     "contact.addressValue": "791/92F Tran Xuan Soan St., Tan Hung Ward, HCMC",
     "contact.tab1": "Candidate",
     "contact.tab2": "Employer",
-    "footer.tagline": "Connecting the right people with the right companies — recruitment you can hold accountable.",
+    "footer.tagline": "Connecting the right people with the right companies - recruitment you can hold accountable.",
     "footer.follow": "Follow Us",
     "footer.services": "Services",
     "footer.s1": "Executive Search",
@@ -630,7 +720,7 @@ var translations = {
     "footer.about": "About Us",
     "footer.approach": "Our Approach",
     "footer.jobs": "Jobs",
-    "footer.tools": "Tools",
+    "footer.tools": "Blog",
     "footer.contact": "Contact",
     "footer.emailsTitle": "Contact Emails",
     "footer.officeTitle": "TopLead Office",
@@ -724,7 +814,7 @@ var translations = {
     "jobs.cta.title": "Can't find a suitable position?",
     "jobs.cta.subtitle": "Leave your CV, we will contact you when there's a matching opportunity",
     "jobs.cta.button": "Submit CV Now",
-    "tools.hero.title": "Tools & Content",
+    "tools.hero.title": "Blog",
     "tools.hero.subtitle": "Useful resources for employers and candidates",
     "tools.blog.tag": "Blog",
     "tools.blog.title": "Latest Articles",
@@ -780,7 +870,7 @@ var translations = {
     "approach.cta.subtitle": "Let TopLead help you find the perfect talent",
     "approach.cta.button": "Get Started",
     "approach.testimonials.tag": "Reviews",
-    "approach.testimonials.title": "What Partners Say About TopLead",
+    "approach.testimonials.title": "What clients and candidates say about TopLead",
     "services.hero.title": "Services",
     "services.hero.subtitle": "Comprehensive recruitment solutions for businesses",
     "post.readUnit": "min read",
@@ -792,8 +882,8 @@ var translations = {
     "b1.title": "HR Pathway? Why Not?",
     "b1.teaser": "The accidental profession that turns intentional the moment you see people as leverage, not cost.",
     "b2.cat": "Sustainability",
-    "b2.title": "It's Not Only a Project — It Is a Mindset",
-    "b2.teaser": "Why TopLead charges nothing until a candidate passes probation — and what sustainability really costs.",
+    "b2.title": "It's Not Only a Project - It Is a Mindset",
+    "b2.teaser": "Why TopLead charges nothing until a candidate passes probation - and what sustainability really costs.",
     "b3.cat": "Recruitment Model",
     "b3.title": "The Probation Period Is The Real Interview",
     "b3.teaser": "Anyone can perform for 30 minutes. The real interview starts on day 60.",
@@ -802,30 +892,30 @@ var translations = {
     "b4.teaser": "Every system produces the behaviour it rewards. Recruitment's real problem isn't talent.",
     "b5.cat": "Candidates",
     "b5.title": "Hesitation Costs More Than You Think",
-    "b5.teaser": "The candidates who get placed aren't the strongest on paper — they're the ones who move first.",
+    "b5.teaser": "The candidates who get placed aren't the strongest on paper - they're the ones who move first.",
     "b6.cat": "SMEs",
     "b6.title": "Why SMEs Keep Losing Good Candidates to Corporations",
-    "b6.teaser": "SMEs can't out-pay corporations. They lose on process — and that's fixable.",
+    "b6.teaser": "SMEs can't out-pay corporations. They lose on process - and that's fixable.",
     "b7.cat": "Retention",
-    "b7.title": "Silent Turnover — The Centurial Case",
+    "b7.title": "Silent Turnover - The Centurial Case",
     "b7.teaser": "The most expensive turnover is the kind that never files a resignation letter.",
     "sig.b1": "The accidental profession becomes intentional the moment its people realise influence beats authority.",
-    "body.b1": "      <p class=\"post-lead\">Nobody grows up wanting to work in HR.</p>\n      <p>Children say doctor, pilot, footballer. Nobody says \"the person who builds the team.\" Yet research shows most HR professionals never planned this path — they fell into it, then refused to leave (SHRM 2025).</p>\n      <p>Why? What separates those who choose this work from those who dismiss it? The ones who walk away see cost. Paperwork, policies, the conversations nobody volunteers for. They want a clean ladder and a predictable title. Fair enough — but they mistake difficulty for insignificance.</p>\n      <p>The ones who stay see leverage. They know that 40% of HR professionals enter the field driven by organisational development, not obligation, and only 7% treat it as a paycheck (BambooHR 2026). They understand a single decision — who you hire, who you develop, who you keep — compounds across an entire company. Culture is the one asset competitors cannot copy, and 97% of HR leaders now treat it as their top priority (Gartner 2025).</p>\n      <p>That is the real divide. Not soft versus hard. Not safe versus risky. It is whether you see people as a cost to manage, or the engine of everything that follows.</p>\n      <p>So decide deliberately. The team you build will remember what you chose.</p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">References</span><p>BambooHR (2026) The Definitive Guide to HR Career Growth. &middot; Gartner (2025), cited in Compono (2025) Full Research: Latest HR &amp; Talent Statistics (2025). &middot; SHRM (2025) Breaking into HR Without Official Experience.</p></div>\n    ",
+    "body.b1": "      <p class=\"post-lead\">Nobody grows up wanting to work in HR.</p>\n      <p>Children say doctor, pilot, footballer. Nobody says \"the person who builds the team.\" Yet research shows most HR professionals never planned this path - they fell into it, then refused to leave (SHRM 2025).</p>\n      <p>Why? What separates those who choose this work from those who dismiss it? The ones who walk away see cost. Paperwork, policies, the conversations nobody volunteers for. They want a clean ladder and a predictable title. Fair enough - but they mistake difficulty for insignificance.</p>\n      <p>The ones who stay see leverage. They know that 40% of HR professionals enter the field driven by organisational development, not obligation, and only 7% treat it as a paycheck (BambooHR 2026). They understand a single decision - who you hire, who you develop, who you keep - compounds across an entire company. Culture is the one asset competitors cannot copy, and 97% of HR leaders now treat it as their top priority (Gartner 2025).</p>\n      <p>That is the real divide. Not soft versus hard. Not safe versus risky. It is whether you see people as a cost to manage, or the engine of everything that follows.</p>\n      <p>So decide deliberately. The team you build will remember what you chose.</p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">References</span><p>BambooHR (2026) The Definitive Guide to HR Career Growth. &middot; Gartner (2025), cited in Compono (2025) Full Research: Latest HR &amp; Talent Statistics (2025). &middot; SHRM (2025) Breaking into HR Without Official Experience.</p></div>\n    ",
     "sig.b2": "Sustainability only means something when it costs you something to keep it.",
-    "body.b2": "      <p class=\"post-lead\">I used to think sustainability was something you could prove. A project. A certificate. A handshake from someone who mattered. Then I realised I had it wrong from the start.</p>\n      <p>Sustainability isn't something you win in a competition. It's something you choose — quietly, consistently — in every decision that has no audience and no scorecard. And that realisation is exactly what shaped how I built my company. No upfront fee. No charge until the candidate passes probation. Payment only when the result is real — when the person placed actually fits, actually stays, actually contributes. Most in the industry avoid this model because it's uncomfortable. You carry the risk. You absorb the uncertainty. But that discomfort is precisely the point — because sustainability only means something when it costs you something to keep it.</p>\n      <p>Winning that contest didn't teach me what sustainability looks like on a certificate. It taught me what it has to look like in practice: every hire, every client, every decision that no one grades but you. The standard doesn't live on the wall. It lives in how you operate when no one is watching.</p>\n    ",
+    "body.b2": "      <p class=\"post-lead\">I used to think sustainability was something you could prove. A project. A certificate. A handshake from someone who mattered. Then I realised I had it wrong from the start.</p>\n      <p>Sustainability isn't something you win in a competition. It's something you choose - quietly, consistently - in every decision that has no audience and no scorecard. And that realisation is exactly what shaped how I built my company. No upfront fee. No charge until the candidate passes probation. Payment only when the result is real - when the person placed actually fits, actually stays, actually contributes. Most in the industry avoid this model because it's uncomfortable. You carry the risk. You absorb the uncertainty. But that discomfort is precisely the point - because sustainability only means something when it costs you something to keep it.</p>\n      <p>Winning that contest didn't teach me what sustainability looks like on a certificate. It taught me what it has to look like in practice: every hire, every client, every decision that no one grades but you. The standard doesn't live on the wall. It lives in how you operate when no one is watching.</p>\n    ",
     "sig.b3": "<div class=\"post-stat\"><b>46%</b><span>of new hires fail within their first 18 months</span></div><div class=\"post-stat\"><b>82%</b><span>of hiring managers had already seen the signs (TriNet 2026)</span></div>",
-    "body.b3": "      <p class=\"post-lead\">Anyone can perform for 30 minutes across a table. The question is who they are on day 60.</p>\n      <p>This is the gap that built TopLead's model from the ground up. No fee at placement. Payment only after the candidate clears probation — because that's when the hire is actually proven. The agency carries the risk until the result is real.</p>\n      <p>Most agencies won't offer this. Not because it's impossible, but because it demands something uncomfortable: skin in the game, long after the handshake. Accountability in recruitment isn't a policy. It's a position. It means your success is structurally tied to your client's — not separated from it the moment the contract is signed.</p>\n      <p>Companies lose 20% of new hires within the first 45 days (Reworked 2026). That number doesn't move until the people responsible for placing them are still responsible after the placement.</p>\n      <p>The probation period reveals everything the interview never could. The only question is whether your recruitment partner is still watching when it does.</p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">References</span><p>TriNet (2026) &middot; Reworked (2026) &mdash; 20% of new hires lost within the first 45 days.</p></div>\n    ",
+    "body.b3": "      <p class=\"post-lead\">Anyone can perform for 30 minutes across a table. The question is who they are on day 60.</p>\n      <p>This is the gap that built TopLead's model from the ground up. No fee at placement. Payment only after the candidate clears probation - because that's when the hire is actually proven. The agency carries the risk until the result is real.</p>\n      <p>Most agencies won't offer this. Not because it's impossible, but because it demands something uncomfortable: skin in the game, long after the handshake. Accountability in recruitment isn't a policy. It's a position. It means your success is structurally tied to your client's - not separated from it the moment the contract is signed.</p>\n      <p>Companies lose 20% of new hires within the first 45 days (Reworked 2026). That number doesn't move until the people responsible for placing them are still responsible after the placement.</p>\n      <p>The probation period reveals everything the interview never could. The only question is whether your recruitment partner is still watching when it does.</p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">References</span><p>TriNet (2026) &middot; Reworked (2026) - 20% of new hires lost within the first 45 days.</p></div>\n    ",
     "sig.b4": "That's not a hiring problem. It's an incentive problem.",
-    "body.b4": "      <p class=\"post-lead\">Hiring has never been cheap. The average cost per hire now exceeds $5,400, and filling a single non-executive role takes a median of 44 days (SHRM 2025).</p>\n      <p>Yet in many recruitment models, one side is rewarded the moment an offer is signed. The other only finds out weeks — or months — later whether the hiring decision actually paid off.</p>\n      <p>At the end of the day, every system produces the behaviour it rewards. If success is measured by placements, then expect more placements. If success is measured by successful hires, then every decision — from sourcing to screening to follow-up — will start looking completely different.</p>\n      <p>The best recruitment models don't just find candidates. They make accountability last as long as the hiring decision itself.</p>\n    ",
+    "body.b4": "      <p class=\"post-lead\">Hiring has never been cheap. The average cost per hire now exceeds $5,400, and filling a single non-executive role takes a median of 44 days (SHRM 2025).</p>\n      <p>Yet in many recruitment models, one side is rewarded the moment an offer is signed. The other only finds out weeks - or months - later whether the hiring decision actually paid off.</p>\n      <p>At the end of the day, every system produces the behaviour it rewards. If success is measured by placements, then expect more placements. If success is measured by successful hires, then every decision - from sourcing to screening to follow-up - will start looking completely different.</p>\n      <p>The best recruitment models don't just find candidates. They make accountability last as long as the hiring decision itself.</p>\n    ",
     "sig.b5": "Delay isn't caution. In today's market, it's forfeiture.",
-    "body.b5": "      <p class=\"post-lead\">The most common reason talented people miss opportunities isn't a lack of skill — it's hesitation.</p>\n      <ul>\n        <li>The wait for the \"right moment.\"</li>\n        <li>The instinct to stay silent until they feel 100% ready.</li>\n        <li>The polite decision to follow up \"later.\"</li>\n      </ul>\n      <p>In today's competitive market, delay isn't just caution, it's even forfeiture. The candidates who get placed aren't always the strongest on paper. But definitely, they're the ones making the first move — who apply before they feel fully prepared, who speak up in interviews instead of waiting to be asked, who follow through instead of waiting to be chosen.</p>\n      <p>Employers can actually read that decisiveness clearly — they can see ownership, initiative, and drive in the person: the exact qualities that separate a good hire from a forgettable one. If you're a candidate, my advice is simple: stop waiting for the perfect moment because it doesn't exist. Put yourself forward, ask the bold question, and let your proactivity speak before your CV does.</p>\n      <p>At TopLead, we don't reward the loudest applications — we match attitude and skill with the right employer. However, we can only open the door when you are willing to walk through it.</p>\n    ",
+    "body.b5": "      <p class=\"post-lead\">The most common reason talented people miss opportunities isn't a lack of skill - it's hesitation.</p>\n      <ul>\n        <li>The wait for the \"right moment.\"</li>\n        <li>The instinct to stay silent until they feel 100% ready.</li>\n        <li>The polite decision to follow up \"later.\"</li>\n      </ul>\n      <p>In today's competitive market, delay isn't just caution, it's even forfeiture. The candidates who get placed aren't always the strongest on paper. But definitely, they're the ones making the first move - who apply before they feel fully prepared, who speak up in interviews instead of waiting to be asked, who follow through instead of waiting to be chosen.</p>\n      <p>Employers can actually read that decisiveness clearly - they can see ownership, initiative, and drive in the person: the exact qualities that separate a good hire from a forgettable one. If you're a candidate, my advice is simple: stop waiting for the perfect moment because it doesn't exist. Put yourself forward, ask the bold question, and let your proactivity speak before your CV does.</p>\n      <p>At TopLead, we don't reward the loudest applications - we match attitude and skill with the right employer. However, we can only open the door when you are willing to walk through it.</p>\n    ",
     "sig.b6": "<div class=\"post-split-col\"><b>SME</b><span>89% can't match corporate salaries (Employment Hero 2024)</span></div><div class=\"post-split-vs\">vs</div><div class=\"post-split-col\"><b>Corporation</b><span>Winning on structure, not substance</span></div>",
-    "body.b6": "      <p class=\"post-lead\">89% of SMEs cannot match corporate salaries (Employment Hero 2024), but salary isn't why they lose.</p>\n      <p>The real gap is process. The average time from posting to hire has reached 48 days — a 65% increase in just three years (BambooHR 2026). Meanwhile, top candidates are off the market within 10 days (Movement Search &amp; Delivery 2026).</p>\n      <p>And candidates notice: 42% withdraw from hiring processes simply because scheduling takes too long (iHire 2023). Another 93% of hiring managers themselves admit the process is slower than two years ago (Robert Half 2025).</p>\n      <p>Here's the irony: SMEs already have what today's candidates want:</p>\n      <ul>\n        <li>71% of workers say development opportunities drive job satisfaction (Gallup, cited in COSE 2025).</li>\n        <li>39% rank growth potential as their top factor (Yoh 2025). Smaller companies deliver both — faster promotions, broader exposure, direct leadership access.</li>\n      </ul>\n      <p>But most SMEs never articulate this. They post generic JDs, run slow pipelines, and lose candidates to companies that simply moved first.</p>\n      <h2>Three fixes for SMEs</h2>\n      <ul>\n        <li><strong>Sell the role.</strong> What exactly will the hire own? What will they build? What will they contribute? All of it should be clear in the JD.</li>\n        <li><strong>Compress your timeline.</strong> Two interview rounds. One week. A decisive offer. Show the growth path — just a clear answer to \"Where does this lead in 12 months?\"</li>\n        <li><strong>Compete on structure.</strong> Corporations aren't winning on substance. They're winning on structure.</li>\n      </ul>\n      <p>At TopLead, we help Vietnamese SMEs close that gap — matching the right candidates to professional roles in Sales, Marketing, Finance, HR, and Operations. We don't just send CVs. We make sure talent sees what makes your company worth joining.</p>\n    ",
-    "sig.b7": "<div class=\"post-stat\"><b>24%</b><span>employee turnover in Vietnam, vs a ~10% ideal (Anphabe 2023)</span></div><div class=\"post-stat\"><b>$228&ndash;355M</b><span>lost each year to disengagement at a median S&amp;P 500 firm (McKinsey 2023)</span></div>",
-    "body.b7": "      <p class=\"post-lead\">Most SME owners register turnover only at the point of resignation. By then, the loss is already old.</p>\n      <p>The real cost begins months earlier, when an employee is still present, still delivering the minimum, but has already disengaged. It is called silent turnover, and it does not appear on any attrition report until it is too late to prevent.</p>\n      <h2>Data and tracking</h2>\n      <p>Employee turnover in Vietnam has reached 24%, against an \"ideal\" rate of roughly 10% for a stable organization. The attrition runs highest in the exact functions SMEs rely on most: Marketing, Sales, IT, and Finance (Anphabe 2023). The disengagement that precedes it is even more costly than the exit itself. McKinsey estimates that a median-size S&amp;P 500 company loses between $228 million and $355 million annually to disengagement and attrition, with more than half of a typical workforce disengaged at any given time (McKinsey &amp; Company 2023).</p>\n      <h2>The root cause</h2>\n      <p>These exits are rarely about salary. They trace back to a mismatch at the point of hire — wrong person, wrong expectations, or wrong cultural fit. When a business hires in a rush to fill a vacancy, it does not solve the problem. It restarts the same loop, absorbing the cost of disengagement a second time.</p>\n      <h2>The implication for SMEs</h2>\n      <p>It is all about hiring accuracy at the first attempt. This is why TopLead screens both sides of the match, assessing candidates for the business and assessing the business for the candidate. When alignment is genuine on both ends, engagement starts high and holds, closing the gap where silent turnover takes root.</p>\n      <p><strong>Stop rehiring. Start growing.</strong></p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">References</span><p>Anphabe (2023), via Vietnam News / Staffing Industry Analysts &mdash; Vietnam turnover at 24% vs. 10% optimal; highest attrition in marketing, sales, IT, finance. &middot; McKinsey &amp; Company (2023), \"Some employees are destroying value. Others are building it.\"</p></div>\n    ",
+    "body.b6": "      <p class=\"post-lead\">89% of SMEs cannot match corporate salaries (Employment Hero 2024), but salary isn't why they lose.</p>\n      <p>The real gap is process. The average time from posting to hire has reached 48 days - a 65% increase in just three years (BambooHR 2026). Meanwhile, top candidates are off the market within 10 days (Movement Search &amp; Delivery 2026).</p>\n      <p>And candidates notice: 42% withdraw from hiring processes simply because scheduling takes too long (iHire 2023). Another 93% of hiring managers themselves admit the process is slower than two years ago (Robert Half 2025).</p>\n      <p>Here's the irony: SMEs already have what today's candidates want:</p>\n      <ul>\n        <li>71% of workers say development opportunities drive job satisfaction (Gallup, cited in COSE 2025).</li>\n        <li>39% rank growth potential as their top factor (Yoh 2025). Smaller companies deliver both - faster promotions, broader exposure, direct leadership access.</li>\n      </ul>\n      <p>But most SMEs never articulate this. They post generic JDs, run slow pipelines, and lose candidates to companies that simply moved first.</p>\n      <h2>Three fixes for SMEs</h2>\n      <ul>\n        <li><strong>Sell the role.</strong> What exactly will the hire own? What will they build? What will they contribute? All of it should be clear in the JD.</li>\n        <li><strong>Compress your timeline.</strong> Two interview rounds. One week. A decisive offer. Show the growth path - just a clear answer to \"Where does this lead in 12 months?\"</li>\n        <li><strong>Compete on structure.</strong> Corporations aren't winning on substance. They're winning on structure.</li>\n      </ul>\n      <p>At TopLead, we help Vietnamese SMEs close that gap - matching the right candidates to professional roles in Sales, Marketing, Finance, HR, and Operations. We don't just send CVs. We make sure talent sees what makes your company worth joining.</p>\n    ",
+    "sig.b7": "<div class=\"post-stat\"><b>24%</b><span>employee turnover in Vietnam, vs a ~10% ideal (Anphabe 2023)</span></div><div class=\"post-stat\"><b>$228-355M</b><span>lost each year to disengagement at a median S&amp;P 500 firm (McKinsey 2023)</span></div>",
+    "body.b7": "      <p class=\"post-lead\">Most SME owners register turnover only at the point of resignation. By then, the loss is already old.</p>\n      <p>The real cost begins months earlier, when an employee is still present, still delivering the minimum, but has already disengaged. It is called silent turnover, and it does not appear on any attrition report until it is too late to prevent.</p>\n      <h2>Data and tracking</h2>\n      <p>Employee turnover in Vietnam has reached 24%, against an \"ideal\" rate of roughly 10% for a stable organization. The attrition runs highest in the exact functions SMEs rely on most: Marketing, Sales, IT, and Finance (Anphabe 2023). The disengagement that precedes it is even more costly than the exit itself. McKinsey estimates that a median-size S&amp;P 500 company loses between $228 million and $355 million annually to disengagement and attrition, with more than half of a typical workforce disengaged at any given time (McKinsey &amp; Company 2023).</p>\n      <h2>The root cause</h2>\n      <p>These exits are rarely about salary. They trace back to a mismatch at the point of hire - wrong person, wrong expectations, or wrong cultural fit. When a business hires in a rush to fill a vacancy, it does not solve the problem. It restarts the same loop, absorbing the cost of disengagement a second time.</p>\n      <h2>The implication for SMEs</h2>\n      <p>It is all about hiring accuracy at the first attempt. This is why TopLead screens both sides of the match, assessing candidates for the business and assessing the business for the candidate. When alignment is genuine on both ends, engagement starts high and holds, closing the gap where silent turnover takes root.</p>\n      <p><strong>Stop rehiring. Start growing.</strong></p>\n      <div class=\"post-refs\"><span class=\"post-refs-label\">References</span><p>Anphabe (2023), via Vietnam News / Staffing Industry Analysts - Vietnam turnover at 24% vs. 10% optimal; highest attrition in marketing, sales, IT, finance. &middot; McKinsey &amp; Company (2023), \"Some employees are destroying value. Others are building it.\"</p></div>\n    ",
     "about.story.title": "The TopLead Story",
     "about.story.p1": "TopLead began with a simple but difficult conviction: everyone deserves to belong exactly where they are needed, and every company deserves the right people.",
-    "about.story.p2": "In a market where recruitment is usually measured by the number of CVs, we chose to measure real outcomes instead. That is why TopLead only charges once a candidate passes probation — carrying the risk alongside our clients, and screening both ways so the fit holds from day one.",
+    "about.story.p2": "In a market where recruitment is usually measured by the number of CVs, we chose to measure real outcomes instead. That is why TopLead only charges once a candidate passes probation - carrying the risk alongside our clients, and screening both ways so the fit holds from day one.",
     "about.story.p3": "With experience across many industries (IT, Finance, FMCG, F&B, Real Estate, Construction…), the TopLead team does not just fill empty seats. We connect people to the right environment to grow, and help companies keep their best people longer.",
     "about.stat1": "Combined years of experience",
     "about.stat2": "Partner businesses",
@@ -833,36 +923,53 @@ var translations = {
     "about.stat4": "Pass probation",
     "partner.tag": "Your partner",
     "partner.title": "You have a good partner",
-    "partner.subtitle": "Not a promise — the way we put skin in the game with you.",
+    "partner.subtitle": "Not a promise - the way we put skin in the game with you.",
     "partner.s1": "combined years of experience across our founding team",
     "partner.s2": "specialised industries: IT, Finance, FMCG, F&B, Real Estate, Construction",
     "partner.s3": "to send the first, pre-screened shortlist",
-    "partner.s4": "upfront fee — you only pay after the candidate passes probation",
+    "partner.s4": "upfront fee - you only pay after the candidate passes probation",
     "partner.v1.title": "Expert network",
     "partner.v1.desc": "Access to high-quality candidates across many industries.",
     "partner.v2.title": "Proactive search",
-    "partner.v2.desc": "We don't wait for applications — we actively find and reach the right people.",
+    "partner.v2.desc": "We don't wait for applications - we actively find and reach the right people.",
     "cta.services": "Find the right solution for you",
     "cta.pain": "Let TopLead solve it for you",
-    "services.lead": "We don't just fill open roles — we match the right person to the right company.",
+    "services.lead": "We don't just fill open roles - we match the right person to the right company.",
     "services.leadsub": "And we only charge once the hire stays past probation. The risk is ours; the result is yours.",
     "pain.lead": "Hundreds of CVs, tight deadlines, and the fear of hiring the wrong person.",
-    "pain.leadsub": "TopLead gets you out of that mess — carefully screened, the right shortlist in 48 hours.",
+    "pain.leadsub": "TopLead gets you out of that mess - carefully screened, the right shortlist in 48 hours.",
     "serve.tag": "Who we serve",
     "serve.title": "Specialised in SMEs",
-    "serve.desc": "TopLead partners with small and mid-sized businesses across Vietnam — where getting each hire right makes the biggest difference.",
-    "philosophy.quote": "People aren't a cost — they're the engine of everything that follows.",
+    "serve.desc": "TopLead partners with small and mid-sized businesses across Vietnam - where getting each hire right makes the biggest difference.",
+    "philosophy.quote": "People aren't a cost - they're the engine of everything that follows.",
     "cine.caption": "Every right hire is a new chapter for your business.",
     "cine.eyebrow": "Our belief",
     "cine.cta": "See how we work",
     "phil.eyebrow": "Our philosophy",
-    "phil.body": "We hire people who fit, stay, and grow — not just to fill a seat.",
+    "phil.body": "We hire people who fit, stay, and grow - not just to fill a seat.",
     "phil.cta": "See how we work",
+    "phil.caption": "Real people. Real businesses. Results that stay.",
+    "pw.label": "Trusted by businesses across Vietnam",
+    "pw.sub": "From SMEs to specialist firms - TopLead works alongside them on their hiring.",
+    "pw.b1": "IT, systems integration (SI/ICT)",
+    "pw.miso": "Food & beverage (F&B)",
+    "pw.rmit": "Exclusive partner for candidate sourcing",
+    "pw.tan": "Timber & furniture - hiring client",
+    "pw.fit": "Gym, lifestyle & event hosting",
+    "pw.supp": "Gym & health supplement products",
+    "pw.xuanvinh": "Jewelry store chain",
+    "pw.thadico": "Real estate & construction",
+    "ab.cta.title": "Ready to find the right hire?",
+    "ab.cta.subtitle": "Let TopLead work alongside you on your hiring",
+    "ab.cta.button": "Get in touch",
+    "ct.cta.title": "Not sure where to start?",
+    "ct.cta.subtitle": "Explore TopLead's full range of recruitment services",
+    "ct.cta.button": "See services",
     "svc.o.title": "Comprehensive recruitment solutions",
     "svc.o.sub": "TopLead offers a range of services for every hiring need",
     "svc.s1": "Find and engage senior talent (C-level, VP, Director) through a discreet, professional process.",
-    "svc.s2": "On-demand staffing — from staff to managers, ideal for projects or short-term needs.",
-    "svc.s3": "Recruitment Process Outsourcing — outsource all or part of your hiring process to TopLead.",
+    "svc.s2": "On-demand staffing - from staff to managers, ideal for projects or short-term needs.",
+    "svc.s3": "Recruitment Process Outsourcing - outsource all or part of your hiring process to TopLead.",
     "svc.m1": "Proactively reach and win over high-potential candidates, including from competitors.",
     "svc.m2": "Advise on HR strategy and build your internal recruitment process.",
     "svc.m3": "Screen candidates against your standards and save your team time.",
@@ -920,8 +1027,8 @@ var translations = {
     "ct.i.addr": "Address",
     "ct.i.phone": "Phone",
     "ct.i.hours": "Working hours",
-    "ct.h1": "Mon–Fri: 8:30 – 18:00",
-    "ct.h2": "Sat: 8:30 – 12:00",
+    "ct.h1": "Mon-Fri: 8:30 - 18:00",
+    "ct.h2": "Sat: 8:30 - 12:00",
     "ap.t1": "Post and wait for applicants",
     "ap.t1d": "Wait for CVs to arrive; no proactive search",
     "ap.t2": "Surface-level filtering",
@@ -931,7 +1038,7 @@ var translations = {
     "ap.t4": "No guarantee",
     "ap.t4d": "No support if the hire leaves early",
     "ap.t5": "Slow",
-    "ap.t5d": "Takes 2–3 months to fill a role",
+    "ap.t5d": "Takes 2-3 months to fill a role",
     "ap.l1": "Proactive search",
     "ap.l1d": "Actively reach high-potential candidates",
     "ap.l2": "5-step screening",
@@ -940,12 +1047,12 @@ var translations = {
     "ap.l3d": "Check 3+ references before presenting",
     "ap.l4": "Clear guarantee",
     "ap.l4d": "Free replacement within 3 months",
-    "ap.l5": "Fast — 48h",
+    "ap.l5": "Fast - 48h",
     "ap.l5d": "Shortlist in 48 hours; interviews in the first week",
     "ap.s1": "Understand your needs, culture, and detailed requirements",
     "ap.s2": "Proactively find and reach suitable candidates",
-    "ap.s3": "Apply the Guardian Screen Process — 5-step screening",
-    "ap.s4": "Send the top 3–5 screened profiles within 48 hours",
+    "ap.s3": "Apply the Guardian Screen Process - 5-step screening",
+    "ap.s4": "Send the top 3-5 screened profiles within 48 hours",
     "ap.s5": "Help coordinate interviews and feedback",
     "ap.s6": "Onboarding support and a 3-month guarantee",
     "ap.tradTitle": "Traditional Recruitment",
@@ -955,12 +1062,82 @@ var translations = {
     "ap.step4": "Presentation",
     "ap.step5": "Interview",
     "ap.step6": "Placement",
+    "jr.tag": "The Journey",
+    "cmp.title": "Two ways for the two sides to meet",
+    "cmp.sub": "Drag the divider to shift the weight between the two approaches.",
+    "cmp.trad": "Traditional recruitment",
+    "cmp.tl": "TopLead Recruitment Co. Ltd.",
+    "cmp.hint": "Drag back to the middle to compare",
+    "ap.t1.x": "You get whatever applies - quality you cannot control, on a timeline you cannot predict.",
+    "ap.t2.x": "Keyword filters miss strong people who word things differently, and keep people who write CVs for the parser.",
+    "ap.t3.x": "One reference call for form's sake - usually a referee the candidate picked, so it tells you little.",
+    "ap.t4.x": "The hire leaves after two weeks? That is your problem now. The fee was collected.",
+    "ap.t5.x": "Posting to signed offer usually runs 45-90 days. The longer the seat stays empty, the higher the hidden cost.",
+    "ap.l1.x": "We go to them: our database, referral network, and direct headhunting on LinkedIn.",
+    "ap.l2.x": "Five real layers: skills, screening interview, culture, references, final panel. Eighty candidates become three.",
+    "ap.l3.x": "At least three references, chosen by us - on performance, work ethic, and the real reason they left.",
+    "ap.l4.x": "Ninety days of active follow-up. Not the right fit within three months and we replace them, at no extra cost.",
+    "ap.l5.x": "A shortlist of 3-5 within the first 48 hours. Interviews in week one. Filled in two to four weeks on average.",
+    "tst.all": "See all reviews on Google",
+    "cmp.cta": "Want the process in detail? Keep scrolling - or",
+    "cmp.ctaLink": "get in touch",
+    "jr.meet": "The meeting point",
+    "ex.more": "See the detail",
+    "ex.g.l1": "Layer 1: Skills & experience",
+    "ex.g.l1d": "Hard skills, years of experience, industry relevance, career trajectory",
+    "ex.g.l2": "Layer 2: Screening interview",
+    "ex.g.l2d": "Communication, motivation, salary expectation alignment, availability",
+    "ex.g.l3": "Layer 3: Culture & team fit",
+    "ex.g.l3d": "Working style, management preference, values aligned with the client's culture",
+    "ex.g.l4": "Layer 4: Reference verification",
+    "ex.g.l4d": "3+ reference calls - performance history, work ethic, reason for leaving",
+    "ex.g.l5": "Layer 5: Final review & shortlist",
+    "ex.g.l5d": "The TopLead panel reviews every file and picks the top 3 for the client",
+    "ex.g.note": "Only about 4% of candidates clear the whole Guardian Screen",
+    "ex.t.cap": "We say it straight from the start, even when it is not what the client wants to hear.",
+    "ex.t.p1": "Honesty",
+    "ex.t.p1d": "If the JD does not add up, we say so. If nobody exists at that salary, we say so. We do not promise to win the deal - TopLead turns work down when we know we cannot deliver.",
+    "ex.t.p2": "Accountability",
+    "ex.t.p2d": "Every placement has one named owner, not a \"team\". Proactive follow-ups at day 30, 60 and 90. If we get it wrong, we fix it and carry the cost.",
+    "ex.t.p3": "Partnership",
+    "ex.t.p3d": "Not a CV vendor - a partner working the hiring problem with you. JD advice, salary benchmarking, onboarding support, and we stay on after the placement closes.",
+    "ex.gr.m1": "Performance review call",
+    "ex.gr.m1d": "How well the hire has settled in so far",
+    "ex.gr.m2": "Mid-point check-in",
+    "ex.gr.m2d": "Track progress and catch problems while they are still small",
+    "ex.gr.m3": "Full evaluation",
+    "ex.gr.m3d": "A complete review, closing the guarantee period",
+    "ex.gr.note": "Within 90 days, if the hire is not right, TopLead replaces them free of charge.",
+    "jr.title": "The 6-Step Journey",
+    "jr.sub": "From the first brief to the end of the guarantee period",
+    "jr.youGet": "What you get",
+    "jr.time1": "Day 1",
+    "jr.time2": "Day 2-5",
+    "jr.time3": "Day 3-7",
+    "jr.time4": "Day 5-7",
+    "jr.time5": "Week 2",
+    "jr.time6": "Month 1-3",
+    "jr.dl1": "Brief document - need, budget, timeline, culture",
+    "jr.dl2": "Long list of 15-25 potential candidates",
+    "jr.dl3": "Guardian Screen results - pass/fail detail at every layer",
+    "jr.dl4": "A shortlist of 3-5 CVs within 48 hours",
+    "jr.dl5": "Interview coordination + feedback report",
+    "jr.dl6": "Offer support + onboarding + 3-month guarantee",
+    "ex.g.role": "Entry filter - who gets onto the path",
+    "ex.g.sub": "A five-layer screening process",
+    "ex.g.summary": "Of 80 candidates sourced, 3 reach the client - roughly 4% clear all five layers.",
+    "ex.t.role": "Alignment - keeping both sides pointed the same way",
+    "ex.t.sub": "Three pillars of commitment",
+    "ex.t.summary": "Honesty, Accountability and Partnership - three things TopLead holds to even when they cost us the deal.",
+    "ex.gr.role": "Protection - keeping the match sound after it is made",
+    "ex.gr.sub": "A three-month guarantee",
+    "ex.gr.summary": "Check-ins at day 30, 60 and 90. Within 90 days, if the hire is not right, TopLead replaces them at no cost.",
     "ap.w1": "Step 1: Brief",
     "ap.w1d": "A call to understand the JD, budget, timeline, and company culture",
     "ap.w2": "Step 2: Search",
     "ap.w2d": "Database + proactive search + headhunting",
     "ap.w3": "Step 3: Screen",
-    "ap.w3d": "Guardian Screen — 5-step filtering",
+    "ap.w3d": "Guardian Screen - 5-step filtering",
     "ap.w4": "Step 4: Present",
     "ap.w4d": "Send CVs + interview notes within 48h",
     "ap.w5": "Step 5: Interview",
@@ -969,7 +1146,10 @@ var translations = {
     "ap.w6d": "Offer + onboarding + guarantee",
     "ap.q1": "“I'm really happy with TopLead's advisory service. The team is professional and dedicated, with genuinely useful advice for my career path. Truly trustworthy!”",
     "ap.q2": "“Even after I started the job, the agency kept checking in and supporting me throughout probation.”",
-    "ap.q3": "“I landed a job through TopLead — so did Cường and Quân. Hiếu will get there too!”",
+    "ap.q3": "“I landed a job through TopLead - so did Cường and Quân. Hiếu will get there too!”",
+    "ap.q4": "Fast, effective and cost-efficient recruitment. Their fees sit right in line with the market.",
+    "ap.q5": "TopLead works professionally and with real care. Roles get filled quickly, at the quality they promised.",
+    "ap.q6": "Every candidate TopLead sent us was strong. Scheduling was quick and tidy, saving time on both sides.",
     "chip.fin": "Finance",
     "chip.re": "Real Estate",
     "chip.con": "Construction",
@@ -980,6 +1160,7 @@ var translations = {
 };
 
 document.addEventListener("DOMContentLoaded", function() {
+  document.body.classList.remove("no-js");
   // Hero Particles Animation
   initHeroParticles();
 
@@ -1066,27 +1247,107 @@ document.addEventListener("DOMContentLoaded", function() {
   var mobileMenuBtn = document.querySelector(".mobile-menu-btn");
   var navLinks = document.querySelector(".nav-links");
   if (mobileMenuBtn && navLinks) {
+    // The open menu scrolls itself; freeze the page behind it so a swipe does
+    // not drag the content around underneath.
+    function sizeMenu() {
+      if (!navLinks.classList.contains("active")) return;
+      // Fill exactly the space under the bar, so the last item is always
+      // reachable by scrolling the panel itself.
+      var bar = navbar ? navbar.offsetHeight : 0;
+      navLinks.style.maxHeight = (window.innerHeight - bar) + "px";
+    }
+
+    function setMenu(open) {
+      navLinks.classList.toggle("active", open);
+      mobileMenuBtn.classList.toggle("active", open);
+      document.body.classList.toggle("nav-open", open);
+      if (open) sizeMenu();
+      else navLinks.style.maxHeight = "";
+    }
+
+    window.addEventListener("resize", sizeMenu);
+
     mobileMenuBtn.addEventListener("click", function(e) {
       e.stopPropagation();
-      navLinks.classList.toggle("active");
-      this.classList.toggle("active");
+      setMenu(!navLinks.classList.contains("active"));
     });
     // Close on click outside the menu
     document.addEventListener("click", function(e) {
       if (navLinks.classList.contains("active") &&
           !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        navLinks.classList.remove("active");
-        mobileMenuBtn.classList.remove("active");
+        setMenu(false);
       }
     });
     // Close on Escape
     document.addEventListener("keydown", function(e) {
       if (e.key === "Escape" && navLinks.classList.contains("active")) {
-        navLinks.classList.remove("active");
-        mobileMenuBtn.classList.remove("active");
+        setMenu(false);
       }
     });
+    // Close after picking a destination - same-page anchors would otherwise
+    // scroll away with the menu still covering the screen. A dropdown trigger
+    // is not a destination on its first tap: it opens its own list, so closing
+    // the panel here would shut the menu the moment it expanded.
+    navLinks.addEventListener("click", function(e) {
+      var a = e.target.closest("a");
+      if (!a || a.classList.contains("nav-dropdown-trigger")) return;
+      setMenu(false);
+    });
+    // Leaving the mobile breakpoint must not strand the page with scroll locked.
+    window.matchMedia("(min-width: 1200px)").addEventListener("change", function(ev) {
+      if (ev.matches) setMenu(false);
+    });
   }
+
+  // Autoplaying footage is the one thing reduced-motion most clearly rules out.
+  // Hold the poster frame instead of the loop.
+  (function respectReducedMotionVideo() {
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.querySelectorAll("video[autoplay]").forEach(function (v) {
+      v.removeAttribute("autoplay");
+      v.removeAttribute("loop");
+      try { v.pause(); } catch (e) { /* nothing playing yet */ }
+    });
+  })();
+
+  // Nav dropdowns open on click, not on hover.
+  // The trigger is also a real link to its own page, so: the first click opens
+  // the list, and a second click on an already-open trigger follows the link.
+  (function initNavDropdowns() {
+    var dropdowns = Array.prototype.slice.call(document.querySelectorAll(".nav-dropdown"));
+    if (!dropdowns.length) return;
+
+    function closeAll(except) {
+      dropdowns.forEach(function (dd) {
+        if (dd === except) return;
+        dd.classList.remove("is-open");
+        var t = dd.querySelector(".nav-dropdown-trigger");
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    dropdowns.forEach(function (dd) {
+      var trigger = dd.querySelector(".nav-dropdown-trigger");
+      if (!trigger) return;
+      trigger.setAttribute("aria-haspopup", "true");
+      trigger.setAttribute("aria-expanded", "false");
+
+      trigger.addEventListener("click", function (e) {
+        if (dd.classList.contains("is-open")) return;   // let the link through
+        e.preventDefault();
+        closeAll(dd);
+        dd.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+      });
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".nav-dropdown")) closeAll();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeAll();
+    });
+  })();
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
@@ -1095,7 +1356,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // Only prevent default for same-page anchors
       if (href && href.startsWith("#")) {
         e.preventDefault();
-        // Bare "#" links (e.g. dropdown triggers) have no target — just stop the jump
+        // Bare "#" links (e.g. dropdown triggers) have no target - just stop the jump
         if (href.length === 1) return;
         var target = document.querySelector(href);
         if (target) {
@@ -1323,6 +1584,420 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }, 5000);
   }
+
+  // Stat counters: numbers roll up the first time they scroll into view.
+  // The text is parsed in place ("120+" -> prefix "", value 120, suffix "+"),
+  // so the markup and the translations stay the only source of the numbers.
+  (function initCounters() {
+    var stats = document.querySelectorAll(".stat-number");
+    if (!stats.length) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        !("IntersectionObserver" in window)) return;
+
+    function run(el) {
+      var raw = el.textContent.trim();
+      var m = raw.match(/^(\D*?)([\d.,]+)(.*)$/);
+      if (!m) return;
+      var target = parseFloat(m[2].replace(/,/g, ""));
+      if (isNaN(target)) return;
+      var decimals = (m[2].split(".")[1] || "").length;
+      var pre = m[1], post = m[3];
+      var started = null, DURATION = 1400;
+
+      function frame(now) {
+        if (started === null) started = now;
+        var t = Math.min((now - started) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - t, 3);   // ease-out: fast, then settles
+        el.textContent = pre + (target * eased).toFixed(decimals) + post;
+        if (t < 1) requestAnimationFrame(frame);
+        else el.textContent = raw;            // land exactly on the original
+      }
+      requestAnimationFrame(frame);
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);              // count once, not on every pass
+        run(en.target);
+      });
+    }, { threshold: 0.6 });
+
+    stats.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Comparison divider. The rows carry the full comparison as plain text, so
+  // this only shifts emphasis between the two sides - nothing is hidden by it.
+  (function initCompare() {
+    var stage = document.getElementById("cmpStage");
+    var divider = document.getElementById("cmpDivider");
+    if (!stage || !divider) return;
+
+    var SNAP = [25, 50, 75], TOL = 4;
+    var pct = 50, dragging = false;
+
+    function apply(v, snap) {
+      if (snap) {
+        for (var i = 0; i < SNAP.length; i++) {
+          if (Math.abs(v - SNAP[i]) <= TOL) { v = SNAP[i]; break; }
+        }
+      }
+      pct = Math.min(100, Math.max(0, v));
+      stage.style.setProperty("--split", pct + "%");
+      divider.setAttribute("aria-valuenow", Math.round(pct));
+      divider.setAttribute("aria-valuetext", Math.round(pct) + "%");
+
+      // Past 60% one way or 40% the other, that side earns its detail. This is
+      // what makes dragging worth doing rather than a decorative wipe.
+      var reveal = pct > 60 ? "tl" : (pct < 40 ? "trad" : "");
+      if (reveal) stage.setAttribute("data-reveal", reveal);
+      else stage.removeAttribute("data-reveal");
+      if (pct > 85 || pct < 15) stage.setAttribute("data-edge", "1");
+      else stage.removeAttribute("data-edge");
+    }
+
+    function fromEvent(e) {
+      var r = stage.getBoundingClientRect();
+      return r.width ? ((e.clientX - r.left) / r.width) * 100 : pct;
+    }
+
+    divider.addEventListener("pointerdown", function (e) {
+      dragging = true;
+      divider.setPointerCapture(e.pointerId);
+      divider.style.willChange = "left";
+      e.preventDefault();
+    });
+    divider.addEventListener("pointermove", function (e) {
+      if (dragging) apply(fromEvent(e), false);
+    });
+    function end(e) {
+      if (!dragging) return;
+      dragging = false;
+      try { divider.releasePointerCapture(e.pointerId); } catch (err) {}
+      divider.style.willChange = "";
+      apply(pct, true);
+    }
+    divider.addEventListener("pointerup", end);
+    divider.addEventListener("pointercancel", end);
+
+    divider.addEventListener("keydown", function (e) {
+      var step = e.shiftKey ? 10 : 5;
+      if (e.key === "ArrowLeft") { apply(pct - step, false); e.preventDefault(); }
+      else if (e.key === "ArrowRight") { apply(pct + step, false); e.preventDefault(); }
+      else if (e.key === "Home") { apply(0, false); e.preventDefault(); }
+      else if (e.key === "End") { apply(100, false); e.preventDefault(); }
+    });
+
+    apply(50, false);
+  })();
+
+  // The three safeguards. One card open at a time; the panel is a real
+  // [hidden] region so nothing collapsed is reachable by tab or read out.
+  (function initVaults() {
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".ex-card"));
+    if (!cards.length) return;
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // `hidden` is what keeps a collapsed panel out of the tab order and off the
+    // screen reader, but it cannot be transitioned - so height is animated and
+    // `hidden` is applied only once the collapse has finished.
+    function close(card) {
+      var panel = card.querySelector(".ex-panel");
+      var toggle = card.querySelector(".ex-toggle");
+      if (!panel || !toggle || panel.hidden) return;
+      card.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      clearTimeout(panel._settle);
+      if (reduce) { panel.hidden = true; panel.style.height = ""; return; }
+      panel.style.height = panel.scrollHeight + "px";
+      panel.offsetHeight;                       // commit that height first
+      panel.style.height = "0px";
+      // A timer rather than transitionend. If transitions are off - a user
+      // stylesheet, a browser setting - or the height does not actually
+      // change, transitionend never fires and the panel stays stuck open.
+      panel._settle = setTimeout(function () {
+        panel.hidden = true;
+        panel.style.height = "";
+      }, 460);
+    }
+
+    function open(card) {
+      cards.forEach(function (c) { if (c !== card) close(c); });
+      var panel = card.querySelector(".ex-panel");
+      var toggle = card.querySelector(".ex-toggle");
+      if (!panel || !toggle) return;
+      card.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+      panel.hidden = false;
+      clearTimeout(panel._settle);
+      if (reduce) return;
+      panel.style.height = "0px";
+      panel.offsetHeight;
+      panel.style.height = panel.scrollHeight + "px";
+      panel._settle = setTimeout(function () {
+        panel.style.height = "auto";            // let it grow if content reflows
+      }, 460);
+      // INT-05: move the reader into what they just opened
+      var cb = panel.querySelector('.ex-close');
+      if (cb) cb.focus({ preventScroll: true });
+    }
+
+    cards.forEach(function (card) {
+      var toggle = card.querySelector(".ex-toggle");
+      var closeBtn = card.querySelector(".ex-close");
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          if (card.classList.contains("is-open")) close(card);
+          else open(card);
+        });
+      }
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+          close(card);
+          if (toggle) toggle.focus();   // never strand focus inside a hidden region
+        });
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      var openCard = cards.filter(function (c) { return c.classList.contains("is-open"); })[0];
+      if (!openCard) return;
+      close(openCard);
+      var t = openCard.querySelector(".ex-toggle");
+      if (t) t.focus();
+    });
+
+    document.addEventListener("click", function (e) {
+      if (e.target.closest(".ex-card")) return;
+      cards.forEach(close);
+    });
+  })();
+
+  // Entrance reveals, scroll progress and back-to-top. All three are additive:
+  // with scripting off the CSS already leaves everything visible.
+  (function initApproachChrome() {
+    if (!document.querySelector(".cv")) return;
+
+    // VIS-11: sections arrive as the reader reaches them
+    var targets = document.querySelectorAll(".cv .section-header, .cmp-row, .ex-card, .jr-step");
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          en.target.classList.add("in-view");
+          io.unobserve(en.target);          // reveal once, then stop watching
+        });
+      }, { threshold: 0.15 });
+      targets.forEach(function (t) { io.observe(t); });
+    } else {
+      targets.forEach(function (t) { t.classList.add("in-view"); });
+    }
+
+    // FEAT-02: a thin read-position bar, so a long page still has a horizon
+    var bar = document.createElement("div");
+    bar.className = "read-progress";
+    bar.setAttribute("aria-hidden", "true");
+    document.body.appendChild(bar);
+
+    // FEAT-03: back to top, once the hero is behind us
+    var top = document.createElement("button");
+    top.type = "button";
+    top.className = "to-top";
+    top.setAttribute("aria-label", "Lên đầu trang");
+    top.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+    top.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduceMotionOn() ? "auto" : "smooth" });
+    });
+    document.body.appendChild(top);
+
+    function reduceMotionOn() {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var p = max > 0 ? window.scrollY / max : 0;
+        bar.style.transform = "scaleX(" + p.toFixed(4) + ")";
+        top.classList.toggle("is-on", window.scrollY > window.innerHeight * 0.9);
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // Philosophy panel: four photos cross-fading in slow rotation, so the
+  // section reads as a slice of real consultations rather than one staged
+  // shot. Autoplays, pauses on hover/focus and while off screen.
+  (function initPhilCarousel() {
+    var root = document.querySelector(".phil-carousel");
+    if (!root) return;
+    var slides = Array.prototype.slice.call(root.querySelectorAll(".phil-slide"));
+    var dotsBox = root.querySelector(".phil-dots");
+    var n = slides.length;
+    if (n < 2) return;
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var index = 0, timer = null, paused = false;
+    var AUTOPLAY = parseInt(root.getAttribute("data-autoplay"), 10) || 4600;
+
+    var dots = slides.map(function (_, i) {
+      var d = document.createElement("button");
+      d.type = "button";
+      d.className = "phil-dot";
+      d.setAttribute("role", "tab");
+      d.setAttribute("aria-label", "Ảnh " + (i + 1) + " / " + n);
+      d.addEventListener("click", function () { go(i); restart(); });
+      dotsBox.appendChild(d);
+      return d;
+    });
+
+    function go(i) {
+      index = ((i % n) + n) % n;
+      slides.forEach(function (s, j) { s.classList.toggle("is-active", j === index); });
+      dots.forEach(function (d, j) { d.classList.toggle("is-active", j === index); });
+    }
+    function next() { go(index + 1); }
+
+    function restart() {
+      if (timer) clearInterval(timer);
+      if (reduce) return;
+      timer = setInterval(function () { if (!paused) next(); }, AUTOPLAY);
+    }
+
+    root.addEventListener("pointerenter", function () { paused = true; });
+    root.addEventListener("pointerleave", function () { paused = false; });
+    root.addEventListener("focusin", function () { paused = true; });
+    root.addEventListener("focusout", function () { paused = false; });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        paused = !entries[0].isIntersecting;
+      }, { threshold: 0.2 }).observe(root);
+    }
+
+    go(0);
+    restart();
+  })();
+
+  // Why Choose TopLead: a circular carousel. The active card sits centred and
+  // full size; the others step outwards, shrinking and fading, and the ends
+  // wrap around so there is no first or last.
+  (function initWhyCarousel() {
+    var root = document.querySelector(".why-carousel");
+    if (!root) return;
+    var stage = root.querySelector(".why-stage");
+    var cards = Array.prototype.slice.call(root.querySelectorAll(".why-card"));
+    var dotsBox = root.querySelector(".why-dots");
+    var n = cards.length;
+    if (n < 2) return;
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var index = 0, timer = null, paused = false;
+    var AUTOPLAY = parseInt(root.getAttribute("data-autoplay"), 10) || 4200;
+
+    var dots = cards.map(function (_, i) {
+      var d = document.createElement("button");
+      d.type = "button";
+      d.className = "why-dot";
+      d.setAttribute("role", "tab");
+      d.setAttribute("aria-label", "Mục " + (i + 1) + " / " + n);
+      d.addEventListener("click", function () { go(i); restart(); });
+      dotsBox.appendChild(d);
+      return d;
+    });
+
+    // Shortest way round the loop: for 6 cards, offset stays within -3..+3 so
+    // a card near the end travels left rather than all the way back.
+    function offsetOf(i) {
+      var d = i - index;
+      if (d > n / 2) d -= n;
+      if (d < -n / 2) d += n;
+      return d;
+    }
+
+    function layout() {
+      var w = cards[0].offsetWidth || 320;
+      var step = Math.min(w * 0.58, stage.offsetWidth * 0.34);
+      cards.forEach(function (card, i) {
+        var o = offsetOf(i);
+        var far = Math.abs(o);
+        var scale = Math.max(1 - far * 0.16, 0.62);
+        var opacity = far === 0 ? 1 : Math.max(0.55 - (far - 1) * 0.18, 0.12);
+        card.style.transform =
+          "translate(-50%, -50%) translateX(" + (o * step) + "px) scale(" + scale + ")";
+        card.style.opacity = opacity;
+        card.style.zIndex = String(n - far);
+        card.classList.toggle("is-active", far === 0);
+        card.setAttribute("aria-hidden", far === 0 ? "false" : "true");
+        dots[i].classList.toggle("is-active", far === 0);
+      });
+    }
+
+    function go(i) {
+      index = ((i % n) + n) % n;
+      layout();
+    }
+    function next() { go(index + 1); }
+    function prev() { go(index - 1); }
+
+    function restart() {
+      if (timer) clearInterval(timer);
+      if (reduce) return;
+      timer = setInterval(function () { if (!paused) next(); }, AUTOPLAY);
+    }
+
+    root.querySelector(".why-next").addEventListener("click", function () { next(); restart(); });
+    root.querySelector(".why-prev").addEventListener("click", function () { prev(); restart(); });
+
+    // Autoplay would otherwise slide the card away mid-sentence.
+    root.addEventListener("pointerenter", function () { paused = true; });
+    root.addEventListener("pointerleave", function () { paused = false; });
+    root.addEventListener("focusin", function () { paused = true; });
+    root.addEventListener("focusout", function () { paused = false; });
+
+    // Drag / swipe.
+    var startX = null, dragged = false;
+    stage.addEventListener("pointerdown", function (e) {
+      startX = e.clientX; dragged = false; paused = true;
+    });
+    stage.addEventListener("pointermove", function (e) {
+      if (startX === null || dragged) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 45) {
+        dx < 0 ? next() : prev();
+        dragged = true;
+        restart();
+      }
+    });
+    function endDrag() { startX = null; paused = false; }
+    stage.addEventListener("pointerup", endDrag);
+    stage.addEventListener("pointercancel", endDrag);
+    stage.addEventListener("pointerleave", endDrag);
+
+    root.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { next(); restart(); }
+      else if (e.key === "ArrowLeft") { prev(); restart(); }
+    });
+
+    // Only spend frames on it while it is on screen.
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        paused = !entries[0].isIntersecting;
+      }, { threshold: 0.2 }).observe(root);
+    }
+
+    window.addEventListener("resize", layout);
+    layout();
+    restart();
+  })();
 
   console.log("TopLead Website loaded");
 });
@@ -1774,7 +2449,7 @@ function initMagneticButton() {
 })();
 
 
-// Contact-page forms — visible submit feedback (connect a backend/action later)
+// Contact-page forms - visible submit feedback (connect a backend/action later)
 (function() {
   ["employer-form", "candidate-form"].forEach(function(id) {
     var f = document.getElementById(id);
@@ -1794,7 +2469,7 @@ function initMagneticButton() {
 })();
 
 
-// TopLead 360 — interactive 3D showcase
+// TopLead 360 - interactive 3D showcase
 (function() {
   var stage = document.getElementById("scStage");
   if (!stage) return;

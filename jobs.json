@@ -1,0 +1,107 @@
+[
+  {
+    "id": "miso-do-phu-bep",
+    "title": "Phụ bếp",
+    "company": "Miso Đỏ",
+    "companyLogo": "assets/jobs/miso-do-logo.png",
+    "showCompany": true,
+    "location": "TP. Hồ Chí Minh",
+    "industry": "Other",
+    "level": "Entry Level",
+    "employmentType": "Full-time",
+    "salaryRange": "8 - 12 triệu",
+    "shortDescription": "Hỗ trợ chuẩn bị nguyên liệu và chế biến món ăn tại bếp nhà hàng Miso Đỏ.",
+    "tags": ["Full-time", "Ca xoay", "Bao ăn ca"],
+    "postedDate": "2026-07-21",
+    "fullDescription": "Miso Đỏ đang tìm phụ bếp cho nhà hàng tại TP. Hồ Chí Minh. Bạn sẽ làm việc trực tiếp cùng đầu bếp chính trong khu bếp nóng, phụ trách khâu sơ chế và hỗ trợ ra món trong giờ cao điểm. Đây là vị trí phù hợp với người mới vào nghề muốn học bài bản từ căn bản, vì nhà hàng có lộ trình đào tạo tại chỗ và không yêu cầu kinh nghiệm trước đó.",
+    "responsibilities": [
+      "Sơ chế nguyên liệu theo định lượng và tiêu chuẩn của nhà hàng",
+      "Hỗ trợ đầu bếp chính trong quá trình chế biến và ra món",
+      "Giữ vệ sinh khu bếp, dụng cụ và thiết bị trong suốt ca làm",
+      "Sắp xếp, kiểm kê kho nguyên liệu và báo khi sắp hết hàng",
+      "Tuân thủ quy định an toàn thực phẩm và an toàn lao động"
+    ],
+    "requirements": [
+      "Sức khỏe tốt, chịu được môi trường bếp nóng và đứng nhiều giờ",
+      "Chăm chỉ, gọn gàng, có tinh thần làm việc nhóm",
+      "Sẵn sàng làm theo ca xoay, kể cả cuối tuần và ngày lễ",
+      "Ưu tiên ứng viên đã từng làm bếp nhà hàng hoặc quán ăn"
+    ],
+    "benefits": [
+      "Bao ăn ca trong mỗi ngày làm việc",
+      "Lương thưởng xét theo năng lực, đánh giá định kỳ 6 tháng",
+      "Được đào tạo tay nghề trực tiếp từ đầu bếp chính",
+      "Môi trường làm việc thân thiện, đồng nghiệp hỗ trợ nhau"
+    ]
+  },
+  {
+    "id": "tan-nhat-marketing-specialist",
+    "title": "Marketing Specialist",
+    "company": "Tân Nhật Furnitures",
+    "companyLogo": "assets/jobs/tan-nhat-logo.png",
+    "showCompany": true,
+    "location": "TP. Hồ Chí Minh",
+    "industry": "Other",
+    "level": "Mid Level",
+    "employmentType": "Full-time",
+    "salaryRange": "12 - 18 triệu",
+    "shortDescription": "Lập kế hoạch và triển khai hoạt động marketing cho thương hiệu nội thất Tân Nhật.",
+    "tags": ["Full-time", "Digital Marketing", "Nội thất"],
+    "postedDate": "2026-07-21",
+    "fullDescription": "Tân Nhật Furnitures cần một Marketing Specialist phụ trách toàn bộ hoạt động marketing của thương hiệu, từ lập kế hoạch đến đo lường hiệu quả. Bạn sẽ làm việc độc lập với ngân sách riêng và phối hợp chặt với đội ngũ sales để chuyển lưu lượng thành đơn hàng thực tế. Vị trí phù hợp với người đã có nền tảng digital marketing và muốn chủ động định hình cách một thương hiệu nội thất xuất hiện trên thị trường.",
+    "responsibilities": [
+      "Lập kế hoạch marketing theo quý và theo từng chiến dịch sản phẩm",
+      "Quản lý và phát triển nội dung trên các kênh social media của thương hiệu",
+      "Triển khai quảng cáo trả phí, theo dõi ngân sách và tối ưu chi phí trên mỗi khách hàng",
+      "Phân tích hiệu quả chiến dịch và báo cáo số liệu định kỳ cho ban giám đốc",
+      "Phối hợp với đội ngũ sales để chuyển khách hàng tiềm năng thành đơn hàng"
+    ],
+    "requirements": [
+      "2 - 3 năm kinh nghiệm ở vị trí marketing, ưu tiên ngành hàng tiêu dùng hoặc nội thất",
+      "Thành thạo các công cụ digital marketing: quản lý quảng cáo, phân tích website, thiết kế cơ bản",
+      "Kỹ năng phân tích số liệu và ra quyết định dựa trên dữ liệu",
+      "Tư duy sáng tạo, chủ động đề xuất ý tưởng thay vì chờ được giao"
+    ],
+    "benefits": [
+      "Lương thưởng cạnh tranh so với mặt bằng thị trường",
+      "Đóng bảo hiểm xã hội đầy đủ ngay sau thời gian thử việc",
+      "Cơ hội thăng tiến lên vị trí quản lý marketing khi quy mô mở rộng",
+      "Môi trường năng động, được tự chủ trong phạm vi công việc"
+    ]
+  },
+  {
+    "id": "xuan-vinh-receptionist-admin",
+    "title": "Receptionist kiêm Admin",
+    "company": "Công Ty TNHH Xuan Vinh",
+    "companyLogo": "assets/jobs/xuan-vinh-logo.jpg",
+    "showCompany": true,
+    "location": "TP. Hồ Chí Minh",
+    "industry": "Other",
+    "level": "Entry Level",
+    "employmentType": "Full-time",
+    "salaryRange": "8 - 11 triệu",
+    "shortDescription": "Tiếp đón khách và xử lý công việc hành chính văn phòng tại Công Ty TNHH Xuan Vinh.",
+    "tags": ["Full-time", "Hành chính", "Giờ hành chính"],
+    "postedDate": "2026-07-21",
+    "fullDescription": "Công Ty TNHH Xuan Vinh tìm một Receptionist kiêm Admin làm việc giờ hành chính tại văn phòng TP. Hồ Chí Minh. Đây là vị trí tiếp xúc đầu tiên với khách đến công ty, đồng thời là đầu mối hỗ trợ hành chính cho các phòng ban. Công việc phù hợp với người mới ra trường, cẩn thận và thích môi trường ổn định, có nề nếp rõ ràng.",
+    "responsibilities": [
+      "Tiếp đón khách đến công ty và hướng dẫn đến đúng bộ phận cần gặp",
+      "Quản lý lịch hẹn, lịch phòng họp và nhận chuyển cuộc gọi đến",
+      "Hỗ trợ công việc hành chính: soạn thảo, lưu trữ và luân chuyển hồ sơ",
+      "Theo dõi và đặt mua văn phòng phẩm, kiểm soát tồn kho vật tư văn phòng",
+      "Hỗ trợ các phòng ban trong công tác chuẩn bị sự kiện và họp nội bộ"
+    ],
+    "requirements": [
+      "Giao tiếp tốt, thái độ niềm nở và chuyên nghiệp với khách",
+      "Tác phong chỉn chu, phù hợp với vị trí tiếp đón",
+      "Thành thạo tin học văn phòng: soạn thảo văn bản và bảng tính",
+      "Cẩn thận, chu đáo, biết sắp xếp công việc theo thứ tự ưu tiên"
+    ],
+    "benefits": [
+      "Lương ổn định, trả đúng hạn hàng tháng",
+      "Đóng bảo hiểm xã hội theo quy định",
+      "Thưởng các dịp lễ tết và thưởng cuối năm",
+      "Môi trường chuyên nghiệp, giờ giấc rõ ràng, nghỉ thứ Bảy và Chủ nhật"
+    ]
+  }
+]

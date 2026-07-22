@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Việc làm - TopLead Recruitment</title>
-  <meta name="description" content="Các vị trí tuyển dụng hot từ khách hàng TopLead. Ứng tuyển ngay để được tiếp cận cơ hội nghề nghiệp hấp dẫn.">
+  <title>Chi tiết vị trí - TopLead Recruitment</title>
+  <meta name="description" content="Thông tin chi tiết vị trí tuyển dụng do TopLead Recruitment giới thiệu: mô tả công việc, trách nhiệm, yêu cầu và quyền lợi.">
+  <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,8 +63,9 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="page-hero">
+
+  <!-- Hero. Kept deliberately short: the job's own title carries the page. -->
+  <section class="page-hero page-hero--compact">
     <div class="hero-bg">
       <div class="hero-circle circle-1"></div>
       <div class="hero-circle circle-2"></div>
@@ -73,97 +75,25 @@
         <nav class="ph-crumb" aria-label="Breadcrumb">
           <a href="index.html" data-i18n="nav.home">Trang chủ</a>
           <span class="ph-crumb-sep" aria-hidden="true">/</span>
-          <span aria-current="page" data-i18n="jobs.hero.title">Việc làm</span>
+          <a href="jobs.html" data-i18n="nav.jobs">Việc làm</a>
+          <span class="ph-crumb-sep" aria-hidden="true">/</span>
+          <span aria-current="page" data-i18n="jd.crumb">Chi tiết vị trí</span>
         </nav>
-        <h1 class="page-hero-title" data-i18n="jobs.hero.title">Việc làm</h1>
-        <p class="page-hero-subtitle" data-i18n="jobs.hero.subtitle">Cơ hội nghề nghiệp hấp dẫn từ các doanh nghiệp hàng đầu</p>
-      </div>
-    </div>
-    <a class="ph-scroll" href="#jobs-list">
-      <span class="ph-scroll-label" data-i18n="ph.scroll">Cuộn xuống</span>
-      <span class="ph-scroll-line" aria-hidden="true"></span>
-    </a>
-  </section>
-
-  <!-- Filter bar. Every control is bound in jobs.js by id; the option values
-       must match the strings in jobs.json exactly or a filter silently matches
-       nothing. "*" is the "all" sentinel. -->
-  <section class="jobs-filter" id="jobs-list">
-    <div class="container">
-      <div class="filter-bar">
-        <div class="filter-group">
-          <label for="filterSearch" data-i18n="jobs.filter.search">Tìm kiếm</label>
-          <input type="search" id="filterSearch" data-i18n-placeholder="jobs.filter.searchPlaceholder" placeholder="Tên vị trí, từ khóa...">
-        </div>
-        <div class="filter-group">
-          <label for="filterIndustry" data-i18n="jobs.filter.industry">Ngành nghề</label>
-          <select id="filterIndustry">
-            <option value="*" data-i18n="jobs.filter.all">Tất cả</option>
-            <option value="Technology">Technology</option>
-            <option value="Finance">Finance</option>
-            <option value="Retail">Retail</option>
-            <option value="Manufacturing">Manufacturing</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div class="filter-group">
-          <label for="filterLocation" data-i18n="jobs.filter.location">Địa điểm</label>
-          <select id="filterLocation">
-            <option value="*" data-i18n="jobs.filter.all">Tất cả</option>
-            <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
-            <option value="Hà Nội">Hà Nội</option>
-            <option value="Đà Nẵng">Đà Nẵng</option>
-            <option value="Remote">Remote</option>
-          </select>
-        </div>
-        <div class="filter-group">
-          <label for="filterLevel" data-i18n="jobs.filter.level">Cấp bậc</label>
-          <select id="filterLevel">
-            <option value="*" data-i18n="jobs.filter.all">Tất cả</option>
-            <option value="Entry Level">Entry Level</option>
-            <option value="Mid Level">Mid Level</option>
-            <option value="Senior">Senior</option>
-            <option value="Manager">Manager</option>
-            <option value="Director">Director</option>
-          </select>
-        </div>
+        <h1 class="page-hero-title" data-i18n="jd.hero">Chi tiết vị trí</h1>
       </div>
     </div>
   </section>
 
-  <!-- Jobs list. Cards are rendered from jobs.json by jobs.js - nothing here
-       is written by hand, so a job only ever exists in one place. -->
-  <section class="jobs-list">
+  <!-- jobs.js fills #jobDetail from jobs.json using the ?id= parameter. If the
+       id is missing or unknown it reveals #jobMissing instead. -->
+  <section class="jd-section">
     <div class="container">
+      <article class="jd" id="jobDetail"></article>
 
-      <div class="jobs-bar">
-        <div class="jobs-count" id="jobsCount"></div>
-        <div class="admin-bar" id="adminBar" hidden>
-          <span class="admin-flag" data-i18n="jobs.admin.flag">Chế độ quản trị</span>
-          <button type="button" class="admin-btn" id="adminExport" data-i18n="jobs.admin.export">Tải jobs.json đã cập nhật</button>
-          <button type="button" class="admin-btn admin-btn--ghost" id="adminReset" data-i18n="jobs.admin.reset">Hoàn tác</button>
-        </div>
-      </div>
-
-      <p class="jobs-note" id="jobsError" hidden data-i18n="jobs.error">Không tải được danh sách vị trí. Nếu bạn đang mở tệp trực tiếp từ ổ đĩa, hãy chạy trang qua máy chủ cục bộ rồi thử lại.</p>
-
-      <div class="jobs-grid" id="jobsGrid"></div>
-
-      <div class="jobs-empty" id="jobsEmpty" hidden>
-        <p data-i18n="jobs.empty">Hiện chưa có vị trí phù hợp với bộ lọc của bạn.</p>
-        <a href="contact.html" class="jobs-empty-cta" data-i18n="jobs.empty.cta">Gửi CV để chúng tôi liên hệ khi có vị trí mới</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-banner">
-    <div class="container">
-      <div class="cta-banner-content">
-        <h2 data-i18n="jobs.cta.title">Không tìm thấy vị trí phù hợp?</h2>
-        <p data-i18n="jobs.cta.subtitle">Để lại CV, chúng tôi sẽ liên hệ khi có cơ hội phù hợp</p>
-        <a href="contact.html" class="btn-magnetic" data-i18n="jobs.cta.button">Gửi CV ngay</a>
+      <div class="jd-missing" id="jobMissing" hidden>
+        <h2 data-i18n="jd.missing.title">Không tìm thấy vị trí này</h2>
+        <p data-i18n="jd.missing.desc">Vị trí bạn tìm có thể đã đóng hoặc đường dẫn không đúng.</p>
+        <a class="jd-missing-cta" href="jobs.html" data-i18n="jd.missing.cta">Xem tất cả vị trí đang tuyển</a>
       </div>
     </div>
   </section>

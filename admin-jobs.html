@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tạo vị trí tuyển dụng - TopLead (nội bộ)</title>
+  <!-- Internal tool: not linked from the site and not for search engines -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+
+  <header class="admin-head">
+    <div class="container">
+      <a class="admin-home" href="jobs.html">&larr; Trang Việc làm</a>
+      <h1>Tạo vị trí tuyển dụng</h1>
+      <p class="admin-sub">Công cụ nội bộ. Trang này không nằm trong menu và không được công khai.</p>
+
+      <ol class="admin-steps">
+        <li>Điền thông tin vị trí trong biểu mẫu bên dưới.</li>
+        <li>Tải logo công ty vào thư mục <code>assets/jobs/</code> của dự án.</li>
+        <li>Bấm <strong>Tải jobs.json</strong> và thay thế tệp <code>jobs.json</code> trong dự án.</li>
+        <li>Vị trí mới sẽ tự động xuất hiện trên trang Việc làm.</li>
+      </ol>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <form class="admin-form" id="jobForm" novalidate>
+
+      <div class="admin-grid">
+        <div class="admin-field">
+          <label for="f-title">Tên vị trí <span class="req">*</span></label>
+          <input type="text" id="f-title" placeholder="Marketing Specialist" required>
+          <p class="admin-err" data-for="f-title" hidden>Vui lòng nhập tên vị trí.</p>
+        </div>
+
+        <div class="admin-field">
+          <label for="f-company">Tên công ty <span class="req">*</span></label>
+          <input type="text" id="f-company" placeholder="Tân Nhật Furnitures" required>
+          <p class="admin-err" data-for="f-company" hidden>Vui lòng nhập tên công ty.</p>
+        </div>
+
+        <div class="admin-field admin-field--wide">
+          <label for="f-logo">Đường dẫn logo công ty</label>
+          <input type="text" id="f-logo" placeholder="assets/jobs/tan-nhat-logo.png">
+          <p class="admin-hint">Tải logo vào thư mục <code>assets/jobs/</code> trước, rồi nhập đường dẫn ở đây. Bỏ trống thì thẻ vị trí sẽ hiển thị chữ cái đầu của tên công ty.</p>
+        </div>
+
+        <div class="admin-field admin-field--wide">
+          <label class="admin-check">
+            <input type="checkbox" id="f-show" checked>
+            <span>Hiển thị tên công ty công khai</span>
+          </label>
+          <p class="admin-hint">Bỏ chọn nếu khách hàng không muốn lộ danh tính. Khi đó trang Việc làm sẽ hiển thị &ldquo;Đối tác TopLead&rdquo; thay cho tên và logo công ty.</p>
+        </div>
+
+        <div class="admin-field">
+          <label for="f-location">Địa điểm <span class="req">*</span></label>
+          <select id="f-location" required>
+            <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+            <option value="Hà Nội">Hà Nội</option>
+            <option value="Đà Nẵng">Đà Nẵng</option>
+            <option value="Remote">Remote</option>
+            <option value="Khác">Khác</option>
+          </select>
+        </div>
+
+        <div class="admin-field">
+          <label for="f-industry">Ngành nghề <span class="req">*</span></label>
+          <select id="f-industry" required>
+            <option value="Technology">Technology</option>
+            <option value="Finance">Finance</option>
+            <option value="Retail">Retail</option>
+            <option value="Manufacturing">Manufacturing</option>
+            <option value="Other" selected>Other</option>
+          </select>
+        </div>
+
+        <div class="admin-field">
+          <label for="f-level">Cấp bậc <span class="req">*</span></label>
+          <select id="f-level" required>
+            <option value="Entry Level">Entry Level</option>
+            <option value="Mid Level">Mid Level</option>
+            <option value="Senior">Senior</option>
+            <option value="Manager">Manager</option>
+            <option value="Director">Director</option>
+          </select>
+        </div>
+
+        <div class="admin-field">
+          <label for="f-type">Hình thức <span class="req">*</span></label>
+          <select id="f-type" required>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Contract">Contract</option>
+            <option value="Internship">Internship</option>
+          </select>
+        </div>
+
+        <div class="admin-field">
+          <label for="f-salary">Mức lương <span class="req">*</span></label>
+          <input type="text" id="f-salary" placeholder="12 - 18 triệu" required>
+          <p class="admin-err" data-for="f-salary" hidden>Vui lòng nhập mức lương.</p>
+        </div>
+
+        <div class="admin-field">
+          <label for="f-tags">Thẻ</label>
+          <input type="text" id="f-tags" placeholder="Full-time, Digital Marketing">
+          <p class="admin-hint">Ngăn cách bằng dấu phẩy.</p>
+        </div>
+
+        <div class="admin-field admin-field--wide">
+          <label for="f-short">Mô tả ngắn <span class="req">*</span></label>
+          <textarea id="f-short" rows="2" placeholder="Một câu tóm tắt, hiển thị trên thẻ vị trí." required></textarea>
+          <p class="admin-err" data-for="f-short" hidden>Vui lòng nhập mô tả ngắn.</p>
+        </div>
+
+        <div class="admin-field admin-field--wide">
+          <label for="f-full">Mô tả công việc <span class="req">*</span></label>
+          <textarea id="f-full" rows="4" placeholder="2 - 3 câu mô tả bối cảnh vị trí." required></textarea>
+          <p class="admin-err" data-for="f-full" hidden>Vui lòng nhập mô tả công việc.</p>
+        </div>
+
+        <div class="admin-field admin-field--wide">
+          <label for="f-resp">Trách nhiệm <span class="req">*</span></label>
+          <textarea id="f-resp" rows="5" placeholder="Mỗi dòng một ý." required></textarea>
+          <p class="admin-hint">Mỗi dòng sẽ thành một gạch đầu dòng.</p>
+          <p class="admin-err" data-for="f-resp" hidden>Vui lòng nhập ít nhất một trách nhiệm.</p>
+        </div>
+
+        <div class="admin-field admin-field--wide">
+          <label for="f-req">Yêu cầu <span class="req">*</span></label>
+          <textarea id="f-req" rows="5" placeholder="Mỗi dòng một ý." required></textarea>
+          <p class="admin-err" data-for="f-req" hidden>Vui lòng nhập ít nhất một yêu cầu.</p>
+        </div>
+
+        <div class="admin-field admin-field--wide">
+          <label for="f-ben">Quyền lợi <span class="req">*</span></label>
+          <textarea id="f-ben" rows="5" placeholder="Mỗi dòng một ý." required></textarea>
+          <p class="admin-err" data-for="f-ben" hidden>Vui lòng nhập ít nhất một quyền lợi.</p>
+        </div>
+      </div>
+
+      <div class="admin-actions">
+        <button type="button" class="admin-btn" id="btnPreview">Xem trước JSON</button>
+        <button type="submit" class="admin-btn admin-btn--solid" id="btnDownload">Tải jobs.json</button>
+        <span class="admin-status" id="adminStatus" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+
+    <section class="admin-preview" id="previewBox" hidden>
+      <h2>Bản xem trước</h2>
+      <pre id="previewJson"></pre>
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    "use strict";
+
+    var form = document.getElementById("jobForm");
+    var statusEl = document.getElementById("adminStatus");
+    var previewBox = document.getElementById("previewBox");
+    var previewJson = document.getElementById("previewJson");
+
+    var existing = [];   // whatever jobs.json holds right now
+    fetch("jobs.json", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (d) { existing = Array.isArray(d) ? d : []; })
+      .catch(function () {
+        // Not fatal: the download simply contains the new job on its own.
+        console.warn("[TopLead admin] jobs.json chua doc duoc. Ban tai ve se chi chua vi tri moi.");
+      });
+
+    function val(id) { return (document.getElementById(id).value || "").trim(); }
+
+    function lines(id) {
+      return val(id).split("\n")
+        .map(function (s) { return s.trim(); })
+        .filter(function (s) { return s.length > 0; });
+    }
+
+    // Vietnamese has to lose its diacritics before it can be a URL slug.
+    // Normalising to NFD splits each letter from its accent, so a single
+    // combining-mark range strips them all instead of a lookup table.
+    function slugify(str) {
+      return String(str)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/đ/g, "d").replace(/Đ/g, "D")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    }
+
+    function clearErrors() {
+      Array.prototype.forEach.call(document.querySelectorAll(".admin-err"), function (e) { e.hidden = true; });
+      Array.prototype.forEach.call(document.querySelectorAll(".admin-field"), function (e) { e.classList.remove("has-err"); });
+    }
+
+    function fail(id) {
+      var err = document.querySelector('.admin-err[data-for="' + id + '"]');
+      if (err) { err.hidden = false; err.parentNode.classList.add("has-err"); }
+    }
+
+    function validate() {
+      clearErrors();
+      var bad = [];
+      ["f-title", "f-company", "f-salary", "f-short", "f-full"].forEach(function (id) {
+        if (!val(id)) bad.push(id);
+      });
+      ["f-resp", "f-req", "f-ben"].forEach(function (id) {
+        if (!lines(id).length) bad.push(id);
+      });
+      bad.forEach(fail);
+      if (bad.length) {
+        var first = document.getElementById(bad[0]);
+        if (first) first.focus();
+        statusEl.textContent = "Còn " + bad.length + " ô bắt buộc chưa điền.";
+      }
+      return bad.length === 0;
+    }
+
+    function buildJob() {
+      var company = val("f-company");
+      var title = val("f-title");
+      return {
+        id: slugify(company + " " + title),
+        title: title,
+        company: company,
+        companyLogo: val("f-logo"),
+        showCompany: document.getElementById("f-show").checked,
+        location: val("f-location"),
+        industry: val("f-industry"),
+        level: val("f-level"),
+        employmentType: val("f-type"),
+        salaryRange: val("f-salary"),
+        shortDescription: val("f-short"),
+        tags: val("f-tags").split(",").map(function (s) { return s.trim(); }).filter(Boolean),
+        postedDate: new Date().toISOString().slice(0, 10),
+        fullDescription: val("f-full"),
+        responsibilities: lines("f-resp"),
+        requirements: lines("f-req"),
+        benefits: lines("f-ben")
+      };
+    }
+
+    document.getElementById("btnPreview").addEventListener("click", function () {
+      if (!validate()) { previewBox.hidden = true; return; }
+      previewJson.textContent = JSON.stringify(buildJob(), null, 2);
+      previewBox.hidden = false;
+      statusEl.textContent = "Đã tạo bản xem trước.";
+      previewBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!validate()) return;
+
+      var job = buildJob();
+      // Same id means the same job: replace rather than add a duplicate that
+      // would then fight the first one for the same detail URL.
+      var out = existing.filter(function (j) { return j.id !== job.id; }).concat([job]);
+
+      var blob = new Blob([JSON.stringify(out, null, 2)], { type: "application/json" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "jobs.json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      statusEl.textContent = "Đã tải jobs.json gồm " + out.length + " vị trí. Thay tệp này vào dự án.";
+    });
+  })();
+  </script>
+</body>
+</html>

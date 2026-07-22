@@ -116,14 +116,15 @@
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.service">Dịch vụ quan tâm</label>
-              <select name="service">
+              <select name="service" id="serviceSelect">
                 <option data-i18n="contact.form.serviceSelect">Chọn dịch vụ...</option>
-                <option data-i18n="services.optionExec">Executive Search</option>
-                <option data-i18n="services.optionStaff">Staffing</option>
-                <option data-i18n="services.optionRPO">RPO</option>
-                <option data-i18n="services.optionHead">Headhunting</option>
-                <option data-i18n="services.optionConsult">HR Consulting</option>
-                <option data-i18n="services.optionOther">Khác</option>
+                <option data-service="headhunting" data-i18n="services.optionHead">Headhunting</option>
+                <option data-service="executive-talent-selection" data-i18n="services.optionETS">Executive Talent Selection</option>
+                <option data-service="executive-search" data-i18n="services.optionExec">Executive Search</option>
+                <option data-service="hr-consulting" data-i18n="services.optionConsult">HR Consulting</option>
+                <option data-service="staffing" data-i18n="services.optionStaff">Staffing</option>
+                <option data-service="rpo" data-i18n="services.optionRPO">RPO</option>
+                <option data-service="other" data-i18n="services.optionOther">Khác</option>
               </select>
             </div>
             <div class="form-group">
@@ -375,5 +376,19 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+  // Pre-select the service when arriving from a "add to consultation" button on
+  // the services page (contact.html?service=headhunting, etc). Matches by the
+  // option's data-service, not its visible text, so it survives translation.
+  (function () {
+    var svc = new URLSearchParams(location.search).get("service");
+    if (!svc) return;
+    var sel = document.getElementById("serviceSelect");
+    if (!sel) return;
+    var opt = sel.querySelector('option[data-service="' + svc.replace(/[^a-z-]/gi, "") + '"]');
+    if (opt) { opt.selected = true; sel.classList.add("is-prefilled"); }
+  })();
+  </script>
+
 </body>
 </html>

@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TopLead Recruitment - Premier Executive Search</title>
-  <meta name="description" content="TopLead Recruitment - Connecting talent with Vietnamese businesses. Executive search, team buildout, and professional recruitment services.">
+  <meta name="description" content="TopLead Recruitment — đối tác tuyển dụng có trách nhiệm cho SME Việt Nam. Sàng lọc hai chiều, gửi shortlist trong 48 giờ, chỉ tính phí khi ứng viên vượt qua thử việc.">
+  <meta property="og:title" content="TopLead Recruitment - Premier Executive Search">
+  <meta property="og:description" content="TopLead Recruitment — đối tác tuyển dụng có trách nhiệm cho SME Việt Nam. Sàng lọc hai chiều, gửi shortlist trong 48 giờ, chỉ tính phí khi ứng viên vượt qua thử việc.">
+  <meta property="og:url" content="https://topleadrecruit.com/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://topleadrecruit.com/assets/images/our-belief.jpg">
+  <meta property="og:locale" content="vi_VN">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,8 +60,8 @@
           <a href="contact.html" class="btn-cta" data-i18n="nav.contact">Liên hệ</a>
         </div>
         <div class="lang-switcher" id="langSwitcher">
-          <button class="lang-btn active" data-lang="vi">VI</button>
-          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn active" data-lang="vi" aria-pressed="true" aria-label="Tiếng Việt">VI</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
         </div>
       </div>
       <button class="mobile-menu-btn" aria-label="Menu">
@@ -69,7 +75,7 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-bg">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/gen/network.jpg">
+      <video class="hero-video" aria-label="Nền video giới thiệu TopLead — không có âm thanh" autoplay muted loop playsinline preload="auto" poster="assets/gen/network.jpg">
         <source src="assets/video.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
@@ -82,48 +88,48 @@
         <!-- Slide 1 -->
         <div class="hero-slide active" data-slide="0">
           <h1 class="hero-headline">
-            <span class="headline-line" data-i18n="hero.slide1.line1">Người Cũ Vừa Nghỉ.</span>
-            <span class="headline-line highlight" data-i18n="hero.slide1.line2">Người Mới Vẫn Chưa Thấy Đâu?</span>
+            <span class="headline-line" data-i18n="hero.slide1.line1">Người cũ vừa nghỉ.</span>
+            <span class="headline-line highlight" data-i18n="hero.slide1.line2">Người mới vẫn chưa thấy đâu?</span>
           </h1>
-          <p class="hero-subtitle" data-i18n="hero.slide1.desc">TopLead gửi hồ sơ trong 48 giờ. Đã lọc sẵn theo đúng ngành bạn cần.</p>
+          <p class="hero-subtitle" data-i18n="hero.slide1.desc">TopLead gửi hồ sơ trong 48 giờ — đã lọc sẵn theo đúng ngành bạn cần.</p>
           <div class="cta-buttons">
-            <a href="#contact" class="btn-primary" data-i18n="hero.slide1.cta">Tuyển ngay →</a>
+            <a href="contact.html?intent=hire" class="btn-primary" data-i18n="hero.slide1.cta">Tuyển ngay →</a>
           </div>
         </div>
 
         <!-- Slide 2 -->
         <div class="hero-slide" data-slide="1">
           <h1 class="hero-headline">
-            <span class="headline-line" data-i18n="hero.slide2.line1">3 Hồ Sơ Đã Lọc Kỹ.</span>
-            <span class="headline-line highlight" data-i18n="hero.slide2.line2">Bạn Chỉ Cần Chọn 1.</span>
+            <span class="headline-line" data-i18n="hero.slide2.line1">Ba hồ sơ đã lọc kỹ.</span>
+            <span class="headline-line highlight" data-i18n="hero.slide2.line2">Bạn chỉ cần chọn một.</span>
           </h1>
-          <p class="hero-subtitle" data-i18n="hero.slide2.desc">Không đọc hàng chục CV nữa. Chúng tôi lọc, bạn chọn, có người làm việc trong tuần.</p>
+          <p class="hero-subtitle" data-i18n="hero.slide2.desc">Không cần đọc hàng chục CV. Chúng tôi lọc, bạn chọn — có người làm việc ngay trong tuần.</p>
           <div class="cta-buttons">
-            <a href="#contact" class="btn-primary" data-i18n="hero.slide2.cta">Gửi yêu cầu →</a>
+            <a href="contact.html?intent=hire" class="btn-primary" data-i18n="hero.slide2.cta">Gửi yêu cầu →</a>
           </div>
         </div>
 
         <!-- Slide 3 -->
         <div class="hero-slide" data-slide="2">
           <h1 class="hero-headline">
-            <span class="headline-line" data-i18n="hero.slide3.line1">Đang Thiếu Người Làm?</span>
-            <span class="headline-line highlight" data-i18n="hero.slide3.line2">Đừng Để Ngày Mai Vẫn Vậy.</span>
+            <span class="headline-line" data-i18n="hero.slide3.line1">Đang thiếu người làm?</span>
+            <span class="headline-line highlight" data-i18n="hero.slide3.line2">Đừng để ngày mai vẫn vậy.</span>
           </h1>
-          <p class="hero-subtitle" data-i18n="hero.slide3.desc">Mỗi ngày thiếu nhân sự là mỗi ngày doanh thu bị ảnh hưởng. Liên hệ hôm nay, có hồ sơ ngay ngày mai.</p>
+          <p class="hero-subtitle" data-i18n="hero.slide3.desc">Mỗi ngày thiếu nhân sự là một ngày doanh thu bị ảnh hưởng. Liên hệ hôm nay, có hồ sơ ngay ngày mai.</p>
           <div class="cta-buttons">
-            <a href="#contact" class="btn-primary" data-i18n="hero.slide3.cta">Liên hệ ngay →</a>
+            <a href="contact.html?intent=hire" class="btn-primary" data-i18n="hero.slide3.cta">Liên hệ ngay →</a>
           </div>
         </div>
 
         <!-- Slide 4 -->
         <div class="hero-slide" data-slide="3">
           <h1 class="hero-headline">
-            <span class="headline-line" data-i18n="hero.slide4.line1">Không Hợp Thì Đổi.</span>
-            <span class="headline-line highlight" data-i18n="hero.slide4.line2">Không Hỏi Nhiều, Không Tốn Thêm.</span>
+            <span class="headline-line" data-i18n="hero.slide4.line1">Không hợp thì đổi.</span>
+            <span class="headline-line highlight" data-i18n="hero.slide4.line2">Không hỏi nhiều, không tốn thêm.</span>
           </h1>
-          <p class="hero-subtitle" data-i18n="hero.slide4.desc">Người TopLead giới thiệu đều có bảo hành thay thế. Vì chúng tôi chỉ gửi người mình tin.</p>
+          <p class="hero-subtitle" data-i18n="hero.slide4.desc">Người TopLead giới thiệu đều được bảo hành thay thế trong 3 tháng.</p>
           <div class="cta-buttons">
-            <a href="#contact" class="btn-primary" data-i18n="hero.slide4.cta">Tìm hiểu thêm →</a>
+            <a href="approach.html#guarantee" class="btn-primary" data-i18n="hero.slide4.cta">Xem cam kết →</a>
           </div>
         </div>
       </div>
@@ -149,11 +155,11 @@
         </div>
         <div class="logo-item">
           <img class="logo-mark" src="assets/partners/miso-do.png" alt="" loading="lazy" decoding="async">
-          <span class="logo-text">Miso Do Co. Ltd.</span>
+          <span class="logo-text">Miso Đỏ</span>
         </div>
         <div class="logo-item">
           <img class="logo-mark" src="assets/partners/tan-nhat.png" alt="" loading="lazy" decoding="async">
-          <span class="logo-text">Tân Nhật Furnitures Co. Ltd.</span>
+          <span class="logo-text">Tân Nhật Furniture</span>
         </div>
         <div class="logo-item">
           <img class="logo-mark" src="assets/partners/rmit.webp" alt="" loading="lazy" decoding="async">
@@ -165,7 +171,7 @@
         </div>
         <div class="logo-item">
           <img class="logo-mark" src="assets/partners/thadico.png" alt="" loading="lazy" decoding="async">
-          <span class="logo-text">Thadico Dai Quang Minh Co. Ltd.</span>
+          <span class="logo-text">Thadico Đại Quang Minh</span>
         </div>
         <div class="logo-item">
           <img class="logo-mark" src="assets/partners/yoursupplement.png" alt="" loading="lazy" decoding="async">
@@ -173,7 +179,7 @@
         </div>
         <div class="logo-item">
           <img class="logo-mark" src="assets/partners/xuan-vinh.jpg" alt="" loading="lazy" decoding="async">
-          <span class="logo-text">Công Ty TNHH Xuan Vinh</span>
+          <span class="logo-text">Công Ty TNHH Xuân Vinh</span>
         </div>
         <div class="logo-item" aria-hidden="true">
           <img class="logo-mark" src="assets/partners/b1-smart.png" alt="" loading="lazy" decoding="async">
@@ -181,11 +187,11 @@
         </div>
         <div class="logo-item" aria-hidden="true">
           <img class="logo-mark" src="assets/partners/miso-do.png" alt="" loading="lazy" decoding="async">
-          <span class="logo-text">Miso Do Co. Ltd.</span>
+          <span class="logo-text">Miso Đỏ</span>
         </div>
         <div class="logo-item" aria-hidden="true">
           <img class="logo-mark" src="assets/partners/tan-nhat.png" alt="" loading="lazy" decoding="async">
-          <span class="logo-text">Tân Nhật Furnitures Co. Ltd.</span>
+          <span class="logo-text">Tân Nhật Furniture</span>
         </div>
         <div class="logo-item" aria-hidden="true">
           <img class="logo-mark" src="assets/partners/rmit.webp" alt="" loading="lazy" decoding="async">
@@ -197,7 +203,7 @@
         </div>
         <div class="logo-item" aria-hidden="true">
           <img class="logo-mark" src="assets/partners/thadico.png" alt="" loading="lazy" decoding="async">
-          <span class="logo-text">Thadico Dai Quang Minh Co. Ltd.</span>
+          <span class="logo-text">Thadico Đại Quang Minh</span>
         </div>
         <div class="logo-item" aria-hidden="true">
           <img class="logo-mark" src="assets/partners/yoursupplement.png" alt="" loading="lazy" decoding="async">
@@ -205,7 +211,7 @@
         </div>
         <div class="logo-item" aria-hidden="true">
           <img class="logo-mark" src="assets/partners/xuan-vinh.jpg" alt="" loading="lazy" decoding="async">
-          <span class="logo-text">Công Ty TNHH Xuan Vinh</span>
+          <span class="logo-text">Công Ty TNHH Xuân Vinh</span>
         </div>
       </div>
     </div>
@@ -272,7 +278,7 @@
           </div>
           <div class="sc-body">
             <h3 data-i18n="sc.c3.h">Đối tác nói gì về TopLead</h3>
-            <blockquote class="sc-quote" data-i18n="testimonials.t2.text">“For real, TopLead hiểu rõ nhu cầu doanh nghiệp - không gửi hồ sơ đại trà mà chọn lọc rất kỹ. Rất recommend!”</blockquote>
+            <blockquote class="sc-quote" data-i18n="testimonials.t2.text">“TopLead hiểu rõ nhu cầu doanh nghiệp — không gửi hồ sơ đại trà mà chọn lọc rất kỹ. Rất đáng để giới thiệu!”</blockquote>
             <div class="sc-quote-by"><span class="sc-stars">★★★★★</span> Khang Nguyễn · <span data-i18n="tst.google">Đánh giá 5★ trên Google</span></div>
             <blockquote class="sc-quote" data-i18n="testimonials.t1.text">“Agency hỗ trợ tuyển rất nhanh - chỉ sau 5 ngày đã có 3 ứng viên phù hợp để phỏng vấn.”</blockquote>
             <div class="sc-quote-by"><span class="sc-stars">★★★★★</span> Hao Le · <span data-i18n="tst.google">Đánh giá 5★ trên Google</span></div>
@@ -433,8 +439,8 @@
         </div>
         <div class="contact-form-wrapper">
           <div class="form-tabs">
-            <button class="tab-btn active" data-tab="candidate" data-i18n="contact.tab1">Ứng viên</button>
-            <button class="tab-btn" data-tab="employer" data-i18n="contact.tab2">Nhà tuyển dụng</button>
+            <button class="tab-btn active" data-tab="employer" data-i18n="contact.tab.employer">Nhà tuyển dụng</button>
+            <button class="tab-btn" data-tab="candidate" data-i18n="contact.tab.candidate">Ứng viên</button>
           </div>
           <form id="contactForm" class="contact-form active">
             <div class="form-group">

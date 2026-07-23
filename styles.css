@@ -8411,14 +8411,6 @@ body:has(.cv-band) .page-hero { border-bottom: none; }
   background: linear-gradient(180deg, transparent, rgba(160, 82, 45, 0.42) 8%, rgba(160, 82, 45, 0.42) 92%, transparent);
 }
 
-/* =========================================================================
-   TEXT CASING (per request)
-   Hero titles -> ALL CAPS. Hero subtitles -> Title Case (each word).
-   Everything else keeps sentence case as written.
-   ========================================================================= */
-.page-hero-title,
-.hero-headline { text-transform: uppercase; }
-.page-hero-subtitle { text-transform: capitalize; }
 
 /* The homepage logo marquee was the one horizontal strip that didn't stop on
    hover. Now every auto-scrolling strip (logos, partners, industries, reviews)
@@ -8534,3 +8526,18 @@ body:has(.cv-band) .page-hero { border-bottom: none; }
 /* .logos-track is a flex child of the marquee; keep it at content width so it
    overflows (and therefore scrolls) instead of shrinking to the viewport. */
 .tl-scroll .logos-track { width: max-content; flex-shrink: 0; }
+
+/* testimonial source badges: distinguish candidate vs client feedback */
+.tst-badge--candidate { color: #3F6F52; border-color: rgba(63, 111, 82, 0.4); }
+.tst-badge--client { color: var(--cv-gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  .logos-track,
+  .partner-track,
+  .ind-track,
+  .tst-track,
+  .hero-video,
+  .phil-slides img,
+  .hero-slide { animation: none !important; transition: none !important; }
+  .hero-slide { opacity: 1 !important; }
+}

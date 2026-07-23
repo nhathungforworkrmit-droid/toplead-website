@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liên hệ - TopLead Recruitment</title>
-  <meta name="description" content="Liên hệ TopLead Recruitment. Gửi CV hoặc yêu cầu tư vấn dịch vụ tuyển dụng.">
+  <meta name="description" content="Liên hệ TopLead Recruitment — tư vấn tuyển dụng miễn phí cho doanh nghiệp SME và cơ hội nghề nghiệp cho ứng viên.">
+  <meta property="og:title" content="Liên hệ - TopLead Recruitment">
+  <meta property="og:description" content="Liên hệ TopLead Recruitment — tư vấn tuyển dụng miễn phí cho doanh nghiệp SME và cơ hội nghề nghiệp cho ứng viên.">
+  <meta property="og:url" content="https://topleadrecruit.com/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://topleadrecruit.com/assets/images/logo.png">
+  <meta property="og:locale" content="vi_VN">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,8 +56,8 @@
           <a href="contact.html" class="active btn-cta" data-i18n="nav.contact">Liên hệ</a>
         </div>
         <div class="lang-switcher" id="langSwitcher">
-          <button class="lang-btn active" data-lang="vi">VI</button>
-          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn active" data-lang="vi" aria-pressed="true" aria-label="Tiếng Việt">VI</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
         </div>
       </div>
       <button class="mobile-menu-btn" aria-label="Menu">
@@ -100,15 +106,15 @@
           <form class="contact-form active" id="employer-form">
             <div class="form-group">
               <label data-i18n="ct.name">Họ và tên *</label>
-              <input name="fullname" type="text" data-i18n-placeholder="contact.form.namePlaceholder" placeholder="Nhập họ và tên" required>
+              <input name="fullname" type="text" data-i18n-placeholder="form.namePlaceholder" placeholder="Nhập họ và tên" required>
             </div>
             <div class="form-group">
               <label data-i18n="ct.emailco">Email công ty *</label>
-              <input name="email" type="email" data-i18n-placeholder="contact.form.emailPlaceholder" placeholder="email@company.com" required>
+              <input name="email" type="email" data-i18n-placeholder="form.emailPlaceholder" placeholder="email@company.com" required>
             </div>
             <div class="form-group">
               <label data-i18n="ct.phone">Số điện thoại *</label>
-              <input name="phone" type="tel" data-i18n-placeholder="contact.form.phonePlaceholder" placeholder="+84 xxx xxx xxx" required>
+              <input name="phone" type="tel" data-i18n-placeholder="form.phonePlaceholder" placeholder="+84 xxx xxx xxx" required>
             </div>
             <div class="form-group">
               <label data-i18n="ct.company">Tên công ty *</label>
@@ -131,9 +137,9 @@
               <label data-i18n="ct.qty">Số lượng tuyển dụng</label>
               <select name="quantity">
                 <option data-i18n="ct.qtysel">Chọn số lượng...</option>
-                <option data-i18n="ct.q1">1-5 người</option>
-                <option data-i18n="ct.q2">5-10 người</option>
-                <option data-i18n="ct.q3">10-20 người</option>
+                <option data-i18n="ct.q1">1-4 người</option>
+                <option data-i18n="ct.q2">5-9 người</option>
+                <option data-i18n="ct.q3">10-19 người</option>
                 <option data-i18n="ct.q4">20+ người</option>
               </select>
             </div>
@@ -148,19 +154,19 @@
           <form class="contact-form" id="candidate-form">
             <div class="form-group">
               <label data-i18n="ct.name">Họ và tên *</label>
-              <input name="fullname" type="text" data-i18n-placeholder="contact.form.namePlaceholder" placeholder="Nhập họ và tên" required>
+              <input name="fullname" type="text" data-i18n-placeholder="form.namePlaceholder" placeholder="Nhập họ và tên" required>
             </div>
             <div class="form-group">
               <label data-i18n="ct.email">Email *</label>
-              <input name="email" type="email" data-i18n-placeholder="contact.form.emailPlaceholder" placeholder="email@example.com" required>
+              <input name="email" type="email" data-i18n-placeholder="form.emailPlaceholder" placeholder="email@example.com" required>
             </div>
             <div class="form-group">
               <label data-i18n="ct.phone">Số điện thoại *</label>
-              <input name="phone" type="tel" data-i18n-placeholder="contact.form.phonePlaceholder" placeholder="+84 xxx xxx xxx" required>
+              <input name="phone" type="tel" data-i18n-placeholder="form.phonePlaceholder" placeholder="+84 xxx xxx xxx" required>
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.position">Vị trí quan tâm</label>
-              <input name="position" type="text" data-i18n-placeholder="contact.form.positionPlaceholder" placeholder="Vị trí mong muốn">
+              <input name="position" id="position" type="text" data-i18n-placeholder="contact.form.positionPlaceholder" placeholder="Vị trí mong muốn">
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.experience">Kinh nghiệm</label>
@@ -256,15 +262,6 @@
     </div>
   </section>
 
-  <section class="cta-banner">
-    <div class="container">
-      <div class="cta-banner-content">
-        <h2 data-i18n="ct.cta.title">Chưa chắc bắt đầu từ đâu?</h2>
-        <p data-i18n="ct.cta.subtitle">Khám phá dịch vụ tuyển dụng toàn diện của TopLead</p>
-        <a href="services.html" class="btn-magnetic" data-i18n="ct.cta.button">Xem dịch vụ</a>
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="footer">
@@ -387,6 +384,22 @@
     if (!sel) return;
     var opt = sel.querySelector('option[data-service="' + svc.replace(/[^a-z-]/gi, "") + '"]');
     if (opt) { opt.selected = true; sel.classList.add("is-prefilled"); }
+  })();
+
+  // Job apply deep-link: contact.html?job=<id>&position=<title> arrives from the
+  // job pages. Switch to the candidate tab and prefill the position field.
+  (function () {
+    var params = new URLSearchParams(location.search);
+    var pos = params.get("position");
+    if (!pos) return;
+    document.querySelectorAll(".contact-tab").forEach(function (t) {
+      t.classList.toggle("active", t.getAttribute("data-tab") === "candidate");
+    });
+    document.querySelectorAll(".contact-form").forEach(function (f) {
+      f.classList.toggle("active", f.id === "candidate-form");
+    });
+    var p = document.getElementById("position");
+    if (p) p.value = pos;
   })();
   </script>
 

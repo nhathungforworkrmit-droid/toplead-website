@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Việc làm - TopLead Recruitment</title>
-  <meta name="description" content="Các vị trí tuyển dụng hot từ khách hàng TopLead. Ứng tuyển ngay để được tiếp cận cơ hội nghề nghiệp hấp dẫn.">
+  <meta name="description" content="Việc làm chuyên môn tại các doanh nghiệp SME Việt Nam. Ứng tuyển qua TopLead — đối tác tuyển dụng có trách nhiệm.">
+  <meta property="og:title" content="Việc làm - TopLead Recruitment">
+  <meta property="og:description" content="Việc làm chuyên môn tại các doanh nghiệp SME Việt Nam. Ứng tuyển qua TopLead — đối tác tuyển dụng có trách nhiệm.">
+  <meta property="og:url" content="https://topleadrecruit.com/jobs.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://topleadrecruit.com/assets/images/logo.png">
+  <meta property="og:locale" content="vi_VN">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,8 +56,8 @@
           <a href="contact.html" class="btn-cta" data-i18n="nav.contact">Liên hệ</a>
         </div>
         <div class="lang-switcher" id="langSwitcher">
-          <button class="lang-btn active" data-lang="vi">VI</button>
-          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn active" data-lang="vi" aria-pressed="true" aria-label="Tiếng Việt">VI</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
         </div>
       </div>
       <button class="mobile-menu-btn" aria-label="Menu">
@@ -99,11 +105,15 @@
           <label for="filterIndustry" data-i18n="jobs.filter.industry">Ngành nghề</label>
           <select id="filterIndustry">
             <option value="*" data-i18n="jobs.filter.all">Tất cả</option>
+            <option value="Sales">Sales & BD</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Finance">Finance & Accounting</option>
+            <option value="HR">HR & Admin</option>
+            <option value="Operations">Operations</option>
             <option value="Technology">Technology</option>
-            <option value="Finance">Finance</option>
+            <option value="F&B">F&B</option>
             <option value="Retail">Retail</option>
-            <option value="Manufacturing">Manufacturing</option>
-            <option value="Other">Other</option>
+            <option value="Other">Khác</option>
           </select>
         </div>
         <div class="filter-group">

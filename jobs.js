@@ -262,7 +262,7 @@
             list(job.benefits, "jd-list") + "</section>" +
         "</div>" +
         '<div class="jd-cta">' +
-          '<a class="job-apply jd-apply" href="contact.html"><span data-i18n="jobs.apply">Ứng tuyển ngay</span></a>' +
+          '<a class="job-apply jd-apply" href="contact.html?job=' + encodeURIComponent(job.id) + '&position=' + encodeURIComponent(job.title) + '"><span data-i18n="jobs.apply">Ứng tuyển ngay</span></a>' +
           '<a class="jd-back" href="jobs.html"><span data-i18n="jd.back">Quay lại danh sách</span></a>' +
         "</div>";
 

@@ -2306,21 +2306,32 @@ section {
 }
 
 .footer-contact-icon {
+  position: relative;
+  overflow: hidden;
   width: 48px;
   height: 48px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--footer-tile);
-  border: 1px solid var(--footer-tile-border);
+  background: linear-gradient(158deg, #FBF6EC 0%, #EFE1CB 100%);
+  border: 1px solid rgba(122, 62, 32, 0.28);
   border-radius: var(--radius-sm);
+}
+/* engraved icon language: clipped gold corner */
+.footer-contact-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 12px solid var(--gold);
+  border-right: 12px solid transparent;
 }
 
 .footer-contact-icon svg {
-  width: 22px;
-  height: 22px;
-  stroke: var(--footer-heading);
+  width: 21px;
+  height: 21px;
+  stroke: var(--copper-dark);
   fill: none;
 }
 
@@ -2969,9 +2980,24 @@ a.footer-contact-value:hover {
    Why Choose TopLead
    ======================================== */
 .why-choose {
+  position: relative;
   background: var(--bg-beige);
   padding: 100px 0;
+  overflow: hidden;
 }
+/* a soft office image behind the carousel so the band isn't flat beige */
+.why-choose::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background:
+    linear-gradient(180deg, var(--bg-beige) 0%, rgba(249, 246, 240, 0.82) 45%, var(--bg-beige) 100%),
+    url("assets/images/why-choose-bg.jpg") center/cover no-repeat;
+}
+.why-choose > .container { position: relative; z-index: 1; }
 
 .why-grid {
   display: grid;
@@ -3236,21 +3262,34 @@ a.footer-contact-value:hover {
   box-shadow: var(--shadow);
 }
 
+/* TopLead engraved icon: sand chip + clipped gold corner (see .tl-ico) */
 .why-icon {
-  width: 56px;
-  height: 56px;
-  background: rgba(160, 82, 45, 0.1);
-  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(158deg, #FBF6EC 0%, #EFE1CB 100%);
+  border: 1px solid rgba(122, 62, 32, 0.22);
+  border-radius: 13px;
+  box-shadow: 0 6px 16px rgba(122, 62, 32, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
 }
+.why-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 13px solid var(--gold);
+  border-right: 13px solid transparent;
+}
 
 .why-icon svg {
-  width: 28px;
-  height: 28px;
-  stroke: var(--gold);
+  width: 25px;
+  height: 25px;
+  stroke: var(--copper-dark);
 }
 
 .why-card h3 {
@@ -5541,7 +5580,7 @@ img, video { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   .hero-video { display: none; }
   .cine-video { display: none; }
-  .cine-strip { background: #14100c url('assets/gen/handshake.jpg') center/cover no-repeat; }
+  .cine-strip { background: #14100c url('assets/images/our-belief.jpg') center/cover no-repeat; }
 }
 
 /* ============================================================
@@ -6159,18 +6198,25 @@ body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
   color: #F3E9DA;
   font-weight: 500;
   padding-left: 24px;
-  display: flex;
+  /* grid (not flex+baseline): keeps the bullet pinned beside the heading's
+     first line even though the detail text below makes the cell tall */
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: 12px;
-  align-items: baseline;
+  align-items: start;
 }
 .cmp-mark {
   flex-shrink: 0;
   width: 7px; height: 7px;
-  margin-top: 6px;
+  margin-top: 9px;
   border-radius: 50%;
   background: var(--cv-gold);
   box-shadow: 0 0 10px rgba(228, 182, 120, 0.6);
 }
+/* rows 1,3,4,5 put the bullet, heading and detail as three direct grid items;
+   keep the detail in column 2 (under the heading), never under the bullet.
+   Row 2 wraps its text in <a>, so its detail isn't a grid item - unaffected. */
+.cmp-cell--tl > .cmp-detail { grid-column: 2; }
 
 /* dragging shifts which side carries the weight */
 .cmp-stage .cmp-cell--trad,
@@ -6562,6 +6608,16 @@ body:has(#bg-canvas) .navbar.scrolled .logo-text-bottom { color: #F6EEE3; }
 }
 .cmp-detail--trad { color: #9A8E82; }
 .cmp-detail--tl { color: var(--cv-dim); }
+
+/* Divider removed: the comparison is now a static two-column read. Both sides
+   stay fully lit and every detail is shown without any dragging. */
+.cmp-stage .cmp-cell--trad,
+.cmp-stage .cmp-head--trad,
+.cmp-stage .cmp-cell--tl,
+.cmp-stage .cmp-head--tl,
+.cmp-stage .cmp-fig--trad,
+.cmp-stage .cmp-fig--tl { opacity: 1; }
+.cmp-stage .cmp-detail { opacity: 1; max-height: 14em; transform: none; }
 
 /* --reveal-tl / --reveal-trad are set by script.js from the divider position */
 .cmp-stage { --reveal-tl: 0; --reveal-trad: 0; }
@@ -7059,10 +7115,10 @@ html { scroll-behavior: smooth; }
 .jr-step {
   position: relative;
   display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: clamp(22px, 3.4vw, 44px);
+  grid-template-columns: 420px 1fr;
+  gap: clamp(28px, 4vw, 56px);
   align-items: center;
-  padding: clamp(24px, 3vw, 38px) 0;
+  padding: clamp(30px, 4vw, 56px) 0;
   border-top: 1px solid var(--cv-line);
 }
 .jr-step:first-child { border-top: none; }
@@ -7444,7 +7500,7 @@ body:has(.cv-band) .page-hero { border-bottom: none; }
 .hrc { background: var(--bg-beige); padding: 80px 0; }
 .hrc-box {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 210px auto 1fr auto;
   align-items: center;
   gap: clamp(20px, 3vw, 36px);
   padding: 30px clamp(24px, 3vw, 38px);
@@ -7452,15 +7508,38 @@ body:has(.cv-band) .page-hero { border-bottom: none; }
   border: 1px solid rgba(160, 82, 45, 0.2);
   border-radius: var(--radius-lg);
 }
+.hrc-figure {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgba(160, 82, 45, 0.2);
+  box-shadow: 0 12px 30px rgba(122, 62, 32, 0.12);
+}
+.hrc-figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* the photo is a desktop-only flourish; the band stacks tightly below 1024 */
+@media (max-width: 1024px) { .hrc-figure { display: none; } }
 .hrc-mark {
+  position: relative;
+  overflow: hidden;
   width: 56px; height: 56px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius);
-  background: rgba(160, 82, 45, 0.08);
-  color: var(--copper);
+  background: linear-gradient(158deg, #FBF6EC 0%, #EFE1CB 100%);
+  border: 1px solid rgba(122, 62, 32, 0.22);
+  box-shadow: 0 6px 16px rgba(122, 62, 32, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  color: var(--copper-dark);
+}
+.hrc-mark::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 14px solid var(--gold);
+  border-right: 14px solid transparent;
 }
 .hrc-mark svg { width: 26px; height: 26px; }
 .hrc-label {
@@ -7492,45 +7571,280 @@ body:has(.cv-band) .page-hero { border-bottom: none; }
 .hrc-cta:hover { background: var(--copper); color: var(--text-light); }
 .hrc-cta:hover svg { transform: translateX(3px); }
 
-/* ---- Industry grid ---- */
-.industry-focus { background: var(--bg-white); padding: 100px 0; }
-.industry-grid {
-  list-style: none;
-  margin: 0; padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+/* ---- Industry Focus: cinematic CSS showcase ----
+   No paid video: each "clip" is a layered CSS scene (drifting light grade +
+   film grain + hand-drawn line glyph). The film-strip below reuses the exact
+   auto-scroll technique from .partner-track (duplicated set, translateX -50%,
+   pause on hover, reduced-motion falls back to a manual scroll). */
+.industry-focus { background: var(--bg-white); padding: 100px 0; overflow: hidden; }
+
+/* Shared film grain, used by the hero banner and every card */
+.ind-grain {
+  position: absolute;
+  inset: -40%;
+  pointer-events: none;
+  opacity: 0.10;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: indGrain 1.1s steps(3) infinite;
 }
-.industry-item {
+@keyframes indGrain {
+  0%   { transform: translate(0, 0); }
+  33%  { transform: translate(-6%, 4%); }
+  66%  { transform: translate(4%, -5%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Cinematic hero banner — a video-like photo montage */
+.ind-hero {
+  position: relative;
+  aspect-ratio: 21 / 9;
+  margin-top: 8px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  isolation: isolate;
+  /* skyline base shows instantly (and is the reduced-motion still frame) */
+  background: #160d07 url("assets/images/industries/industry-hero.jpg") center/cover no-repeat;
+  box-shadow: 0 30px 70px rgba(20, 10, 4, 0.28);
+}
+/* The reel: eight industry photos stacked, cross-fading with a slow Ken Burns
+   zoom, so it plays like a video montage — no Motion credits required. */
+.ind-hero-reel { position: absolute; inset: 0; }
+.ind-reel-frame {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.04);
+  will-change: opacity, transform;
+  animation: reelCycle 32s ease-in-out infinite;
+  animation-delay: calc(var(--s) * 4s);
+}
+@keyframes reelCycle {
+  0%    { opacity: 0; transform: scale(1.04); }
+  3%    { opacity: 1; }
+  12.5% { opacity: 1; transform: scale(1.12); }
+  15.5% { opacity: 0; transform: scale(1.13); }
+  100%  { opacity: 0; transform: scale(1.04); }
+}
+/* warm cinematic tint keeps the overlaid text legible over bright photos */
+.ind-hero-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(15, 9, 5, 0.42) 0%, rgba(15, 9, 5, 0.12) 42%, rgba(13, 7, 4, 0.82) 100%),
+    radial-gradient(120% 130% at 50% 42%, rgba(42, 26, 16, 0.15), rgba(13, 7, 4, 0.5));
+}
+.ind-hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(120% 120% at 50% 42%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+/* keep the film grain above the tint (textures the photo) but below the text */
+.ind-hero > .ind-grain { z-index: 2; }
+/* thin inset gold frame for a framed, cinematic feel */
+.ind-hero::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(231, 190, 133, 0.28);
+  border-radius: calc(var(--radius-lg) - 8px);
+  pointer-events: none;
+  z-index: 3;
+}
+.ind-hero-inner {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+.ind-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #E7BE85;
+}
+.ind-hero-kicker::before,
+.ind-hero-kicker::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+}
+.ind-hero-kicker::before { background: linear-gradient(90deg, transparent, #E7BE85); }
+.ind-hero-kicker::after  { background: linear-gradient(90deg, #E7BE85, transparent); }
+.ind-hero-line {
+  max-width: 22ch;
+  font-size: clamp(1.3rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: #F6EEE3;
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.45);
+}
+
+/* Auto-scrolling film-strip (mirrors .partner-wall / .partner-track) */
+.ind-rail {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: 40px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.ind-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding: 6px 10px;
+  /* the set is duplicated in the markup, so -50% lands exactly on the copy */
+  animation: ind-run 52s linear infinite;
+}
+@keyframes ind-run {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ind-rail:hover .ind-track,
+.ind-rail:focus-within .ind-track { animation-play-state: paused; }
+
+.ind-card {
+  --acc: #E7BE85;
+  position: relative;
+  flex: 0 0 auto;
+  width: 340px;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(231, 190, 133, 0.14);
+  background: #120a05;
+  box-shadow: 0 18px 40px rgba(20, 10, 4, 0.22);
+  transition: transform 0.4s var(--cv-ease, cubic-bezier(0.22, 0.61, 0.36, 1)),
+              border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.ind-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(231, 190, 133, 0.45);
+  box-shadow: 0 26px 56px rgba(20, 10, 4, 0.34);
+}
+/* light sheen sweeping across on hover */
+.ind-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 40%;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transform: skewX(-18deg);
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+}
+.ind-card:hover::after { animation: indSheen 0.9s ease; }
+@keyframes indSheen {
+  from { left: -60%; opacity: 1; }
+  to   { left: 120%; opacity: 1; }
+}
+
+/* Real photo with a slow Ken Burns zoom, staggered per card via --i */
+.ind-card-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.06);
+  animation: cardKen 20s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i, 0) * -2.4s);
+  will-change: transform;
+}
+@keyframes cardKen {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.16); }
+}
+
+/* === TopLead icon language ===============================================
+   Engraved monoline glyph on a warm sand chip with a clipped gold corner.
+   Reused site-wide via .tl-ico so every icon shares one distinctive look. */
+.tl-ico {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  overflow: hidden;
+  color: var(--copper-dark);
+  background: linear-gradient(158deg, #FBF6EC 0%, #EFE1CB 100%);
+  border: 1px solid rgba(122, 62, 32, 0.22);
+  box-shadow: 0 6px 16px rgba(12, 7, 4, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+/* the signature: a small clipped gold corner, top-left */
+.tl-ico::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 12px solid var(--gold);
+  border-right: 12px solid transparent;
+}
+.tl-ico svg { width: 22px; height: 22px; }
+
+.ind-card-ico {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 3;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.ind-card:hover .ind-card-ico { transform: translateY(-2px) scale(1.06); }
+.ind-card-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 45%, rgba(8, 4, 2, 0.72) 100%);
+}
+.ind-card-meta {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  z-index: 3;
   display: flex;
   align-items: baseline;
-  gap: 12px;
-  padding: 22px 20px;
-  border: 1px solid rgba(160, 82, 45, 0.18);
-  border-radius: var(--radius);
-  background: var(--bg-cream);
-  transition: background 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+  gap: 10px;
 }
-.industry-item:hover {
-  background: var(--bg-warm-brown);
-  border-color: rgba(228, 182, 120, 0.4);
-  transform: translateY(-3px);
-}
-.industry-num {
+.ind-card-num {
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--copper);
-  transition: color 0.35s ease;
+  letter-spacing: 0.14em;
+  color: var(--acc);
+  opacity: 0.85;
 }
-.industry-name {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text);
-  transition: color 0.35s ease;
+.ind-card-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #F6EEE3;
 }
-.industry-item:hover .industry-num { color: #E4B678; }
-.industry-item:hover .industry-name { color: #F6EEE3; }
 
 /* ---- Why choose: four counted claims ---- */
 .why-services { background: var(--bg-beige); padding: 100px 0; }
@@ -7565,7 +7879,6 @@ body:has(.cv-band) .page-hero { border-bottom: none; }
 
 @media (max-width: 1024px) {
   .prod-grid { grid-template-columns: 1fr; max-width: 620px; margin-inline: auto; }
-  .industry-grid { grid-template-columns: repeat(2, 1fr); }
   .why-services-grid { grid-template-columns: repeat(2, 1fr); }
   .hrc-box { grid-template-columns: auto 1fr; }
   .hrc-cta { grid-column: 1 / -1; justify-self: start; }
@@ -7574,16 +7887,30 @@ body:has(.cv-band) .page-hero { border-bottom: none; }
 @media (max-width: 600px) {
   .services-overview, .industry-focus, .why-services { padding: 70px 0; }
   .prod-card { padding: 28px 22px 24px; }
-  .industry-grid { grid-template-columns: 1fr; }
   .why-services-grid { grid-template-columns: 1fr; }
   .hrc-box { grid-template-columns: 1fr; text-align: left; }
   .hrc-cta { width: 100%; justify-content: center; }
+  .ind-hero { aspect-ratio: 16 / 10; }
+  .ind-card { width: 250px; }
+  .ind-card-ico { top: 12px; left: 12px; }
+  .tl-ico { width: 38px; height: 38px; border-radius: 11px; }
+  .tl-ico svg { width: 20px; height: 20px; }
+  .ind-card-name { font-size: 0.95rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .prod-card, .prod-card::after, .prod-buy, .prod-buy-icon,
-  .industry-item, .why-service-item, .hrc-cta, .hrc-cta svg { transition: none; }
-  .prod-card:hover, .industry-item:hover, .why-service-item:hover { transform: none; }
+  .why-service-item, .hrc-cta, .hrc-cta svg { transition: none; }
+  .prod-card:hover, .why-service-item:hover { transform: none; }
+  /* Freeze the showcase entirely: no drifting light, no grain, no marquee. */
+  .ind-track { animation: none; }
+  .ind-rail { overflow-x: auto; scrollbar-width: none; }
+  .ind-rail::-webkit-scrollbar { display: none; }
+  .ind-reel-frame, .ind-card-photo, .ind-grain { animation: none; }
+  .ind-card, .ind-card-ico { transition: none; }
+  .ind-card:hover { transform: none; }
+  .ind-card:hover .ind-card-ico { transform: none; }
+  .ind-card:hover::after { animation: none; }
 }
 
 /* ============================================================
@@ -8007,3 +8334,203 @@ body:has(.cv-band) .page-hero { border-bottom: none; }
   .job-card, .job-detail-link, .job-apply, .admin-btn, .job-del { transition: none; }
   .job-card:hover { transform: none; }
 }
+
+/* =========================================================================
+   APPROACH PAGE - LIGHT THEME
+   The convergence band (comparison / journey / exclusive / reviews) was built
+   on a black floor with a 3D particle field. This repaints it onto the same
+   warm light surface Services and Jobs use. Every selector here is approach-
+   only, so it can't leak elsewhere. Appended last to win by source order.
+   ========================================================================= */
+
+/* 1. Theme tokens flipped for a light ground (copper accents, dark warm text) */
+:root {
+  --cv-gold: #A0522D;
+  --cv-gold-hi: #C97B2E;
+  --cv-ink: #FFFFFF;
+  --cv-text: #33291F;
+  --cv-dim: #6F6257;
+  --cv-mute: #8A7E70;
+  --cv-line: rgba(160, 82, 45, 0.20);
+}
+.cv-compare   { --cv-gold: #A0522D; }
+.cv-journey   { --cv-gold: #9A5A2C; }
+.cv-exclusive { --cv-gold: #B4622E; }
+
+/* 2. Band becomes a warm light floor; drop the dark particle field */
+.cv-band { background: var(--bg-cream); }
+.cv-band > .fx-panel { display: none !important; }
+.cv-band::before {
+  background:
+    radial-gradient(48% 26% at 22% 6%,  rgba(160, 82, 45, 0.05), transparent 70%),
+    radial-gradient(52% 24% at 78% 40%, rgba(201, 123, 46, 0.05), transparent 72%),
+    radial-gradient(46% 26% at 30% 74%, rgba(160, 82, 45, 0.04), transparent 70%);
+}
+
+/* 3. Every hard-coded light-on-dark text -> dark warm ink */
+.cv .section-header h2,
+.jr-body h3,
+.ex-body h3,
+.ex-pillar h4,
+.ex-l-name,
+.ex-tl-t,
+.cmp-cell--tl,
+.cv-reviews .author-name { color: #2A2118; }
+
+/* 4. Comparison */
+.cmp-fig--trad { border-color: rgba(0, 0, 0, 0.1); }
+.cmp-fig--tl { box-shadow: 0 0 0 1px rgba(160, 82, 45, 0.22), 0 22px 50px rgba(122, 62, 32, 0.18); }
+
+/* 5. Journey */
+.jr-photo { box-shadow: 0 18px 40px rgba(122, 62, 32, 0.16); }
+.jr-chip { color: #fff; }
+.jr-deliv { background: rgba(160, 82, 45, 0.06); }
+.jr-num { opacity: 0.5; }
+
+/* 6. Exclusive cards -> white surfaces on the cream band */
+.ex-card { background: var(--bg-white); border-color: rgba(160, 82, 45, 0.18); box-shadow: 0 10px 30px rgba(122, 62, 32, 0.08); }
+.ex-card:hover { border-color: var(--copper); }
+.ex-card.is-open { background: var(--bg-white); border-color: var(--copper); }
+.ex-toggle:hover { background: rgba(160, 82, 45, 0.08); }
+.ex-close:hover { background: rgba(160, 82, 45, 0.08); }
+.ex-funnel li { background: var(--bg-beige); }
+.ex-pillar { background: var(--bg-beige); }
+.ex-mini .ex-fn { fill: rgba(160, 82, 45, 0.12); }
+.ex-mini .ex-pil rect { fill: rgba(160, 82, 45, 0.16); }
+.ex-mini .ex-rail { stroke: rgba(160, 82, 45, 0.35); }
+
+/* 7. Testimonial rail on the band -> white cards */
+.cv-reviews .testimonial-card { background: var(--bg-white); box-shadow: 0 10px 30px rgba(122, 62, 32, 0.07); }
+.cv-reviews .testimonial-card:hover { border-color: var(--copper); }
+
+/* 8. Fixes: a later rule forced the "TopLead" comparison heading white (it was
+   the emphasised side on the dark theme) - keep it emphasised as copper here.
+   And the journey spine was a faint light-gold that vanished on the cream. */
+.cmp-head--tl { color: var(--cv-gold); }
+.jr-steps::before {
+  background: linear-gradient(180deg, transparent, rgba(160, 82, 45, 0.42) 8%, rgba(160, 82, 45, 0.42) 92%, transparent);
+}
+
+/* =========================================================================
+   TEXT CASING (per request)
+   Hero titles -> ALL CAPS. Hero subtitles -> Title Case (each word).
+   Everything else keeps sentence case as written.
+   ========================================================================= */
+.page-hero-title,
+.hero-headline { text-transform: uppercase; }
+.page-hero-subtitle { text-transform: capitalize; }
+
+/* The homepage logo marquee was the one horizontal strip that didn't stop on
+   hover. Now every auto-scrolling strip (logos, partners, industries, reviews)
+   pauses when the cursor rests on it. */
+.logos-marquee:hover .logos-track,
+.logos-marquee:focus-within .logos-track { animation-play-state: paused; }
+
+/* =========================================================================
+   BLOG: search + topic filter + card meta (author / date)
+   ========================================================================= */
+.blog-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+}
+.blog-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 260px;
+  min-width: 220px;
+}
+.blog-search-ico {
+  position: absolute;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  color: var(--copper);
+  pointer-events: none;
+}
+.blog-search-input {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  border: 1px solid rgba(160, 82, 45, 0.25);
+  border-radius: 50px;
+  background: var(--bg-white);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.blog-search-input:focus {
+  outline: none;
+  border-color: var(--copper);
+  box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.12);
+}
+.blog-cats { display: flex; flex-wrap: wrap; gap: 8px; }
+.blog-chip {
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1px solid rgba(160, 82, 45, 0.25);
+  background: var(--bg-white);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.blog-chip:hover { border-color: var(--copper); color: var(--copper-dark); }
+.blog-chip.is-active {
+  background: linear-gradient(135deg, var(--gold-light), var(--copper));
+  border-color: transparent;
+  color: #fff;
+}
+.blog-chip:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+.blog-empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+  padding: 48px 0;
+}
+.post-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.post-card-author { font-weight: 600; color: var(--copper-dark); }
+.post-card-dot { opacity: 0.5; }
+
+/* =========================================================================
+   SCROLLABLE AUTO-RAILS
+   JS (initScrollRail) turns each horizontal strip into a native horizontally-
+   scrollable viewport it nudges with rAF. That means a Mac trackpad two-finger
+   swipe (or click-drag / touch) scrolls it, and it keeps auto-running when idle.
+   overscroll-behavior-x: contain stops a horizontal swipe from triggering the
+   browser's back/forward gesture.
+   ========================================================================= */
+.tl-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+.tl-scroll:active { cursor: grabbing; }
+.tl-scroll::-webkit-scrollbar { display: none; }
+.tl-scroll.logos-marquee { width: 100%; }
+/* the rAF loop drives scrollLeft, so the old keyframe translate must be off */
+.tl-scroll .logos-track,
+.tl-scroll .partner-track,
+.tl-scroll .ind-track,
+.tl-scroll .tst-track { animation: none !important; }
+/* .logos-track is a flex child of the marquee; keep it at content width so it
+   overflows (and therefore scrolls) instead of shrinking to the viewport. */
+.tl-scroll .logos-track { width: max-content; flex-shrink: 0; }

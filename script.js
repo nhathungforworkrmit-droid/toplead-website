@@ -44,18 +44,18 @@ var translations = {
     "founders.tag": "Đội ngũ sáng lập",
     "founders.title": "Những người sáng lập",
     "founders.f1.name": "Tạ Vinh An",
-    "founders.f1.role": "CEO & Founder",
+    "founders.f1.role": "CEO & Nhà sáng lập",
     "founders.f1.quote": "“Tôi tin rằng: mỗi người nên xứng đáng thuộc về đúng nơi họ cần.”",
-    "founders.f1.exp1": "7+ năm kinh nghiệm HR & tuyển dụng cấp cao (IT, CS, FMCG, F&B, Hospitality, HR)",
+    "founders.f1.exp1": "7+ năm kinh nghiệm HR & tuyển dụng cấp cao (IT, CS, FMCG, F&B, Khách sạn, HR)",
     "founders.f1.exp2": "Chứng chỉ SHRM-CP (2026)",
     "founders.f2.name": "Nguyễn Trần Nhật Hưng",
-    "founders.f2.role": "CFO & Co-Founder",
+    "founders.f2.role": "CFO & Đồng sáng lập",
     "founders.f2.quote": "“Việc làm HR cũng giống như đối diện một vấn đề mà không có lời giải nào là hoàn toàn chính xác.”",
-    "founders.f2.exp1": "5+ năm kinh nghiệm tuyển dụng cho SMEs (Finance, Kế toán, Xây dựng, Cơ điện)",
+    "founders.f2.exp1": "5+ năm kinh nghiệm tuyển dụng cho SME (Tài chính, Kế toán, Xây dựng, Cơ điện)",
     "founders.f3.name": "Vũ Quang Bình",
-    "founders.f3.role": "CCO & Co-Founder",
+    "founders.f3.role": "CCO & Đồng sáng lập",
     "founders.f3.quote": "“Không phải ai cũng là một cá nhân thiên tài - nhân sự giỏi cần được bồi đắp bởi đúng môi trường.”",
-    "founders.f3.exp1": "Hơn 4 năm tuyển dụng chuyên nghiệp mảng sales B2C/B2B & phát triển kinh doanh (Bảo hiểm, Bất động sản, Xây dựng)",
+    "founders.f3.exp1": "Hơn 4 năm tuyển dụng chuyên nghiệp mảng bán hàng B2C/B2B & phát triển kinh doanh (Bảo hiểm, Bất động sản, Xây dựng)",
     "logos.label": "Đối tác tin cậy của các công ty hàng đầu",
     "value.title": "Những nhân sự giỏi luôn đến từ người bạn tin tưởng",
     "value.card1.title": "Mạng lưới chuyên gia",
@@ -66,9 +66,9 @@ var translations = {
     "services.title": "Giải pháp tuyển dụng toàn diện",
     "services.subtitle": "Phục vụ mọi nhu cầu nhân sự của doanh nghiệp",
     "services.s1.title": "Tìm kiếm nhân sự cấp cao",
-    "services.s1.desc": "Tuyển dụng CEO, CFO, Director và các vị trí quản lý cao cấp với quy trình kín đáo và hiệu quả.",
+    "services.s1.desc": "Tuyển dụng CEO, CFO, Giám đốc và các vị trí quản lý cao cấp với quy trình kín đáo và hiệu quả.",
     "services.s2.title": "Xây dựng đội ngũ",
-    "services.s2.desc": "Giúp startup và doanh nghiệp đang phát triển xây dựng đội ngũ từ giai đoạn foundation.",
+    "services.s2.desc": "Giúp công ty khởi nghiệp và doanh nghiệp đang phát triển xây dựng đội ngũ từ giai đoạn nền móng.",
     "services.s3.title": "Tuyển dụng công nghệ",
     "services.s3.desc": "Chuyên tuyển Developer, Data Scientist, Product Manager cho các công ty công nghệ.",
     "pain.tag": "Thách thức",
@@ -79,7 +79,7 @@ var translations = {
     "pain.word4": "thiếu nhân sự",
     "pain.p1.title": "Cần nhân sự gấp nhưng tuyển hoài không được",
     "pain.p1.desc": "Chúng tôi giúp bạn tiếp cận ứng viên phù hợp trong thời gian ngắn nhất.",
-    "pain.p2.title": "Founder giỏi kỹ thuật nhưng không biết tuyển người",
+    "pain.p2.title": "Người sáng lập giỏi kỹ thuật nhưng không biết tuyển người",
     "pain.p2.desc": "Đội ngũ của chúng tôi hỗ trợ bạn xây dựng đội ngũ chuyên nghiệp.",
     "pain.p3.title": "Nhân sự cũ nghỉ, công việc bị đình trệ",
     "pain.p3.desc": "Quy trình handover nhanh chóng, giảm thiểu gián đoạn công việc.",
@@ -108,32 +108,34 @@ var translations = {
     "svc.incl": "Bao gồm",
     "svc.price": "Liên hệ báo giá",
     "svc.add": "Thêm vào yêu cầu tư vấn",
-    "svc.p1.tier": "Intern - Entry level",
+    "svc.p1.tier": "Thực tập - Đầu vào",
     "svc.p1.name": "Headhunting",
     "svc.p1.tagline": "Tuyển số lượng lớn cho vị trí đầu vào",
-    "svc.p1.desc": "Chủ động tiếp cận và tuyển nhanh ứng viên cho các vị trí thực tập, entry-level và tuyển số lượng lớn. Phù hợp khi doanh nghiệp cần lấp nhiều vị trí trong thời gian ngắn.",
-    "svc.p1.f1": "Tuyển số lượng lớn (mass hiring)",
-    "svc.p1.f2": "Vị trí thực tập, fresher, entry-level",
+    "svc.p1.desc": "Chủ động tiếp cận và tuyển nhanh ứng viên cho các vị trí thực tập, đầu vào và tuyển số lượng lớn. Phù hợp khi doanh nghiệp cần lấp nhiều vị trí trong thời gian ngắn.",
+    "svc.p1.f1": "Tuyển số lượng lớn",
+    "svc.p1.f2": "Vị trí thực tập, mới ra trường, đầu vào",
     "svc.p1.f3": "Thời gian tuyển nhanh",
-    "svc.p2.tier": "Mid - Senior level",
+    "svc.p2.tier": "Cấp trung - Cấp cao",
     "svc.p2.name": "Executive Talent Selection",
     "svc.p2.tagline": "Tuyển chọn nhân sự chuyên môn và quản lý",
     "svc.p2.desc": "Tìm kiếm và sàng lọc kỹ lưỡng ứng viên cho các vị trí chuyên môn cấp trung đến cấp cao. Áp dụng Guardian Screen 5 lớp để đảm bảo chất lượng và độ phù hợp.",
-    "svc.p2.f1": "Vị trí Mid đến Senior (chuyên viên, trưởng nhóm, quản lý)",
+    "svc.p2.f1": "Vị trí cấp trung đến cấp cao (chuyên viên, trưởng nhóm, quản lý)",
     "svc.p2.f2": "Guardian Screen - sàng lọc 5 lớp",
-    "svc.p2.f3": "Shortlist 3-5 ứng viên trong 48 giờ",
-    "svc.p3.tier": "C-level",
+    "svc.p2.f3": "Danh sách rút gọn 3-5 ứng viên trong 48 giờ",
+    "svc.p3.tier": "Cấp điều hành",
     "svc.p3.name": "Executive Search",
     "svc.p3.tagline": "Tìm kiếm lãnh đạo cấp cao",
-    "svc.p3.desc": "Tìm kiếm nhân sự cấp cao (CEO, CFO, CTO, COO, VP, Director) với quy trình kín đáo, bảo mật và chuyên nghiệp. Tiếp cận trực tiếp những ứng viên hàng đầu trên thị trường.",
+    "svc.p3.desc": "Tìm kiếm nhân sự cấp cao (CEO, CFO, CTO, COO, VP, Giám đốc) với quy trình kín đáo, bảo mật và chuyên nghiệp. Tiếp cận trực tiếp những ứng viên hàng đầu trên thị trường.",
     "svc.p3.f1": "CEO, CFO, CTO, COO",
-    "svc.p3.f2": "VP, Director, Head of Departments",
+    "svc.p3.f2": "VP, Giám đốc, Trưởng các phòng ban",
     "svc.p3.f3": "Quy trình bảo mật tuyệt đối",
     "svc.hrc.label": "Dịch vụ bổ trợ",
     "svc.hrc.name": "HR Consulting",
-    "svc.hrc.desc": "Tư vấn chiến lược nhân sự và xây dựng quy trình tuyển dụng nội bộ: chuẩn hoá JD, khung lương theo thị trường, và lộ trình onboarding. Dành cho doanh nghiệp muốn tự chủ khâu tuyển dụng về lâu dài.",
+    "svc.hrc.desc": "Tư vấn chiến lược nhân sự và xây dựng quy trình tuyển dụng nội bộ: chuẩn hoá JD, khung lương theo thị trường, và lộ trình hội nhập. Dành cho doanh nghiệp muốn tự chủ khâu tuyển dụng về lâu dài.",
     "svc.hrc.cta": "Trao đổi với chúng tôi",
     "svc.ind.sub": "Kinh nghiệm tuyển dụng trải rộng trên tám nhóm ngành, mỗi nhóm có mạng lưới ứng viên riêng.",
+    "svc.ind.kicker": "Chuyên môn theo ngành",
+    "svc.ind.heroline": "Một mạng lưới ứng viên riêng cho từng lĩnh vực",
     "svc.why.sub": "Bốn cam kết chúng tôi đặt ra cho chính mình, không phải khẩu hiệu.",
     "jobs.detail": "Xem chi tiết",
     "jobs.partner": "Đối tác TopLead",
@@ -180,9 +182,9 @@ var translations = {
     "sc.c2.h": "Chuyên sâu cho doanh nghiệp SME",
     "sc.c2.p": "Nơi mỗi lần tuyển đúng người tạo ra khác biệt lớn nhất - TopLead đồng hành cùng SME Việt Nam.",
     "sc.c3.h": "Đối tác nói gì về TopLead",
-    "testimonials.t1.text": "“Agency hỗ trợ tuyển rất nhanh - chỉ sau 5 ngày đã có 3 ứng viên phù hợp để phỏng vấn. Tiết kiệm rất nhiều thời gian cho đội ngũ HR nội bộ.”",
-    "testimonials.t2.text": "“For real, TopLead hiểu rõ nhu cầu doanh nghiệp - không gửi hồ sơ đại trà mà chọn lọc rất kỹ. Rất recommend!”",
-    "testimonials.t3.text": "“Dịch vụ tốt, rất recommend vì cam kết thực tế của họ.”",
+    "testimonials.t1.text": "“Đội ngũ hỗ trợ tuyển rất nhanh - chỉ sau 5 ngày đã có 3 ứng viên phù hợp để phỏng vấn. Tiết kiệm rất nhiều thời gian cho đội ngũ HR nội bộ.”",
+    "testimonials.t2.text": "“Thật sự, TopLead hiểu rõ nhu cầu doanh nghiệp - không gửi hồ sơ đại trà mà chọn lọc rất kỹ. Rất đáng giới thiệu!”",
+    "testimonials.t3.text": "“Dịch vụ tốt, rất đáng giới thiệu vì cam kết thực tế của họ.”",
     "contact.tag": "Liên hệ",
     "contact.title": "Bắt đầu hợp tác",
     "contact.subtitle": "Để lại thông tin, chúng tôi sẽ liên hệ lại trong 24 giờ.",
@@ -216,7 +218,7 @@ var translations = {
     "form.email": "Email",
     "form.phone": "Số điện thoại",
     "form.optional": "(Tùy chọn)",
-    "form.cv": "Đính kèm CV/Resume",
+    "form.cv": "Đính kèm CV",
     "form.drag": "Kéo thả file hoặc",
     "form.choose": "chọn file",
     "form.maxSize": "tối đa 5MB",
@@ -258,11 +260,11 @@ var translations = {
     "contact.form.positionPlaceholder": "Vị trí mong muốn",
     "contact.form.experience": "Kinh nghiệm",
     "contact.form.experienceSelect": "Chọn mức kinh nghiệm...",
-    "contact.form.linkedin": "Link LinkedIn / Portfolio",
+    "contact.form.linkedin": "Liên kết LinkedIn / Portfolio",
     "contact.form.linkedinPlaceholder": "https://linkedin.com/in/...",
     "contact.form.note": "Ghi chú thêm",
     "contact.form.notePlaceholder": "Giới thiệu ngắn về bản thân...",
-    "contact.form.uploadCV": "Upload CV",
+    "contact.form.uploadCV": "Tải lên CV",
     "contact.form.uploadCVLabel": "Tải lên CV (PDF, DOC)",
     "contact.form.submit": "Gửi yêu cầu",
     "contact.form.submitCandidate": "Gửi hồ sơ",
@@ -278,11 +280,11 @@ var translations = {
     "contact.faq.q1": "TopLead có phí cho ứng viên không?",
     "contact.faq.a1": "Không. TopLead cung cấp dịch vụ hoàn toàn miễn phí cho ứng viên.",
     "contact.faq.q2": "Thời gian tuyển dụng mất bao lâu?",
-    "contact.faq.a2": "Với quy trình TopLead, trung bình chỉ 14 ngày để fill một vị trí.",
+    "contact.faq.a2": "Với quy trình TopLead, trung bình chỉ 14 ngày để tuyển xong một vị trí.",
     "contact.faq.q3": "Có bảo hành không?",
     "contact.faq.a3": "TopLead cam kết 3 tháng bảo hành thay thế miễn phí.",
     "contact.faq.q4": "Làm sao để theo dõi tiến trình?",
-    "contact.faq.a4": "Bạn sẽ được cập nhật thường xuyên qua email và phone.",
+    "contact.faq.a4": "Bạn sẽ được cập nhật thường xuyên qua email và điện thoại.",
     "jobs.hero.title": "Việc làm",
     "jobs.hero.subtitle": "Cơ hội nghề nghiệp hấp dẫn từ các doanh nghiệp hàng đầu",
     "jobs.filter.search": "Tìm kiếm",
@@ -301,7 +303,10 @@ var translations = {
     "tools.blog.tag": "Blog",
     "tools.blog.title": "Bài viết mới nhất",
     "tools.blog.subtitle": "Cập nhật xu hướng và kinh nghiệm tuyển dụng",
-    "tools.resources.tag": "Resources",
+    "blog.all": "Tất cả",
+    "blog.searchPh": "Tìm bài viết theo tiêu đề...",
+    "blog.empty": "Không tìm thấy bài viết phù hợp.",
+    "tools.resources.tag": "Tài nguyên",
     "tools.resources.title": "Công cụ & Tài nguyên",
     "tools.resources.subtitle": "Tải miễn phí các tài liệu hữu ích",
     "tools.resources.download": "Tải xuống ↓",
@@ -315,7 +320,7 @@ var translations = {
     "services.option": "Chọn dịch vụ...",
     "services.optionExec": "Executive Search",
     "services.optionETS": "Executive Talent Selection",
-    "services.optionStaff": "Staffing",
+    "services.optionStaff": "Cung ứng nhân sự",
     "services.optionRPO": "RPO",
     "services.optionHead": "Headhunting",
     "services.optionConsult": "HR Consulting",
@@ -438,7 +443,7 @@ var translations = {
     "pw.miso": "Ẩm thực & đồ uống (F&B)",
     "pw.rmit": "Đối tác độc quyền trong tuyển chọn ứng viên",
     "pw.tan": "Gỗ & nội thất - khách hàng tuyển dụng",
-    "pw.fit": "Gym, lifestyle & tổ chức sự kiện",
+    "pw.fit": "Gym, phong cách sống & tổ chức sự kiện",
     "pw.supp": "Gym & sản phẩm bảo vệ sức khỏe",
     "pw.xuanvinh": "Chuỗi cửa hàng trang sức",
     "pw.thadico": "Bất động sản & xây dựng",
@@ -479,7 +484,7 @@ var translations = {
     "tl.r1": "Checklist toàn diện để đánh giá ứng viên trong phỏng vấn",
     "tl.r2": "Báo cáo mức lương thị trường theo ngành và vị trí",
     "tl.r3": "Mẫu mô tả công việc chuẩn để thu hút ứng viên chất lượng",
-    "tl.r4": "Hướng dẫn onboarding hiệu quả cho nhân viên mới",
+    "tl.r4": "Hướng dẫn hội nhập hiệu quả cho nhân viên mới",
     "tl.r5": "Hướng dẫn xây dựng thương hiệu nhà tuyển dụng hấp dẫn",
     "tl.r6": "Chiến lược giữ chân nhân tài trong thị trường cạnh tranh",
     "ct.name": "Họ và tên *",
@@ -501,30 +506,30 @@ var translations = {
     "ct.h2": "Thứ 7: 8:30 - 12:00",
     "ap.t1": "Đăng tin, chờ ứng viên đến",
     "ap.t1d": "Chờ ứng viên nộp CV, không chủ động tìm kiếm",
-    "ap.t2": "CV lọc bằng keyword",
+    "ap.t2": "CV lọc bằng từ khóa",
     "ap.t2d": "CV được lọc qua keyword, không đánh giá sâu",
-    "ap.t3": "Reference check hình thức",
+    "ap.t3": "Kiểm tra tham chiếu hình thức",
     "ap.t3d": "Ít khi kiểm tra background thực tế",
     "ap.t4": "Không cam kết sau tuyển",
     "ap.t4d": "Không hỗ trợ nếu ứng viên nghỉ sớm",
-    "ap.t5": "Fill role trong 2-3 tháng",
+    "ap.t5": "Lấp đầy vị trí trong 2-3 tháng",
     "ap.t5d": "Mất 2-3 tháng để fill một vị trí",
-    "ap.l1": "Chủ động headhunt - không chờ",
+    "ap.l1": "Chủ động tìm kiếm - không chờ",
     "ap.l1d": "Proactive search, tiếp cận ứng viên tiềm năng",
     "ap.l2": "Guardian Screen - quy trình 5 lớp riêng của TopLead",
     "ap.l2d": "Năm lớp sàng lọc liên tiếp, chỉ khoảng 4% ứng viên đi hết chặng.",
-    "ap.l3": "3+ reference call sâu trước mỗi shortlist",
+    "ap.l3": "3+ cuộc gọi tham chiếu sâu trước mỗi danh sách rút gọn",
     "ap.l3d": "Kiểm tra 3+ references trước khi giới thiệu",
     "ap.l4": "Bảo hành 3 tháng - thay thế miễn phí",
     "ap.l4d": "Miễn phí thay thế trong 3 tháng",
-    "ap.l5": "Shortlist trong 48 giờ",
+    "ap.l5": "Danh sách rút gọn trong 48 giờ",
     "ap.l5d": "Nhận 3-5 hồ sơ đã sàng lọc trong 48 giờ đầu tiên - không phải chờ vài tuần.",
     "ap.s1": "Tìm hiểu nhu cầu tuyển dụng, văn hóa công ty, và yêu cầu chi tiết cho vị trí",
-    "ap.s2": "Chủ động headhunt và tiếp cận ứng viên phù hợp từ database, referral, và thị trường",
+    "ap.s2": "Chủ động tìm kiếm và tiếp cận ứng viên phù hợp từ cơ sở dữ liệu, mạng lưới giới thiệu, và thị trường",
     "ap.s3": "Áp dụng Guardian Screen - quy trình 5 lớp sàng lọc riêng của TopLead",
-    "ap.s4": "Gửi 3-5 hồ sơ đã sàng lọc kỹ kèm interview notes",
-    "ap.s5": "Hỗ trợ sắp xếp lịch phỏng vấn và thu thập feedback hai chiều",
-    "ap.s6": "Hỗ trợ onboarding và theo dõi trong suốt thời gian bảo hành",
+    "ap.s4": "Gửi 3-5 hồ sơ đã sàng lọc kỹ kèm ghi chú phỏng vấn",
+    "ap.s5": "Hỗ trợ sắp xếp lịch phỏng vấn và thu thập phản hồi hai chiều",
+    "ap.s6": "Hỗ trợ hội nhập và theo dõi trong suốt thời gian bảo hành",
     "ap.tradTitle": "Tuyển dụng truyền thống",
     "ap.step1": "Tư vấn",
     "ap.step2": "Tìm kiếm",
@@ -534,20 +539,20 @@ var translations = {
     "ap.step6": "Tuyển dụng",
     "jr.tag": "Hành trình",
     "cmp.title": "Cách thường thấy và cách của chúng tôi",
-    "cmp.sub": "Kéo thanh ở giữa để chuyển trọng tâm giữa hai cách làm.",
+    "cmp.sub": "Cùng một vị trí cần tuyển, hai cách làm - khác biệt nằm ở từng chi tiết.",
     "cmp.trad": "Tuyển dụng truyền thống",
     "cmp.tl": "TopLead Recruitment Co. Ltd.",
     "cmp.hint": "Kéo về giữa để so sánh",
     "ap.t1.x": "Phụ thuộc vào lượng CV tự đến - chất lượng không kiểm soát được, thời gian không dự đoán được.",
-    "ap.t2.x": "CV lọc bằng từ khóa tự động - bỏ sót người giỏi không dùng đúng keyword, giữ lại người biết viết CV cho máy đọc.",
-    "ap.t3.x": "Gọi một reference cho có thủ tục - thường là người ứng viên tự chọn, không phản ánh thực tế.",
+    "ap.t2.x": "CV lọc bằng từ khóa tự động - bỏ sót người giỏi không dùng đúng từ khóa, giữ lại người biết viết CV cho máy đọc.",
+    "ap.t3.x": "Gọi một nguồn tham chiếu cho có thủ tục - thường là người ứng viên tự chọn, không phản ánh thực tế.",
     "ap.t4.x": "Ứng viên nghỉ sau hai tuần? Đó là việc của bạn - phí đã thu xong rồi.",
-    "ap.t5.x": "Từ lúc đăng tin đến lúc có người nhận offer thường mất 45-90 ngày. Ghế trống càng lâu, chi phí ẩn càng lớn.",
-    "ap.l1.x": "Chủ động tiếp cận từ database, referral network, và headhunt trực tiếp trên LinkedIn.",
+    "ap.t5.x": "Từ lúc đăng tin đến lúc có người nhận lời mời làm việc thường mất 45-90 ngày. Ghế trống càng lâu, chi phí ẩn càng lớn.",
+    "ap.l1.x": "Chủ động tiếp cận từ cơ sở dữ liệu, mạng lưới giới thiệu, và tiếp cận trực tiếp trên LinkedIn.",
     "ap.l2.x": "Năm lớp sàng lọc thật: kỹ năng, phỏng vấn, văn hóa, tham chiếu, duyệt cuối. Từ 80 ứng viên chỉ còn 3.",
-    "ap.l3.x": "Gọi tối thiểu 3 references do TopLead chọn - hỏi sâu về hiệu suất, thái độ làm việc, và lý do nghỉ thật sự.",
+    "ap.l3.x": "Gọi tối thiểu 3 nguồn tham chiếu do TopLead chọn - hỏi sâu về hiệu suất, thái độ làm việc, và lý do nghỉ thật sự.",
     "ap.l4.x": "90 ngày theo dõi chủ động. Không phù hợp trong 3 tháng thì thay thế miễn phí, không phát sinh chi phí.",
-    "ap.l5.x": "Shortlist 3-5 hồ sơ trong 48 giờ đầu. Phỏng vấn ngay tuần đầu. Trung bình 2-4 tuần là có người.",
+    "ap.l5.x": "Rút gọn danh sách 3-5 hồ sơ trong 48 giờ đầu. Phỏng vấn ngay tuần đầu. Trung bình 2-4 tuần là có người.",
     "tst.all": "Xem tất cả đánh giá trên Google",
     "cmp.cta": "Muốn biết quy trình cụ thể? Kéo xuống - hoặc",
     "cmp.ctaLink": "liên hệ ngay",
@@ -561,25 +566,25 @@ var translations = {
     "ex.g.l3d": "Phong cách làm việc, sở thích quản lý, sự phù hợp với giá trị và văn hóa doanh nghiệp",
     "ex.g.l4": "Lớp 4: Xác minh tham chiếu",
     "ex.g.l4d": "3+ cuộc gọi tham chiếu - lịch sử hiệu suất, thái độ làm việc, lý do nghỉ việc thực tế",
-    "ex.g.l5": "Lớp 5: Duyệt cuối & shortlist",
-    "ex.g.l5d": "Hội đồng TopLead đánh giá toàn diện hồ sơ, chọn top 3 gửi khách hàng",
+    "ex.g.l5": "Lớp 5: Duyệt cuối & danh sách rút gọn",
+    "ex.g.l5d": "Hội đồng TopLead đánh giá toàn diện hồ sơ, chọn 3 hồ sơ tốt nhất gửi khách hàng",
     "ex.g.note": "Chỉ ~4% ứng viên vượt qua toàn bộ Guardian Screen",
     "ex.t.cap": "Nói thẳng từ đầu, kể cả khi đó không phải điều khách hàng muốn nghe.",
     "ex.t.p1": "Trung thực",
-    "ex.t.p1d": "Nếu JD không hợp lý - nói thẳng. Nếu thị trường không có người ở mức lương đó - nói thẳng. Không hứa để lấy deal. TopLead từ chối nhận project nếu biết trước không thể deliver.",
+    "ex.t.p1d": "Nếu JD không hợp lý - nói thẳng. Nếu thị trường không có người ở mức lương đó - nói thẳng. Không hứa để lấy hợp đồng. TopLead từ chối nhận dự án nếu biết trước không thể thực hiện.",
     "ex.t.p2": "Trách nhiệm",
-    "ex.t.p2d": "Mỗi placement có 1 người chịu trách nhiệm rõ ràng - không phải \"team\". Follow-up chủ động tại Day 30, Day 60, Day 90. Nếu sai, TopLead sửa và chịu chi phí.",
+    "ex.t.p2d": "Mỗi lần tuyển có 1 người chịu trách nhiệm rõ ràng - không phải \"cả nhóm\". Theo dõi chủ động tại Ngày 30, Ngày 60, Ngày 90. Nếu sai, TopLead sửa và chịu chi phí.",
     "ex.t.p3": "Đồng hành",
-    "ex.t.p3d": "Không phải vendor bán CV - mà là đối tác cùng giải bài toán nhân sự. Tư vấn JD, salary benchmark, onboarding support. Vẫn hỗ trợ sau khi placement hoàn tất.",
-    "ex.gr.m1": "Performance review call",
+    "ex.t.p3d": "Không phải nhà cung cấp bán CV - mà là đối tác cùng giải bài toán nhân sự. Tư vấn JD, khảo sát mức lương, hỗ trợ hội nhập. Vẫn hỗ trợ sau khi tuyển dụng hoàn tất.",
+    "ex.gr.m1": "Đánh giá hiệu suất",
     "ex.gr.m1d": "Đánh giá mức độ hòa nhập ban đầu của ứng viên",
-    "ex.gr.m2": "Mid-point check-in",
+    "ex.gr.m2": "Kiểm tra giữa kỳ",
     "ex.gr.m2d": "Theo dõi tiến độ, xử lý vấn đề sớm trước khi thành lớn",
-    "ex.gr.m3": "Full evaluation",
+    "ex.gr.m3": "Đánh giá toàn diện",
     "ex.gr.m3d": "Đánh giá toàn diện, kết thúc thời gian bảo hành",
     "ex.gr.note": "Trong 90 ngày, nếu ứng viên không phù hợp - TopLead thay thế miễn phí, không phát sinh chi phí.",
-    "jr.title": "Hành trình 6 bước",
-    "jr.sub": "Từ lúc nhận brief đến khi ứng viên qua thời gian bảo hành",
+    "jr.title": "Quy trình tuyển dụng 6 bước",
+    "jr.sub": "Từ lúc nhận yêu cầu đến khi ứng viên qua thời gian bảo hành",
     "jr.youGet": "Bạn nhận được",
     "jr.time1": "Ngày 1",
     "jr.time2": "Ngày 2-5",
@@ -587,12 +592,12 @@ var translations = {
     "jr.time4": "Ngày 5-7",
     "jr.time5": "Tuần 2",
     "jr.time6": "Tháng 1-3",
-    "jr.dl1": "Tài liệu brief - nhu cầu, ngân sách, thời hạn, văn hóa công ty",
-    "jr.dl2": "Long list 15-25 ứng viên tiềm năng",
-    "jr.dl3": "Kết quả Guardian Screen - chi tiết pass/fail từng lớp",
-    "jr.dl4": "Shortlist 3-5 CV trong 48 giờ",
-    "jr.dl5": "Điều phối phỏng vấn và báo cáo feedback hai chiều",
-    "jr.dl6": "Hỗ trợ offer, onboarding, và bảo hành 3 tháng",
+    "jr.dl1": "Bản mô tả yêu cầu - nhu cầu, ngân sách, thời hạn, văn hóa công ty",
+    "jr.dl2": "Danh sách dài 15-25 ứng viên tiềm năng",
+    "jr.dl3": "Kết quả Guardian Screen - chi tiết đạt/không đạt từng lớp",
+    "jr.dl4": "Danh sách rút gọn 3-5 CV trong 48 giờ",
+    "jr.dl5": "Điều phối phỏng vấn và báo cáo phản hồi hai chiều",
+    "jr.dl6": "Hỗ trợ thư mời, hội nhập, và bảo hành 3 tháng",
     "ex.g.role": "Bộ lọc đầu vào - ai được bước lên hành trình",
     "ex.g.sub": "Quy trình 5 lớp sàng lọc",
     "ex.g.summary": "Từ 80 ứng viên đầu vào, chỉ 3 hồ sơ đến tay khách hàng - khoảng 4% đi hết cả năm lớp.",
@@ -615,8 +620,8 @@ var translations = {
     "ap.w6": "Bước 6: Close",
     "ap.w6d": "Offer + onboarding + guarantee",
     "ap.q1": "“Mình rất hài lòng với dịch vụ tư vấn của TopLead. Đội ngũ rất chuyên nghiệp, hỗ trợ tận tâm và đưa ra những lời khuyên hữu ích cho lộ trình nghề nghiệp của mình. Rất đáng tin cậy!”",
-    "ap.q2": "“Sau khi nhận việc, agency vẫn hỏi thăm và hỗ trợ trong suốt thời gian thử việc.”",
-    "ap.q3": "“Em đã có job thông qua TopLead, bạn Cường cũng vậy, bạn Quân cũng thế. Bạn Hiếu rồi cũng sẽ qua!”",
+    "ap.q2": "“Sau khi nhận việc, đội ngũ vẫn hỏi thăm và hỗ trợ trong suốt thời gian thử việc.”",
+    "ap.q3": "“Em đã có việc thông qua TopLead, bạn Cường cũng vậy, bạn Quân cũng thế. Bạn Hiếu rồi cũng sẽ qua!”",
     "ap.q4": "Dịch vụ tuyển dụng nhanh, hiệu quả và tiết kiệm. Mức phí cân bằng so với mặt bằng chung của thị trường.",
     "ap.q5": "TopLead làm việc chuyên nghiệp và tận tâm. Nhân sự được bổ sung nhanh, chất lượng đúng như cam kết.",
     "ap.q6": "Ứng viên TopLead giới thiệu đều rất chất lượng. Khâu đặt lịch hẹn nhanh gọn, tiết kiệm thời gian cho cả hai bên.",
@@ -758,6 +763,8 @@ var translations = {
     "svc.hrc.desc": "Advising on people strategy and building your in-house hiring process: standardised JDs, market-based salary bands and onboarding paths. For businesses that want to own recruitment long term.",
     "svc.hrc.cta": "Talk to us",
     "svc.ind.sub": "Hiring experience spread across eight industries, each with its own candidate network.",
+    "svc.ind.kicker": "Sector expertise",
+    "svc.ind.heroline": "A dedicated candidate network for every field",
     "svc.why.sub": "Four commitments we hold ourselves to, not slogans.",
     "jobs.detail": "View details",
     "jobs.partner": "TopLead partner",
@@ -925,6 +932,9 @@ var translations = {
     "tools.blog.tag": "Blog",
     "tools.blog.title": "Latest Articles",
     "tools.blog.subtitle": "Recruitment trends and insights",
+    "blog.all": "All",
+    "blog.searchPh": "Search articles by title...",
+    "blog.empty": "No matching articles found.",
     "tools.resources.tag": "Resources",
     "tools.resources.title": "Tools & Resources",
     "tools.resources.subtitle": "Download free useful documents",
@@ -1158,7 +1168,7 @@ var translations = {
     "ap.step6": "Placement",
     "jr.tag": "The Journey",
     "cmp.title": "The usual way, and ours",
-    "cmp.sub": "Drag the divider to shift the weight between the two approaches.",
+    "cmp.sub": "The same role to fill, two ways of working - the difference is in the details.",
     "cmp.trad": "Traditional recruitment",
     "cmp.tl": "TopLead Recruitment Co. Ltd.",
     "cmp.hint": "Drag back to the middle to compare",
@@ -1202,7 +1212,7 @@ var translations = {
     "ex.gr.m3": "Full evaluation",
     "ex.gr.m3d": "A complete review, closing the guarantee period",
     "ex.gr.note": "Within 90 days, if the hire is not right, TopLead replaces them free of charge.",
-    "jr.title": "The 6-Step Journey",
+    "jr.title": "Our 6-step recruitment process",
     "jr.sub": "From the first brief to the end of the guarantee period",
     "jr.youGet": "What you get",
     "jr.time1": "Day 1",
@@ -1295,8 +1305,11 @@ document.addEventListener("DOMContentLoaded", function() {
       if (b.getAttribute("data-lang") === savedLang) b.classList.add("active");
       else b.classList.remove("active");
     });
-    updateLanguage(savedLang);
   }
+  // Always apply the active language on load (default "vi"). Without this, a
+  // first-time visitor with no saved preference saw the raw HTML defaults -
+  // which are English on many elements - so the page read as mixed VI/EN.
+  updateLanguage(currentLang);
 
   function updateLanguage(lang) {
     var t = translations[lang];
@@ -2638,4 +2651,105 @@ function initMagneticButton() {
     stage.addEventListener("mouseleave", function() { var a = stage.querySelector(".sc-panel.active"); if (a) a.style.transform = ""; });
   }
   show(0); restart();
+})();
+
+// Industry film-strip: duplicate the card set once so the CSS marquee (which
+// translates the track by -50%) loops seamlessly. Runs only on the services
+// page; degrades gracefully (cards still render) if this never executes.
+(function initIndustryReel() {
+  var track = document.querySelector(".ind-track");
+  if (!track) return;
+  var originals = Array.prototype.slice.call(track.children);
+  originals.forEach(function (card) {
+    var clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    track.appendChild(clone);
+  });
+  // make the film-strip trackpad/drag-scrollable (measured after cloning)
+  if (typeof initScrollRail === "function") initScrollRail(track.parentElement, 0.5);
+})();
+
+// Blog: live search by title + topic-chip filter. Category matching uses the
+// stable data-cat slug, so it keeps working after a language switch; the search
+// reads the title text live, so it matches whichever language is showing.
+(function initBlogFilter() {
+  var section = document.querySelector(".blog-section");
+  if (!section) return;
+  var search = document.getElementById("blogSearch");
+  var chips = Array.prototype.slice.call(document.querySelectorAll("#blogCats .blog-chip"));
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".post-cards .post-card"));
+  var empty = document.getElementById("blogEmpty");
+  var activeCat = "all";
+
+  function apply() {
+    var q = (search && search.value ? search.value : "").trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (card) {
+      var titleEl = card.querySelector(".post-card-title");
+      var title = titleEl ? titleEl.textContent.toLowerCase() : "";
+      var okCat = activeCat === "all" || card.getAttribute("data-cat") === activeCat;
+      var okQ = !q || title.indexOf(q) !== -1;
+      var show = okCat && okQ;
+      card.style.display = show ? "" : "none";
+      if (show) shown++;
+    });
+    if (empty) empty.hidden = shown !== 0;
+  }
+
+  if (search) search.addEventListener("input", apply);
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      chips.forEach(function (c) {
+        c.classList.remove("is-active");
+        c.setAttribute("aria-pressed", "false");
+      });
+      chip.classList.add("is-active");
+      chip.setAttribute("aria-pressed", "true");
+      activeCat = chip.getAttribute("data-cat");
+      apply();
+    });
+  });
+  apply();
+})();
+
+// Turn a horizontal strip into a native-scrollable, auto-running rail. Native
+// overflow-x scroll gives Mac trackpad (two-finger) + click-drag + touch; a rAF
+// loop nudges scrollLeft when the user isn't interacting; hovering pauses it.
+// Content is duplicated, so the loop wraps at the half-way point seamlessly.
+function initScrollRail(vp, speed) {
+  if (!vp) return;
+  speed = speed || 0.5;
+  vp.classList.add("tl-scroll");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var half = 0;
+  function measure() { half = vp.scrollWidth / 2; }
+  measure();
+  window.addEventListener("load", measure);
+  window.addEventListener("resize", function () { setTimeout(measure, 80); });
+
+  var hovering = false, userUntil = 0;
+  vp.addEventListener("pointerenter", function () { hovering = true; });
+  vp.addEventListener("pointerleave", function () { hovering = false; });
+  function bump() { userUntil = Date.now() + 1400; }        // pause auto ~1.4s after a swipe
+  vp.addEventListener("wheel", bump, { passive: true });
+  vp.addEventListener("pointerdown", bump);
+  vp.addEventListener("touchstart", bump, { passive: true });
+  vp.addEventListener("touchmove", bump, { passive: true });
+
+  vp.scrollLeft = 1;
+  (function frame() {
+    if (!reduce && !hovering && Date.now() >= userUntil) {
+      vp.scrollLeft += speed;
+      if (half && vp.scrollLeft >= half) vp.scrollLeft -= half;   // seamless wrap
+    }
+    requestAnimationFrame(frame);
+  })();
+}
+
+// Wire the remaining rails (the industry film-strip is wired in initIndustryReel
+// after its cards are cloned). Each querySelector is null on pages without it.
+(function initSiteRails() {
+  initScrollRail(document.querySelector(".logos-marquee"), 0.55);
+  initScrollRail(document.querySelector(".partner-wall"), 0.5);
+  initScrollRail(document.querySelector(".tst-rail"), 0.5);
 })();

@@ -8541,3 +8541,53 @@ body:has(.cv-band) .page-hero { border-bottom: none; }
   .hero-slide { animation: none !important; transition: none !important; }
   .hero-slide { opacity: 1 !important; }
 }
+
+/* =========================================================================
+   VIETNAMESE TYPOGRAPHY
+   Keep Plus Jakarta Sans; no negative tracking on headings (diacritics need
+   room), roomier leading, and a smaller heading scale. Appended last so it wins.
+   ========================================================================= */
+body { line-height: 1.65; letter-spacing: 0.01em; }
+h1, h2, h3, h4, h5, h6 { letter-spacing: 0; line-height: 1.35; }
+.hero-headline, .page-hero-title, .page-hero-subtitle, .section-header h2,
+.prod-name, .sc-title, .jr-body h3, .ex-body h3, .cine-caption, .philosophy-quote,
+.founder-quote, .post-title, .post-card-title, .jd-title, .job-title, .ind-hero-line,
+.partner-num, .hrc-body h3, .admin-head h1, .jr-card h3, .why-service-item p,
+.blockquote, blockquote { letter-spacing: 0 !important; line-height: 1.35; }
+/* reduced heading scale for Vietnamese readability */
+.hero-headline    { font-size: clamp(2.6rem, 5.4vw, 3.4rem) !important; }
+.page-hero-title  { font-size: clamp(2.4rem, 5vw, 3.1rem) !important; }
+.section-header h2 { font-size: clamp(1.9rem, 4vw, 2.5rem) !important; }
+.hero-subtitle, .page-hero-subtitle, .post-lead, .services-lead, .lead { font-size: 1.125rem; line-height: 1.6; }
+p { line-height: 1.65; }
+
+/* ============ Consultation popup (cpx) — layout per mockup, TopLead colours ============ */
+.cpx-overlay{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(20,12,6,.55);opacity:0;transition:opacity .28s ease;}
+.cpx-overlay.is-open{opacity:1;}
+.cpx-overlay[hidden]{display:none;}
+.cpx-modal{width:100%;max-width:440px;background:#fff;border-radius:18px;box-shadow:0 30px 80px rgba(20,12,6,.4);padding:26px 26px 22px;transform:translateY(24px);opacity:0;transition:transform .32s cubic-bezier(.22,.61,.36,1),opacity .32s ease;max-height:92vh;overflow-y:auto;}
+.cpx-overlay.is-open .cpx-modal{transform:translateY(0);opacity:1;}
+.cpx-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.cpx-logo{width:34px;height:34px;object-fit:contain;}
+.cpx-brand{font-weight:700;color:var(--copper-dark);font-size:.95rem;letter-spacing:.02em;}
+.cpx-brand b{font-weight:800;color:var(--copper);}
+.cpx-close{margin-left:auto;width:34px;height:34px;border-radius:50%;border:none;background:rgba(160,82,45,.08);color:var(--copper-dark);font-size:1rem;cursor:pointer;line-height:1;transition:background .2s ease;}
+.cpx-close:hover{background:rgba(160,82,45,.16);}
+.cpx-title{font-size:1.15rem;font-weight:800;color:var(--text);margin:6px 0 2px;}
+.cpx-form{display:flex;flex-direction:column;}
+.cpx-label{font-size:.82rem;font-weight:600;color:var(--text);margin:12px 0 6px;}
+.cpx-input{width:100%;padding:12px 14px;font-family:inherit;font-size:.95rem;color:var(--text);background:var(--bg-beige);border:1px solid rgba(160,82,45,.22);border-radius:10px;transition:border-color .2s ease,box-shadow .2s ease;}
+.cpx-input:focus{outline:none;border-color:var(--copper);box-shadow:0 0 0 3px rgba(160,82,45,.12);background:#fff;}
+.cpx-input.cpx-invalid{border-color:#C0392B;box-shadow:0 0 0 3px rgba(192,57,43,.12);}
+.cpx-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A3E20' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:38px;}
+.cpx-error{color:#C0392B;font-size:.82rem;margin:10px 0 0;}
+.cpx-submit{margin-top:18px;padding:13px 18px;border:none;border-radius:10px;background:linear-gradient(135deg,var(--gold-light),var(--copper));color:#fff;font-family:inherit;font-size:.98rem;font-weight:700;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;}
+.cpx-submit:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(160,82,45,.35);}
+.cpx-note{font-size:.78rem;color:var(--text-muted);line-height:1.55;margin:14px 0 0;}
+.cpx-success{text-align:center;padding:22px 0;}
+.cpx-success-ico{width:54px;height:54px;margin:0 auto 14px;border-radius:50%;background:rgba(63,111,82,.12);color:#3F6F52;font-size:1.6rem;display:flex;align-items:center;justify-content:center;}
+.cpx-success h4{font-size:1.2rem;color:var(--text);margin-bottom:6px;}
+.cpx-success p{color:var(--text-muted);font-size:.92rem;}
+@media (max-width:480px){.cpx-overlay{padding:0;align-items:flex-end;}.cpx-modal{max-width:100%;border-radius:18px 18px 0 0;padding:22px 18px;}}
+@media (prefers-reduced-motion:reduce){.cpx-overlay,.cpx-modal{transition:none;}}
+

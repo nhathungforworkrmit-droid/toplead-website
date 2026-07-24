@@ -2742,3 +2742,82 @@ function initScrollRail(vp, speed) {
   initScrollRail(document.querySelector(".partner-wall"), 0.5);
   initScrollRail(document.querySelector(".tst-rail"), 0.5);
 })();
+
+
+// ===== Consultation popup: auto after ~9s (once/session) + any [data-consult] /
+// "tư vấn" CTA. Additive channel; the page contact box is untouched. =====
+(function initConsultPopup(){
+  if (document.getElementById("cpxOverlay")) return;
+  var overlay = document.createElement("div");
+  overlay.className = "cpx-overlay"; overlay.id = "cpxOverlay"; overlay.hidden = true;
+  overlay.innerHTML =
+    '<div class="cpx-modal" role="dialog" aria-modal="true" aria-labelledby="cpxTitle">' +
+      '<div class="cpx-head">' +
+        '<img class="cpx-logo" src="assets/images/logo-mark.png" alt="TopLead">' +
+        '<span class="cpx-brand">TopLead <b>Recruitment</b></span>' +
+        '<button type="button" class="cpx-close" id="cpxClose" aria-label="Đóng">✕</button>' +
+      '</div>' +
+      '<form class="cpx-form" id="cpxForm" novalidate>' +
+        '<h3 class="cpx-title" id="cpxTitle">Nhận tư vấn tuyển dụng miễn phí</h3>' +
+        '<label class="cpx-label" for="cpxName">Họ và tên *</label>' +
+        '<input class="cpx-input" id="cpxName" name="name" type="text" placeholder="Nhập họ và tên" required>' +
+        '<label class="cpx-label" for="cpxPhone">Số điện thoại *</label>' +
+        '<input class="cpx-input" id="cpxPhone" name="phone" type="tel" placeholder="VD: 0901 234 567" required>' +
+        '<label class="cpx-label" for="cpxEmail">Email</label>' +
+        '<input class="cpx-input" id="cpxEmail" name="email" type="email" placeholder="email@congty.com (không bắt buộc)">' +
+        '<label class="cpx-label" for="cpxNeed">Nhu cầu tư vấn *</label>' +
+        '<select class="cpx-input cpx-select" id="cpxNeed" name="need" required>' +
+          '<option value="">— Vui lòng chọn —</option>' +
+          '<option>Tuyển dụng Sales</option>' +
+          '<option>Tuyển dụng Marketing</option>' +
+          '<option>Tuyển dụng Finance / Kế toán</option>' +
+          '<option>Tuyển dụng HR / Nhân sự</option>' +
+          '<option>Tuyển dụng Operations / Vận hành</option>' +
+          '<option>Tư vấn giải pháp nhân sự tổng thể</option>' +
+          '<option>Khác</option>' +
+        '</select>' +
+        '<p class="cpx-error" id="cpxError" hidden></p>' +
+        '<button type="submit" class="cpx-submit">Nhận tư vấn miễn phí</button>' +
+        '<p class="cpx-note">Để lại thông tin, đội ngũ TopLead sẽ liên hệ lại trong 24 giờ làm việc.</p>' +
+      '</form>' +
+      '<div class="cpx-success" id="cpxSuccess" hidden>' +
+        '<div class="cpx-success-ico">✓</div><h4>Cảm ơn bạn!</h4>' +
+        '<p>Đội ngũ TopLead sẽ liên hệ trong 24 giờ làm việc.</p>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(overlay);
+  var form = overlay.querySelector("#cpxForm"),
+      succ = overlay.querySelector("#cpxSuccess"),
+      err  = overlay.querySelector("#cpxError");
+  function open(){ overlay.hidden=false; requestAnimationFrame(function(){ overlay.classList.add("is-open"); });
+    document.body.style.overflow="hidden"; setTimeout(function(){ var n=overlay.querySelector("#cpxName"); if(n) n.focus(); },80); }
+  function close(){ overlay.classList.remove("is-open"); document.body.style.overflow="";
+    setTimeout(function(){ overlay.hidden=true; },320); }
+  window.openConsult = open;
+  overlay.querySelector("#cpxClose").addEventListener("click", close);
+  overlay.addEventListener("click", function(e){ if(e.target===overlay) close(); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape" && !overlay.hidden) close(); });
+  form.addEventListener("submit", function(e){
+    e.preventDefault(); err.hidden=true;
+    var name=overlay.querySelector("#cpxName"), phone=overlay.querySelector("#cpxPhone"), need=overlay.querySelector("#cpxNeed");
+    [name,phone,need].forEach(function(f){ f.classList.remove("cpx-invalid"); });
+    var digits=(phone.value||"").replace(/\D/g,"");
+    function fail(f,m){ f.classList.add("cpx-invalid"); err.textContent=m; err.hidden=false; f.focus(); }
+    if(name.value.trim().length<2) return fail(name,"Vui lòng nhập họ và tên.");
+    if(!/^0[35789]\d{8}$/.test(digits)) return fail(phone,"Số điện thoại không hợp lệ (VD: 0901 234 567).");
+    if(!need.value) return fail(need,"Vui lòng chọn nhu cầu tư vấn.");
+    form.hidden=true; succ.hidden=false; setTimeout(close, 2400);
+  });
+  document.addEventListener("click", function(e){
+    var el=e.target.closest("[data-consult], a, button"); if(!el) return;
+    var hit=el.hasAttribute("data-consult");
+    if(!hit){
+      var t=(el.textContent||"").trim().toLowerCase();
+      if(t.indexOf("tư vấn")!==-1 && !el.closest(".prod-buy") && /btn|cta|magnetic/.test(el.className||"")) hit=true;
+    }
+    if(hit){ e.preventDefault(); open(); }
+  });
+  if(!sessionStorage.getItem("tl-consult-shown")){
+    setTimeout(function(){ if(overlay.hidden){ open(); sessionStorage.setItem("tl-consult-shown","1"); } }, 9000);
+  }
+})();
